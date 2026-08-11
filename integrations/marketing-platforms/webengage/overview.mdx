@@ -1,0 +1,79 @@
+---
+title: "WebEngage"
+description: "Easily generate API Key in Gallabox for WebEngage integration. Add WSP in WebEngage for WhatsApp setup with Gallabox details. Throttling limit set at 1000 messages per minute for efficient messaging."
+sidebarTitle: "Overview"
+---
+
+### Generate API Key in Gallabox
+
+1. From the left navigation go to **Integration** in your Gallabox and Click on **WebEngage** from the available apps. 
+
+<Frame>
+  <video src="/images/available-apps-weengage.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Provide a name for the integration and click on **Connect**. On connection, Gallabox will provide **API Key.** This key will be used in the WebEngage Platform. 
+
+<Frame>
+  <video src="/images/api-key-for-webengage.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+### Add WSP in WebEngage
+
+1. Navigate to **WebEngage** and from the navigation bar click on **Data Platform.** Select **Integrations** from the drop-down and choose **WhatsApp Setup** and click on **Configure.**
+
+<Frame>
+  <video src="/images/integrate-gallabox-in-webengage.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Upon Clicking on **Configure**, you will have to choose Private WSP from the available apps. A pop-up will appear to _**Edit WhatsApp Service Provider**_ as show below by providing all the necessary details. 
+
+<Frame>
+  <video src="/images/configure-wsp-in-webengage.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<table><thead><tr><th width="264">Fields</th><th>Description</th></tr></thead><tbody><tr><td><strong>Configuration Name</strong></td><td><em>Enter <strong>Gallabox</strong> as the configuration name.</em></td></tr><tr><td><strong>WhatsApp Business Number</strong></td><td><p>Put the <strong>phone number</strong> connected with your Gallabox account. You can copy it from the integration you created in the previous step. </p><p>The WhatsApp number should be in this format: 91XXXXXXXXXXX</p></td></tr><tr><td><strong>URL</strong></td><td>Paste the below URL in the field <br /><code>https://server.gallabox.com/integrations/webengage/webhook</code></td></tr><tr><td><strong>Request Type</strong></td><td> <em>Select</em> <strong>Send personalization variables</strong></td></tr><tr><td><strong>Custom Headers</strong></td><td><p>Click on Add Header to add the Key and Value as given below. You can copy the API key from the integration created in the previous step.</p><p><code>Authorization: Bearer &lt;&lt;Your Gallabox API Key>></code></p></td></tr></tbody></table>
+
+4. Once all the details are added, click on Save. You can see the Integration under the WSP List as shown.
+
+<Frame>
+  <video src="/images/add-wsp-in-webengage.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+### Setting Throttling Configuration
+
+1. Navigate to **Configuration** from the navigation panel. Select **Throttling**, then **WhatsApp**. Keep throttling limit as **1000 per minute.**
+
+<Frame>
+  <video src="/images/webengage-throttling.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+Now you can send 1000 messages sent out per minute through WhatsApp. 
+
+</Info>
+
+#### _**Your  configuration is ready. You can now start using WebEngage to send WhatsApp messages via Gallabox**_
+
+### WebEngage WhatsApp Templates
+
+1. Once the WSP is added in WebEngage, you have to click on "**Add WhatsApp Template**" button. Once you click on "**Add WhatsApp Template**" button, a pop-up will open.
+
+<Frame>
+  <video src="/images/add-whatsapp-template-in-we.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2.  You have to choose the WSP that you created for Gallabox. You have to copy & paste the exact template (**verified**) from Gallabox you want to share as a part of your campaign. Once you copy & paste the template, click on the button - "**Add Template**". The Template will be listed on your WebEngage Account and is ready to be used in the WhatsApp Campaign. 
+
+<Frame>
+  <video src="/images/add-wt-in-we.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+In WebEngage, you list the variables as \{\{1\}\}, \{\{2\}\}. Make sure to change your variables from Gallabox to the numbers. 
+
+</Info>
+
+Get Ready to Launch your first WhatsApp Campaign on WebEngage! :thumbsup:

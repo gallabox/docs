@@ -1,0 +1,169 @@
+---
+title: "HubSpot"
+description: "Connect Gallabox with HubSpot to centralize client interactions and boost team collaboration. Increase productivity and enhance customer satisfaction. Explore our integration guide for more details!"
+sidebarTitle: "Overview"
+---
+
+### Overview
+
+Integrating HubSpot with Gallabox streamlines your customer communication and ensures that all client interactions are captured in one place. With this setup, your sales, marketing, and support teams can collaborate more effectively, leading to increased productivity and improved customer satisfaction.
+
+### **HubSpot Integration Video Guide**
+
+<iframe class="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/mra8mEt2uxE"
+  title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
+### **HubSpot Integration Step-by Step Guide**
+
+1. Go to **Integrations** in the left navigation of your Gallabox account. Hover on HubSpot Integration and click on Connect. The Integration page will open up. Click on **Connect** and provide a name. Click on **Submit** and you will be redirected to authorize the Hubspot account.
+
+<Frame>
+  <video src="/images/hubsport-crm-in-gallabox.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Authorize your Hubspot account. Choose the Hubspot account and it will be connected to your Gallabox account.
+
+<Frame>
+  <video src="/images/authorize-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+#### Sync Gallabox Contacts to Hubspot
+
+When someone starts a conversation, Gallabox can automatically create a new contact in HubSpot — if one doesn’t already exist. Simply **toggle the switch ON** to enable this. Click on '**Update Configuration**' once done.
+
+<Info>
+
+HubSpot identifies contacts primarily by **email**, while Gallabox identifies them by **phone number**.
+
+If you skip the **Name** and **Email** in HubSpot, contacts may be created with the name _“Guest”_ or duplicated in Gallabox—especially when the same phone number is used with different email addresses.
+
+\
+Add **Name** and **Email** to avoid duplicates and ensure accurate syncing between HubSpot and Gallabox.
+
+</Info>
+
+<Frame>
+  <video src="/images/sync-gb-contacts-to-hs.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+#### Update Conversation History in Hubspot
+
+We have made it easier for you to track WhatsApp conversations inside HubSpot. Now, when you enable the **"Log Resolved Conversations"** toggle in Gallabox:
+
+* Every time you resolve a WhatsApp conversation in Gallabox, it will automatically be logged as a **note** under the associated contact in HubSpot.
+* If a conversation is **reopened**, only the **new messages** (after the last sync) will be logged as a **new separate note**.
+* If the toggle is **disabled**, conversation logs **won’t** be sent to HubSpot.
+* If a contact **doesn’t exist** in HubSpot, the conversation log won’t be created.
+
+Click on '**Update Configuration**' once done.
+
+<Frame>
+  <video src="/images/update-logs-in-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+#### Incoming Message Configurations
+
+Gallabox has streamlined the process of setting up incoming WhatsApp message notifications in HubSpot. This enhancement ensures that your team stays informed in real-time when customers reach out.
+
+**For Existing HubSpot Integrations (Connected Before May 27, 2025)**
+
+If you have connected your HubSpot account to Gallabox prior to May 27, 2025, follow these steps to enable incoming message notifications:
+
+1. Upon accessing the HubSpot Integration page in Gallabox, you will be prompted to grant permission for Gallabox to create a custom field named `Last WhatsApp Incoming Message` in your HubSpot account. After granting permission, update the configuration settings.
+2. Navigate to **Automations > Workflows** in HubSpot. Click on **Create Workflow** and select **Start from Scratch**. Choose **Contact-based** as the workflow type.
+3. **Set the Trigger**:\
+   \- Select **When filter criteria is met**.\
+   \- For filter criteria, choose **Contact properties**.\
+   \- Select the `Last WhatsApp Incoming Message` field.\
+   \- Set the condition to **is known**.
+
+<Frame>
+  <video src="/images/hubspot-workflow-step-1.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. **Add an Action as a next step in the workflow**:\
+   \- Choose **Communications > Send in-app notification**.\
+   \- Select the recipients who should receive the notification.\
+   \- Set the **Notification Type** to **Desktop**.\
+   \- For the subject, enter: `New WhatsApp message from {{contact.firstname}}`.\
+   \- For the body, enter: `{{contact.last_whatsapp_incoming_message}}`.\
+   \- Review and publish the workflow to activate it.
+
+<Frame>
+  <video src="/images/hubspot-workflow-step-2.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+**For New HubSpot Integrations (Connected On or After May 27, 2025)**
+
+For businesses connecting HubSpot to Gallabox on or after May 27, 2025, the setup process is even more straightforward. Gallabox will automatically create the `Last WhatsApp Incoming Message` custom field in your HubSpot account during the integration process.
+
+1. In the Gallabox HubSpot Integration page, select the channels for which you want to receive incoming message notifications and update the configuration. Click on Update Configurations.
+
+<Frame>
+  <video src="/images/configuration-for-incoming-message.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Navigate to **Automations > Workflows** in HubSpot. Click on **Create Workflow** and select **Start from Scratch**. Choose **Contact-based** as the workflow type.
+3. **Set the Trigger**:\
+   \- Select **When filter criteria is met**.\
+   \- For filter criteria, choose **Contact properties**.\
+   \- Select the `Last WhatsApp Incoming Message` field.\
+   \- Set the condition to **is known**.
+
+<Frame>
+  <video src="/images/hubspot-workflow-step-1.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. **Add an Action**:\
+   \- Choose **Communications > Send in-app notification**.\
+   \- Select the recipients who should receive the notification.\
+   \- Set the **Notification Type** to **Desktop**.\
+   \- For the subject, enter: `New WhatsApp message from {{contact.firstname}}`.\
+   \- For the body, enter: `{{contact.last_whatsapp_incoming_message}}`.\
+   \- Review and publish the workflow to activate it.
+
+<Frame>
+  <video src="/images/hubspot-workflow-step-2.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Now you will be notified in your HubSpot account whenever you get any notification via Gallabox.
+
+### Hubspot Message Logs
+
+A "Logs" tab will display information for each synced contact, including: Date when message was sent, Record ID in HubSpot, Mobile number, and the status of the the message.
+
+### WhatsApp Chat Window
+
+Integrate Gallabox and Chat directly in your HubSpot CRM for smooth communication.
+
+You can access the Chat Window for every contact created in your HubSpot CRM using the following steps:
+
+1. Go to Contacts and choose the contact you would like to send message to.
+
+<Frame>
+  <video src="/images/hubspot-contact.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on Show Sidebar. Scroll down the sidebar and you will see the button "Send WhatsApp Message" under WhatsApp Business Messaging.
+
+<Frame>
+  <video src="/images/hubspot-sidebar.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Click on the button "Send WhatsApp Message" and a pop-up will open up. Enter your Gallabox's account details to login to Gallabox. Once you are logged in, click on Start Conversation.
+
+<Frame>
+  <video src="/images/gallabox-sign-in-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Select the message template you want to share with your customer. Map the variables (if any). Click on send.
+
+<Frame>
+  <video src="/images/whatsapp-template-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+The WhatsApp Template will be shared with your customer.

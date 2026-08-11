@@ -1,0 +1,105 @@
+---
+title: "Account Security"
+---
+
+> **Who can use this?**
+>
+> * Access to account security features depends on the specific feature.
+> * Roles: Owners and Admins
+
+<Info>
+
+Gallabox provides multiple layers of account security — activity logging to track who did what, two-factor authentication (2FA) to prevent unauthorized access, and Allowed IPs to limit access to known networks.
+
+</Info>
+
+## Available Security Features
+
+| Feature                         | Description                                                                                   | Plan availability |
+| ------------------------------- | --------------------------------------------------------------------------------------------- | ----------------- |
+| Activity Log                    | Track account events recorded in the activity log                                             | All plans         |
+| Two-Factor Authentication (2FA) | Add a second layer of protection to your account login                                        | All plans         |
+| Allowed IPs                     | Allow Gallabox access only from configured static IP addresses or IP ranges                    | Advanced plan     |
+
+## Activity Log
+
+Tracks every significant action taken in your Gallabox account — who did it, when, and from where.
+Access it at **Settings → Developer → Activity Log**.
+
+For what's logged, filters, and audit use cases, see [Activity Log](/settings/activity-log).
+
+---
+
+## Two-Factor Authentication (2FA)
+
+Adds a second verification step when logging in — even if someone has your password, they can't access your account without the second factor.
+2FA is mandatory for Owners and Admins.
+
+For setup steps, team-wide enforcement, and recovery codes, see [Two Factor Authentication](/settings/two-factor-authentication).
+
+---
+
+## Allowed IPs
+
+Restrict access to your Gallabox account to specific IP addresses — useful for enterprise teams that work from known office networks or VPN tunnels.
+
+**Example use cases:**
+
+* "Only our office IP range (103.x.x.x) can access Gallabox"
+* "Our agency works from specific IPs — only those should be allowed"
+
+### How to configure Allowed IPs
+
+<Steps>
+
+<Step title="Open Allowed IPs">
+Go to **Settings → Developer → Allowed IPs**.
+</Step>
+
+<Step title="Add an IP address">
+Click **Add IP Address**.
+</Step>
+
+<Step title="Choose the address type">
+Choose **Static IP address** or **IP address range**.
+</Step>
+
+<Step title="Enter the address">
+For a static address, enter **Enter IP address**. For a range, enter **Enter IP range from** and **Enter IP range to**.
+</Step>
+
+<Step title="Name the address">
+Enter an **IP Name**, such as "Office — Mumbai".
+</Step>
+
+<Step title="Save">
+Click **Save**.
+</Step>
+
+</Steps>
+
+<Warning>
+
+Make sure your own IP is in the allowed list before enabling the restriction — or you'll lock yourself out.
+
+</Warning>
+
+### What happens after you configure Allowed IPs?
+
+* Team members accessing from outside the allowed IP range will see an "Access denied" message
+* API calls from outside the allowed range will return a 403 error
+* If you need to access from a new IP, ask a team member with access to add the new IP to the allowed list
+
+> **Plan availability:** The Allowed IPs feature requires the **Advanced** plan.
+
+---
+
+## Session Management
+
+Gallabox does not currently offer a screen to view or revoke individual sessions.
+When changing your password, select **Logout from all devices** to sign out your other sessions.
+
+## In this section
+
+* [Two Factor Authentication](/settings/two-factor-authentication) — add a second login factor beyond your password
+* [Activity Log](/settings/activity-log) — track who did what, and when, across your workspace

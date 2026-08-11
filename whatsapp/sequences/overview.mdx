@@ -1,0 +1,159 @@
+---
+title: "Sequences"
+sidebarTitle: "Overview"
+---
+
+<Columns cols="2">
+  <Card title="Create a Sequence" href="/whatsapp/sequences/create-sequence">
+    Configure the trigger, template steps, delays, and stop behavior for a sequence.
+  </Card>
+  <Card title="Sequence Analytics" href="/whatsapp/sequences/sequence-analytics">
+    Review the contacts and step logs for one sequence.
+  </Card>
+</Columns>
+
+<Info>
+
+**Who can use this?**
+
+* Gallabox users with **sequence management permissions**.
+* Roles: Users with broadcast/sequence permissions (Owners and Admins included)
+* Plans: Essential and Advanced. Basic plan does not include Sequences.
+
+</Info>
+
+## Plan Availability
+
+| Feature            | Basic | Essential |  Advanced |
+| ------------------ | :---: | :-------: | :-------: |
+| Create Sequences   |   —   |     ✓     |     ✓     |
+| Sequences included |   —   |  Up to 10 | Up to 100 |
+
+## What are Sequences?
+
+Sequences are **automated, multi-step messaging journeys** that send the right message at the right time based on a contact's behavior — not sent all at once, but dripped out over minutes, hours, or days.
+
+A Sequence is triggered automatically when a contact meets a condition (e.g., "submitted a form", "was tagged 'Hot Lead'", "booked a demo"). From that moment, the contact moves through your defined steps — receiving messages, waiting, and progressing to the next step — until a stop condition is met.
+
+Unlike Broadcasts (which are sent to a segment on demand), Sequences are **event-driven** — they start when something happens, not when you click send.
+
+## How Sequences Work
+
+### The Three Building Blocks
+
+**1. Triggers — When does the Sequence start?**
+
+A contact enters a Sequence when a **trigger condition** is met. Triggers are based on contact events:
+
+| Trigger       | Description                                       |
+| ------------- | ------------------------------------------------- |
+| **On Create** | Contact is newly created in Gallabox              |
+| **On Update** | A contact field or tag is updated                 |
+| **Both**      | Either On Create or On Update starts the Sequence |
+
+For example: when a contact's tag changes to "Demo Requested", a Sequence is triggered.
+
+**2. Steps — What messages are sent?**
+
+A Sequence can have up to **10 steps**. Each step is a **template message** sent to the contact, configured with:
+
+* A **delay** — send immediately, or wait a set number of minutes, hours, or days after the previous step
+* **Step conditions** (optional) — filters based on contact data that decide whether this step is sent to a given contact
+* A **time preference** (optional) — restrict sending to specific days of the week or a time window
+
+**3. Stop Conditions — When does the Sequence end?**
+
+A contact exits the Sequence when a stop condition is met:
+
+* **Success** — the contact reached the desired outcome (e.g., "Demo Booked", "Purchase Made")
+* **Failure** — the contact met a failure condition (e.g., "Unsubscribed", "Bounced")
+
+When a contact stops, they stop receiving further steps. If no stop condition is met, the contact goes through all steps until the sequence ends.
+
+## Sequences vs Broadcasts — When to Use Each
+
+Sequences and Broadcasts differ in when they send and how contacts enter them:
+
+|                   | Sequence                                              | Broadcast                                          |
+| ----------------- | ----------------------------------------------------- | -------------------------------------------------- |
+| **When it sends** | Automatically, when triggered by a contact event      | Manually, when you click send                      |
+| **Audience**      | Individual contacts as they meet the trigger          | All contacts in a selected segment at once         |
+| **Timing**        | Each contact progresses through steps independently   | All contacts receive the message simultaneously    |
+| **Use case**      | Nurture journeys, onboarding, follow-ups              | One-time promotions, announcements, updates        |
+| **Best for**      | Time-based drip content, behavioral follow-ups        | Flash sales, new product launches, event reminders |
+| **Re-engagement** | Automatically re-triggers if conditions are met again | Must manually re-send                              |
+
+**Think of it this way:**
+
+* **Broadcast** = "I want to message everyone in this segment right now"
+* **Sequence** = "When a contact does X, send them this automated journey"
+
+### Common Mistakes
+
+* **Using Broadcast for onboarding** — sending one "Welcome to our product!" message to all new contacts is fine. But if you want to send step 2 two days later, step 3 five days later, and step 4 only if they opened step 2 — that's a Sequence.
+* **Using Sequence for promotions** — if you want to announce a flash sale to everyone in your "Customers" segment, that's a Broadcast. A Sequence would send to each contact at different times based on when they were created, which isn't what you want.
+
+## Example
+
+**Scenario:** You run a SaaS product and want to onboard new trial users with a 7-day WhatsApp sequence that guides them to their first activation milestone.
+
+Here's how you'd set it up:
+
+1. **Trigger:** Contact tag changes to "Trial User" (this happens automatically when someone starts a free trial).
+2. **Step 1 (Day 0):** Send a welcome message — "Hi \{\{contact.first\_name\}\}, welcome to Acme! Here's how to get started in 60 seconds: \[video link]."
+3. **Delay:** Wait 2 days.
+4. **Step 2 (Day 2):** Send a tip message — "Did you know you can connect your tools in 2 clicks? Here's how: \[guide link]."
+5. **Delay:** Wait 3 days.
+6. **Step 3 (Day 5):** Ask for feedback — "How's your first week going? Reply with any questions — we're here to help!"
+7. **Stop Conditions:**
+   * **Success:** Contact books a demo call (tag changes to "Demo Booked") → Sequence stops, contact exits.
+   * **Failure:** Contact remains after all steps → Sequence ends without success.
+
+Now every new trial user automatically receives this journey — without you sending anything manually. Contacts who book a demo exit early and stop receiving steps.
+
+## Sequence Analytics
+
+Track how your Sequences are performing:
+
+| Metric           | What it means                                                   |
+| ---------------- | --------------------------------------------------------------- |
+| **Initiated**    | Total contacts who entered the Sequence                         |
+| **Success**      | Contacts who met the success goal condition                     |
+| **Failed**       | Contacts who met the failure goal condition                     |
+| **Completed**    | Contacts who finished all steps                                 |
+| **Dropped**      | Contacts who were dropped from the Sequence before completing   |
+| **Success rate** | Contacts who met the success goal condition ÷ total who entered |
+
+For a detailed breakdown, see [Sequence Analytics](/whatsapp/sequences/sequence-analytics).
+
+## Best Practices
+
+* **Start with one clear goal** — each Sequence should have one desired outcome (book a demo, complete onboarding, make a purchase). Don't try to do everything in one Sequence.
+* **Use step conditions to personalize** — step conditions let you send a step only to contacts matching certain data (industry, plan, tag). Use them to make messages feel relevant, not generic.
+* **Set realistic delays** — waiting 5 minutes between steps feels spammy. Give contacts time to act between messages. 1–3 days between steps is standard for nurture Sequences.
+* **Define success and failure clearly** — a Sequence without stop conditions will run all steps for every contact, regardless of outcome. Set success and failure conditions so high-intent contacts exit early and uninterested contacts don't get spammed.
+* **Test with a small group first** — before running a Sequence on your full audience, test it on a small contact list to verify the timing and content feel right.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can a contact enter the same Sequence more than once?">
+Yes — if the contact's trigger condition is met again, unless the Sequence's **"Run only once"** setting is enabled. For example, if a Sequence triggers "On Update" when a tag changes to "Demo Requested", and the contact gets that tag removed and added again later, they'll enter the Sequence again. Enable "Run only once" or use stop conditions (e.g., stop on "Demo Booked" tag) so the same contact doesn't receive the Sequence twice.
+</Accordion>
+
+<Accordion title="What happens if a contact is already in a Sequence when I update it?">
+Contacts already in the Sequence continue with the **old version** — the updated Sequence applies only to new contacts entering after the change. Edit Sequences during low-traffic periods to minimize impact.
+</Accordion>
+
+<Accordion title="Can I use a Sequence alongside Broadcasts?">
+Yes — and they're often used together. For example: a Sequence handles the onboarding journey for new contacts, and a Broadcast is used occasionally for flash sales to your full customer base. Just make sure your Sequence stop conditions prevent contacts from receiving conflicting messages.
+</Accordion>
+
+<Accordion title="What's the difference between a Sequence and a bot flow?">
+A **bot flow** responds to a customer's message or action in real time — it's a reactive conversation. A **Sequence** is a proactive, scheduled journey — it sends messages automatically over time without requiring the contact to interact first. Bot flows are for 1:1 conversations; Sequences are for 1:many drip journeys.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Create a Sequence](/whatsapp/sequences/create-sequence) — Step-by-step setup: trigger, steps, delays, and settings

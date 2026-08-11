@@ -1,0 +1,506 @@
+---
+title: "Connectors"
+description: "Connectors let a bot flow perform an action in an external tool — create a Shopify order, generate a payment link, push a lead to your CRM, or log a row to Google Sheets. This page covers every connec"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with permission to **build and deploy bots** or **manage bots** (Owners and Admins included).
+
+<Info>
+
+A connector is a bot flow node that performs one specific **action** in an external tool — _Create Payment Link_ in Razorpay, _Create or Update Lead_ in Zoho CRM, _Add New Row_ in Google Sheets. You pick the action first, then attach a connection (your authenticated account) to it. Every connector node has a **success** and a **failure** branch, so the flow can respond to either outcome.
+
+</Info>
+
+## Plan Availability
+
+| Connector                                        | Category     | Plan Required              |
+| ------------------------------------------------ | ------------ | -------------------------- |
+| Shopify                                          | E-commerce   | Basic, Essential, Advanced |
+| WooCommerce                                      | E-commerce   | Basic, Essential, Advanced |
+| Razorpay                                         | Payments     | Basic, Essential, Advanced |
+| PhonePe                                          | Payments     | Basic, Essential, Advanced |
+| Stripe                                           | Payments     | Advanced                   |
+| HubSpot                                          | CRM          | Essential, Advanced        |
+| Zoho CRM (India `zoho.in` / Global `zoho.com`)   | CRM          | Essential, Advanced        |
+| Zoho Bigin (India `zoho.in` / Global `zoho.com`) | CRM          | Essential, Advanced        |
+| Pipedrive                                        | CRM          | Essential, Advanced        |
+| Sangam CRM                                       | CRM          | Essential, Advanced        |
+| LeadSquared                                      | CRM          | Advanced                   |
+| Google Sheets                                    | Productivity | Essential, Advanced        |
+| Zoom                                             | Productivity | Essential, Advanced        |
+| API Call                                         | Custom       | Essential, Advanced        |
+
+## How Connectors Work
+
+<Steps>
+
+<Step title="Open Connections">
+In the bot builder side panel, open the **Connections** category — or start typing the connector name to find it. You can also click the **+** on the start block.
+</Step>
+
+<Step title="Pick the action">
+Click the connector, then choose the **action** you want (for example, Shopify → _Create Draft Order_). Connectors are always configured action-first — the action determines which fields you'll fill in.
+</Step>
+
+<Step title="Create or select a connection">
+Under **Add New Connection**, name the connection and authenticate. Or pick one you've already made under **Select Existing Connection** and click **Connect**.
+</Step>
+
+<Step title="Map the fields">
+Fill the action's mandatory fields, then any optional ones. Each field takes a static value or a flow variable — for example `{{recipient.phone}}` into Shopify's Phone field. Click **Save**.
+</Step>
+
+<Step title="Branch on the result">
+Connect the node's **success** (green) and **failure** (red) outputs to the next steps, so the customer gets a reply either way.
+</Step>
+
+</Steps>
+
+<Info>
+
+One connection can be reused across many nodes and flows, and you can create several connections for the same connector (for example, two Shopify stores). You pick which one to use each time you configure an action.
+
+</Info>
+
+A connector can only send values that are already stored in variables, so place it **after** the Ask nodes that capture them. Google Sheets is the exception worth planning around: putting it early lets you fetch reference data (pricing, order status, eligibility) and branch on it before asking anything else.
+
+---
+
+## Shopify
+
+Available on Basic, Essential, and Advanced plans.
+
+### Shopify actions
+
+| Action                   | What it does                                                                                                                                 |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Replace Order Tag**    | Replaces the tags on an existing order. Mandatory: Order ID, Tags                                                                            |
+| **Create Order**         | Creates a new order, capturing customer, product, and payment details                                                                        |
+| **Create Draft Order**   | Creates an order without immediate payment and returns an Invoice URL you can send as a payment link. Mandatory: WhatsApp Order, Name, Phone |
+| **Complete Draft Order** | Converts a draft order into a real order. Mandatory: Draft Order ID, Payment Pending (True/False), Order ID variable                         |
+
+_Create Order_ and _Create Draft Order_ also accept Financial Status, Tag, Note, Source Name, and full billing and shipping address fields (Address, City, State, Country, Pin). _Create Draft Order_ additionally accepts Discount Type (Percentage or Fixed Amount), Discount Value, Discount Title, and Discount Description.
+
+<Info>
+
+_Create Order_ only works in an order-based chat flow — one where the customer's cart arrives as `{{intent.order}}`.
+
+</Info>
+
+### Get your Shopify API key and password
+
+1. In your **Shopify admin**, go to **Apps** → scroll down → **Develop apps for your store**
+2. Click **Create an app**, name it `Gallabox`, and click **Create app**
+3. Open **API credentials** → under Access tokens, click **Configure Admin API access**
+4. Tick all **`Read_…`** and **`Write_…`** permissions, then click **Save app**
+5. Return to **API credentials** — your **API Key** and **Secret Key** (the password) are shown here
+
+### Configure the Shopify connector
+
+1. In **Connections**, select **Shopify**
+2. Choose an action — Replace Order Tag, Create Order, Create Draft Order, or Complete Draft Order
+3. Under **Add New Connection**, enter your **API Key**, **Password**, and **Shopify Subdomain**, then click **Create Connection**
+4. Map each field to a variable or static value and click **Save**
+
+---
+
+## WooCommerce
+
+Available on Basic, Essential, and Advanced plans.
+
+### WooCommerce actions
+
+| Action            | What it does                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Add Meta Data** | Writes a Key/Value pair into a custom field (meta data) on an existing WooCommerce order. Mandatory: Order ID, Key, Value |
+
+Use this to pass data into a meta field your store already relies on — payment gateway, WooCommerce Subscriptions, or shipment tracking. You can also push a contact's Gallabox tags as order meta data.
+
+### Configure the WooCommerce connector
+
+1. In **Connections**, select **WooCommerce**
+2. Click the action **Add Meta Data**
+3.  Under **Add New Connection**, enter your **Consumer Key**, **Consumer Secret**, and **WooShop Subdomain**, then create the connection
+
+    Generate the Consumer Key and Secret in WordPress under **WooCommerce → Settings → Advanced → REST API**
+4. Set the **Order Id** to the variable holding the order, add your **Key** and **Value**, and click **Save**
+
+---
+
+## Razorpay
+
+Available on Basic, Essential, and Advanced plans.
+
+### Razorpay actions
+
+| Action                  | What it does                                                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Create Payment Link** | Generates a payment link. Mandatory: Amount, Currency (INR or USD), variable to store the link. Optional: accept partial payments |
+
+### Configure the Razorpay connector
+
+1. In **Connections**, select **Razorpay**
+2. Click the action **Create Payment Link**
+3. Name the connection and click **Create New Connection** — you'll be prompted to sign in to Razorpay
+4. Once created, find it under **Select Existing Connection** and click **Choose**
+5. Set the **Amount** (a value or a variable), pick the **Currency**, optionally allow partial payments, and select the **variable to store the payment link**. Click **Save**
+
+<Info>
+
+The connector only generates the link — it doesn't send it. Add a **Send** node after the connector to deliver the stored payment link to the customer.
+
+</Info>
+
+---
+
+## PhonePe
+
+Available on Basic, Essential, and Advanced plans.
+
+### PhonePe actions
+
+| Action                  | What it does                                                            |
+| ----------------------- | ----------------------------------------------------------------------- |
+| **Create Payment Link** | Generates a payment link. Mandatory: Amount, variable to store the link |
+
+### Configure the PhonePe connector
+
+1. In **Connections**, select **PhonePe**
+2. Click the action **Create Payment Link**
+3. Under **Add New Connection**, enter your **Merchant ID**, **Salt Key**, and **Salt Index**, then click **Create Connection**
+4. Add the variables for **Amount** and the **Payment Link**, and click **Save**
+
+<Info>
+
+Request the **Merchant ID** from the PhonePe team — the Salt Keys are shared along with it.
+
+</Info>
+
+---
+
+## Stripe
+
+Available on Advanced plans.
+
+### Stripe actions
+
+| Action                  | What it does                                                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Create Payment Link** | Generates a payment link. Mandatory: Product, Pricing, Price Quantity, Customer Name, Customer Phone Number, Payment URL variable |
+
+### Create the Stripe restricted key
+
+1. In Stripe, go to **Developers → API Keys → Restricted Key → + Create Restricted Key** and choose _Building your own integration_
+2. Grant **Write** on **Payment Links** and **Webhook Endpoints**
+3. Grant **Read** on **Customers**, **Prices**, and **Invoices**
+4. Click **Create Key** and copy it
+
+### Configure the Stripe connector
+
+1. In **Connections**, select **Stripe**
+2. Click the action **Create Payment Link**
+3. Under **Add New Connection**, enter a connection name and the **API Key**, then click **Create Connection**
+4. Fill in Product, Pricing, Price Quantity, Customer Name, Customer Phone Number, and the Payment URL variable. Click **Save**
+
+---
+
+## HubSpot
+
+Available on Essential and Advanced plans.
+
+### HubSpot actions
+
+| Action                       | What it does                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| **Create or Update Contact** | Matches on email to create a new contact or update the existing one. Mandatory: Email |
+
+Beyond Email, HubSpot exposes a large set of optional contact properties — for example Order Date, Lead Status, and Lifecycle Stage — that you can map from flow variables.
+
+### Configure the HubSpot connector
+
+1. In **Connections**, select **HubSpot** (or search for it)
+2. Click the action **Create or Update Contact**
+3. Confirm the connection name and click **Create Connection** — a pop-up asks you to sign in to HubSpot (or create an account) and grant Gallabox access
+4. Click **Connect** beside the connection, map **Email**, add any optional properties, and click **Save**
+
+---
+
+## Zoho CRM
+
+Available on Essential and Advanced plans.
+
+<Warning>
+
+Pick the connector that matches your Zoho data center — **Zoho CRM IN** for a `zoho.in` account or **Zoho CRM COM** for `zoho.com`. Choosing the wrong one fails at the authorization step.
+
+</Warning>
+
+### Zoho CRM actions
+
+| Action                          | What it does                                                                                   |
+| ------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Create or Update Lead**       | Creates a lead, or updates the matching one. Mandatory: Last Name, Company                     |
+| **Create One Lead**             | Always creates a new lead. Mandatory: Last Name, Company. Plus 15 optional fields              |
+| **Dynamic Module**              | Creates a record in a chosen module — Leads, Contacts, Accounts, or Deals                      |
+| **Get Record (Dynamic Module)** | Reads a record from a module into a flow variable. Mandatory: the variable to store the record |
+
+Custom fields you've defined in Zoho appear in the **Custom Fields** dropdown, so you can map those too.
+
+### Configure the Zoho CRM connector
+
+1. In **Connections**, select **Zoho CRM IN** or **Zoho CRM COM** to match your Zoho domain
+2. Choose an action — Create or Update Lead, Create One Lead, Dynamic Module, or Get Record
+3. Click **Create Connection** — sign in to Zoho (or confirm the already signed-in account) and click **Accept** to grant Gallabox access
+4. The connection appears under **Select Existing Connection** — click **Connect** to configure the action
+5. Map **Last Name** and **Company**, add optional and custom fields as needed, and click **Save**
+
+For **Dynamic Module**, also select the target module (Leads, Contacts, Accounts, or Deals) before mapping fields.
+
+---
+
+## Zoho Bigin
+
+Available on Essential and Advanced plans. Pick **Zoho Bigin IN** or **Zoho Bigin COM** to match your Zoho data center.
+
+### Zoho Bigin actions
+
+| Action             | What it does                                                              |
+| ------------------ | ------------------------------------------------------------------------- |
+| **Create Contact** | Creates a contact in Bigin. Mandatory: Last Name. Plus 12 optional fields |
+
+### Configure the Zoho Bigin connector
+
+1. In **Connections**, select **Zoho Bigin IN** or **Zoho Bigin COM** (or search for it)
+2. Click the action **Create Contact**
+3. Name the connection and click **Create Connection** — sign in to Bigin and authorize the account
+4. Click **Connect** beside the connection, map the variable holding **Last Name**, add optional fields, and click **Save**
+
+---
+
+## Pipedrive
+
+Available on Essential and Advanced plans.
+
+### Pipedrive actions
+
+| Action          | What it does                                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| **Create Deal** | Creates a deal. Mandatory: Deal Name, Person's Name, Phone Number. Optional: Value, Currency, Lead Stage |
+| **Create Lead** | Creates a lead in Pipedrive                                                                              |
+
+### Configure the Pipedrive connector
+
+1. In **Connections**, select **Pipedrive** — scroll the drawer, use the search bar, or click the **+** on the start block
+2. Choose **Create Deal** or **Create Lead**
+3. Name the connection and click **Add New Connection** — a pop-up asks you to sign in to Pipedrive and continue to the app
+4. Select the connection, map the required fields, add optional ones, and click **Save**
+
+<Info>
+
+Every field accepts either a static value or a variable, so you can hard-code things like Currency while mapping the rest dynamically.
+
+</Info>
+
+---
+
+## Sangam CRM
+
+Available on Essential and Advanced plans.
+
+<Warning>
+
+Before using this connector, turn on **Enable API Access** (or **Allow External API Calls**) in the Sangam CRM admin panel. Without it, the connection fails.
+
+</Warning>
+
+### Sangam CRM actions
+
+| Action          | What it does                                                                                                                 |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Create Lead** | Creates a lead. Mandatory: First Name, Last Name, Phone, Email, Designation, Department, Source, Follow-up Date, Lost Reason |
+
+Optional fields: Account Relationship, Hierarchy, Industry, Lead Source, Follow-up Type, Product Category, Salutation, and Status.
+
+### Configure the Sangam CRM connector
+
+1. In **Connections**, select **Sangam** (or search for it)
+2. Click the action **Create Lead**
+3. Under **Add New Connection**, enter a name, your **API Key** (the Sangam API Token), and your **Sangam CRM domain**, then click **Create Connection**
+4. Click **Connect** beside the connection, map all the mandatory fields to variables, add optional fields you've captured, and click **Save**
+
+---
+
+## LeadSquared
+
+Available on Advanced plans.
+
+### LeadSquared actions
+
+| Action                       | What it does                                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Create or Update Lead**    | Creates or updates a lead. Mandatory: Phone. Optional: Lead Owner, Lead Source, Lead Stage                         |
+| **Create Activity for Lead** | Logs an activity against a lead. Mandatory: Phone. Optional: Activity Type                                         |
+| **Create Task for Lead**     | Creates a task. Mandatory: Phone, Name, Description, Due Date, End Date, Reminder Time, Lead Owner's email address |
+
+### Configure the LeadSquared connector
+
+1. In **Connections**, select **Leadsquared**
+2. Choose one of the three actions
+3. Under **Add New Connection**, enter your **Access Key**, **Secret Key**, and **API Host**, then create the connection
+4. Select the connection under **Select Existing Connection**, map the required fields, and click **Save**
+
+---
+
+## Google Sheets
+
+Available on Essential and Advanced plans.
+
+<Warning>
+
+Create the spreadsheet with its sheet and column headers **before** configuring the connector — you select columns from a dropdown read off the live sheet. Sign in with a Google account that has owner access to the sheet.
+
+</Warning>
+
+### Google Sheets actions
+
+| Action                                    | What it does                                                         |
+| ----------------------------------------- | -------------------------------------------------------------------- |
+| **Add New Row**                           | Appends a row to a sheet                                             |
+| **Update Row**                            | Updates matching rows, located by a reference column                 |
+| **Fetch the Row Value**                   | Reads one matching row into variables, located by a reference column |
+| **Fetch the First 10 Matched Row Values** | Reads up to 10 matching rows                                         |
+
+### Configure the Google Sheets connector
+
+1. In **Connections**, select **Google Sheet**
+2. Choose one of the four actions
+3. Click **Connect Now** to create the connection, then **Save**
+4. Sign in with the Google account that has **owner access** to the spreadsheet
+5. Under **Select Existing Connection**, click the connection to return to the action
+6. Select the **spreadsheet** from your Google Drive
+7. Map the fields, then click **Save**:
+   * **Add New Row** — pick each **Column name** from the dropdown and set its value to a variable
+   * **Update Row** — under _Row Values_, pick the column and the variable holding the **existing** value (this locates the row); under _Update Row Values_, pick the column and the variable holding the **new** value
+   * **Fetch the Row Value** / **Fetch the first 10 matched Row Values** — set the reference column and the variable to match against, then choose which columns to read and the variables to store them in
+
+---
+
+## Zoom
+
+Available on Essential and Advanced plans.
+
+<Warning>
+
+The webinar must already exist and be upcoming in the connected Zoom account — you pick it from a dropdown. This action registers attendees; it does **not** create webinars or meetings. Webinar hosting requires a paid Zoom plan.
+
+</Warning>
+
+### Zoom actions
+
+| Action             | What it does                                        |
+| ------------------ | --------------------------------------------------- |
+| **Add Registrant** | Registers the customer for an existing Zoom webinar |
+
+Mandatory fields: **Webinar Topic** (chosen from a dropdown), **First Name**, **Last Name**, and **Email** of the registrant — plus variables for **Webinar Topic**, **Webinar Start Time**, and **Webinar Link**. Optional: the registrant's phone number and comments.
+
+### Configure the Zoom connector
+
+1. In **Connections**, select **Zoom** (or search for it)
+2. Click the action **Add Registrant**
+3. Name the connection and click **Create Connection** — sign in to Zoom if prompted, then authorize Gallabox
+4. Click **Connect** beside the connection to configure the action
+5. Pick the **Webinar Topic** from the dropdown, map the registrant's First Name, Last Name, and Email, and set the variables for Webinar Topic, Start Time, and Link. Click **Save**
+
+Zoom emails the joining details to the registrant after successful registration.
+
+---
+
+## API Call
+
+Available on Essential and Advanced plans. Use this when no pre-built connector exists for your tool.
+
+### API Call fields
+
+| Field                           | Description                                                                                                                                         |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **HTTP Method**                 | `GET` (retrieve), `POST` (submit), `PATCH` (partial update), `PUT` (full update), or `DELETE`                                                       |
+| **URL**                         | The endpoint to call. Can include variables                                                                                                         |
+| **Headers**                     | Content type, authorization, or custom headers                                                                                                      |
+| **Authentication**              | Optionally reuse an existing **HubSpot**, **Zoho CRM**, **Zoho Bigin**, **Razorpay**, or **Zoom** connection instead of hand-writing an auth header |
+| **Select Connection**           | Pick an existing connection, or set up a new one                                                                                                    |
+| **Query Parameters**            | Optional parameters appended to the URL                                                                                                             |
+| **Body Content Type**           | JSON, XML, or form-URL encoded                                                                                                                      |
+| **Body**                        | The request payload                                                                                                                                 |
+| **Test Values**                 | Sample values used to run the call and check the response before publishing                                                                         |
+| **Response from API**           | The status code, headers, and body returned by the test call                                                                                        |
+| **Store Response in Variables** | Save specific fields, or the whole response, into variables for later nodes                                                                         |
+
+### Configure the API Call connector
+
+1. In **Connections**, select **API Call**
+2. Set the **HTTP Method** and **URL**, then add any **Headers**, **Query Parameters**, and **Body**
+3. If the target is HubSpot, Zoho CRM, Zoho Bigin, Razorpay, or Zoom, pick it under **Authentication** and select the connection — otherwise supply auth in the headers
+4. Enter **Test Values** and run the call to inspect the response
+5. Under **Store Response in Variables**, map the fields you need (or the whole response) to variables
+6. Click **Save**
+
+See [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) for worked examples.
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use multiple connectors in the same flow?">
+Yes — a single bot flow can chain as many connectors as you need, and they don't interfere with each other. For example, a checkout flow might run:
+
+1. **Razorpay** → Create Payment Link → send it to the customer
+2. **Shopify** → Replace Order Tag → mark the order confirmed
+3. **HubSpot** → Create or Update Contact
+4. **Google Sheets** → Add New Row → log the transaction
+</Accordion>
+
+<Accordion title="What happens if a connector call fails?">
+Every connector node has two outputs: **success** (green) and **failure** (red). The flow follows the failure branch, so you should always connect it — otherwise the conversation stops with no reply to the customer.
+
+```
+Shopify: Replace Order Tag
+  → on success: Send Text: "Your order is confirmed!"
+  → on failure: Send Text: "We couldn't update your order right now. Our team will follow up."
+```
+
+Failed calls are **not** retried automatically. If a retry matters, build it explicitly — for example, a Delay node followed by a second attempt.
+</Accordion>
+
+<Accordion title="Why are there two versions of the Zoho connectors?">
+Zoho hosts accounts in separate data centers. Use **Zoho CRM IN** / **Zoho Bigin IN** for a `zoho.in` account and **Zoho CRM COM** / **Zoho Bigin COM** for `zoho.com`. Picking the wrong one fails at the authorization step. Check the domain you sign in to Zoho with if you're unsure.
+</Accordion>
+
+<Accordion title="Do I need to create a new connection for every flow?">
+No. A connection is created once and then appears under **Select Existing Connection** for every connector node in every flow. Create additional connections only when you're connecting a genuinely different account — two Shopify stores, or a sandbox and a production CRM.
+</Accordion>
+
+<Accordion title="Do connectors work in sequences or only in bot flows?">
+Bot flows only. **Sequences** send messages; they can't run connector actions. If you need to update an order or create a CRM record, use a bot flow.
+</Accordion>
+
+<Accordion title="My tool isn't in the connector list — what can I do?">
+1. **Use the API Call connector** (Essential+) to call any REST API directly
+2. **Use webhooks** to push data from Gallabox into your tool — see [Webhooks](/settings/webhooks)
+3. **Request a connector** from Gallabox support
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — the API Call node in detail
+* [Bot Flow Builder Overview](/ai-agents-and-bots/bots/flow-builder) — building the flow a connector sits inside
+* [Variables](/settings/variables) — how the values you map into connector fields are stored
+* [Integrations Overview](/integrations/overview) — plan availability and integration categories
+
+## Next Steps
+
+* [Build a bot flow with a connector](/ai-agents-and-bots/bots/flow-builder) — capture data, then push it to Shopify or Zoho
+* [Add the API Call node](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — connect a tool with no pre-built connector

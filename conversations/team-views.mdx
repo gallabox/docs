@@ -1,0 +1,174 @@
+---
+title: "Team Views"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **view management permissions**.
+> * Roles: Admin role can create and manage Views. Agent role can use existing Views.
+> * Plans: Available on all Gallabox plans.
+
+## Plan Availability
+
+| Capability | Basic | Essential | Advanced |
+|---|:---:|:---:|:---:|
+| Default Inbox views | ✓ | ✓ | ✓ |
+| Custom views | — | Up to 5 | Up to 10 |
+
+## What are Views?
+
+Views are **pre-filtered tabs** in the Gallabox inbox that show only the conversations your team needs to focus on — without manually applying filters every time.
+
+Each custom View combines a required **channel** with one additional condition:
+
+* A **contact field**
+* A **conversation tag**
+* A **segment**
+
+Views are shared with teammates who have access to the selected channel.
+
+## Default Views
+
+Every Gallabox account comes with these default Views:
+
+| View           | What it shows                                           |
+| -------------- | ------------------------------------------------------- |
+| **All**        | All conversations across all channels                   |
+| **Unassigned** | Conversations not yet assigned to any agent or bot      |
+| **Mine**       | Conversations assigned to the currently logged-in agent |
+| **Mentions**   | Conversations where the agent has been @mentioned       |
+| **Open**       | All active conversations                                |
+| **Closed**     | Conversations that have been closed                     |
+
+These cannot be deleted, but you can customize them by adding filters.
+
+## Default Inbox Tabs
+
+Beyond Views, Gallabox also organizes conversations into **inbox categories** in the left navigation:
+
+| Category       | What's here                                               |
+| -------------- | --------------------------------------------------------- |
+| **Unassigned** | Conversations waiting to be picked up — no agent assigned |
+| **Mine**       | Conversations assigned specifically to you                |
+| **Open**       | All active conversations across teams                     |
+| **Pinned**     | Conversations you've pinned for quick access              |
+| **Closed**     | Conversations that have been closed                       |
+| **Bot**        | Conversations handled by bot flows or AI agents           |
+
+## How to Create a Custom View
+
+<Steps>
+
+<Step title="Open the View builder">
+1. Go to **Inbox** in the left navigation of Gallabox.
+2. Click **Create View** (bottom left of the inbox) or go to **Settings → Views → Create View**.
+</Step>
+
+<Step title="Name your View">
+Give the View a clear, descriptive name that your team will instantly understand:
+
+* "WhatsApp — VIP customers"
+* "Instagram — Product enquiries"
+* "WhatsApp — Renewal segment"
+</Step>
+
+<Step title="Set the filter criteria">
+First select a **channel**. Then add one condition:
+
+| Condition | Description | Example |
+| --- | --- | --- |
+| **Contact field** | Match a value in a contact field | `City = Bengaluru` |
+| **Conversation tag** | Match a tag on the conversation | `Tag = Hot Lead` |
+| **Segment** | Match contacts in a saved segment | `Segment = Renewals` |
+
+The selected channel and condition are combined with **AND** logic. For example: `Channel = WhatsApp AND Tag = Hot Lead`.
+</Step>
+
+<Step title="Save and test">
+1. Click **Save**.
+2. The new View tab appears in the inbox header.
+3. Click on it to verify it shows the correct conversations.
+4. If the results look wrong, click **Edit** (the three-dot menu on the View tab) and adjust the filters.
+</Step>
+
+</Steps>
+
+## Example
+
+**Scenario:** You want to give your team quick access to high-intent customer conversations without manually filtering the inbox each time.
+
+Here's how you'd set it up:
+
+**WhatsApp — Hot Leads:**
+
+1. Create View: "WhatsApp — Hot Leads"
+2. Channel: WhatsApp
+3. Condition: `Tag = Hot Lead`
+4. Result: The View lists WhatsApp conversations tagged Hot Lead
+
+**Instagram — Existing Customers:**
+
+1. Create View: "Instagram — Existing Customers"
+2. Channel: Instagram
+3. Condition: `Customer type = Existing`
+4. Result: The View lists Instagram conversations for contacts with that field value
+
+**Renewals:**
+
+1. Create View: "WhatsApp — Renewals"
+2. Channel: WhatsApp
+3. Condition: `Segment = Renewals`
+4. Result: The View lists conversations for contacts in the Renewals segment
+
+## Routing Rules — Auto-Assignment
+
+Views are display filters. To automatically route conversations to specific teams or agents when they come in, use **Assignment Rules**.
+
+Assignment rules run automatically when a new conversation arrives. You can set rules like:
+
+* All Web Chat conversations → round-robin across available agents
+
+To configure assignment rules: go to **WhatsApp Channel → Settings → Assignment Rules** (or **Channels → \[channel] → Assignment Rules**). Instagram has the same option under **Channels → Instagram → Settings → Assignment Rules**.
+
+<Check>
+
+**Pro tip:** Name Views after the channel and condition they use — for example, "WhatsApp — Hot Leads." This makes it clear what each View contains.
+
+</Check>
+
+## Managing Views
+
+* **Edit a View:** Click the three-dot menu on the View tab → **Edit View**
+* **Delete a View:** Click the three-dot menu → **Delete** (default Views cannot be deleted)
+* **Reorder Views:** Drag and drop View tabs to reorder them
+* **Pin a View:** Right-click a View tab → **Pin** — pinned Views stay visible when scrolling through long lists
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Who can create Views?">
+Admin role can create, edit, and delete custom Views. Agents can use existing Views but cannot create new ones unless given explicit permission via Custom Roles → Conversations → "Can create and manage custom views".
+</Accordion>
+
+<Accordion title="Can I create a View that filters by conversation content (not just metadata)?">
+Views use a channel plus contact fields, conversation tags, or segments. They do not filter by the text content of messages. To find conversations containing specific keywords, use the search bar at the top of the inbox.
+</Accordion>
+
+<Accordion title="Do Views update in real time?">
+Yes. Views are dynamic — as conversations are assigned, closed, tagged, or moved, the View updates immediately. You don't need to refresh.
+</Accordion>
+
+<Accordion title="Who can use a View?">
+Teammates who have access to the View's selected channel can use it.
+</Accordion>
+
+<Accordion title="What's the difference between a View and an Inbox category?">
+Inbox categories (Unassigned, Mine, Open, etc.) are fixed global filters. Views are custom, channel-based filters that use contact fields, conversation tags, or segments. Use Views for repeatable workflows; use the default categories for the standard inbox states.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — Understanding the full inbox experience
+* [Tags](/settings/tags) — Using tags to organize and filter conversations

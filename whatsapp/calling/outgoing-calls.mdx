@@ -1,0 +1,96 @@
+---
+title: "Outgoing Calls"
+---
+
+## WhatsApp Human Calling — Outgoing Calls <a href="#id-6e4956ab-74a8-4a37-8f53-769dd1f64327" id="id-6e4956ab-74a8-4a37-8f53-769dd1f64327"></a>
+
+Outgoing calls (also called **Business Initiated Calls**) are when your agent calls a customer from within a conversation. Because WhatsApp protects users from unwanted calls, **your business must have the customer's permission first.** That permission flow is the most important part of this guide.
+
+> **Before you begin:** Outgoing calls are restricted by Meta for numbers in **the USA, Canada, Egypt, Vietnam, and Nigeria**. If your business number is in one of these countries, you can receive calls but can't place them until Meta enables it.
+
+---
+
+### Call Permission Requests (The Key Concept) <a href="#id-3f68064f-8fc5-49f2-adc5-a7ac28b2a26b" id="id-3f68064f-8fc5-49f2-adc5-a7ac28b2a26b"></a>
+
+Your business can't call a customer out of the blue. The customer must grant permission first.
+
+#### How you request permission <a href="#id-0b09516c-b370-4eb5-82cb-1b8b1d9430de" id="id-0b09516c-b370-4eb5-82cb-1b8b1d9430de"></a>
+
+There are two ways to send a permission request:
+
+|                     | Free Form Request                                      | Template Permission Request               |
+| ------------------- | ------------------------------------------------------ | ----------------------------------------- |
+| When you can use it | Only while the 24-hour customer service window is open | Anytime, even with no recent conversation |
+
+<Frame>
+  <video src="/images/send-call-permission-template-gif.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Frame>
+  <video src="/images/free-form-request-gif.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+A customer can also grant permission **without you asking**, in two ways:
+
+* **They call you** — when a customer calls your business, they automatically grant temporary permission for you to call back.
+* **Through your Business Profile** — they can allow calls directly from your profile in WhatsApp.
+
+#### What the customer sees and chooses <a href="#d4009807-fc50-4a21-997c-a48daf6f2b3b" id="d4009807-fc50-4a21-997c-a48daf6f2b3b"></a>
+
+The request arrives in their WhatsApp as two parts: your message text, followed by a native card titled **"Can \[Your Business] call you?"** with a **Choose preference** button. Tapping it gives them three options:
+
+* **Allow calls** → permanent permission (no expiry; they can revoke anytime).
+* **Temporarily allow calls** → permission valid for **7 days**.
+* **Not at this time** → declined.
+
+<Frame>
+  <img src="/images/image-1.png" alt="" />
+</Frame>
+
+Image Source : Meta
+
+#### What happens after they respond <a href="#id-798e6fef-9568-439f-a0e1-874fa466c8c8" id="id-798e6fef-9568-439f-a0e1-874fa466c8c8"></a>
+
+| Customer's response | Can you call?            | Details                                                                               |
+| ------------------- | ------------------------ | ------------------------------------------------------------------------------------- |
+| Allows (permanent)  | ✅ Yes, until they revoke | Stored indefinitely                                                                   |
+| Allows (temporary)  | ✅ Yes, for 7 days        | Window starts at the moment they approve                                              |
+| Declines            | ❌ No                     | The request stays visible for 7 days; they can still change their mind in that window |
+| No response         | ❌ No                     | The request expires after 7 days                                                      |
+
+---
+
+### Placing the Call <a href="#id-073edc42-6099-4368-905c-0ad99f07b6c8" id="id-073edc42-6099-4368-905c-0ad99f07b6c8"></a>
+
+Once permission is active, click the call button in the conversation. Gallabox shows a quick confirmation with the customer's name and how long the permission is still valid (e.g. _"Permission valid · 6 days left"_). Confirm, and the call connects.
+
+<Frame>
+  <video src="/images/initiating-an-outgoing-call.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+---
+
+### Limits You Should Know About <a href="#id-1c527bad-2fa3-4dba-8b71-c430946eed6d" id="id-1c527bad-2fa3-4dba-8b71-c430946eed6d"></a>
+
+These apply per business number + customer pair:
+
+* **Permission requests:** at most **1 per 24 hours** and **2 per 7 days** to the same customer. (Both counters reset whenever a connected call happens between you and that customer.) If you hit a limit, the send button is disabled and tells you when you can try again.
+* **Connected calls:** up to **100 connected calls every 24 hours** per business number.
+* **Unanswered/rejected calls:**
+  * After the **2nd consecutive** missed or rejected call, Meta sends the customer a message asking them to reconsider allowing your calls.
+  * After the **4th consecutive** missed or rejected call, Meta **automatically revokes** the permission. The customer is notified and can re-grant it if they wish.
+
+---
+
+### Pricing <a href="#b595d364-c931-4557-9ffc-ebe5852e08a5" id="b595d364-c931-4557-9ffc-ebe5852e08a5"></a>
+
+* **Outgoing calls:** charged based on the call's duration and the destination country, and **deducted from your Gallabox message credits**.
+* **Permission request template:** sent as utility template and billed at standard per-message rates.
+
+Note: A minimum balance is needed to start a call. If your message credit balance falls below the cost of one minute (Rs. 1 / 10 cents), outgoing calls are blocked until you top up — so it's worth keeping enough credit on hand to cover your expected calling.
+
+See [Pricing](/whatsapp/calling/pricing) for the full country-by-country rate card.
+
+---
+
+_Outgoing calling behavior depends on Meta's WhatsApp Business Calling rules, which may change._

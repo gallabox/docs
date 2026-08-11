@@ -1,0 +1,219 @@
+---
+title: "Broadcast Analytics"
+description: "Read and act on the results of a sent broadcast — understand every message state, interpret delivery percentages correctly, review Smart Retry logs, and retarget contacts based on what happened."
+---
+
+This guide explains how to find broadcast results, what every message state means, how Gallabox calculates delivery percentages, how to review Smart Retry performance, and how to retarget a subset of your audience for a follow-up send.
+
+## Plan Availability
+
+| Capability          | Basic | Essential | Advanced |
+| ------------------- | :---: | :-------: | :------: |
+| Broadcast analytics |   ✓   |     ✓     |     ✓    |
+| Retargeting         |   —   |     ✓     |     ✓    |
+
+## Before You Start
+
+* You must have already sent or scheduled a broadcast. If you haven't created one yet, see [Create a Broadcast](/whatsapp/broadcasts/create-broadcast).
+* Owner or Admin role (or a role with broadcast management permissions) is required to view broadcast analytics.
+
+---
+
+## Where to Find Analytics
+
+1. Click **Broadcasts** in the left navigation.
+2. Find your broadcast in the list. The list shows each broadcast's name, send time, and a top-line status.
+3. Click the broadcast name to open the full analytics view.
+
+The analytics view has:
+
+* **Summary cards** across the top showing counts and percentages for each message state
+* **State detail panels** — click any card to see the contacts in that state
+* **Retry log** (if Smart Retry was enabled)
+* **Retarget** button (if available on your plan)
+
+---
+
+## Message States Reference
+
+### Primary States
+
+| State                     | What it means                                                                                                                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sent**                  | The message left Gallabox and was handed to WhatsApp for delivery. This is the baseline — it doesn't confirm the contact received it.                                       |
+| **Delivered**             | WhatsApp confirmed the message arrived on the recipient's device.                                                                                                           |
+| **Read**                  | The recipient opened the message. Read receipts must be enabled on the recipient's side — if a contact has turned off read receipts, messages they open won't show as Read. |
+| **Delivered Not Replied** | The message arrived but the contact hasn't responded.                                                                                                                       |
+| **Replied**               | The contact responded to the broadcast message. See [Engagement states](/whatsapp/broadcasts/broadcast-analytics#engagement-states) below.                                                    |
+| **Failed**                | The message could not be delivered. See [Failed subtypes](/whatsapp/broadcasts/broadcast-analytics#failed-subtypes) below.                                                                    |
+| **Unsubscribed**          | The contact opted out of marketing messages from your business.                                                                                                             |
+| **Frequency Limit**       | Meta blocked the message because this contact has received too many messages from businesses recently.                                                                      |
+| **Not in WhatsApp**       | The phone number does not have a WhatsApp account.                                                                                                                          |
+
+### Engagement States
+
+Engagement is shown as its own set of summary cards. Click any card to open the contact list for that state:
+
+| State            | What it means                                                                     |
+| ---------------- | --------------------------------------------------------------------------------- |
+| **Replied**      | The contact sent a text reply in response to the broadcast message.               |
+| **Reactions**    | The contact reacted with an emoji (e.g., thumbs up, heart).                       |
+| **Clicks**       | The contact clicked a URL button or link in the template.                         |
+| **Form Replied** | The contact submitted a WhatsApp Flow (interactive form) embedded in the message. |
+
+### Failed Subtypes
+
+Click the **Failed** summary card to see the contact list. The breakdown by failure type appears in the detail panel:
+
+| Failure type                     | Why it happens                                                             | What to do                                                                                                                   |
+| -------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Invalid number**               | The phone number is malformed, deactivated, or no longer in use            | Remove or update the contact's number. Do not retry — the number is not reachable.                                           |
+| **Contact blocked the business** | The contact has blocked your WhatsApp Business number                      | You cannot message this contact. Remove them from future campaigns.                                                          |
+| **Template rejected**            | Meta rejected the template used in this broadcast during or after approval | Go to **Broadcasts → Templates**, check the template's status and rejection reason, then edit and resubmit.                  |
+| **Daily limit exceeded**         | Your WhatsApp messaging tier reached its daily cap                         | Wait 24 hours. To increase the cap, maintain high message quality and volume over time — Meta raises the tier automatically. |
+
+### Frequency Limit
+
+**Frequency Limit** **is a Meta restriction — not a Gallabox one.** Meta limits how many marketing messages a given contact can receive from all businesses within a rolling time window. If a contact has already received several marketing messages from other businesses recently, Meta blocks your message and marks it as Frequency Limit.
+
+You cannot override or bypass this. The contact will be reachable again after Meta's frequency window resets (typically 24 hours). Do not retry Frequency Limit contacts immediately.
+
+### Unsubscribed
+
+A contact is marked **Unsubscribed** when either:
+
+* **Meta opt-out event** — the contact tapped an opt-out button (e.g., "Stop promotions") in a WhatsApp template you sent
+* **STOP automation** — a Gallabox bot flow or automation is configured to mark contacts as unsubscribed when they reply with "STOP" or a similar keyword
+
+Once unsubscribed, the contact is excluded from future marketing broadcasts. They won't appear in marketing-opt-in segments.
+
+### Not in WhatsApp
+
+A contact shows as **Not in WhatsApp** when Meta reports that the phone number has no associated WhatsApp account. This is a Meta-reported error, not a Gallabox failure.
+
+**These contacts are automatically excluded from percentage calculations.** The delivery, read, and reply percentages you see in the analytics view are calculated against the **effective recipient count** — total contacts sent to, minus the "Not in WhatsApp" count.
+
+> **Example:** You sent to 10,000 contacts. 200 are Not in WhatsApp. Your effective recipient base is 9,800. All percentages (Delivered %, Read %, Replied %) are calculated on 9,800 — not 10,000.
+
+This exclusion exists because these contacts were never reachable — counting them in the denominator would unfairly lower your delivery rate.
+
+---
+
+## Reading the Summary Cards
+
+The top row of the analytics view shows one card per primary state. Each card displays:
+
+* **Count** — the number of contacts in that state
+* **Percentage** — that count as a share of effective recipients (total minus Not in WhatsApp)
+
+A healthy broadcast typically shows:
+
+* A high **Delivered** percentage for a clean contact list
+* **Read** varies widely by audience and message content
+* **Replied**, **Reactions**, and **Clicks** depend on whether your template has interactive elements (buttons, links, flows)
+
+If **Failed** is unexpectedly high, click the card and check the failure subtype breakdown. Bulk invalid numbers usually indicate a data quality issue in the original contact list.
+
+---
+
+## Smart Retry Stats
+
+If Smart Retry was enabled on this broadcast, the analytics view includes a **Retry** section below the summary cards.
+
+This section shows:
+
+* **Retry log** — each retry attempt with its timestamp and the number of messages retried in that attempt
+* **Delivered by retry** — the count of messages that were initially failed but successfully delivered through a retry
+
+Use this to assess whether Smart Retry meaningfully improved your delivery rate. A large "Delivered by retry" number confirms that retrying was worthwhile for this audience.
+
+<Info>
+
+If Smart Retry is not shown, it was either disabled when creating the broadcast or the broadcast has no failed messages eligible for retry (permanent failures like invalid numbers are not retried).
+
+</Info>
+
+---
+
+## Retargeting
+
+After a broadcast is sent, you can send a follow-up broadcast to a specific subset of the original audience using **Retarget**.
+
+To retarget:
+
+1. Open the broadcast analytics view (Broadcasts → \[broadcast name]).
+2. Click **Retarget** in the top-right corner of the analytics view.
+3. Choose a retarget filter — the filter determines which contacts from the original broadcast are included in your follow-up:
+
+| Filter                        | Who it targets                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------- |
+| **Sent**                      | All contacts the original message was sent to                                           |
+| **Delivered but not replied** | Contacts who received it but didn't engage — your highest-intent silent audience        |
+| **Read**                      | Contacts who opened the message                                                         |
+| **Replied**                   | Contacts who sent a text reply                                                          |
+| **Reactions**                 | Contacts who reacted with an emoji                                                      |
+| **Clicks**                    | Contacts who clicked a link or URL button                                               |
+| **Form Replied**              | Contacts who submitted a WhatsApp Flow                                                  |
+| **Failed**                    | Contacts the original message didn't reach — for manual retry with a different template |
+
+4. Click **Create Broadcast** to open the broadcast creation flow pre-loaded with this filtered audience.
+5. Complete the broadcast creation steps — choose a template, configure retry, and send or schedule.
+
+<Check>
+
+**Strategy tip:** "Delivered but not replied" is your highest-value retarget segment. These contacts received and potentially saw the message but didn't act. A follow-up with a direct call to action — sent 24–48 hours later — typically converts better than the initial broadcast.
+
+</Check>
+
+---
+
+## Exporting Broadcast Data
+
+You can export broadcast results as an Excel (XLSX) file in two places:
+
+* **Broadcast Analytics header** — click the **Export** menu and choose **Broadcast Summary** or **History**.
+* **Inside Broadcast Insights** — export the results of an individual broadcast.
+
+Export is available on all plans, but the option is only visible to users whose role includes bulk-read and PII-read permissions. Users without PII access don't see the phone number ("To") column in exports.
+
+The export includes fields such as: Contact Name, To, Status, Status Time, Sent/Delivered/Read/Reacted/Replied/Failed Times, Failed Reason, Engaged Type, Reactions, Clicks, Replies, Latest Reply, Is Auto-reply, Form Replied, Not in WhatsApp, Frequency Limit Reason, and Unsubscribed. If retry was enabled on the broadcast, the export also includes Retry, Last Retried at, and Retry Attempts.
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My delivered percentage looks terrible — only 40% delivered. Did something go wrong?">
+Check the Not in WhatsApp count first. If a large portion of your contacts have no WhatsApp account, that pulls down the raw numbers — but percentages are already calculated excluding those contacts. Next, open the **Failed** card and look at the breakdown by failure type. If most failures are "Invalid number", the issue is your contact list quality — phone numbers need cleaning. If "Daily limit exceeded" is a large category, you hit your messaging tier cap and need to spread the send across days.
+</Accordion>
+
+<Accordion title="Why does Gallabox exclude 'Not in WhatsApp' from percentages? It looks like they're hiding bad numbers.">
+"Not in WhatsApp" contacts were never reachable — Meta confirmed at send time that those numbers have no WhatsApp account. Including them in the denominator would make your delivery rate look artificially low through no fault of the message or the campaign. Excluding them gives you an accurate picture of how well your message performed with the contacts who were actually reachable. The raw contact count for "Not in WhatsApp" is still visible in its own card so nothing is hidden.
+</Accordion>
+
+<Accordion title="A contact I know uses WhatsApp is showing as 'Not in WhatsApp' — why?">
+This usually means the phone number stored in Gallabox is slightly wrong (missing country code, wrong formatting) or the contact recently changed their number. Check the contact's profile in **Contacts → \[contact name]** and verify the phone number format includes the full international code (e.g., +91 for India). If the number is correct, the contact may have temporarily deregistered from WhatsApp or used a secondary number.
+</Accordion>
+
+<Accordion title="I can't find the Retarget button — where is it?">
+**Retarget** is available on Essential and Advanced plans. If you don't see the button, your account may be on Basic plan. The button also only appears after a broadcast has been sent — it won't appear on a scheduled broadcast that hasn't gone out yet. If you're on a paid plan and still don't see it, contact support.
+</Accordion>
+
+<Accordion title="The Frequency Limit count is huge — is there anything I can do?">
+No — Frequency Limit is controlled entirely by Meta, not Gallabox. Meta's anti-spam system limits how many marketing messages a contact can receive from all businesses in a rolling window. You cannot whitelist your number or bypass this limit. The practical implication is: if you send broadcasts frequently to the same audience, a growing Frequency Limit count is expected. Space out your broadcasts and segment carefully to avoid over-messaging the same contacts repeatedly.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Related Articles
+
+* [Broadcast Overview](/whatsapp/broadcasts/overview) — What broadcasts are, Smart Retry explained, and message states reference
+* [Create a Broadcast](/whatsapp/broadcasts/create-broadcast) — Step-by-step creation, audience selection, and Smart Retry configuration
+* [WhatsApp Templates Overview](/whatsapp/templates/overview) — Template approval status and rejection reasons
+* [Contact Segments](/contacts/segments) — Building targeted segments for retargeting campaigns
+
+## Next Steps
+
+* [Create a retarget broadcast for non-responders →](/whatsapp/broadcasts/create-broadcast)
+* [Build an automated follow-up sequence →](/whatsapp/sequences/overview)

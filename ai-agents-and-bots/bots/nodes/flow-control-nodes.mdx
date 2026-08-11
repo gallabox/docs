@@ -1,0 +1,433 @@
+---
+title: "Flow Control Nodes"
+description: "Flow control nodes are the logic layer of bot flows — they branch conversations, add delays, call external APIs, and route to other flows. Use them to make your bot intelligent rather than linear."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access** (Owners and Admins).
+
+Flow control nodes don't send messages to the customer. Instead, they evaluate conditions, pause the flow, call external systems, set variables, and navigate between flow sections. Use them when your bot needs to make decisions, wait for events, or integrate with external tools.
+
+## Plan Availability
+
+| Node                       | Basic | Essential | Advanced |
+| -------------------------- | :---: | :-------: | :------: |
+| Condition                  |   ✓   |     ✓     |     ✓    |
+| Set Variable               |   ✓   |     ✓     |     ✓    |
+| Goal                       |   ✓   |     ✓     |     ✓    |
+| Hint                       |   ✓   |     ✓     |     ✓    |
+| Connector                  |   ✓   |     ✓     |     ✓    |
+| Connections                |   ✓   |     ✓     |     ✓    |
+| Google Sheets Integration  |   ✓   |     ✓     |     ✓    |
+| Delay                      |   —   |     ✓     |     ✓    |
+| API Call                   |   —   |     ✓     |     ✓    |
+| Jump To                    |   —   |     ✓     |     ✓    |
+| Switch                     |   —   |     ✓     |     ✓    |
+| Add Note & Mention         |   —   |     ✓     |     ✓    |
+| Business Hours             |   —   |     ✓     |     ✓    |
+| Wait for Order             |   —   |     ✓     |     ✓    |
+| Push to sequence           |   —   |     ✓     |     ✓    |
+| Update Conversation Fields |   —   |     ✓     |     ✓    |
+| GPT Dialog                 |   —   |     —     |     ✓    |
+| GPT Knowledge Base         |   —   |     —     |     ✓    |
+
+## How Flow Control Nodes Work
+
+Flow control nodes:
+
+* **Evaluate conditions** to decide which branch of the flow to take
+* **Pause the flow** for a set time (Delay) or until an event occurs (Wait for Order)
+* **Call external systems** via API to fetch or send data
+* **Set or update variables** that other nodes use
+* **Jump to** different parts of the same flow or a different flow
+* **Integrate with tools** like Google Sheets to log data
+
+## Flow Control Node Types
+
+### Logic & Branching
+
+#### Condition
+
+Evaluates a logical expression and routes the flow based on whether it's true or false.
+
+**Comparison operators:** `=`, `!=`, `>`, `<`, `>=`, `<=`, `contains`, `not contains`, `starts with`, `ends with`, `is empty`, `is not empty`
+
+**Example — route based on order value:**
+
+```
+Condition: {{order_total}} >= 5000
+  → true: Send Text: "You qualify for free shipping!"
+  → false: Send Text: "Add ₹1000 more to qualify for free shipping"
+```
+
+**Example — route based on text match:**
+
+```
+Condition: {{user_choice}} contains "order"
+  → true: Jump To → Section: "Order Support"
+  → false: Jump To → Section: "General Support"
+```
+
+**Example — route based on contact field:**
+
+```
+Condition: {{contact.plan}} = "enterprise"
+  → true: Assign Conversation → Inbox: "Enterprise Sales"
+  → false: Assign Conversation → Inbox: "SMB Sales"
+```
+
+You can chain multiple conditions using AND/OR logic within a single Condition node.
+
+#### Switch
+
+Routes the flow to different branches based on the value of a variable — like a multi-way version of Condition.
+
+**Example — route based on department:**
+
+```
+Switch: {{department}}
+  → "sales" → Send Text: "Connecting you to Sales..."
+  → "support" → Send Text: "Connecting you to Support..."
+  → "billing" → Send Text: "Connecting you to Billing..."
+  → default → Send Text: "Please select a department"
+```
+
+**Use Switch when:** You have 3 or more possible values and want clean routing without chaining multiple Condition nodes.
+
+#### Set Variable
+
+Creates or updates a variable with a static value or a computed expression.
+
+**Example — static value:**
+
+```
+Set Variable → Name: "discount_eligible" → Value: "true"
+```
+
+**Example — computed value:**
+
+```
+Set Variable → Name: "discount_amount" → Value: "{{order_total}} * 0.1"
+```
+
+**Example — concatenate strings:**
+
+```
+Set Variable → Name: "greeting" → Value: "Hello, {{contact.first_name}}!"
+```
+
+Use Set Variable to prepare data before passing it to other nodes, or to store a computed result.
+
+---
+
+### Timing & Waiting
+
+#### Delay
+
+Pauses the flow for a specified duration before continuing to the next node.
+
+**Use cases:**
+
+* Send a follow-up message 30 minutes after no response
+* Add a natural pause between messages
+* Wait before retrying an API call
+
+**Configuration:**
+
+* Duration: e.g., 30 minutes, 2 hours, 1 day
+* Send while waiting: optionally send a "typing" indicator or a hold message
+
+**Example:**
+
+```
+Send Text: "We're processing your request..."
+Delay: 2 minutes
+Send Text: "Your order #{{order_id}} has been confirmed!"
+```
+
+#### Wait for Order
+
+Pauses the flow until the customer places an order from your WhatsApp catalog — that is, until an order message arrives in the conversation.
+
+**Use cases:**
+
+* Prompt the customer to pick items from your catalog, then continue once they place the order
+* Capture the order details before moving to payment or confirmation steps
+
+**Configuration:**
+
+1. **Question Text** — the message prompting the customer to place their order
+2. **Attempt** — how many times to re-prompt if the customer sends something other than an order
+3. **Validation Error Message** — what to send when the customer's reply isn't a catalog order
+
+**Example:**
+
+```
+Wait for Order → Question Text: "Browse our catalog and place your order to continue."
+  → on order received: Send Text: "Thanks! We've received your order and are preparing it."
+  → validation error: "That doesn't look like an order — please pick items from our catalog."
+```
+
+#### Business Hours
+
+Checks whether the current time falls within the business hours configured for the conversation's WhatsApp channel and routes accordingly.
+
+**Configuration:**
+
+Business hours are set per WhatsApp channel (per connected number) under **Channels → WhatsApp → configurations** — working hours, special days, and closed days. The node checks the configuration of the channel the current conversation is on, and reports one of three outcomes: **Open**, **Closed**, or **Not configured**.
+
+**Example:**
+
+```
+Business Hours
+  → during business hours: Assign Conversation → Inbox: "Sales"
+  → outside business hours: Send Text: "We're currently closed. Our team will respond at 9 AM."
+```
+
+---
+
+### External Integrations
+
+#### API Call (Essential+)
+
+Makes an HTTP request to an external API — can fetch data to use in the flow or send data to an external system.
+
+**Use cases:**
+
+* Check real-time inventory levels from your ERP
+* Verify a coupon code against your promo system
+* Create a lead in your CRM when a form is submitted
+* Fetch live exchange rates or pricing
+
+**Configuration:**
+
+1. **Method:** GET, POST, PUT, PATCH, DELETE
+2. **URL:** The API endpoint (can use variables like `{{base_url}}/orders/{{order_id}}`)
+3. **Headers:** Authorization, content-type, etc.
+4. **Body:** For POST/PUT/PATCH — JSON body with variables
+5. **Response mapping:** Store API response fields in variables for use in downstream nodes
+
+**Example — verify a coupon code:**
+
+```
+API Call
+  Method: GET
+  URL: https://api.yourshop.com/coupons/{{coupon_code}}
+  → Store response.field.discount in {{discount_percentage}}
+  → Store response.field.valid in {{coupon_valid}}
+Condition: {{coupon_valid}} = true
+  → true: Send Text: "Coupon applied! {{discount_percentage}}% off your order"
+  → false: Send Text: "Invalid coupon code. Please try again."
+```
+
+#### Google Sheets Integration
+
+Reads from or writes to a Google Sheet — useful for logging data, looking up information, or managing spreadsheets.
+
+**Use cases:**
+
+* Log every bot conversation to a Google Sheet
+* Look up product information from a sheet
+* Check agent availability from a schedule sheet
+* Store lead data in a shared sheet
+
+**Configuration:**
+
+1. **Action:** Add New Row, Update Row, Fetch the Row Value, Fetch the First 10 Matched Row Values
+2. **Spreadsheet:** Select from connected Google Sheets
+3. **Sheet name:** The tab within the spreadsheet
+4. **Columns:** Map Gallabox variables to sheet columns
+
+**Example — log a lead to Google Sheets:**
+
+```
+Google Sheets Integration
+  Action: Add New Row
+  Spreadsheet: "Sales Leads"
+  Sheet: "Incoming Leads"
+  Columns:
+    Contact Name: {{contact.name}}
+    Email: {{contact.email}}
+    Phone: {{contact.phone}}
+    Source: {{campaign_source}}
+    Date: {{current_date}}
+```
+
+---
+
+### Flow Navigation
+
+#### Jump To (Essential+)
+
+Jumps to a different section within the same flow, or to a specific node in another flow.
+
+<Warning>
+
+You can add a maximum of **10 Jump To nodes per flow**. If you need more branching points, use Switch or split your logic across multiple flows linked with Jump To.
+
+</Warning>
+
+**Use cases:**
+
+* Reuse common flow sections (e.g., a "Thank you" ending used in multiple places)
+* Create loops (jump back to a previous step)
+* Route from a sub-flow back to the main flow
+
+**Example:**
+
+```
+Jump To → Section: "Collect Details"
+  → continues from the "Collect Details" section of the current flow
+```
+
+#### Add Note & Mention (Essential+)
+
+Adds an internal note to the conversation and @mentions the assigned agent — visible only to agents, not to the customer. Use this for handoffs or to alert the agent handling the conversation.
+
+**Example:**
+
+```
+Add Note & Mention → To: {{assigned_agent}}
+  Message: "High-value customer ({{contact.name}}) needs a callback. Order value: ₹{{order_total}}."
+```
+
+---
+
+### AI Nodes (Advanced only)
+
+#### GPT Dialog
+
+Uses a GPT-powered conversation node — the bot responds to the customer using AI-generated replies based on your configured prompt and knowledge base.
+
+**Use cases:**
+
+* Handle complex, open-ended customer queries
+* Provide instant responses to FAQs without writing every possible answer
+* Power a product recommendation engine
+
+**Configuration:**
+
+1. Set the system prompt (what the bot should do)
+2. Connect a Knowledge Base for context
+3. Set conversation boundaries (what topics are in-scope)
+4. Configure fallback (what to do if the AI can't answer)
+
+**Important:** Unlike rule-based nodes (Ask/Send/Condition), GPT Dialog generates free-form responses. Use it when you can't anticipate every customer query.
+
+Learn more: [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview)
+
+#### GPT Knowledge Base
+
+Retrieves relevant information from a connected knowledge base to use in your flow — the bot finds the most relevant content and uses it to generate a response or populate a variable.
+
+**Use cases:**
+
+* Answer product FAQ questions from your knowledge base
+* Look up policy information for support queries
+* Provide pricing and feature information from your documentation
+
+**Configuration:**
+
+1. Select the knowledge base to query
+2. Set the query (from a variable like `{{customer_question}}`)
+3. Store the retrieved answer in a variable: `{{kb_answer}}`
+4. Use `{{kb_answer}}` in a downstream Send Text node
+
+**Example:**
+
+```
+Ask Text: "What would you like to know about?"
+  → Stored in {{customer_question}}
+
+GPT Knowledge Base
+  Query: {{customer_question}}
+  → Store answer in {{kb_answer}}
+
+Send Text: "{{kb_answer}}"
+```
+
+---
+
+### Utility Nodes
+
+#### Goal
+
+Tracks a conversion goal — records when a customer completes a specific action (e.g., makes a purchase, books a demo, signs up).
+
+**Configuration:**
+
+1. Name the goal (e.g., "Demo Booked", "Order Placed")
+2. Optionally attach a monetary value (e.g., "₹500 per demo booking")
+3. Place the Goal node at the end of the success path in your flow
+
+**Example:** Place an "Order Completed" Goal node after a successful checkout flow — view conversion rates in Bot Analytics.
+
+#### Hint
+
+Adds a note on the flow builder canvas — use it to document what a section of the flow does for yourself and your teammates.
+
+**Example:** Place a hint above a branch: _"This path handles repeat customers — see Order Tracking flow."_
+
+**Note:** Hints are builder-only annotations. They are never sent to customers on any channel.
+
+#### Connector
+
+Adds an external tool connection (Shopify, HubSpot, Razorpay, etc.) to the flow — used to authenticate and configure the integration.
+
+**Note:** You typically add connectors in **Integrations** rather than inside individual nodes. The Connector node is used for advanced configurations where you need conditional connector selection.
+
+#### Connections
+
+Links different parts of the flow together. Used automatically by the flow builder when you connect nodes — typically no manual configuration needed.
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Condition vs Switch — which should I use?">
+Use **Condition** when you have 1–2 branches based on a single comparison (e.g., `order_total >= 5000`).
+
+Use **Switch** when you have 3+ possible values and need clean multi-way routing (e.g., route by department: sales / support / billing / returns).
+
+You can also nest Condition nodes inside Switch branches for complex logic.
+</Accordion>
+
+<Accordion title="How does Delay affect conversation timing on WhatsApp?">
+Delay pauses the entire bot flow — no messages are sent to the customer during the delay period. If you need to send something while waiting, use the "Send while waiting" option in the Delay node (shows a typing indicator or a hold message).
+
+**Important:** The flow must remain active during the delay. If the conversation expires (customer goes silent for 24+ hours on WhatsApp), the flow may not resume. For long delays (hours or days), use a Sequence instead of a Delay.
+</Accordion>
+
+<Accordion title="Can I use data from an API Call response in my bot flow?">
+Yes — map fields from the API response to variables in the API Call node configuration. For example:
+
+* `response.body.customer_name` → `{{customer_name}}`
+* `response.body.order_status` → `{{order_status}}`
+
+Then use `{{customer_name}}` and `{{order_status}}` in any downstream node (Send Text, Condition, etc.).
+</Accordion>
+
+<Accordion title="How many Jump To nodes can I add to a flow?">
+You can add a maximum of **10 Jump To nodes per flow**. If you hit this limit, split your flow logic: use a Switch node for multi-way routing, or break the flow into separate linked flows.
+</Accordion>
+
+<Accordion title="What's the difference between GPT Dialog and GPT Knowledge Base?">
+**GPT Dialog** is a full AI conversation node — the bot has a back-and-forth dialogue with the customer using AI-generated responses. Use it for open-ended conversations where you can't predict every possible question.
+
+**GPT Knowledge Base** is a lookup node — it searches your knowledge base for relevant information and returns it as a variable. Use it to enrich rule-based flows with AI-powered answers without making the entire flow AI-powered.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Bot Flow Builder Overview](/ai-agents-and-bots/bots/flow-builder) — how to build, test, and publish bot flows
+* [Ask Nodes Overview](/ai-agents-and-bots/bots/nodes/ask-nodes) — collect input from customers
+* [Send Nodes Overview](/ai-agents-and-bots/bots/nodes/send-nodes) — deliver messages and media
+* [Bot Connectors Overview](/ai-agents-and-bots/bots/connectors) — Shopify, HubSpot, Razorpay, Google Sheets, and more
+
+## Next Steps
+
+* [Add a connector to your flow](/ai-agents-and-bots/bots/connectors) — connect Shopify, HubSpot, or Google Sheets to your bot flow
+* [Build your first bot flow](/ai-agents-and-bots/bots/flow-builder) — create, test, and publish a complete bot flow

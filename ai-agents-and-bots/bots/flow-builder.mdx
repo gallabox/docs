@@ -1,0 +1,244 @@
+---
+title: "Flow Builder"
+description: "The Flow Builder is Gallabox's drag-and-drop interface for creating automated bot conversations. Arrange nodes on a canvas, set a trigger, test the flow, and publish it live."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access** (Owners and Admins).
+
+<Info>
+
+The Bot Flow Builder is Gallabox's drag-and-drop interface for creating automated WhatsApp conversation flows. You arrange nodes (Ask, Send, Condition, etc.) on a canvas, connect them to define the conversation path, test with a simulator, and publish when ready. Bot flows run inside the 24-hour conversation window on WhatsApp.
+
+</Info>
+
+## Plan Availability
+
+You can create bot flows on all Gallabox plans. Nodes outside the Basic set require Essential or Advanced; see the [node reference pages](/ai-agents-and-bots/bots/nodes/overview).
+
+## What Is a Bot Flow?
+
+A bot flow is an automated conversation path — a sequence of nodes that define what the bot says and does at each step. Bot flows run inside an active conversation with the customer.
+
+**Key constraints:**
+
+* Bot flows only run when the customer has an **active WhatsApp conversation** with you within the 24-hour window
+* Outside the 24-hour window, you can only send **pre-approved WhatsApp templates** — not trigger bot flows
+* Bot flows are **triggered** by: a keyword the customer types, or a form submission event
+
+**What's NOT a bot flow:**
+
+* **Sequences** — automated multi-step message campaigns sent proactively (can be sent outside the 24-hour window)
+* **Broadcasts** — one-time bulk messages to segments
+
+Learn more: [WhatsApp Sequences Overview](/whatsapp/sequences/overview)
+
+## The Flow Builder Interface
+
+The flow builder has 4 main areas:
+
+1. **Toolbar** (top) — Save, Test, Publish, Settings, Clone
+2. **Node library** (left sidebar) — categorized list of all available nodes
+3. **Canvas** (center) — drag-and-drop workspace where you build the flow
+4. **Node settings** (right panel) — configure the selected node
+
+## Creating a New Bot Flow
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots → Bot Flows">
+
+</Step>
+
+<Step title="Click Create Flow">
+
+</Step>
+
+<Step title="Enter a flow name and optional description">
+
+</Step>
+
+<Step title="Choose a trigger — how the flow starts">
+* **Keyword trigger** — customer types a specific word or phrase ("hi", "help", "order")
+* **Form submission** — triggered automatically when a customer submits a form
+</Step>
+
+<Step title="Start building on the canvas">
+
+</Step>
+
+</Steps>
+
+## Adding and Connecting Nodes
+
+### Adding a Node
+
+1. Find the node in the **left sidebar** (categorized: Ask, Send, Action, Flow Control, Integrations)
+2. **Drag** it onto the canvas — or **click** to add it directly below the last node
+3. Configure the node in the **right panel**
+
+### Connecting Nodes
+
+1. Hover over a node — **connection dots** appear on the edges
+2. **Click and drag** from one dot to another node to create a connection
+3. Some nodes have **multiple output points**:
+   * Ask nodes: one output (proceed after response)
+   * Condition nodes: two outputs ("yes" / "no" branches)
+   * Switch nodes: multiple outputs (one per case)
+4. Delete a connection by **clicking the line** and pressing Delete
+
+### Node Configuration
+
+Each node type has its own settings panel. Common settings:
+
+| Setting              | Where it's found | Example                                         |
+| -------------------- | ---------------- | ----------------------------------------------- |
+| Message content      | Send, Ask nodes  | "Hi \{\{contact.first\_name\}\}, how can I help?" |
+| Variable name        | Ask nodes        | `customer_email`                                |
+| Condition expression | Condition nodes  | `{{order_total}} >= 5000`                       |
+| Delay duration       | Delay nodes      | 30 minutes                                      |
+| API endpoint         | API Call nodes   | `https://api.example.com/orders`                |
+| Connector action     | Connector nodes  | Update Order Status                             |
+
+## Using Variables in Nodes
+
+Variables let you personalise messages and pass data between nodes. Type `{{` in any text field to see available variables — for example, `{{contact.name}}` inserts the contact's name and `{{order_id}}` inserts a flow variable captured by an Ask node.
+
+For the full list of variable types, see [Variables in Bot Flows](/settings/variables).
+
+## Testing Your Flow
+
+<Steps>
+
+<Step title="Click Test in the toolbar">
+The test simulator opens.
+</Step>
+
+<Step title="Select a channel (WhatsApp, Instagram, Web Chat) and a test contact">
+
+</Step>
+
+<Step title="Walk through the flow step by step">
+The simulator shows what the customer sees.
+</Step>
+
+<Step title="Check variable values at each step">
+Click any node to see what data it received and produced.
+</Step>
+
+<Step title="Fix errors">
+Adjust node settings and re-test.
+</Step>
+
+</Steps>
+
+**Test tips:**
+
+* Use a test contact that simulates different customer responses
+* Test all branches — try every path through the flow (success, error, skip paths)
+* Check variable values — make sure they're populated correctly at each step
+
+## Publishing Your Flow
+
+<Steps>
+
+<Step title="Save the flow">
+Ctrl+S or click Save.
+</Step>
+
+<Step title="Publish the flow">
+This makes it live and available to customers.
+</Step>
+
+</Steps>
+
+**Publishing checklist:**
+
+* [ ] All paths tested (success, error, timeout)
+* [ ] Variables are correctly mapped
+* [ ] Fallback messages configured (for unknown responses)
+* [ ] Flow is connected to the right trigger
+* [ ] Analytics goals are set (so you can measure performance)
+
+## Cloning a Flow
+
+Click **Clone** in the toolbar to create a copy of the current flow. Useful for:
+
+* Creating variations of a flow (A/B testing)
+* Duplicating a working flow to modify
+* Creating a template flow to reuse
+
+## Flow Best Practices
+
+### Keep Flows Simple
+
+* Each flow should have one clear goal (e.g., "Track order" or "Book a demo")
+* Break complex flows into multiple smaller flows linked together with Jump To
+* Use descriptive names: "Order Tracking v2" not "Flow 3"
+
+### Add Fallback Handling
+
+Every Ask node should have a retry message. Every Condition should have a fallback branch. Customers don't always respond as expected — your flow should handle the unexpected gracefully.
+
+### Test All Branches
+
+Don't just test the happy path. Test:
+
+* What happens if the customer sends the wrong type of input?
+* What happens if they don't respond for 10 minutes?
+* What happens if the API call fails?
+
+### Monitor Analytics
+
+After publishing, check **Bot Analytics** to see:
+
+* How many conversations started the flow
+* Where customers drop off (which node has the highest exit rate)
+* Which paths lead to the most resolutions
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I have multiple flows active at the same time?">
+Yes — you can have multiple flows active simultaneously. If more than one active flow matches the same trigger, the most recently created flow runs — flows are evaluated newest-first and the first match wins. There's no error and no priority setting, so keep trigger keywords distinct to avoid surprises.
+</Accordion>
+
+<Accordion title="Can I connect one flow to another flow?">
+Yes — use the **Jump To** node to jump to a different flow or a different section within the same flow. This lets you build modular flows (e.g., a shared "Thank you" section used by multiple flows).
+</Accordion>
+
+<Accordion title="What happens to in-progress flows when I update them?">
+Publishing updates the flow in place — there's only one live version.
+
+* Conversations already in progress continue on the **updated flow** from their current step
+* New conversations also start with the updated flow
+
+Because in-progress conversations pick up your changes immediately, avoid removing or heavily restructuring nodes that live conversations may be sitting on. Test changes before publishing.
+</Accordion>
+
+<Accordion title="Can I trigger a flow from a sequence?">
+Not directly — sequence steps send template messages only; there is no "trigger bot flow" step type. However, you can achieve this indirectly: the template a sequence sends can include reply buttons, and the customer tapping a button can trigger a bot flow (via the button/keyword trigger). The flow starts when the customer responds, not automatically mid-sequence.
+</Accordion>
+
+<Accordion title="How do I stop a flow from running?">
+Go to **AI Agents and Bots → Bot Flows** → find the flow → click the **toggle** to deactivate it. Existing conversations in progress will complete their current flow, but no new conversations will trigger it.
+</Accordion>
+
+<Accordion title="How many Jump To nodes can I add to a flow?">
+A maximum of 10 per flow — see [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) for details and workarounds.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Ask Nodes Overview](/ai-agents-and-bots/bots/nodes/ask-nodes) — collect input from customers
+* [Send Nodes Overview](/ai-agents-and-bots/bots/nodes/send-nodes) — deliver messages and media
+* [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — branching, delays, API calls, and the Jump To 10-block limit
+* [Bot Connectors Overview](/ai-agents-and-bots/bots/connectors) — Shopify, HubSpot, Razorpay, and more
+* [Bot Analytics Overview](/reports-and-analytics/bot-analytics) — measure flow performance
+
+## Next Steps
+
+* [Add flow control nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — add logic, delays, and API calls to your flow
+* [Connect an external tool](/ai-agents-and-bots/bots/connectors) — integrate Shopify, HubSpot, or Razorpay into your bot flow

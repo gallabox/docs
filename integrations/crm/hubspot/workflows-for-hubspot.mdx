@@ -1,0 +1,128 @@
+---
+title: "Workflows for HubSpot"
+description: "Enhance your business operations with efficient workflows in HubSpot. Learn how to set up and automate tasks step-by-step for a streamlined process.."
+---
+
+In this article, we delve into creating efficient workflows within HubSpot, highlighting how these can streamline your business processes. Explore step-by-step instructions on setting up and automating tasks to enhance your operations.
+
+### Send WhatsApp Message
+
+1. From the top navigation bar, hover on Automation and select workflow. To start creating the Workflow, click on Create Workflow and click on either **From Scratch** or **From template**. We will select **From Scratch** to guide you through.
+
+<Frame caption="Workflow in HubSpot">
+  <video src="/images/create-workflow-from-scratch.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. You have to choose the trigger and how you want to start the workflow. For your understanding, we will choose the trigger - **Contact-based** and with a **Blank Workflow**. You can explore and choose the trigger and the way you want to start the workflow. Click on **Next**.
+
+<Frame caption="Choosing the trigger">
+  <video src="/images/choose-the-trigger.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Click on **Set up the trigger** to decide how the contact will enter the workflow we are creating. When you click on the button - Set up Triggers, a left pop-up will come for the Enrollment triggers. To know in depth about how to set up trigger, click [here](https://knowledge.hubspot.com/workflows/set-your-workflow-enrollment-triggers?KBOpenTab).
+
+<Frame caption="Trigger in the Workflow">
+  <video src="/images/choose-the-event-for-trigger.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Click on **+** to choose the action available. Under the listed Actions, scroll to the bottom to **WhatsApp Business Messaging** and select from the list**.** We will select Gallabox **Send WhatsApp Messager (Advanced**) as an example.
+
+> You have the option to select either
+>
+> 1. **Gallabox Send Whatsapp Message(Advanced):** Add dynamic content such as images, videos, and documents.
+> 2. **Gallabox Send Whatsapp Message(Footer Variables):** Add footer variables to messages, which can be particularly useful for compliance or marketing purposes, such as adding an unsubscribe link or company contact information.
+> 3. **Gallabox Send Whatsapp Message(Simple):** Send text messages quickly and easily without setting variables. It's ideal for quick updates or messages to customers.
+
+<Frame>
+  <video src="/images/adding-the-action.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+5.  After you select, you will have to paste certain values in order to successfully create the action item. For every template, you will have to add the following details:
+
+    I. Gallabox Account id
+
+    II. Gallabox API key & secret
+
+    III. WhatsApp number\
+    IV. **Name** (Contact Name)\
+    V. **Email** (Contact Email)\
+    VI. Select WhatsApp template\
+    VII. Variable, button, and payload values, if required
+
+<Frame>
+  <img src="/images/hubspot-fields.png" alt="" />
+</Frame>
+
+6. Click on your Gallabox **Profile** and select **Account Details. Copy the ID** that is being displayed at the top. Paste the Account Id under **Gallabox Account Id** in HubSpot.
+
+<Frame>
+  <video src="/images/gallabox-account-id-in-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+7. Click on **Settings** to Select the **API keys** and copy paste the API Key and API Secret.
+
+<Info>
+
+[Detailed read](https://github.com/mangoleaphq/gallabox-docs/tree/main/developer-resources/api-key-and-secret.md) if you haven't created any API Keys.
+
+</Info>
+
+<Frame>
+  <video src="/images/api-key-and-secret-for-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+8. Input the name, email, and the number you want to send the message to. For WhatsApp Number, Click on **Contact Token**. For type choose **Contact** from the list and for Token select **WhatsApp Phone Number**.
+
+<Frame>
+  <video src="/images/whatsapp-number-in-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+9. All the verified templates in the Gallabox Account will be listed here. Select the desired WhatsApp template from the list. For example we have taken the WhatsApp Template - `static_url_with_tracking`.
+
+<Frame>
+  <video src="/images/select-whatsapp-template-hubspot.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+10. If the template you are using supports some variables, buttons, and payload, You can provide those details here like shown in the picture below.
+
+<Info>
+
+The best practise is to view the selected template in another browser to verify the variables.
+
+</Info>
+
+<Frame>
+  <video src="/images/body-variables-in-sample-text.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+11. If your template has any button variables, mention them as shown in the picture below. We have added the value for CTA button.
+
+> To provide a sample text for the variable:
+>
+> 1. In the body: `name = john`, `age= 24`
+> 2. For button URL: `1 = www.gallabox.com`
+> 3. Payloads for buttons = `<button name> = payload`. For example, if buttons are named as Need Assistance and User Id, then `Need Assistance = payload 1` and `User Id = payload 2`
+
+<Frame>
+  <video src="/images/sample-value-for-button-url.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+12. If your template has any media header, paste the link in the field as shown.
+
+<Frame>
+  <video src="/images/header-link-url.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+13. Once you have pasted all the information, click on Save button as shown in the picture to save the Action.
+
+<Frame>
+  <video src="/images/save-the-action.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+14. Once you save the action, procced to click on Review and Publish button as shown in the picture below.
+
+<Frame>
+  <img src="/images/hubspot-workflow.png" alt="" />
+</Frame>
+
+_**You did it!! Now as per the trigger you have selected, the WhatsApp Message will be shared with your customers.**_

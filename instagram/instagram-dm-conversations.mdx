@@ -1,0 +1,110 @@
+---
+title: "Instagram DM Conversations"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with the **Instagram channel connected**.
+> * Roles: Owners and Admins can configure Instagram settings. Agents can view and reply to Instagram conversations.
+
+## Plan Availability
+
+| Feature                            | Basic | Essential | Advanced |
+| ---------------------------------- | :---: | :-------: | :------: |
+| Receive and reply to Instagram DMs |   ✓   |     ✓     |     ✓    |
+| AI-based DM automation             |   —   |     ✓     |     ✓    |
+
+## What are Instagram DM Conversations?
+
+When someone sends you a Direct Message on Instagram, it appears in your Gallabox Inbox alongside your WhatsApp conversations. You can reply without switching to Instagram.
+
+Instagram conversations in Gallabox include:
+
+* **Direct Messages (DMs)** — private messages sent to your Instagram Business account
+* **Story replies** — replies to your Instagram stories
+* **Reels engagement** — messages from Reels interactions
+
+## Message Types Supported
+
+| Message Type   | Supported | Notes                    |
+| -------------- | :-------: | ------------------------ |
+| Text           |     ✓     |                          |
+| Images         |     ✓     |                          |
+| Videos         |     ✓     |                          |
+| Voice messages |     ✓     |                          |
+| Reels          |     ✓     | Appears as video message |
+| Story replies  |     ✓     |                          |
+| Stickers       |     ✓     |                          |
+| Locations      |     ✓     |                          |
+| Contacts       |     ✓     |                          |
+| Documents      |     ✓     |                          |
+
+## How to Use Instagram DM Conversations
+
+1. Go to **Channels → Instagram** in the left navigation of Gallabox.
+2. Verify your Instagram account is connected and the status shows **Connected**.
+3. Open any conversation with an **Instagram icon** in the inbox.
+4. Type your reply in the compose box and click **Send**.
+5. The customer receives your reply in their Instagram DMs.
+
+<Info>
+
+The 24-hour messaging window is the most important thing to understand about Instagram messaging. Meta only allows businesses to send free-form messages within 24 hours of a customer's last message. After that window closes, you cannot send outbound messages on Instagram — the customer must message you again.
+
+</Info>
+
+## The 24-Hour Messaging Window
+
+**What it means:** Meta's business policy allows businesses to send free-form messages to users only within 24 hours of the user's last message. After that window closes, you cannot send outbound messages on Instagram — the customer must message you again.
+
+### How it works in practice
+
+| Scenario                               | What you can send                             |
+| -------------------------------------- | --------------------------------------------- |
+| Within 24hr of customer's last message | Any message (free-form text, images, etc.)    |
+| After 24hr window closes               | Nothing — the customer must message you again |
+
+### What happens if you try to send outside the window
+
+If you try to send a free-form message after the 24-hour window has closed, Gallabox will show an error:
+
+> "Message rejected. The 24-hour messaging window has expired."
+
+After the window closes, the conversation can only continue when the customer messages you again.
+
+### Extending the window
+
+The 24-hour window resets when the customer sends you another message.
+
+## Comment Automation
+
+Comment automation is separate from Instagram DMs. See [Instagram Comment Automation](/instagram/comment-automation) for availability, setup, modes, and management.
+
+## Session Management
+
+Instagram Chat AI Agent sessions use a configurable inactivity timeout that defaults to 3 minutes. This Gallabox session setting is separate from Meta's 24-hour messaging window. For full session behaviour per channel, see [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why can't I send a message to an Instagram contact?">
+The 24-hour messaging window has likely expired. Meta only allows free-form messages within 24 hours of a customer's last message. After the window closes, you cannot send any outbound message on Instagram — Instagram has no template message mechanism. The customer must message you again to reopen the window.
+</Accordion>
+
+<Accordion title="Instagram DMs are not appearing in my inbox">
+Check these things in order:
+
+1. Is your Instagram account connected? Go to **Channels → Instagram** and verify the connection status shows **Connected**.
+2. Is it an Instagram Professional account (Business or Creator)? Personal accounts cannot be connected.
+3. Has the customer sent you a DM first? Gallabox only receives messages from your connected Instagram account — if the customer hasn't messaged you yet, you can't initiate contact outside the 24-hour window.
+4. Did you grant all requested permissions during the direct Instagram connection? Disconnect and reconnect the account if permissions were skipped.
+</Accordion>
+
+<Accordion title="My Instagram account shows as connected but I'm not receiving messages">
+Check these in order:
+
+1. **Is your Instagram account a Professional account?** Go to Instagram Settings → Account → Switch to Professional Account (Business or Creator).
+2. **Has the customer sent you a DM first?** Gallabox only receives messages from contacts who have messaged your account. If a customer hasn't messaged you yet, you cannot initiate contact outside the 24-hour window.
+3. **Did you grant the requested permissions?** If messaging permissions were skipped during the direct Instagram connection, disconnect and reconnect the account.
+</Accordion>
+</AccordionGroup>

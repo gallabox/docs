@@ -1,0 +1,193 @@
+---
+title: "E-Commerce"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+E-commerce integrations connect your online store to Gallabox — enabling order status updates and payment collection directly within your WhatsApp conversations.
+
+</Info>
+
+## Plan Availability
+
+| Integration | Plan Required              | Authentication                                                                                   |
+| ----------- | -------------------------- | ------------------------------------------------------------------------------------------------ |
+| Shopify     | Basic, Essential, Advanced | OAuth                                                                                            |
+| WooCommerce | Basic, Essential, Advanced | API Key + URL                                                                                    |
+| Razorpay    | Basic, Essential, Advanced | OAuth (expiring token — see [Reconnecting Razorpay](/integrations/payment-gateways/overview#reconnecting-razorpay)) |
+| PhonePe     | Basic, Essential, Advanced | Merchant ID + API Key                                                                            |
+| Shopflo     | Basic, Essential, Advanced | Webhook URL                                                                                      |
+
+## Shopify
+
+### What Shopify integration does
+
+Connects your Shopify store to Gallabox — syncs orders, updates status, and manages customer records.
+
+### Supported Shopify actions
+
+* **Update order tag/status** — update an order's tag or status
+* **Create order** — create a new order
+* **Draft order** — create a draft order
+* **Complete draft order** — convert a draft order into an order
+* **Create customer record** — sync contact data to Shopify
+
+### How to connect Shopify
+
+1. Go to **Integrations → Shopify**
+2. Click **Connect with Shopify** — redirected to Shopify's OAuth page
+3. Select the store to connect (if you have multiple)
+4. Authorize Gallabox to access your Shopify store
+5. The connection appears in your Integrations list
+
+**Permissions required:** Read and write access to orders, products, and customers
+
+### Shopify use cases
+
+**Payment → confirm order:**
+
+```
+Razorpay: Create payment link
+  → Send Text: "Complete your payment: {{payment_link}}"
+  → Wait for Order: Event = "Payment Successful"
+    → on event: Shopify: Update order status = "Confirmed"
+               Send Text: "Payment confirmed! Your order #{{order_id}} is being prepared."
+```
+
+---
+
+## WooCommerce
+
+<Warning>
+
+The direct WooCommerce store connector is being phased out. For new cart-recovery setups, use **Shopflo** (below); for other store events, use **webhooks**.
+
+</Warning>
+
+### What WooCommerce integration does
+
+Connects your WooCommerce store (WordPress) to Gallabox — update order metadata from your bot flows.
+
+### Supported WooCommerce actions
+
+* **Update order metadata** — update custom order fields in WooCommerce
+
+### How to connect WooCommerce
+
+1. Go to **Integrations → WooCommerce**
+2. Enter your **Store URL** (e.g., `https://mystore.com`)
+3. Enter your **Consumer Key** and **Consumer Secret** (from WordPress Admin → WooCommerce → Settings → Advanced → REST API)
+4. Click **Connect**
+5. Verify the connection with a test request
+
+**Note:** WooCommerce REST API must be enabled in your WordPress settings.
+
+### WooCommerce use cases
+
+Update custom order fields in WooCommerce when a bot flow completes a checkout step:
+
+```
+Wait for Order: Event = "Payment Successful"
+  → on event: WooCommerce: Update order metadata (payment_status="paid", confirmed_via="WhatsApp bot")
+             Send Text: "Your order is confirmed!"
+```
+
+---
+
+## Razorpay
+
+Razorpay is documented with the other payment gateways — see [Payment Gateway integrations](/integrations/payment-gateways/overview).
+
+---
+
+## PhonePe
+
+PhonePe is documented with the other payment gateways — see [Payment Gateway integrations](/integrations/payment-gateways/overview).
+
+---
+
+## Shopflo
+
+### What Shopflo integration does
+
+Connects Shopflo (checkout platform) to Gallabox — recovers abandoned carts by sending automated WhatsApp follow-up messages to customers who left items behind. This is a **workflow integration**: Shopflo's abandoned-cart webhook triggers the message; no bot flow is needed.
+
+### Available workflows
+
+* **Abandoned Checkout** — send a recovery template when a customer abandons the cart. Available variables include Full Name, Total Price, Order Items, Checkout URL, and Checkout Token — so the message can link straight back to the customer's cart:
+
+```
+Hi {{Full Name}}, you left something behind!
+Total: {{Total Price}} — {{Order Items}}
+Complete your purchase: {{Checkout URL}}?token={{Checkout Token}}
+```
+
+After the message, you can add an **Action** — update contact tags, conversation tags, or contact email.
+
+### How to connect Shopflo
+
+1. Go to **Integrations → Shopflo**, click **Connect**, name the integration, and submit — copy the generated **Webhook URL**
+2. In Shopflo: **Settings → Integrations → Abandoned Cart Webhooks**, enable webhook tracking, paste the URL, enable it, and save
+3. Back in Gallabox, choose the WhatsApp channel and click **Update Configuration**
+4. Click **Use** beside the Abandoned Checkout workflow, pick a template, map variables, and click **Create Workflow**
+
+To disable it later, toggle the workflow's **Status** switch off in the Workflows tab.
+
+---
+
+## WooCommerce Cart Abandonment Recovery
+
+<Danger>
+
+This integration (via the CartFlows / Cart Abandonment Recovery WordPress plugin) is **deprecated**. Existing workflows may experience disruptions. For new cart-recovery setups, use Shopflo or the standard WooCommerce integration with webhooks.
+
+</Danger>
+
+---
+
+## Complete Order Flow: Razorpay + Shopify + HubSpot + Google Sheets
+
+```
+1. Bot flow: Razorpay: Create payment link → Send Text: "Complete your payment: {{payment_link}}"
+2. Customer pays via the link
+3. Bot flow: Wait for Order: Event = "Payment Successful"
+   → on event:
+     a. Shopify: Update order status = "Confirmed"
+     b. HubSpot: Create/update deal in "Orders" pipeline
+     c. Google Sheets: Append row with order details
+     d. Send Text: "Payment confirmed! Your order #{{order_id}} will ship within 24 hours."
+```
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I connect multiple Shopify stores?">
+Yes — you can connect multiple Shopify stores as separate integrations. In the bot flow, select which store to use when configuring the Shopify action.
+</Accordion>
+
+<Accordion title="What happens if a payment fails?">
+Use the **Wait for Order** node's timeout branch after sending the payment link:
+
+```
+Razorpay: Create payment link
+  → Send Text: "Complete your payment: {{payment_link}}"
+  → Wait for Order: Event = "Payment Successful"
+    → on event: Shopify: Update order status = "Confirmed"
+               Send Text: "Payment confirmed!"
+    → on timeout: Send Text: "We haven't received your payment. Please try again or contact support."
+```
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Integrations Overview](/integrations/overview) — all available integrations
+* [Payment Gateway Integrations](/integrations/payment-gateways/overview) — Razorpay, Stripe
+* [Bot Connectors Overview](/ai-agents-and-bots/bots/connectors) — how connectors work in bot flows
+* [WhatsApp Shop Overview](/whatsapp/shop) — selling products via WhatsApp

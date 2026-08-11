@@ -1,0 +1,138 @@
+---
+title: "Ice Breakers and CTAs"
+description: "Available on all Gallabox plans."
+---
+
+<Info>
+
+**Who can use this?**
+
+* Gallabox users with **Bot Builder access**.
+* Roles: Owners and Admins — ice-breakers and CTAs are configured in the Chat AI Agent settings.
+
+</Info>
+
+<Info>
+
+Ice-breakers and CTAs are configured inside your Chat AI Agent's Web Widget Settings, not in a separate section. They only appear in the Web Chat widget — not on WhatsApp or Instagram.
+
+</Info>
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What are Ice-breakers?
+
+Ice-breakers are pre-set questions that visitors can click to start a conversation — instead of having to type something from scratch. They reduce the friction of starting a chat and guide visitors toward the most common use cases.
+
+**Example ice-breakers:**
+
+* "What are your pricing plans?"
+* "Do you offer a free trial?"
+* "How do I get started?"
+* "I have a billing question"
+
+When a visitor clicks an ice-breaker, it sends that question as the first message in the chat — and the Chat AI Agent responds accordingly.
+
+## What are CTA Buttons?
+
+CTA (Call-to-Action) buttons are buttons inside the widget that visitors can click to take a specific action — such as "Book a Demo", "Start Free Trial", or "View Pricing". Unlike ice-breakers (which start a conversation), CTA buttons can link to external pages or trigger specific flows.
+
+**Example CTAs:**
+
+* "Book a Demo" → links to your booking page
+* "Start Free Trial" → links to your signup page
+* "View Pricing" → links to your pricing page
+* "Talk to Sales" → triggers a handoff to your WhatsApp
+
+## How to Set Up Ice-breakers
+
+1. Go to **AI Agents and Bots** in the left navigation of Gallabox.
+2. Open a Chat AI Agent that has **Web** selected as a channel.
+3. Click **Settings** on the agent.
+4. Click **Web Widget Settings**.
+5. Scroll to **Ice-breakers**.
+6. Toggle **Show ice-breakers** to on.
+7. Add your questions — one per line.
+8. Click **Save**.
+
+### Best Practices for Ice-breakers
+
+* **Keep them short** — 3–8 words max. Visitors scan, they don't read.
+* **Match your top use cases** — look at your inbox to see what visitors most often ask about.
+* **Use the visitor's language** — not product jargon. "How much does it cost?" not "What is your pricing tier structure?"
+* **Limit to 4–6 options** — too many options overwhelm visitors.
+
+## How to Set Up CTA Buttons
+
+1. Go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**.
+2. Scroll to **CTA Buttons**.
+3. Toggle **Show CTA buttons** to on.
+4. Click **Add CTA**.
+5. Fill in:
+   * **Button text** — e.g., "Book a Demo"
+   * **URL** — the page the button links to (or leave blank to trigger a handoff)
+   * **Icon** — choose from the icon library or upload a custom icon
+6. Add up to 4 CTA buttons.
+7. Click **Save**.
+
+<Check>
+
+**Pro tip:** Use CTA buttons to drive visitors toward your highest-value actions. If your conversion goal is demo bookings, make "Book a Demo" the first CTA button. If it's signups, make "Start Free Trial" the first button. Track clicks in your website analytics to see which CTAs drive the most conversions.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a project management SaaS and want to use ice-breakers to qualify visitors before they start chatting — so the Chat AI Agent knows whether they're a trial user, a paying customer, or a prospect evaluating the tool.
+
+Here's how you'd set it up:
+
+<Steps>
+
+<Step>
+Go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**.
+</Step>
+
+<Step>
+Enable **Ice-breakers** and add:
+
+* "I'm already a customer and need help"
+* "I want to start a free trial"
+* "I want to talk to sales"
+* "I'm evaluating your tool"
+</Step>
+
+<Step>
+Enable **CTA Buttons** and add:
+
+* "Start Free Trial" → links to `https://yoursite.com/signup`
+* "Book a Demo" → links to `https://yoursite.com/demo`
+</Step>
+
+<Step>
+Set the agent's instructions to use the ice-breaker response to route the conversation appropriately — existing customers get routed to support, trial users get routed to onboarding, and prospects get routed to sales.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can ice-breakers be different for different pages on my website?">
+Not natively — the same ice-breakers apply to all pages where the widget is embedded. To show different ice-breakers on different pages, embed different Chat AI Agents (with different configurations) on different pages.
+</Accordion>
+
+<Accordion title="What happens if a visitor clicks an ice-breaker but then doesn't get a response?">
+The ice-breaker sends the question as a message, just as if the visitor had typed it. If the Chat AI Agent isn't responding, check that: (1) the agent is active and published, (2) the agent is assigned to the conversation, (3) the AI credits balance is not exhausted.
+</Accordion>
+
+<Accordion title="Can I use CTAs to handoff to WhatsApp?">
+Yes. Leave the **URL** field blank and enable **Handoff to WhatsApp** in the CTA settings. When a visitor clicks the CTA, the conversation is escalated to your WhatsApp channel — useful for visitors who need immediate, human-level support.
+</Accordion>
+
+<Accordion title="How many ice-breakers and CTAs can I add?">
+Keep the list short — 3–4 ice-breakers and a couple of CTA buttons work best. More options than this can overwhelm visitors and reduce engagement.
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,225 @@
+---
+title: "Templates"
+description: "Available on all Gallabox plans."
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Broadcast access** who want to send business-initiated messages on WhatsApp.
+> * Roles: Owners and Admins — template creation and management.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+<Info>
+
+Template messages are charged per message by category — see [Message Credits](/pricing-and-billing/message-credits) for pricing.
+
+</Info>
+
+## What are Template Messages?
+
+Template messages are pre-approved message formats that businesses use to initiate conversations with customers on WhatsApp. Meta requires all business-initiated messages to use approved templates — this is a WhatsApp Business API policy, not a Gallabox rule.
+
+**Why templates exist:** Meta uses templates to prevent spam and ensure businesses communicate professionally on WhatsApp. Each template must be reviewed and approved by Meta before you can use it.
+
+## Template Categories
+
+| Category           | When to use                                         | Example                                                         |
+| ------------------ | --------------------------------------------------- | --------------------------------------------------------------- |
+| **Marketing**      | Promotional content, offers, updates, announcements | "Hi! Get 20% off your first order — use code WELCOME20"         |
+| **Utility**        | Transactional information, updates, reminders       | "Your order #12345 has been dispatched. Track it here: \[link]" |
+| **Authentication** | One-time passwords (OTPs), PINs, security codes     | "Your verification code is 847293. Valid for 5 minutes."        |
+
+<Info>
+
+Customer service replies within the 24-hour messaging window don't use templates at all — they're sent as free-form messages.
+
+</Info>
+
+### Marketing Templates
+
+Use for promotional and non-transactional messages:
+
+* Discount offers and promotions
+* New product announcements
+* Company news and updates
+* Re-engagement campaigns
+
+**Requirements:** Marketing templates must include an unsubscribe option (a list or button that lets customers opt out).
+
+### Utility Templates
+
+Use for transactional and operational messages:
+
+* Order status updates
+* Appointment reminders
+* Delivery notifications
+* Booking confirmations
+* Payment receipts
+
+**Requirements:** Utility templates must be tied to a recent customer action or request.
+
+### Authentication Templates
+
+Use for security-sensitive messages:
+
+* OTP verification codes
+* Password reset links
+* Account verification
+* Two-factor authentication (2FA)
+
+**Requirements:** Authentication templates must be time-sensitive and can only contain the OTP/code — no marketing content.
+
+## The Approval Process
+
+<Steps>
+
+<Step title="Create the template">
+Create the template in Gallabox — write the message text, add variables, buttons, and media.
+</Step>
+
+<Step title="Submit to Meta">
+Submit the template to Meta for review — Gallabox sends it to Meta's WhatsApp Business API for approval.
+</Step>
+
+<Step title="Meta reviews it">
+Meta reviews it — typically within 24–48 hours (can take up to 7 days for new businesses).
+</Step>
+
+<Step title="Status updates in Gallabox">
+Status updates in Gallabox:
+
+* **Submitted / Pending** — sent to Meta and under review
+* **Approved** — ready to use
+* **Rejected** — Meta declined it (with reason provided); fix the issue and resubmit
+* **Paused** — Meta temporarily paused the template due to negative feedback
+* **Disabled** — Meta disabled the template
+</Step>
+
+</Steps>
+
+<Warning>
+
+**Template sync delay:** After Meta approves a template, it may take up to a few hours to appear in Gallabox's template list. If a template shows "Approved" in Meta's dashboard but not in Gallabox, wait a few hours and refresh before attempting to use it.
+
+</Warning>
+
+### Why Templates Get Rejected
+
+Common reasons for rejection:
+
+* **Too promotional** — Marketing content in a Utility or Service template
+* **Missing opt-out** — Marketing templates without an unsubscribe option
+* **Too vague** — Template purpose not clear from the content
+* **Variable misuse** — Variables used incorrectly or in wrong positions
+* **Brand mismatch** — Template content doesn't match your verified business name
+
+## Template Limits
+
+| Limit                            | Value                                                       |
+| -------------------------------- | ----------------------------------------------------------- |
+| **Active templates per account** | Based on your quality rating                                |
+| **Template name length**         | Max 512 characters (letters, numbers, and underscores only) |
+| **Message body length**          | Max 1024 characters                                         |
+| **Header / footer length**       | Max 60 characters each                                      |
+| **Buttons per template**         | Up to 10                                                    |
+| **Header media**                 | 1 image, video, document, or location                       |
+
+## How to Create a Template
+
+<Steps>
+
+<Step title="Go to WhatsApp Templates">
+Go to **WhatsApp Templates** in the left navigation of Gallabox.
+</Step>
+
+<Step title="Click Create Template">
+Click **Create Template**.
+</Step>
+
+<Step title="Select the category">
+Select the **category** (Marketing, Utility, or Authentication).
+</Step>
+
+<Step title="Write the template name">
+Write the **template name** — this is how you'll reference it in Gallabox.
+</Step>
+
+<Step title="Write the message body">
+Write the **message body** — add variables using `{{variable_name}}` syntax.
+</Step>
+
+<Step title="Add header media">
+Add **header media** (optional) — image, video, or document.
+</Step>
+
+<Step title="Add buttons">
+Add **buttons** (optional) — call-to-action buttons or quick reply buttons.
+</Step>
+
+<Step title="Submit for review">
+Click **Submit for Review**.
+</Step>
+
+<Step title="Wait for Meta's approval">
+Wait for Meta's approval — check status in the template list.
+</Step>
+
+</Steps>
+
+<Check>
+
+**Pro tip:** Start with Utility templates — they're the easiest to get approved because they're tied to real customer actions. Build a library of common transactional templates (order confirmation, appointment reminder, delivery update) before investing in Marketing templates which require opt-out options and are reviewed more strictly.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a restaurant and want to send order confirmations, delivery updates, and promotional offers via WhatsApp.
+
+Here's how you'd create the templates:
+
+1.  **Utility — Order Confirmation:**
+
+    > _"Hi \{\{1\}\}! We've received your order #\{\{2\}\}. Estimated delivery: \{\{3\}\}. Track your order: \{\{4\}\}"_
+
+    * Variables: Name, Order number, Delivery time, Tracking link
+2.  **Utility — Delivery Update:**
+
+    > _"Great news! Your order #\{\{1\}\} is on its way. Expected delivery: \{\{2\}\}. Your delivery partner is \{\{3\}\}."_
+
+    * Variables: Order number, Delivery time, Partner name
+3.  **Marketing — Weekly Offer:**
+
+    > _"Hi \{\{1\}\}! This week only: \{\{2\}\}% off \{\{3\}\}. Use code \{\{4\}\} at checkout. Valid until \{\{5\}\}."_
+
+    * Variables: Name, Discount %, Product, Code, Expiry date
+    * Add a **List** button with an unsubscribe option
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why was my template rejected?">
+Meta provides a rejection reason in the template details. Common reasons and fixes:
+
+* **"Too promotional"** — If it's a transactional message, make sure it's in the Utility category, not Marketing. Remove any promotional language.
+* **"Missing opt-out"** — Marketing templates must include a List or Button that lets customers opt out of future marketing messages.
+* **"Vague purpose"** — Make the template content clearly explain what the message is about. Don't rely on the template name alone to convey purpose.
+* **"Variable in wrong position"** — Variables should be in natural positions in the text, not at the start or end without context.
+</Accordion>
+
+<Accordion title="Can I edit an approved template?">
+Yes, but editing an approved template will require re-submission for Meta's review. The currently approved version will remain active until the new version is approved. Changes to the template body, variables, or buttons all require re-approval.
+</Accordion>
+
+<Accordion title="What's the difference between a template and a free-form message?">
+A **free-form message** is any message you type directly in the compose box. You can only send free-form messages within the 24-hour messaging window (after a customer's last message). A **template message** is pre-approved by Meta — you can send it at any time, even outside the 24-hour window. Use templates for any proactive outreach; use free-form messages only for reactive replies within the window.
+</Accordion>
+
+<Accordion title="How do I use variables in templates?">
+Variables are placeholders that get replaced with actual values when the template is sent. Use the syntax `{{1}}`, `{{2}}`, etc. for numbered variables, or `{{contact.name}}`, `{{contact.phone}}` for system variables. When you send the template, you'll be prompted to fill in the values for each variable. See [Variables](/settings/variables) for the full list of available system variables.
+</Accordion>
+</AccordionGroup>

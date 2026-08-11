@@ -1,0 +1,73 @@
+---
+title: "Cashfree"
+description: "Integrate Cashfree with Gallabox effortlessly. Connect, update configurations, and set up automated messages for your desired workflow."
+sidebarTitle: "Overview"
+---
+
+Integrate Cashfree with Gallabox to streamline payments and transactions. Follow this guide to set up the integration and automate tasks and reduce errors by linking these services.
+
+### Connect the platforms.
+
+1. In Gallabox, navigate to "Integration" and select the "Cashfree" app from the available integration options.
+
+<Frame>
+  <video src="/images/cashfree-my-integrations.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on "Connect" to generate a Webhook URL . Provide the name for the Integration and click on "Submit".
+
+<Frame>
+  <video src="/images/cashfree-integration-connect.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Navigate to your Cashfree portal. In the left-hand menu, select "Developers." Then, click on "Webhooks."
+
+<Frame>
+  <video src="/images/cashree-portal.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Click "Add Webhook Endpoint". Copy the Webhook URL generated in Gallabox (Step 3) and paste it under the endpoint URL. Then, choose the webhook version.
+
+<Frame>
+  <video src="/images/cashfree-webhook-url.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+### Test the Webhook Endpoint
+
+5. Next, test the Webhook Endpoint by clicking on "Test." Once you receive a response, click "Next."
+
+<Frame>
+  <video src="/images/test-webhook-endpoint-url.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Danger>
+
+If you are getting an error - Merchant Key is not Present for id \*\*\*\*\*\*\*\*, create an API Key in Cashfree. 
+
+Developers > API Keys > Generate API Key. 
+
+</Danger>
+
+6. Select all events for the Endpoint URL and click on "Add Webhook".
+
+<Frame>
+  <video src="/images/cashfree-select-events-for-the-webhook.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+### Configure the settings
+
+7. Choose your preferred channel from the drop-down menu and click "Update Configurations".
+
+<Frame>
+  <video src="/images/cashfree-update-configurations.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+By following these steps, you have successfully integrated Cashfree with Gallabox, allowing for seamless transaction processing and enhanced customer interaction.
+
+### Remove Cashfree Integration
+
+If you want to delete the current Cashfree Integration due to some reasons, follow the below GIF.
+
+<Frame>
+  <video src="/images/delete-cashfree-integration.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>

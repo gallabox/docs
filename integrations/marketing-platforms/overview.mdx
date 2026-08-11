@@ -1,0 +1,182 @@
+---
+title: "Marketing Platforms"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Marketing platform integrations let you run WhatsApp campaigns from the tools your marketing team already uses — CleverTap, MoEngage, WebEngage, and Fyno send messages _through_ your Gallabox WhatsApp channel, while Facebook Leads brings ad leads _into_ Gallabox automatically.
+
+</Info>
+
+## Plan Availability
+
+| Integration    | Plan Required              | Authentication                     |
+| -------------- | -------------------------- | ---------------------------------- |
+| CleverTap      | Essential, Advanced        | Webhook URL + callback URLs        |
+| MoEngage       | Essential, Advanced        | API Secret + delivery callback URL |
+| WebEngage      | Essential, Advanced        | Gallabox API Key                   |
+| Fyno           | Essential, Advanced        | Access Token + callback URL        |
+| Facebook Leads | Basic, Essential, Advanced | Facebook OAuth (page admin access) |
+
+## How These Integrations Work
+
+**CleverTap, MoEngage, WebEngage, Fyno** — Gallabox acts as the WhatsApp service provider (WSP). You build and target the campaign in the marketing platform; the messages are sent through your Gallabox WhatsApp number. Delivery statuses flow back to the platform via a callback URL. Your Meta-approved templates must be copied into the platform exactly as they exist in Gallabox (with variables renumbered as `{{1}}`, `{{2}}`… where required).
+
+**Facebook Leads** — works in the opposite direction: when someone submits a Facebook Lead Ad form, Gallabox creates the contact and triggers a workflow (send a template, tag the contact, start a sequence).
+
+## CleverTap
+
+### What CleverTap integration does
+
+Send WhatsApp campaigns from CleverTap through your Gallabox number — with delivery, view, and click tracking inside CleverTap's campaign analytics (Qualified, Sent, Delivered, Viewed, Clicks, Converted Users).
+
+### How to connect CleverTap
+
+1. In Gallabox, go to **Integrations → CleverTap** and click **Connect** — Gallabox generates a **Webhook URL End Point**
+2. Select the channel and click **Update Configuration**
+3. In CleverTap: **Settings → Channels → WhatsApp → WhatsApp Connect → +Provider Configuration**
+4. Choose provider **Generic (other)**, enter a name and your Gallabox WhatsApp number (with country code, e.g. `9198XXXXXXXX`)
+5. Copy CleverTap's **Delivery Report Callback URL** and **Inbound Message Callback URL** into the Gallabox CleverTap configuration page
+6. Paste the Gallabox **Webhook URL End Point** into CleverTap's WhatsApp setup, save on both sides
+
+### Adding templates
+
+Copy each Meta-approved template from Gallabox into CleverTap (**Provider → Templates → +Template**) — name, header, body, buttons, and language must match exactly. CleverTap doesn't allow duplicate variables, so don't reuse a variable twice in the Gallabox template either.
+
+### Common errors
+
+| Error                                         | Fix                                                                |
+| --------------------------------------------- | ------------------------------------------------------------------ |
+| Channel number doesn't match the request      | Copy the channel number exactly from the configuration             |
+| Parameter mismatch                            | Variable count must match between Gallabox and CleverTap templates |
+| Processed template doesn't match request body | Template body must be identical in both systems                    |
+
+---
+
+## MoEngage
+
+### What MoEngage integration does
+
+Send WhatsApp campaigns (one-time, periodic, or event-triggered) from MoEngage through your Gallabox number, with delivery tracking in MoEngage.
+
+### How to connect MoEngage
+
+1. In Gallabox, go to **Integrations → MoEngage**, name the integration, and click **Connect**
+2. Select the channel on the configuration page
+3. In MoEngage: **Settings → Channel (WhatsApp) → Sender Configuration → +Add connector → Gallabox**, then **+Sender**
+4. Enter a sender name and your **WABA number** (copy it from Gallabox: **Settings → WhatsApp Channel → WhatsApp**)
+5. Copy MoEngage's **Delivery Tracking URL** into the Gallabox configuration and click **Update Configuration** — Gallabox returns an **API Secret**
+6. Paste the API Secret into MoEngage's **Authorization** field and save
+
+### Supported template types
+
+Beyond text and button templates: **Flow, Carousel, Location, Catalogue, and Payment** templates.
+
+### Template note
+
+MoEngage does not validate templates when you save them — copy the approved Gallabox template exactly (name, category, header, body, footer, buttons) and renumber variables as `{{1}}`, `{{2}}`, `{{3}}`, or the campaign fails with a template mismatch.
+
+---
+
+## WebEngage
+
+### What WebEngage integration does
+
+Send WhatsApp campaigns from WebEngage through your Gallabox number — Gallabox is added as a private WhatsApp Service Provider (WSP) in WebEngage.
+
+### How to connect WebEngage
+
+1. In Gallabox, go to **Integrations → WebEngage**, name the integration, and click **Connect** — Gallabox provides an **API Key**
+2. In WebEngage: **Data Platform → Integrations → WhatsApp Setup → Configure → Private WSP**
+3. Fill in the provider form:
+   * **Configuration Name:** Gallabox
+   * **WhatsApp Business Number:** your Gallabox number in `91XXXXXXXXXX` format
+   * **URL:** `https://server.gallabox.com/integrations/webengage/webhook`
+   * **Request Type:** Send personalization variables
+   * **Custom Header:** `Authorization: Bearer <<Your Gallabox API Key>>`
+4. Save, then set throttling: **Configuration → Throttling → WhatsApp → 1000 per minute**
+
+### Adding templates
+
+Add each approved Gallabox template via **Add WhatsApp Template** in WebEngage, renumbering variables as `{{1}}`, `{{2}}`. For carousel templates, add key-value pairs like `card_0_button_0`, `card_0_header_url` per card and button.
+
+---
+
+## Fyno
+
+### What Fyno integration does
+
+Send WhatsApp notifications from Fyno (a notification orchestration platform) through your Gallabox number.
+
+### How to connect Fyno
+
+1. In Gallabox, go to **Integrations → Fyno**, name the integration, and click **Submit**
+2. In Fyno: **Integrations → WhatsApp → Gallabox → Add Account**, name the integration
+3. Copy Fyno's **Delivery Callback URL** into the Gallabox Fyno configuration
+4. Select the WhatsApp channel and click **Update Configuration** — Gallabox generates an **Access Token**
+5. Paste the token into Fyno and click **Add Account**, then click **Update Configuration** in Gallabox once more
+
+### Supported template types
+
+Beyond text and button templates: **Flow, Carousel, Location, Catalogue, and Payment** templates. In Fyno, create a template with type **Synced** to pick directly from your Gallabox templates.
+
+---
+
+## Facebook Leads
+
+### What Facebook Leads integration does
+
+Automatically creates a Gallabox contact when someone submits a Facebook Lead Ad form, and sends them a WhatsApp template immediately — no manual export/import.
+
+### How to connect Facebook Leads
+
+1. In Gallabox, go to **Integrations → Facebook Leads** and click **Connect**
+2. Name the integration and click **Continue with Facebook**
+3. Select the Facebook page (you need admin access to the business page), grant the permissions, and click **Done**
+4. Select the WhatsApp channel and click **Update Configuration** — the channel can't be changed after this
+
+### Setting up workflows
+
+1. Go to **Workflow → Create New Workflow**
+2. Select the **Lead Ad Form** and pick a template
+3. Map the variables (recipient name, phone) from the form fields
+4. Optionally add an **Action** — update contact fields or tags with operations **Append**, **Replace**, or **Add if Empty**
+5. Click **Create Workflow**
+
+You can create one workflow per page and per lead form. Create a test lead before going live.
+
+### Use case — lead nurture sequence
+
+```
+FB Lead Ad submitted
+  → Workflow: send template "welcome_offer" + Action: add contact tag "fb-lead"
+  → Sequence with trigger "On create, Tags contains fb-lead" starts
+    → Day 1: product intro, Day 3: social proof, Day 5: discount offer
+```
+
+See [Sequences](/whatsapp/sequences/overview) for the drip-campaign side of this setup.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Who is billed for the WhatsApp messages sent via these platforms?">
+Messages go out through your Gallabox WhatsApp channel, so normal Gallabox/Meta conversation pricing applies to your account — the marketing platform's own subscription is billed separately by that vendor.
+</Accordion>
+
+<Accordion title="Why did my campaign fail with a template mismatch?">
+The template in the marketing platform must match the Meta-approved Gallabox template exactly — name, category, header, body, footer, buttons — with variables renumbered to `{{1}}`, `{{2}}`. Even a small wording difference causes a mismatch.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Integrations Overview](/integrations/overview) — all available integrations
+* [Create and Manage Templates](/whatsapp/templates/create-template) — approve the templates these platforms send
+* [Sequences](/whatsapp/sequences/overview) — nurture Facebook leads with drip campaigns
+* [Ad Campaigns (CTWA)](/whatsapp/ad-campaigns/overview) — click-to-WhatsApp ads and lead tracking

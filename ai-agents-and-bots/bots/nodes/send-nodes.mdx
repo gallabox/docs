@@ -1,0 +1,194 @@
+---
+title: "Send Nodes"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Send nodes deliver content to the customer — text, media, buttons, lists, product catalogs, or WhatsApp-specific content. Unlike Ask nodes, Send nodes don't wait for a reply — the flow immediately continues to the next node after delivery.
+
+</Info>
+
+## Plan Availability
+
+| Node                   | Basic | Essential | Advanced |
+| ---------------------- | :---: | :-------: | :------: |
+| Send Text              |   ✓   |     ✓     |     ✓    |
+| Send Media             |   ✓   |     ✓     |     ✓    |
+| Send WhatsApp Template |   ✓   |     ✓     |     ✓    |
+| Send Products          |   ✓   |     ✓     |     ✓    |
+| Send Collection        |   ✓   |     ✓     |     ✓    |
+| Send Reply Buttons     |   ✓   |     ✓     |     ✓    |
+| Send List              |   ✓   |     ✓     |     ✓    |
+| Send Location          |   ✓   |     ✓     |     ✓    |
+| Send Form              |   —   |     ✓     |     ✓    |
+| Send WhatsApp Payment  |   —   |     ✓     |     ✓    |
+| Send Voice             |   —   |     —     |     ✓    |
+
+## How Send Nodes Work
+
+1. **The bot sends the message** — the customer sees it in WhatsApp, Instagram, or Web Chat
+2. **Delivery is confirmed** — Gallabox tracks read receipts and delivery status
+3. **The flow continues immediately** — no waiting for a reply; the next node executes right away
+
+Send nodes are the building blocks of every bot flow — they deliver the actual content the customer sees.
+
+## Send Node Types
+
+### Message Nodes
+
+#### Send Text
+
+Sends a plain text message. Supports **variables** for personalisation.
+
+**Example:** _"Hi \{\{contact.first\_name\}\}, your order #\{\{order\_number\}\} has been dispatched!"_
+
+Available variables:
+
+* `{{contact.name}}`, `{{contact.first_name}}`, `{{contact.email}}`, `{{contact.phone}}`
+* Any custom contact field you've created
+* Flow variables set earlier in the flow: `{{delivery_date}}`, `{{support_topic}}`
+
+#### Send Media
+
+Sends an image, audio file, video, or document. Provide a file URL or pick from your Gallabox media library.
+
+**Supported formats:**
+
+* Images: JPG, PNG, WebP (max 5MB on WhatsApp)
+* Audio: MP3, OGG (max 16MB)
+* Video: MP4 (max 16MB)
+* Documents: PDF, DOCX (max 16MB upload via Gallabox)
+
+**Example:** _"Here's your invoice"_ → sends a PDF document with the filename as the caption
+
+#### Send Location
+
+Sends a map pin to the customer.
+
+**Example:** _"Our store is at:"_ → sends a Google Maps location
+
+### WhatsApp-Specific Nodes
+
+#### Send WhatsApp Template
+
+Sends a pre-approved Meta template message. Required for any business-initiated message outside the 24-hour conversation window.
+
+**Important:** Template messages must be approved by Meta before use. Check your template status in **Channels → WhatsApp → Templates**.
+
+**Example:** _"Your appointment is confirmed for \{\{1\}\}"_ — `{{1}}` is replaced with the date variable at send time.
+
+Learn more: [WhatsApp Templates Overview](/whatsapp/templates/overview)
+
+#### Send Products
+
+Sends product cards from your WhatsApp Business catalog. The customer browses and taps to buy — without leaving WhatsApp.
+
+**Prerequisites:** A Facebook Catalog connected to your WhatsApp Business account.
+
+**Example:** _"Here are our featured products:"_ → sends a horizontal carousel of product cards with images, prices, and descriptions
+
+Learn more: [WhatsApp Shop Overview](/whatsapp/shop)
+
+#### Send Collection
+
+Sends a WhatsApp collection — a structured list of up to 10 items with a header, subtitle, and action button. Used for menus, service categories, or product categories.
+
+**Example:** _"Here's our service menu:"_ → sends a collection with sections: \[Consultation] \[Support] \[Sales] \[Returns]
+
+#### Send List
+
+Sends a WhatsApp list message — up to 10 options in a scrollable list. Each option has a title and description.
+
+**Example:** _"Select a category:"_ → sends a list of product categories the customer can tap
+
+#### Send Form (Essential+)
+
+Sends a multi-field WhatsApp form. The customer fills in all fields in one go.
+
+**Example:** Collect booking details — name, email, phone, date, notes — all in one form submission, returned as structured data.
+
+#### Send WhatsApp Payment (Essential+)
+
+Triggers a WhatsApp Pay payment request. The customer pays without leaving the chat.
+
+**Requires:** A connected payment gateway (Razorpay or PayU), or WhatsApp native UPI payments.
+
+**Example:** _"Your order total is ₹500. Tap to pay:"_ → sends an inline payment button that opens WhatsApp Pay
+
+### Interactive Nodes
+
+#### Send Reply Buttons
+
+Sends a message with up to 3 inline reply buttons. The customer taps a button to proceed.
+
+**Example:** _"Did this help solve your issue?"_\
+Buttons: \[Yes, thanks!] \[No, I need more help] \[Talk to an agent]
+
+**Note:** Buttons only work inside the 24-hour conversation window. Outside the window, use a Send WhatsApp Template instead.
+
+### Voice Node
+
+#### Send Voice (Advanced only)
+
+Sends a pre-recorded audio message as a voice note. Useful for announcements, promotions, or when the customer prefers audio.
+
+**Example:** _"New collection just dropped — tap to hear our latest offer!"_ → sends a voice message
+
+**Requires:** An audio file (MP3 or OGG) uploaded to Gallabox's media library or a public URL.
+
+## Personalising Send Messages
+
+Use variables to make every message feel personal — for example, `{{contact.first_name}}` renders as "Priya" and `{{order_number}}` as "ORD-12345". Type `{{` in any Send node to see the full list, or see [Variables in Bot Flows](/settings/variables).
+
+## Combining Send and Ask Nodes
+
+Most bot flows alternate between Send (to inform/present options) and Ask (to collect input):
+
+```
+Send Text: "What would you like to do?"
+Send Reply Buttons: [Track Order] [Place Order] [Talk to Agent]
+Ask Reply Buttons: (captures the button tap → stores in {{user_choice}})
+  → Condition: {{user_choice}} = "Track Order" → Track order flow
+  → Condition: {{user_choice}} = "Place Order" → Place order flow
+  → Condition: {{user_choice}} = "Talk to Agent" → Assign to agent
+```
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My image keeps failing to send — why?">
+Image sending failures usually mean:
+
+1. **File too large** — WhatsApp has a 5MB limit for images. Compress the image or reduce the resolution.
+2. **File URL is not publicly accessible** — the URL must be publicly reachable (not behind a login wall). Gallabox's media library hosts files correctly for WhatsApp delivery. If using an external URL, make sure it starts with `https://`.
+3. **Unsupported format** — WhatsApp supports JPG, PNG, WebP for images. Try converting to JPG.
+</Accordion>
+
+<Accordion title="My Send Template isn't going through — what do I check?">
+1. **Is the template approved?** Go to Channels → WhatsApp → Templates. Pending templates show a status badge.
+2. **Are variable names correct?** Template variables must match exactly — e.g., `{{1}}` not `{{name}}`. Check the template body in Meta Business Manager.
+3. **Are you within the 24-hour window?** If the customer's last message was more than 24 hours ago, you can only send templates — not free-form Send Text messages.
+4. **Is the template category correct?** Utility templates for confirmations; Marketing templates for promotional content.
+</Accordion>
+
+<Accordion title="How many products can I show in a Send Products node?">
+The Send Products node displays up to 30 products from your Facebook Catalog in a carousel. If you have more products, use a Send Collection to show top-level categories first, then route to specific product flows.
+</Accordion>
+
+<Accordion title="Send Reply Buttons don't work on Instagram — why?">
+Send Reply Buttons is a WhatsApp-only node — it is not supported on Instagram. On WhatsApp, it also only works inside the 24-hour conversation window; outside that window you can only send pre-approved Meta templates.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Ask Nodes Overview](/ai-agents-and-bots/bots/nodes/ask-nodes) — collecting input from customers
+* [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — Condition, Delay, Switch, API Call, and more
+* [Bot Connectors Overview](/ai-agents-and-bots/bots/connectors) — connecting Shopify, HubSpot, Razorpay, and more
+* [WhatsApp Templates Overview](/whatsapp/templates/overview) — template categories, approval, and limits
+* [WhatsApp Shop Overview](/whatsapp/shop) — product catalogs and in-chat purchasing

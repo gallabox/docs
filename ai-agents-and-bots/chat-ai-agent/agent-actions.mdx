@@ -1,0 +1,221 @@
+---
+title: "Agent Actions"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access** who want to configure what their Chat AI Agent can do.
+> * Roles: Owners and Admins — system actions are configured in the Chat AI Agent's Role/Goal/Instructions fields.
+
+<Info>
+
+System actions are referenced in the agent's Role, Goal, and Instructions fields using @mentions. For example, to use the assignTo action, you write @assignTo in the instructions. The agent will then trigger this action when the conditions you specify are met.
+
+</Info>
+
+## Plan Availability
+
+| Feature                  | Basic | Essential | Advanced |
+| ------------------------ | :---: | :-------: | :------: |
+| assignTo                 |   ✓   |     ✓     |     ✓    |
+| assignmentRule           |   ✓   |     ✓     |     ✓    |
+| getCurrentDateTime       |   ✓   |     ✓     |     ✓    |
+| codeExecution            |   ✓   |     ✓     |     ✓    |
+| apiCall                  |   —   |     —     |     ✓    |
+| checkInstagramUserFollow |   —   |     ✓     |     ✓    |
+
+## What are System Actions?
+
+Actions are tools the Chat AI Agent can execute during a conversation. The agent triggers them automatically based on its instructions, letting it do more than just chat — assign conversations, make API calls, check conditions, and more.
+
+There are two kinds:
+
+* **System actions** — built into Gallabox, no setup needed: **assignTo**, **getCurrentDateTime**, **checkInstagramUserFollow**
+* **Custom actions** — you configure them per agent: **apiCall**, **assignmentRule**, **codeExecution**
+
+## Available Actions
+
+### assignTo
+
+**What it does:** Assigns the conversation to a specific user, team, or bot.
+
+**How to use it in instructions:**
+
+> _"If the customer asks about billing, use @assignTo to assign to billing-team."_
+
+**Parameters:**
+
+* **Target type:** user, team, or bot
+* **Target name:** the name of the user, team, or bot to assign to
+
+**Example:**
+
+> _"If the customer asks about pricing negotiation, contract terms, or billing disputes, use @assignTo to assign the conversation to the sales-team."_
+
+---
+
+### assignmentRule
+
+**What it does:** Routes the conversation to a configured assignee (a user, team, or bot) when the rule's conditions are met.
+
+**How to use it in instructions:**
+
+> _"If the customer is a high-value lead (tagged VIP), use @assignmentRule to apply the VIP-routing rule."_
+
+**Parameters:**
+
+* **Assignee:** the user, team, or bot the rule assigns to
+
+---
+
+### getCurrentDateTime
+
+**What it does:** Inserts the current date and time into the agent's context. Useful for time-sensitive queries or for inserting dynamic timestamps in responses.
+
+**How to use it in instructions:**
+
+> _"Use @getCurrentDateTime to include the current date in your response when customers ask about business hours or appointment availability."_
+
+**No parameters required.**
+
+---
+
+### codeExecution
+
+**What it does:** Executes a code block within the agent flow. Can be used for calculations, data transformations, or conditional logic.
+
+**How to use it in instructions:**
+
+> _"If the customer asks to calculate shipping cost, use @codeExecution to calculate based on the destination and weight they provided."_
+
+**Note:** Code execution runs in a sandboxed environment. It has access to basic math functions and string manipulation — not full programming capabilities.
+
+---
+
+### apiCall
+
+**What it does:** Makes an external HTTP API call from within the agent flow. The agent can call any HTTP API and use the response in its conversation.
+
+**How to use it in instructions:**
+
+> _"If the customer asks about their order status, use @apiCall to fetch the order from your order management system and provide the status."_
+
+**Parameters:**
+
+* **Endpoint URL:** the API endpoint to call
+* **Method:** GET, POST, PUT, PATCH, DELETE
+* **Headers:** any required authentication headers
+* **Body:** the request body (for POST/PUT)
+
+**Example:**
+
+> _"If the customer provides their order number, use @apiCall to GET https://yourshop.com/api/orders/\{order\_number\} and report the status."_
+
+---
+
+### checkInstagramUserFollow
+
+**What it does:** Checks whether an Instagram user follows your connected Instagram account.
+
+**How to use it in instructions:**
+
+> _"If the customer claims to have followed your Instagram account, use @checkInstagramUserFollow to verify their Instagram handle before offering the follower discount."_
+
+**Parameters:**
+
+* **Instagram handle:** the Instagram username to check
+
+**Use case:** Verify Instagram follows before offering follower-only discounts or exclusive offers.
+
+## How to Configure Actions in the Agent
+
+<Steps>
+
+<Step title="Go to the Agent">
+Go to **AI Agents and Bots** in the left navigation of Gallabox.
+</Step>
+
+<Step title="Open a Chat AI Agent">
+Open a Chat AI Agent.
+</Step>
+
+<Step title="Click Home">
+Click **Home** on the agent.
+</Step>
+
+<Step title="Configure the action">
+In the **Role**, **Goal**, or **Instructions** fields, type **@** to see available actions.
+</Step>
+
+<Step title="Select and fill in parameters">
+Select the action and fill in the parameters.
+</Step>
+
+<Step title="Write the trigger condition">
+Write the condition under which the action should trigger.
+</Step>
+
+<Step title="Save">
+Click **Save**.
+</Step>
+
+</Steps>
+
+<Check>
+
+**Pro tip:** Be specific about when actions should trigger. Instead of "Use @assignTo for billing questions", write "Use @assignTo to assign to billing-team if the customer asks about charges on their invoice, refund requests, or subscription cancellation." Specific conditions reduce false positives and prevent the agent from escalating conversations that could have been resolved automatically.
+
+</Check>
+
+## Example
+
+**Scenario:** You run an e-commerce store and want the Chat AI Agent to handle order status queries, apply follower discounts for Instagram followers, and escalate billing issues to your finance team.
+
+Here's how you'd configure the actions:
+
+<Steps>
+
+<Step title="Go to the agent">
+Go to **AI Agents and Bots → \[Your Agent] → Home**.
+</Step>
+
+<Step title="Set the Instructions field">
+Set the **Instructions** field with these rules:
+
+* _"If the customer provides an order number, use @apiCall to fetch the order status from your order API and report the delivery date."_
+* _"If the customer claims to have followed your Instagram account, use @checkInstagramUserFollow to verify their handle. If they follow, offer a 10% follower discount code."_
+* _"If the customer asks about refund amounts, payment failures, or subscription charges, use @assignTo to assign to finance-team."_
+</Step>
+
+<Step title="Save and test">
+Save and test in the **Test Widget**.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="The @assignTo action is not working — what do I check?">
+Check these in order:
+
+1. Is the action name spelled correctly? Use @assignTo (not @assign or @assign\_to).
+2. Is the target (user, team, or bot name) exactly correct? The agent will fail silently if the target name doesn't match.
+3. Is the condition specific enough? If the agent can't determine when to trigger the action, it won't trigger.
+4. Does the agent have access to the assignTo action on your plan? Check the plan availability table above.
+</Accordion>
+
+<Accordion title="Can I chain multiple actions together?">
+Yes. You can use multiple actions in sequence. For example:
+
+> _"If the customer confirms their order, use @apiCall to fetch the order details, then use @assignTo to assign to the fulfillment team for shipping confirmation."_
+
+The agent will execute them in order.
+</Accordion>
+
+<Accordion title="What happens if the apiCall fails?">
+If the API call fails (e.g., the endpoint is unreachable or returns an error), the agent will note the failure and respond to the customer accordingly. You can configure a fallback response in the instructions:
+
+> _"If the @apiCall to fetch order status fails, say: 'I'm having trouble checking your order right now. Let me connect you with our team who can look into it manually.'"_
+</Accordion>
+</AccordionGroup>

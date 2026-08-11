@@ -1,0 +1,138 @@
+---
+title: "Omnichannel Inbox"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * All Gallabox users.
+> * Roles: Owners and Admins can configure assignment rules and views. Agents can use the Inbox for day-to-day conversations.
+
+<Info>
+
+The Omnichannel Inbox brings WhatsApp and Instagram conversations into one shared workspace. Web Chat conversations appear in the Inbox only after a WhatsApp handoff.
+
+</Info>
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What is the Omnichannel Inbox?
+
+The Omnichannel Inbox is the shared workspace where your team handles WhatsApp and Instagram conversations. Each conversation has a channel indicator, so you can identify its source without switching apps.
+
+Web Chat works differently. A Web Chat conversation without a handoff remains in the Web Agent's chat logs. If the visitor continues through a WhatsApp handoff, the earlier Web Chat history becomes visible in the resulting WhatsApp conversation.
+
+## How Conversations Arrive in the Inbox
+
+| Channel       | How it appears                                                     |
+| ------------- | ------------------------------------------------------------------ |
+| **WhatsApp**  | Incoming messages from connected WhatsApp Business accounts        |
+| **Instagram** | DMs from connected Instagram accounts + comment automation replies |
+| **Web Chat**  | Only after the visitor continues through a WhatsApp handoff         |
+
+Each conversation shows:
+
+* **Channel icon** — WhatsApp or Instagram
+* **Contact name** — from your contacts database or the channel profile
+* **Last message preview** — the most recent message in the conversation
+* **Timestamp** — when the last message was received
+* **Status** — Open or Closed. (Unassigned is not a status — it means an open conversation has no owner yet.)
+
+## Channel Indicators
+
+Every conversation in the inbox has a channel indicator so your team always knows the source:
+
+| Channel   | Icon             | Colour                   |
+| --------- | ---------------- | ------------------------ |
+| WhatsApp  | WhatsApp icon    | Green                    |
+| Instagram | Instagram icon   | Gradient (orange/purple) |
+
+You can filter the inbox by channel to focus on one channel at a time. For example, during a social media campaign, you might filter to Instagram only to handle comment-driven conversations.
+
+## How to Use the Inbox
+
+### Open a Conversation
+
+1. Go to **Inbox** in the left navigation of Gallabox.
+2. Click on any conversation in the inbox.
+3. The conversation opens in the right panel — with full message history.
+4. Type your reply in the compose box and click **Send**.
+
+### Filter by Channel
+
+1. Go to **Inbox** in the left navigation.
+2. Click the **filter icon** above the conversation list.
+3. Select **Channel** → choose WhatsApp or Instagram.
+4. The inbox now shows only conversations from the selected channel.
+
+### Assign a Conversation
+
+1. Open a conversation.
+2. Click the **Assign** button in the top bar.
+3. Select a team member or team from the list.
+4. The conversation is assigned and the assignee is notified.
+
+### Resolve a Conversation
+
+1. Open a conversation.
+2. Click **Resolve** in the top bar.
+3. The conversation moves to the Closed list. It can be reopened with **Reopen** at any time.
+
+If the conversation is unassigned when you resolve it, Gallabox assigns it to you.
+
+<Check>
+
+**Pro tip:** Use the **Views** feature to create filtered views for each team or workflow. For example, create a view called "Unassigned Instagram" to show only unassigned Instagram conversations — so you can distribute them to your social media team quickly.
+
+</Check>
+
+## Views
+
+Views are filtered perspectives of your inbox — see [Team Views](/conversations/team-views) for the full list of default views and how to create custom ones.
+
+## Example
+
+**Scenario:** You run a 5-person customer support team. You want WhatsApp conversations assigned to your sales team and Instagram conversations assigned to your social media team.
+
+Here's how you'd set it up:
+
+<Steps>
+
+<Step title="Create a view">
+Go to **Inbox → Views** and create a view called "Unassigned Instagram" filtered to the Instagram channel and unassigned conversations.
+</Step>
+
+<Step title="Create assignment rules">
+Assignment Rules live in each channel's settings — go to **Channels → \[WhatsApp/Instagram] → Settings → Assignment Rules** and create rules:
+
+* Rule 1: If channel = WhatsApp → assign to Sales team
+* Rule 2: If channel = Instagram → assign to Social team
+</Step>
+
+<Step title="Confirm the routing">
+Now WhatsApp conversations auto-assign to Sales and Instagram conversations auto-assign to Social.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I see which channel a conversation came from?">
+Yes. Every conversation in the Inbox has a channel icon next to the contact name. You can also filter the Inbox by channel to focus on WhatsApp or Instagram conversations.
+</Accordion>
+
+<Accordion title="Can I have different inboxes for different teams?">
+The Inbox is not a separate object you create. It is a filtered view of conversations. To give each team its own workspace, create team-specific Views and use the Assignment Rules in each channel's settings to route conversations.
+</Accordion>
+
+<Accordion title="What happens when a conversation is assigned to a Chat AI Agent?">
+When a conversation is assigned to a Chat AI Agent, the agent responds based on its role, goal, and instructions. The agent continues until it completes the task, hands off to a human agent, or reaches its configurable inactivity timeout. The default timeout for WhatsApp and Instagram is 3 minutes.
+</Accordion>
+
+<Accordion title="Can I move a conversation from one channel to another?">
+Not automatically. Each conversation is tied to the channel where it started. A Web Chat visitor can continue through a WhatsApp handoff using a pre-filled message. The earlier Web Chat history then becomes visible in the resulting WhatsApp conversation.
+</Accordion>
+</AccordionGroup>

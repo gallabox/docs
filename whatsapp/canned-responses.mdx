@@ -1,0 +1,243 @@
+---
+title: "Canned Responses"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * All Gallabox users.
+> * Roles: Owners and Admins (and roles with the relevant permission) can create and manage shared responses. Agent role can use all responses and create personal responses.
+> * Plans: Available on all Gallabox plans.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What are Canned Responses?
+
+Canned Responses are **pre-written message templates** that you and your team can access instantly while replying in WhatsApp or Web Chat — without typing from scratch each time.
+
+Instead of typing "Our shipping time is 3-5 business days and we offer free shipping on orders above $50" every time a customer asks, save it as a canned response and insert it with two clicks.
+
+Canned responses support:
+
+* **Variables** — personalize with `{{contact.name}}`, `{{contact.email}}`, `{{contact.phone}}`, `{{user.name}}`, `{{user.email}}`
+* **Attachments** — include images, PDFs, or documents
+* **Buttons** — add quick-reply CTA buttons
+* **WhatsApp Forms** — embed a Flow for structured data collection
+* **Shared library** — team-wide responses that everyone can use
+* **Personal responses** — individual responses private to one agent
+
+## Why Use Canned Responses?
+
+Canned responses solve three problems:
+
+1. **Speed** — Insert a full response in seconds instead of typing it out every time
+2. **Consistency** — Your whole team sends the same accurate information, not slightly different versions
+3. **Personalization** — Variables make templated messages feel personal
+
+They're especially valuable for:
+
+* Support teams handling 50+ conversations a day
+* Sales teams sending the same pitch to multiple leads
+* Any team with frequently asked questions (shipping, pricing, hours, refund policy)
+
+## Accessing Canned Responses
+
+There are two ways to use canned responses while in a conversation:
+
+<Tabs>
+
+<Tab title="Slash command (fastest)">
+
+1. In the compose box, type `/` followed by the first few letters of the response name.
+2. A dropdown appears showing matching responses.
+3. Press `Enter` or click to insert.
+
+Example: Type `/ship` → shows "Shipping Times", "Free Shipping Policy", etc.
+
+</Tab>
+
+<Tab title="Browse the library">
+
+1. Click the **template/canned response** icon in the compose box toolbar.
+2. Browse or search your team's shared library and personal responses.
+3. Click to insert.
+
+</Tab>
+
+</Tabs>
+
+## Creating a Canned Response
+
+<Steps>
+
+<Step title="Open the canned response editor">
+Go to **Settings → Canned Responses → Create Response**.
+</Step>
+
+<Step title="Write the response">
+1. **Name** — a short, searchable name your team will recognize. E.g., "Shipping Times" not "Information about our shipping policy and timelines."
+2. **Message body** — write the message. Use variables for personalization.
+
+**Example with variables:**
+
+```
+Hi {{contact.name}}!
+
+Thanks for reaching out. Here's what you asked about:
+
+Shipping: We deliver in 3–5 business days. Free shipping on orders above $50.
+Returns: We offer hassle-free returns within 30 days.
+
+Let me know if you have any other questions!
+— {{user.name}}
+```
+
+**Example with attachment:** Attach a PDF guide (e.g., a product catalog or return policy document) to the response.
+</Step>
+
+<Step title="Save">
+
+</Step>
+
+</Steps>
+
+## Advanced Features
+
+### Buttons in Canned Responses
+
+Add clickable CTA buttons to a canned response — useful for sending links without cluttering the message text:
+
+```
+Hi {{contact.name}}! 👋
+
+Here's the quick breakdown:
+
+• Track your order → [Link]
+• Start a return → [Link]
+• FAQs → [Link]
+
+Anything else I can help with?
+```
+
+When sent, these appear as tappable buttons in WhatsApp.
+
+### WhatsApp Forms in Canned Responses
+
+Embed a WhatsApp Flow directly inside a canned response. Use this when you need to collect structured information (address, preferred date, etc.) without asking multiple questions in the chat.
+
+1. Create the WhatsApp Flow first (see [WhatsApp Flows Overview](/whatsapp/flows)).
+2. In the canned response, click **Add WhatsApp Form**.
+3. Select the Flow.
+4. The response will send the Flow card to the customer.
+
+### Variable Reference
+
+Canned responses support user-specific variables in addition to the standard contact variables:
+
+| Variable         | What it shows                   |
+| ---------------- | ------------------------------- |
+| `{{user.name}}`  | Your name as the sending agent  |
+| `{{user.email}}` | Your email as the sending agent |
+
+<Info>
+
+contact variables containing personal data (email, phone) are hidden if your role doesn't have PII read permission.
+
+</Info>
+
+For a full variable reference, see [Variables](/settings/variables).
+
+## Managing the Shared Library
+
+As your team grows, a shared library of canned responses needs management:
+
+### Organization tips
+
+* **Set a naming convention** — e.g., `[Support] Shipping: 3-5 days` or `[Sales] Pricing: Enterprise` so responses are grouped and searchable.
+* **Delete with care** — deleting a canned response is permanent. Remove responses that are no longer accurate or needed.
+
+### Governance
+
+* **Owners and Admins (and roles with the relevant permission)** can create, edit, and delete shared responses for the whole team.
+* **Agent role** can create personal responses and use shared responses, but cannot edit shared responses.
+* **Regular audits** — review your canned response library every quarter. Remove outdated information, update prices or policies, and archive responses that are no longer relevant.
+
+<Check>
+
+**Pro tip:** When a support ticket reveals a question you don't have a canned response for — create one immediately after resolving the ticket. Your library grows organically this way, covering exactly the questions your team actually gets.
+
+</Check>
+
+## Example
+
+**Scenario:** Your support team gets 30 messages a day asking about shipping times. Each agent types out the same response manually — taking 30 seconds each time. With a canned response, it takes 3 seconds.
+
+<Steps>
+
+<Step title="Create a canned response">
+* **Name:** `Support: Shipping Times`
+*   **Message:**
+
+    ```
+    Hi {{contact.name}}! 👋
+
+    Here's our shipping info:
+
+    • Standard delivery: 3–5 business days
+    • Express delivery: 1–2 business days (additional $9.99)
+    • Free shipping on orders above $50
+
+    You'll receive a tracking link via WhatsApp once your order ships.
+
+    Anything else I can help with?
+    — {{user.name}}
+    ```
+</Step>
+
+<Step title="Agents type the slash command">
+Agents type `/ship` in the compose box and hit Enter.
+</Step>
+
+<Step title="The response inserts automatically">
+The response inserts with the contact's name and agent's name filled in automatically.
+</Step>
+
+<Step title="Total time">
+3 seconds instead of 30.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I edit a canned response after sending it to a customer?">
+No — once a canned response is sent, it becomes a regular message and cannot be edited. If you sent incorrect information, send a follow-up message with the correction. To prevent errors, always preview the response (with variables filled in) before sending.
+</Accordion>
+
+<Accordion title="Can I create canned responses for specific channels only?">
+Canned responses are available in WhatsApp and Web Chat conversations. They are not available in Instagram conversations.
+</Accordion>
+
+<Accordion title="What's the difference between canned responses and WhatsApp templates?">
+|                     | Canned Response                       | WhatsApp Template                                        |
+| ------------------- | ------------------------------------- | -------------------------------------------------------- |
+| **Used for**        | Replies within an active conversation | Initiating a new conversation outside the 24-hour window |
+| **Approval needed** | No                                    | Yes — must be approved by Meta                           |
+| **Variables**       | Yes                                   | Yes                                                      |
+| **Channel**         | WhatsApp and Web Chat                 | Out-of-session (WhatsApp)                                |
+| **Access**          | Instant, from compose box             | Must select from approved templates                      |
+</Accordion>
+
+<Accordion title="Can I use canned responses in bot flows?">
+No — canned responses are designed for human agents in the compose box. For automated messages in bot flows, use the message nodes in the Bot Flow Builder or pre-approved WhatsApp templates.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Variables Reference](/settings/variables) — Full list of variables available in canned responses
+* [WhatsApp Templates Overview](/whatsapp/templates/overview) — Template messages for out-of-session outreach
+* [Optimize Your Inbox](/conversations/optimize-inbox) — Using canned responses as part of your inbox workflow

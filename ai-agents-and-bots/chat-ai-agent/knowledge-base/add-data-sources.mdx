@@ -1,0 +1,298 @@
+---
+title: "Add Data Sources"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access** who want to add documents to their Chat AI Agent's Knowledge Base.
+> * Roles: Owners and Admins.
+
+<Info>
+
+Each data source type has a different upload process. Documents are chunked and indexed after upload — this takes time and consumes AI credits. You can check the indexing status in the Knowledge Base panel.
+
+</Info>
+
+## Plan Availability
+
+| Data source | Basic | Essential | Advanced |
+| ----------- | :---: | :-------: | :------: |
+| DOC and PDF |   —   |     ✓     |     ✓    |
+| URL         |   —   |     —     |     ✓    |
+
+See [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview#plan-availability) for storage limits.
+
+## What Data Sources Can I Add?
+
+| Data source            | Format           | Max size                           | Notes                                               |
+| ---------------------- | ---------------- | ---------------------------------- | --------------------------------------------------- |
+| PDF                    | .pdf             | 10MB (Essential) / 15MB (Advanced) | Text-based PDFs only — scanned images not supported |
+| Word                   | .docx            | 10MB (Essential) / 15MB (Advanced) |                                                     |
+| CSV                    | .csv             | 10MB (Essential) / 15MB (Advanced) | UTF-8 encoded                                       |
+| Excel                  | .xlsx            | 10MB (Essential) / 15MB (Advanced) |                                                     |
+| Text / Markdown / JSON | .txt, .md, .json | 10MB (Essential) / 15MB (Advanced) |                                                     |
+| URL (web page)         | web page         | —                                  | Gallabox crawls the page and extracts text          |
+
+> Per-file upload limit: **10MB on Essential**, **15MB on Advanced**. Total Knowledge Base storage is **50MB** per account.
+
+## Chunk Settings
+
+Chunk size and overlap are set **at the Knowledge Base level**, not per upload. Every document you add to a knowledge base inherits its chunk settings:
+
+* **Chunk size** — default **800 tokens**
+* **Overlap** — default **400 tokens**
+
+The defaults work well for most content — larger chunks keep more context together, while more overlap prevents information from being lost at chunk boundaries.
+
+## How to Add a PDF
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots">
+Open it in the left navigation of Gallabox.
+</Step>
+
+<Step title="Open a Chat AI Agent">
+
+</Step>
+
+<Step title="Click Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Click Add Data Source → PDF">
+
+</Step>
+
+<Step title="Upload your PDF file">
+Drag and drop the file, or click to browse.
+</Step>
+
+<Step title="Click Upload">
+
+</Step>
+
+<Step title="Wait for indexing to complete">
+The status changes from **Pending** to **Processing** to **Completed**.
+</Step>
+
+</Steps>
+
+**Tips for PDFs:**
+
+* Use text-based PDFs, not scanned images. Scanned documents are not readable by the indexing system.
+* Remove unnecessary pages (e.g., cover pages, legal disclaimers) before uploading.
+* Structured documents (with clear headings and sections) produce better answers than unstructured text.
+
+## How to Add a CSV or Excel File
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Click Add Data Source → CSV or Excel">
+
+</Step>
+
+<Step title="Upload your file">
+
+</Step>
+
+<Step title="Select the sheet">
+Do this for Excel files with multiple sheets.
+</Step>
+
+<Step title="Map the columns">
+* **Text column** — the column the agent will search in
+* **Metadata columns** — additional context fields (e.g., product name, category)
+</Step>
+
+<Step title="Click Upload">
+
+</Step>
+
+<Step title="Wait for indexing to complete">
+
+</Step>
+
+</Steps>
+
+**Tips for CSV/Excel:**
+
+* First column should be the primary text field (e.g., product description, FAQ question).
+* Additional columns are stored as metadata and help the agent contextualise answers.
+* Example: For a product catalog, the text column might be "product\_description" and metadata columns might be "product\_name", "price", "category".
+
+## How to Add a URL
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Click Add Data Source → URL">
+
+</Step>
+
+<Step title="Enter the URL of the page to crawl">
+
+</Step>
+
+<Step title="Set max pages to crawl">
+Default is **10** — increase it for larger sites.
+</Step>
+
+<Step title="Click Crawl">
+
+</Step>
+
+<Step title="Review the extracted content">
+Gallabox extracts text from the page(s) and shows a preview.
+</Step>
+
+<Step title="Click Confirm">
+
+</Step>
+
+<Step title="Wait for indexing to complete">
+
+</Step>
+
+</Steps>
+
+**Tips for URL crawling:**
+
+* Start with your FAQ page or help centre — these are the most useful sources for a Chat AI Agent.
+* Crawl only the pages you need — crawling entire websites adds noise and consumes more AI credits.
+* Gallabox follows internal links on the page but won't crawl the entire site by default.
+
+## How to Add Product Catalog Data
+
+The Knowledge Base accepts two source types: **file uploads** and **web pages**. To make product catalog data available to the agent, export your catalog from your e-commerce platform as a CSV or Excel file and upload it as a file data source.
+
+<Check>
+
+**Pro tip:** The CSV/Excel method lets you hand-pick exactly which product attributes the agent can search — include the columns that matter (name, description, price, category) and drop the rest.
+
+</Check>
+
+## How to Check Indexing Status
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Check each data source's status">
+* **Pending** — queued for indexing
+* **Processing** — currently being indexed
+* **Completed** — indexed and available for retrieval
+* **Failed** — indexing failed (check error message)
+</Step>
+
+<Step title="Click Retry if a source shows Failed">
+This re-attempts indexing.
+</Step>
+
+</Steps>
+
+## How to Re-index Documents
+
+When you update a document, re-index it to update the Knowledge Base:
+
+<Steps>
+
+<Step title="Go to AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Find the document you want to update">
+
+</Step>
+
+<Step title="Click the refresh icon next to the document">
+
+</Step>
+
+<Step title="Upload the updated file">
+Or confirm the updated URL.
+</Step>
+
+<Step title="Wait for re-indexing to complete">
+
+</Step>
+
+</Steps>
+
+**Note:** Re-indexing consumes AI credits. Only re-index when necessary — e.g., when product details change or policy documents are updated.
+
+## Example
+
+**Scenario:** You run a software company and want the Chat AI Agent to answer questions about your50-page product manual. The manual is a PDF with clear section headings.
+
+Here's how you'd add it:
+
+<Steps>
+
+<Step title="Open the PDF in your browser">
+Check that it renders correctly — confirm it's a text-based PDF, not a scanned image.
+</Step>
+
+<Step title="Go to AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base">
+
+</Step>
+
+<Step title="Click Add Data Source → PDF and upload the file">
+
+</Step>
+
+<Step title="Keep the knowledge base's chunk settings at the defaults">
+The defaults — **800 tokens** chunk size and **400 tokens** overlap — are appropriate for a technical manual: each section contains enough context, and the overlap ensures context from one section doesn't get lost at the boundary. These settings apply to all documents in the knowledge base.
+</Step>
+
+<Step title="Click Upload and wait for the status to show Completed">
+
+</Step>
+
+<Step title="Test with questions like 'How do I connect the API?' and 'What's the minimum system requirement?'">
+
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My PDF is not indexing — it just says 'Failed'">
+Common reasons:
+
+* The PDF is a scanned image (not text-based) — the indexing system can't read scanned documents
+* The PDF is password-protected — remove the password before uploading
+* The PDF is corrupted — try opening it in a browser to verify
+* The file is too large — split the PDF into smaller files and upload separately
+
+If the PDF is scanned, you can use an OCR tool (like Adobe Acrobat or Google Docs) to convert it to a text-based PDF first.
+</Accordion>
+
+<Accordion title="How many AI credits does indexing consume?">
+Indexing consumes AI credits based on the number of tokens in your documents — see [AI Wallet](/pricing-and-billing/ai-wallet) for how credits are consumed and monitored.
+</Accordion>
+
+<Accordion title="Can I crawl an entire website?">
+Yes, but with limits. The URL crawler follows internal links on the page and can crawl multiple pages. Set the **max pages to crawl** to control how many pages are processed. Crawling a large site (100+ pages) will take longer and consume more AI credits. Start with your most important pages first.
+</Accordion>
+
+<Accordion title="How do I know if the Knowledge Base is being used in answers?">
+Test in the **Test Widget** on the agent. Ask a question that should be answered from the Knowledge Base. If the agent's answer references specific information from your documents, the KB is working. If the agent gives a generic answer, check that: (1) the document status is **Completed**, (2) the agent has the Knowledge Base connected in **Settings → Knowledge Base**, (3) the question is phrased in a way that matches the document content.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Knowledge Base Overview](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — What the Knowledge Base is and how it works
+* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — How agents behave on different channels
+* [AI Wallet](/pricing-and-billing/ai-wallet) — AI credits management

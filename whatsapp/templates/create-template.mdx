@@ -1,0 +1,329 @@
+---
+title: "Create and Manage Templates"
+description: "How to create, manage, clone, and test WhatsApp templates in Gallabox — including Smart Check for Utility templates and Reply Configuration."
+---
+
+This guide walks you through everything in the template editor — from creating your first template to finding its ID for API use.
+
+<Warning>
+
+Before submitting a template, use [Smart Check](/whatsapp/templates/create-template#smart-check-for-utility-templates) to review its category and content, then verify its [Reply Configuration](/whatsapp/templates/create-template#reply-configuration).
+
+</Warning>
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+> **Note:** Template messages are sent at standard WhatsApp Business API rates, separate from your plan subscription.
+
+## Before You Start
+
+* **Owner or Admin role in Gallabox (or a role with template management permissions)** — template creation and management require these permissions.
+* **An approved WhatsApp Business Account (WABA) connected to Gallabox** — templates are submitted to Meta through your connected WABA. If your channel is not connected yet, see [Connect your WhatsApp channel](/whatsapp/connect-your-whatsapp).
+* **A clear message purpose** — Meta checks whether your template category matches the content. Decide whether your message is Marketing, Utility, or Authentication before you start writing.
+
+---
+
+## Managing Your Templates
+
+Go to **Broadcasts → Templates** in the left navigation to see all templates for your connected WABA.
+
+### Filtering Templates
+
+Click the **filter** icon at the top of the templates list to filter by:
+
+* **Status** — Approved, Pending, Rejected, Paused, Disabled
+* **Category** — Marketing, Utility, Authentication
+
+You can combine filters. The count of matching templates is shown next to the filter icon.
+
+### List View vs Grid View
+
+Toggle between views using the view icon at the top right of the templates list:
+
+* **Grid view** — card layout with a rendered preview of each template body. Use this to visually scan and spot formatting issues.
+* **List view** — table layout with name, category, status, language, and created date. Use this for bulk scanning and sorting.
+
+### Sorting by Recently Created
+
+In **List view**, click the **Created Date** column header to sort descending — your most recently created templates appear at the top.
+
+### Syncing Templates from Meta
+
+If a template shows "Approved" in Meta's WhatsApp Manager but has not appeared in Gallabox yet, click **Sync** at the top of the templates list. Gallabox pulls the latest template status from Meta.
+
+<Info>
+
+Template sync can take a few hours after Meta processes approval. If the template still doesn't appear after syncing, wait 2 hours and sync again.
+
+</Info>
+
+---
+
+## Creating a Template
+
+### Step 1: Open the template editor
+
+1. Go to **Broadcasts → Templates**.
+2. Click **Create Template**.
+
+### Step 2: Choose a category
+
+Select one category:
+
+| Category           | When to use                                               |
+| ------------------ | --------------------------------------------------------- |
+| **Marketing**      | Promotional content, offers, announcements, re-engagement |
+| **Utility**        | Transactional updates tied to a customer action           |
+| **Authentication** | OTPs, PINs, security codes                                |
+
+For a full explanation of template categories, guidelines, and the approval process, see the [Templates overview](/whatsapp/templates/overview).
+
+<Warning>
+
+Category determines Meta's review criteria and per-message pricing. Submitting a promotional message as "Utility" is the single most common cause of rejections. Use [Smart Check](/whatsapp/templates/create-template#smart-check-for-utility-templates) before submitting Utility templates.
+
+</Warning>
+
+### Step 3: Name your template
+
+Enter a **Template Name** — letters, numbers, and underscores only. No spaces. Example: `order_confirmation_en`
+
+This name is how the template is referenced in the Gallabox API and in broadcast and sequence flows. It cannot be changed after submission.
+
+### Step 4: Select a language
+
+Choose the **Language** for this template from the dropdown. If you need the same template in multiple languages, create a separate template for each language using **Duplicate** (see [Cloning a Template](/whatsapp/templates/create-template#cloning-a-template)).
+
+### Step 5: Write the message body
+
+Enter your message text in the **Body** field.
+
+* Maximum 1,024 characters.
+* Add variables using `{{1}}`, `{{2}}` for numbered variables, or system variables like `{{contact.first_name}}`.
+* Variables cannot appear as the very first character of the body — add at least a word before the first variable.
+
+See [Variables](/whatsapp/templates/create-template#variables) below for the full list of supported placeholders.
+
+### Step 6: Add a header (optional)
+
+The **Header** appears above the body text. Choose one type:
+
+* **Text** — up to 60 characters, can include one variable `{{1}}`
+* **Image** — upload a sample image (JPG or PNG)
+* **Video** — upload a sample video (MP4)
+* **Document** — upload a sample document (PDF)
+
+### Step 7: Add a footer (optional)
+
+The **Footer** appears below the body text. Maximum 60 characters. No variables. Used for opt-out notices or brief disclaimers.
+
+### Step 8: Add buttons (optional)
+
+Click **Add Button** to add up to 10 buttons per template. See [Button Types](/whatsapp/templates/create-template#button-types) below.
+
+### Step 9: Submit for review
+
+Click **Submit for Review**. Gallabox sends the template to Meta for approval. The template appears in your list with status **Pending**.
+
+Approval typically takes 24–48 hours. New WABA accounts may take up to 7 days.
+
+---
+
+## Button Types
+
+| Button Type                        | What it does                                                | Max per template                       | When to use                                    |
+| ---------------------------------- | ----------------------------------------------------------- | -------------------------------------- | ---------------------------------------------- |
+| **Quick Reply**                    | Sends a predefined text reply when the customer taps        | Up to 10 (combined with other buttons) | Reply options, opt-out, multi-choice responses |
+| **Call to Action — Call Phone**    | Opens the customer's phone dialler with your number         | 1                                      | Customer service, callback requests            |
+| **Call to Action — Visit Website** | Opens a URL in the customer's browser                       | 2                                      | Product pages, booking links, order tracking   |
+| **Copy Code**                      | Copies a discount or promo code to the customer's clipboard | 1                                      | Promotions, voucher codes                      |
+
+**Button limit:** Up to 10 buttons per template in any combination. If you add more than 3 buttons, they collapse into a "See all options" list in WhatsApp.
+
+---
+
+## Variables
+
+Variables are placeholders replaced with real values when the template is sent.
+
+### Numbered variables
+
+Use `{{1}}`, `{{2}}`, `{{3}}` in sequence. You (or your API call / broadcast / sequence) fill in the values at send time.
+
+Example body: `Hi {{1}}, your order {{2}} has been dispatched. Estimated delivery: {{3}}.`
+
+Rules:
+
+* Number them in order starting from `{{1}}` — gaps cause rejection.
+* Provide a sample value for each variable when submitting. Meta requires samples to review the template.
+* Variables at the start of the body (without preceding text) are a common rejection reason.
+
+### System variables
+
+System variables pull values from Gallabox contact fields automatically. No manual fill-in needed at send time.
+
+| Variable                 | What it inserts         |
+| ------------------------ | ----------------------- |
+| `{{contact.first_name}}` | Contact's first name    |
+| `{{contact.last_name}}`  | Contact's last name     |
+| `{{contact.phone}}`      | Contact's phone number  |
+| `{{contact.email}}`      | Contact's email address |
+
+For the full list of system variables, see [Variables](/settings/variables).
+
+---
+
+## Smart Check for Utility Templates
+
+**Smart Check** is an AI-powered pre-submission check for **Utility templates only**. It analyses your template body and tells you how likely Meta is to approve it as a Utility template — before you submit.
+
+### How to run Smart Check
+
+1. Write your Utility template body in the editor.
+2. Click **Smart Check** in the template editor toolbar (visible only when **Utility** is selected as the category).
+3. Gallabox runs the check and returns a result:
+
+| Confidence | Score | What it means                                | What to do                                         |
+| ---------- | ----- | -------------------------------------------- | -------------------------------------------------- |
+| **High**   | > 80  | Template reads as a genuine Utility message  | Safe to submit                                     |
+| **Medium** | 26–80 | Some risk of rejection                       | Review the reasoning; use the suggested rewrite    |
+| **Low**    | ≤ 25  | Template likely reads as a Marketing message | Rework the content or change category to Marketing |
+
+4. If the score is Medium, Gallabox shows:
+   * **Reasoning** — why the template may be misclassified
+   * **Suggested rewrite** — an alternative version you can copy directly into the editor
+
+<Warning>
+
+Smart Check is a pre-submission guide, not a guarantee. Meta's review is independent. A high Smart Check score reduces rejection risk but does not guarantee approval.
+
+</Warning>
+
+---
+
+## Cloning a Template
+
+Use **Duplicate** to create a variation of an existing template without modifying the original — useful for language variants, A/B testing, or re-submitting a rejected template with fixes.
+
+1. In **Broadcasts → Templates**, find the template you want to clone.
+2. Click the **three-dot menu** on the template card (grid view) or the template row (list view).
+3. Click **Duplicate**.
+4. The template editor opens with all content pre-filled from the original.
+5. Change the **Template Name** — the name must be unique.
+6. Make your edits to body, buttons, or variables.
+7. Click **Submit for Review**.
+
+The original template is unaffected. Both templates exist independently in your list.
+
+---
+
+## Finding the Template ID (for API use)
+
+Every template has a unique Template ID used when sending via the Gallabox API or when referencing templates in external systems.
+
+**Method 1 — Details panel:**
+
+1. Go to **Broadcasts → Templates**.
+2. Click on the template to open its detail view.
+3. The **Template ID** is shown in the template details panel on the right.
+
+**Method 2 — URL:** When you navigate to a template's edit screen, the Template ID appears in the browser URL: `.../template/{template_id}`
+
+Copy the value between the last `/` and the end of the path.
+
+---
+
+## Testing a Template
+
+Before using an approved template in a broadcast or automation, send a test message to verify the content and variable fill-in look correct on a real device.
+
+<Warning>
+
+Test messages are sent as real WhatsApp messages. Standard WhatsApp API message rates apply — this costs real message credits.
+
+</Warning>
+
+1. Go to **Broadcasts → Templates**.
+2. Open an **Approved** template. (**Test Template** is only available for approved templates.)
+3. Click **Test Template**.
+4. Enter the **phone number** to send the test to (include the country code).
+5. Fill in values for each variable in the template.
+6. Click **Send Test**.
+
+Check the receiving device to verify formatting, variable substitution, and button display.
+
+---
+
+## Reply Configuration
+
+Reply Configuration sets up automatic actions when a customer replies to a specific template — either by tapping a **Quick Reply** button or sending a **free-text** message. This is configured per template.
+
+1. Open the template in **Broadcasts → Templates**.
+2. Open the **Broadcast reply settings** panel for the template.
+3. In **Assign conversations to**, choose **Teams**, **Users**, or **Agents** (bot), then pick the specific team, user, or bot agent in the dependent picker.
+4. Optionally tick the checkbox to override any existing assignment on the conversation.
+5. Save the configuration.
+
+The panel is the same for all template categories. Reply configuration is available on paid plans — it is not available on the free plan.
+
+<Info>
+
+Reply Configuration only triggers for replies to that specific template message. Replies to other messages in the same conversation follow your standard inbox routing rules.
+
+</Info>
+
+---
+
+## Common Errors
+
+| Error or symptom                                                 | Why it happens                                                                                                                                                                           | How to fix it                                                                                                                                       |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **"Variable in wrong position"** rejection                       | A numbered variable (`{{1}}`) appears at the very start of the body text                                                                                                                 | Add at least one word before the first variable, e.g. "Hi \{\{1\}\},"                                                                                 |
+| **Template stuck in Pending for 7+ days**                        | New WABA accounts have longer initial review queues                                                                                                                                      | Wait up to 10 days for the first batch. After that, approval typically takes 24–48 hours. If still pending after 10 days, contact Gallabox support. |
+| **Smart Check shows Low confidence but the template is Utility** | The body contains offer language ("save", "discount", "exclusive") without a clear customer-initiated action context                                                                     | Run the suggested rewrite or remove promotional language — tie the message to a specific transaction                                                |
+| **Duplicate template name error**                                | A template with the same name already exists in your WABA — or a template with that name was approved/rejected and deleted less than 14 days ago (deleted names are blocked for 14 days) | Choose a new name that is unique and descriptive, e.g. `order_confirm_v2_en`, or wait out the 14-day window                                         |
+| **Test message not received**                                    | Phone number format error or message filtered by the receiving device                                                                                                                    | Confirm country code is included (e.g. `+91`). Test with a different phone.                                                                         |
+| **Sync button doesn't pull approved templates**                  | Meta's API sync can lag up to 2 hours                                                                                                                                                    | Wait 2 hours and click Sync again. If still missing after that, contact Gallabox support with the template name.                                    |
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I submitted my template 3 days ago and it's still Pending — is something broken?">
+Not necessarily. Meta's review typically takes 24–48 hours, but new WABA accounts or accounts with recent quality flags can take up to 7–10 days. Check **Broadcasts → Templates** for the current status. If it shows Pending after 10 days, contact Gallabox support with your template name and submission date.
+</Accordion>
+
+<Accordion title="Can I edit an approved template without losing approval?">
+No. Any edit to the body, header, footer, or buttons requires re-submission and Meta re-review. The existing approved version stays active until the new version is reviewed. To test changes safely, use **Duplicate** to create a copy and submit the copy — the original remains active and usable while the new version is in review.
+</Accordion>
+
+<Accordion title="My template was approved but it's sending with the wrong variable values — what do I do?">
+The template itself is correct — the issue is in how variable values are being passed at send time. Check the broadcast, sequence, or API call that's sending the template and verify the variable mapping. In Gallabox broadcasts, go back to the broadcast setup and check the column mapping for each `{{1}}`, `{{2}}` field.
+</Accordion>
+
+<Accordion title="Why does Smart Check say Low confidence on my Utility template? It's definitely transactional.">
+Smart Check looks for language patterns Meta uses to classify templates. Words like "offer", "exclusive", "limited time", or "discount" trigger Marketing classification even in transactional contexts. Look at the reasoning section Smart Check returns — it identifies the specific phrases causing the low score. Replace those phrases or remove them entirely.
+</Accordion>
+
+<Accordion title="I deleted a template but now I can't create a new one with the same name.">
+When you delete an approved or rejected template, its name is blocked from reuse for 14 days. After that window, you can create a new template with the same name. If you don't want to wait, create the new template with a variation on the name — for example, append `_v2` or use a more descriptive name.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Related Articles
+
+* [WhatsApp Templates — Overview](/whatsapp/templates/overview) — What templates are, categories, and approval process
+* [Template Analytics](/reports-and-analytics/template-analytics) — How to track template performance, delivery, and engagement
+* [Broadcast Overview](/whatsapp/broadcasts/overview) — Sending templates to contact lists at scale
+* [Variables](/settings/variables) — Full list of system variables for templates
+
+## Next Steps
+
+* [Track how your templates are performing →](/reports-and-analytics/template-analytics)
+* [Send your first broadcast using a template →](/whatsapp/broadcasts/overview)
+* [Set up a sequence that uses templates →](/whatsapp/sequences/overview)

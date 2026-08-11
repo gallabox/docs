@@ -1,0 +1,388 @@
+---
+title: "Other Integrations"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Beyond CRM, e-commerce, and payments, Gallabox connects to productivity tools (Google Sheets, Zoom), AI services (OpenAI), and any REST API via webhooks and the API Call node.
+
+</Info>
+
+## Plan Availability
+
+| Integration    | Plan Required              | Authentication            |
+| -------------- | -------------------------- | ------------------------- |
+| Google Sheets  | Essential, Advanced        | OAuth (Google account)    |
+| Zoom           | Essential, Advanced        | OAuth                     |
+| OpenAI         | Advanced only              | API Key                   |
+| Calendly       | Basic, Essential, Advanced | OAuth (Calendly account)  |
+| Zoho Books     | Basic, Essential, Advanced | OAuth + extension token   |
+| MiiTel         | Basic, Essential, Advanced | Access Token + Company ID |
+| Pabbly Connect | All plans                  | Via Pabbly account        |
+| Zapier         | All plans                  | Via Zapier account        |
+
+## Google Sheets
+
+### What Google Sheets integration does
+
+Reads from and writes to Google Sheets — logs leads, tracks orders, manages shared data, and syncs with internal dashboards.
+
+### Supported Google Sheets actions
+
+* **Add New Row** — append a row to a sheet
+* **Update Row** — update rows using a reference column
+* **Fetch the Row Value** — fetch one matching row using a reference column
+* **Fetch the First 10 Matched Row Values** — fetch up to the first 10 matching rows
+
+### How to connect Google Sheets
+
+1. Go to **Integrations → Google Sheets**
+2. Click **Connect with Google** — redirected to Google's OAuth page
+3. Select the Google account to connect
+4. Grant Gallabox access to Google Sheets
+5. Select which spreadsheets to make available (or grant access to all)
+
+### Google Sheets use cases
+
+**Log every lead to a shared sheet:**
+
+```
+Ask Name, Ask Email, Ask Phone → Update Contact Fields
+  → Google Sheets: Add new row
+    Spreadsheet: "Sales Leads"
+    Sheet: "Incoming"
+    Columns:
+      Name: {{contact.name}}
+      Email: {{contact.email}}
+      Phone: {{contact.phone}}
+      Source: "WhatsApp Bot"
+      Date: {{current_date}}
+      Time: {{current_time}}
+  → Send Text: "Thanks! We've recorded your enquiry."
+```
+
+**Log order to operations sheet:**
+
+```
+Condition: {{order_status}} = "confirmed"
+  → Google Sheets: Add new row
+    Spreadsheet: "Operations Dashboard"
+    Sheet: "Orders"
+    Columns:
+      Order ID: {{order_id}}
+      Customer: {{contact.name}}
+      Amount: {{order_total}}
+      Status: "Confirmed"
+      Channel: "WhatsApp"
+```
+
+**Look up agent availability from a schedule sheet:**
+
+```
+Ask Team → "Which team do you need?"
+  → Store in {{team_name}}
+
+Google Sheets: Fetch the Row Value
+  Spreadsheet: "Team Schedule"
+  Sheet: "Availability"
+  Key column: "Team"
+  Key value: {{team_name}}
+  → Store agent_name in {{available_agent}}
+  → Store next_slot in {{agent_available_at}}
+
+Send Text: "{{available_agent}} is available at {{agent_available_at}}. Should I book them?"
+```
+
+---
+
+## Zoom
+
+### What Zoom integration does
+
+Creates Zoom meeting links automatically — for demo bookings, callback scheduling, and sales calls triggered from bot flows.
+
+### Supported Zoom actions
+
+* **Create meeting** — generates a Zoom meeting link with date, time, and topic
+* **Get meeting details** — fetch existing meeting info
+
+### How to connect Zoom
+
+1. Go to **Integrations → Zoom**
+2. Click **Connect with Zoom** — redirected to Zoom's OAuth page
+3. Authorize Gallabox to create meetings in your Zoom account
+4. Select the Zoom user who will be the meeting host
+
+<Info>
+
+The connected Zoom user will be the host of all meetings created by the bot. Consider using a dedicated "bot" Zoom account.
+
+</Info>
+
+### Zoom use cases
+
+**Demo booking:**
+
+```
+Ask Name → "What's your name?"
+  → Store in {{customer_name}}
+Ask Date → "When would you like the demo?"
+  → Store in {{demo_date}}
+Ask Time → "What time (in IST)?"
+  → Store in {{demo_time}}
+
+Zoom: Create meeting
+  Topic: "Sales Demo for {{customer_name}}"
+  Date: {{demo_date}}
+  Time: {{demo_time}}
+  Duration: 30 minutes
+  Host: {{zoom_host_user}}
+  → Store meeting_link in {{zoom_link}}
+  → Store meeting_id in {{zoom_meeting_id}}
+
+Send Text: "Your demo is booked for {{demo_date}} at {{demo_time}} IST. Join here: {{zoom_link}}"
+Google Sheets: Add new row to "Demo Bookings" with customer name, date, time, link
+```
+
+**Callback scheduling:**
+
+```
+Ask Phone → "Best number for callback?"
+  → Store in {{callback_number}}
+Ask Preferred Time → "When should we call?"
+  → Store in {{call_time}}
+
+Zoom: Create meeting
+  Topic: "Customer callback: {{callback_number}}"
+  Date: {{call_date}}
+  Duration: 15 minutes
+  → Store meeting_link in {{zoom_link}}
+
+Send Text: "Callback scheduled! Our team will call at {{call_time}}. Join the meeting: {{zoom_link}}"
+```
+
+---
+
+## OpenAI
+
+### What OpenAI integration does
+
+Powers GPT Dialog nodes in bot flows — enables AI-powered conversation responses with custom prompts.
+
+<Info>
+
+Requires Advanced plan. Uses your own OpenAI API key — costs are billed by OpenAI based on usage.
+
+</Info>
+
+### How to connect OpenAI
+
+1. Go to **Integrations → OpenAI**
+2. Enter your **API Key** (from OpenAI Platform → API Keys)
+3. Click **Connect**
+
+**Model:** You can configure which model to use in the GPT Dialog node settings.
+
+### OpenAI use cases
+
+**AI-powered FAQ bot:**
+
+```
+Ask Text: "What do you need help with?"
+  → Store in {{customer_question}}
+
+GPT Dialog
+  System prompt: "You are a helpful customer support agent for a SaaS company. Be concise and friendly."
+  Query: {{customer_question}}
+  Temperature: 0.7
+  Max tokens: 500
+  → Store response in {{ai_response}}
+
+Send Text: "{{ai_response}}"
+```
+
+**Temperature** controls how creative vs. predictable the AI's replies are — lower (e.g. 0.2) is more consistent, higher (e.g. 0.9) is more varied. **Max tokens** caps the length of the reply.
+
+---
+
+## Calendly
+
+### What Calendly integration does
+
+Connects your Calendly schedule to WhatsApp — sends automatic booking confirmations, reminders before the meeting, and post-event follow-ups. Clients can confirm right in the WhatsApp chat, which cuts no-shows.
+
+### Available workflows
+
+* **Event Confirmation** — sent when someone books a meeting
+* **Event Reminder** — sent a chosen duration before the event starts
+* **Event Follow-up** — sent after the event
+
+Each workflow is per Calendly event type — pick the event from the dropdown, choose a template, map variables (recipient name, phone, event link), and optionally add an action (update contact tags to trigger a sequence or broadcast).
+
+### How to connect Calendly
+
+1. Add a **Location** (Google Meet, physical address, or link) to your Calendly event first — it's needed for the message variables
+2. Go to **Integrations → Calendly**, click **Connect**, name the integration, and submit
+3. Sign in to Calendly when redirected, then back in Gallabox select the WhatsApp channel and click **Update Configuration**
+4. Create workflows with **+Add Workflow** for confirmations, reminders, and follow-ups
+
+Check the **Logs** tab in the Calendly integration to verify workflows are firing.
+
+---
+
+## Zoho Books
+
+### What Zoho Books integration does
+
+Connects Zoho Books to Gallabox — sends automated WhatsApp notifications for invoices and estimates: invoice created, payment success, and reminders before/after due dates (1, 3, and 6 days).
+
+**Requires:** Zoho Books **Premium plan or above**, plus the Gallabox extension installed in Zoho Books. One Gallabox account can connect to only one Zoho Books account.
+
+### Available workflows
+
+* **Send Invoice / Send Estimate** — deliver the document via WhatsApp (map the _Invoice PDF_ variable to Media URL and _Invoice Number_ to Media Name)
+* **Invoice Payment Success** — confirmation when payment is processed
+* **Invoice/Estimate reminders** — 3 days before, 1 day before, and 1/3/6 days after the due or expiry date
+
+### How to connect Zoho Books
+
+1. Go to **Integrations → Zoho Books**, click **Connect**, and sign in to Zoho Books
+2. Grant READ, CREATE, UPDATE, DELETE permissions and click **Accept**
+3. Back in Gallabox, select the channel and click **Update Configuration** — you get an **authorization token**
+4. Open the **Zoho Books Extension** installation link, select your organization, paste the token, and click **Install Extension**
+5. Return to Gallabox and confirm — your organization details appear on success
+
+---
+
+## MiiTel
+
+### What MiiTel integration does
+
+Connects MiiTel (cloud telephony) to Gallabox — activates a MiiTel calling pop-up across the Gallabox product so agents can call contacts without leaving the dashboard.
+
+### How to connect MiiTel
+
+Requires MiiTel admin access.
+
+1. Go to **Integrations → MiiTel**, click **Connect**, name the integration, and submit
+2. In MiiTel admin settings, open **Third-Party Integrations → JavaScript Widget** and copy the `access_key` and `company_id` values into Gallabox's **Access Token** and **Company ID** fields
+3. Get the **Circuit Number** from MiiTel's **Phone Number → Phone Number Management** (click **+** to add more than one)
+4. Select the WhatsApp channel and click **Update Configuration** — the MiiTel pop-up activates across the product
+
+---
+
+## Pabbly Connect
+
+### What Pabbly Connect integration does
+
+Connects Gallabox to 1,000+ apps via Pabbly Connect (an automation platform) — for tools without a native Gallabox integration, like Google Forms or Google Calendar.
+
+### Available Pabbly Connect actions
+
+* **Send Template Text Message** — send an approved template automatically from any Pabbly workflow
+* **Custom API Request (Beta)** — execute authenticated Gallabox API calls from Pabbly
+
+### How to connect Pabbly Connect
+
+1. Go to **Integrations → Pabbly** — you're redirected to Pabbly Connect
+2. Click **Connect Gallabox For Free** (a Pabbly subscription is required)
+3. In Pabbly, click **Create Workflow**, choose your trigger app (e.g., Google Forms), and add Gallabox as the action
+
+**Example:** New Google Forms response → Pabbly workflow → Gallabox sends a WhatsApp template to the respondent.
+
+---
+
+## Zapier
+
+### What Zapier integration does
+
+Connects Gallabox to thousands of apps via Zapier — trigger Zaps from Gallabox events, or send WhatsApp template messages from any Zapier workflow. Like Pabbly Connect, it's a bridge for tools without a native Gallabox integration.
+
+### How to connect Zapier
+
+1. In Zapier, search for the **Gallabox** app when creating a Zap
+2. Connect it with your Gallabox **API key** (Settings → Developer/API)
+3. Choose Gallabox as the trigger or action step in your Zap
+
+---
+
+## Generic Webhook and Outbound API Calls
+
+<Info>
+
+This section is more technical than the rest of this page — you may want a developer's help for custom webhook setup.
+
+</Info>
+
+### What they do
+
+Use the **Generic Webhook** integration when an external system needs to send data to Gallabox. A Generic Webhook workflow can inspect the received payload, match configured conditions, identify the WhatsApp recipient, and then:
+
+* Send an approved WhatsApp template message
+* Update supported contact fields
+* Push the contact to a published sequence
+
+Use the **API Call** node when a bot flow needs to send data from Gallabox to an external REST API.
+
+### How to set up
+
+**Generic Webhook integration:**
+
+1. Open the **Generic Webhook** integration in Gallabox.
+2. Enter a webhook name and click **Submit**.
+3. Under **Configuration**, select the WhatsApp channel that will send messages for this workflow.
+4. Copy the generated **Webhook URL** and add it to the external system.
+5. Click **Capture webhook response**, then send a test event from the external system.
+6. Open **Workflows** and click **Create WorkFlow**.
+7. Map the **Recipient Name** and **Recipient Number** from the captured payload.
+8. Add matching conditions if needed, then configure at least one action: send an approved WhatsApp template, update a contact field, or push the contact to a published sequence.
+
+**Outbound webhook (from bot flow):**
+
+1. In a bot flow, use the **API Call node** (Essential+)
+2. Set method to **POST**
+3. Enter your webhook URL
+4. Add headers (Authorization, Content-Type)
+5. Add body with variables: `{"contact": "{{contact.name}}", "order": "{{order_id}}"}`
+
+### Webhook use cases
+
+**Inbound order notification:**
+
+```
+External system sends an "order.created" payload
+  → Generic Webhook workflow matches the configured condition
+  → Recipient number is mapped from the payload
+  → Gallabox sends the selected WhatsApp order-confirmation template
+```
+
+**Outbound — lead to custom CRM:**
+
+```
+Bot flow: Lead captured
+  → API Call: POST to https://your-crm.com/webhook/leads
+    Body: {"name": "{{contact.name}}", "email": "{{contact.email}}", "source": "Gallabox WhatsApp"}
+    Headers: {"Authorization": "Bearer YOUR_WEBHOOK_SECRET"}
+```
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I connect to any REST API even without a pre-built connector?">
+Yes — use the **API Call node** (Essential+) in bot flows. It supports GET, POST, PUT, PATCH, DELETE requests to any REST API. You provide the URL, headers, body, and response mapping. This means you can connect to virtually any tool that has a public API.
+</Accordion>
+
+<Accordion title="Is there a limit on how many Google Sheets rows I can write?">
+There's no hard limit in Gallabox, but Google Sheets has a 10,000 row limit per sheet. If you're logging frequently, consider creating separate sheets per month or archiving old data regularly.
+</Accordion>
+
+<Accordion title="Who pays for OpenAI usage?">
+You pay for your own OpenAI usage directly through your OpenAI account. Gallabox passes through the API costs — you're billed by OpenAI directly, not by Gallabox. Set usage limits in your OpenAI account to control costs.
+</Accordion>
+</AccordionGroup>

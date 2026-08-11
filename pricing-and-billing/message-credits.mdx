@@ -1,0 +1,141 @@
+---
+title: "Message Credits"
+description: "How WhatsApp per-message pricing works: template categories, rates, and reducing costs."
+---
+
+> **Who can use this?**
+>
+> * Billing information is available to all plans.
+> * Only **Account Owners** and **Admins** can view detailed pricing.
+> * Roles: Owners and Admins
+
+<Info>
+
+WhatsApp charges **per message**: template messages are charged individually based on their category. Understanding the available template categories helps you control your messaging costs.
+
+</Info>
+
+## How WhatsApp Pricing Works
+
+WhatsApp's pricing model has two components:
+
+* **Gallabox subscription fee** — your monthly plan fee (Basic, Essential, or Advanced)
+* **Meta's per-message charges** — fees charged by Meta (WhatsApp's parent company) for each billable message, billed by Gallabox
+
+The Meta per-message charges are **not included** in your Gallabox plan fee — they're billed separately based on your usage.
+
+## Template Categories & Pricing
+
+WhatsApp templates use three categories. Each category has a different per-message price:
+
+| Category           | Description                    | Example                                                      | Price range               |
+| ------------------ | ------------------------------ | ------------------------------------------------------------ | ------------------------- |
+| **Marketing**      | Promotional content            | Offers, discounts, product announcements                     | ₹0.30 – ₹2.50 per message |
+| **Utility**        | Transactional, non-promotional | Order confirmations, delivery updates, appointment reminders | ₹0.20 – ₹0.80 per message |
+| **Authentication** | One-time passwords, PINs       | Login codes, payment OTPs, account verification              | ₹0.10 – ₹0.40 per message |
+
+<Info>
+
+The prices above are indicative ranges for India. Meta sets these rates and revises them periodically — always check [Meta's WhatsApp pricing page](https://developers.facebook.com/docs/whatsapp/pricing/) or your Gallabox billing dashboard for the current rates in your market.
+
+</Info>
+
+This page covers pricing only — for what each category means and how a template is assigned to one, see [WhatsApp Templates](/whatsapp/templates/overview).
+
+## Template Messages and Free-Form Replies
+
+### Free-form replies
+
+Free-form replies are not template messages. Follow WhatsApp's messaging rules when replying to a customer.
+
+### Template messages (charged per category)
+
+When you send a template message, use a pre-approved WhatsApp template. Template messages are charged based on their category.
+
+**Example:** You send a promotional offer → must use Marketing template → charged per message
+
+[Learn more about WhatsApp templates →](/whatsapp/templates/overview)
+
+## Reducing Message Costs
+
+<Steps>
+
+<Step title="Choose template categories wisely">
+* Use **Utility** templates for confirmations and updates (cheaper than Marketing)
+* Use **Authentication** templates for OTPs (cheapest category)
+* Reserve **Marketing** for genuinely promotional content
+</Step>
+
+<Step title="Use sequences and broadcasts efficiently">
+* Review the template category used by each sequence or broadcast message
+* Use the appropriate category for the message's purpose
+</Step>
+
+</Steps>
+
+## Checking Your Current Rates
+
+WhatsApp pricing varies by country and changes periodically. To check current rates:
+
+<Steps>
+
+<Step title="1. Go to Settings → Billing → WhatsApp Pricing">
+
+</Step>
+
+<Step title="2. Select your target country">
+
+</Step>
+
+<Step title="3. View the per-message rate for each category">
+
+</Step>
+
+</Steps>
+
+**Note:** Meta updates WhatsApp Business API pricing periodically. Gallabox reflects the current rates — check the Billing page for the latest information.
+
+## Message Credit Wallet
+
+Meta's per-message charges are paid from your **message credit wallet** — a prepaid balance in your Gallabox account.
+
+### Checking your balance
+
+Your current balance appears on the **Message Credits** screen, along with your full transaction history. Gallabox alerts you when the balance runs low so messages don't fail mid-campaign.
+
+### Topping up
+
+* Recharge any amount from **₹100 / $5** up to **₹1,00,000 / $2,000** per top-up
+* Pay with the card on your subscription billing or via Razorpay
+* **18% GST** applies to INR top-ups
+* Free credits may be added to your wallet during your trial or onboarding
+
+### How credits are deducted
+
+* Credits are deducted for each **outbound template (business-initiated) message**, once the send is confirmed
+* The amount depends on the **template category** and the **destination country**
+* Each message is charged only once
+* No credits are deducted for sandbox messages or for channels billed directly by Meta or a tech partner
+* Outgoing WhatsApp **calls** also deduct from the same wallet
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why am I charged for a message I thought was free?">
+You were likely charged because:
+
+1. **You sent a template** — templates are charged per message by category
+2. **The template category has a different rate** — check whether it is Marketing, Utility, or Authentication
+3. **Meta's pricing changed** — check the Billing page for current rates
+
+Check the template category and the current rate in your billing information.
+</Accordion>
+
+<Accordion title="Can I send messages without paying WhatsApp fees?">
+There is no way to send a business-initiated template message on WhatsApp without the applicable per-message fee. Template messages are charged by their Marketing, Utility, or Authentication category.
+</Accordion>
+
+<Accordion title="Do images and media cost more than text messages?">
+No — media does not change the template category rate. Template messages are charged per message based on their category — check current rates in **Settings → Billing → WhatsApp Pricing**.
+</Accordion>
+</AccordionGroup>

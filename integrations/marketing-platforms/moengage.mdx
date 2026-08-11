@@ -1,0 +1,203 @@
+---
+title: "MoEngage"
+description: "Learn how to integrate MoEngage with Gallabox using our guide. Connect MoEngage to Gallabox, configure the sender details, and track WhatsApp message delivery in MoEngage. Get started now."
+---
+
+### MoEngage Integration Guide
+
+1. Click on the Integrations in the left navigation Pane of Gallabox. Hover on MoEngage from the Available apps and click on the Connect Button.
+
+<Frame caption="MoEngage in Gallabox Integration">
+  <img src="/images/moengage-integration.png" alt="MoEngage in Gallabox Integration" />
+</Frame>
+
+2. MoEngage Integration window will open and you have to type in the Integration Name and click on connect.
+
+<Frame caption="Integration MoEngage">
+  <img src="/images/me-1-2.png" alt="Integration MoEngage" />
+</Frame>
+
+3. You will be redirected to Configuration Page of MoEngage Integration. Select the channel you want to share the messages with.
+
+<Frame caption="Configuring the Integration in Gallabox">
+  <img src="/images/me-1-3.png" alt="Configuring the Integration in Gallabox" />
+</Frame>
+
+4. To configure Gallabox with MoEngage, do the following:
+
+* Go to MoEngage Settings->Channel (WhatsApp)->Sender Configuration.
+* Click +Add connector on the left menu.
+* Choose Gallabox from the list of WA providers or connectors available in the dropdown and click _Done_.
+
+<Frame caption="Configuring in MoEngage">
+  <img src="/images/me-1-4.png" alt="Configuring in MoEngage" />
+</Frame>
+
+Click on + Sender at the top right corner of the screen to configure the sender details, as explained below:
+
+<Frame caption="Selecting sender in MoEngage">
+  <img src="/images/me-1-5.png" alt="Selecting sender in MoEngage" />
+</Frame>
+
+5. Configuring the sender details, as follows:
+
+<Frame caption="Configuring Sender details">
+  <img src="/images/me-1-6.png" alt="Configuring Sender details" />
+</Frame>
+
+1. **Sender Name:** This field denotes the name you want to provide to the Sender profile to recognize while creating a campaign inside MoEngage. The _Sender Name_ should be between 5-50 characters. This is a mandatory field.
+2. **WhatsApp business number**: This field denotes the phone number registered with WhatsApp via Gallabox. This is a mandatory field and is also referred to as the WABA number.
+
+<Info>
+
+To get the WABA Number from Gallabox - go to Settings -> WhatsApp Channel -> WhatsApp -> Copy the WhatsApp Number and paste in the WhatsApp business number in MoEngage
+
+</Info>
+
+3. **delivery-report-callback-url**: To track the delivery of your WhatsApp Messages in MoEngage, copy the MoEngage Delivery Tracking URL, jump to your Gallabox dashboard, and paste it in the configuration window of MoEngage Integration in Gallabox. Click on Update Configuration to get the API Secret (Authorization) from the Gallabox to be used in the next step.
+
+<Frame caption="Pasting the delivery-report-callback-url in Gallabox">
+  <img src="/images/me-1-7.png" alt="Pasting the delivery-report-callback-url in Gallabox" />
+</Frame>
+
+4. **authentication**: This field denotes the API Key and will be used to identify the account that is making the API call. After you paste the Status URL in Gallabox and click on Update Configuration, you will get the API key to be used in the MoEngage dashboard as Authorization field.
+
+<Frame caption="Copying the API Secret">
+  <img src="/images/me-1-8.png" alt="Copying the API Secret" />
+</Frame>
+
+6. Copy the API Secret, jump to your MoEngage account, and paste it in the Authorization field as shown in the below picture. Here we have added Bearer before pasting the API Secret. If you don't add Bearer, it would still work.
+
+<Frame caption="Pasting the API Key in Authorization in MoEngage">
+  <img src="/images/me-1-9.png" alt="Pasting the API Key in Authorization in MoEngage" />
+</Frame>
+
+7. Click on Save to successfully integrate the MoEngage with Gallabox. Upon successful integration, you will get a success message.
+
+### Supported WhatsApp Templates
+
+Apart from the Text Templates and Button Templates, you can also send the below WhatsApp Templates via MoEngage to your customers:
+
+* Flow Template
+* Carousal Template
+* Location Template
+* Catalogue Template
+* Payment Template
+
+### WhatsApp Template Configuration
+
+You have to add the templates which are already approved by **META** via Gallabox on your MoEngage dashboard.
+
+If you haven't added any template in Gallabox, go to our guide for [Creating WhatsApp Templates.](https://github.com/mangoleaphq/gallabox-docs/tree/main/basic-modules/whatsapp-template-guidelines/README.md)
+
+<Info>
+
+MoEngage does not validate your templates when you save them on your account. Hence, make sure that they are accurate else your campaign may fail because of template mismatch.
+
+</Info>
+
+1. Sign in on your MoEngage account. From the left navigation, click on **Settings**. The navigation tab for Settings will open up. Under **Channel** click on WhatsApp. You will be redirected to window and then click on **Approved templates**.
+
+<Frame>
+  <img src="/images/moengage-templates.png" alt="" />
+</Frame>
+
+2. To add the verified template in Gallabox to your MoEngage account, click on **+ Template** on the right side of the window as directed in the screenshot below.
+
+<Frame>
+  <img src="/images/moengage-add-template.png" alt="" />
+</Frame>
+
+3. Once you click on **+ Template** you will be redirected to add the information related to the template you would like to add in your MoEngage Account.
+
+<Frame>
+  <img src="/images/moengage-add-template-info.png" alt="" />
+</Frame>
+
+<table><thead><tr><th width="179.5">Field</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Paste the name of the template as per Gallabox. If the template name in Gallabox is <strong>order_confirmation_1</strong> or <strong>welcome_message,</strong> make sure in the MoEngage account the name stays similar.</td></tr><tr><td>Service Provider</td><td>Choose Gallabox from the dropdown.</td></tr><tr><td>Sender profile</td><td>Check the box for the WhatsApp number from the dropdown.</td></tr><tr><td>Language</td><td>Choose the language in which the verified template on Gallabox was created. Most preferred language is <strong>English</strong>.</td></tr><tr><td>Category</td><td>Choose the category from the dropdown which you selected in Gallabox. If the message category in Gallabox is <strong>Utility</strong> make sure that you choose the same in MoEngage.</td></tr><tr><td>Header</td><td>Paste the header (text, image, video, document, and location) as per the verified template in Gallabox. Remember to upload or paste the same URL as in Gallabox Message template.</td></tr><tr><td>Body</td><td>Paste the message body from the verified template in Gallabox. Make sure to change the variables into numbers. For example if the message template in Gallabox has 3 variables - \{\{customer_Name\}\}, \{\{OrderId\}\}, and \{\{Date\}\}. Change the variables as \{\{1\}\}, \{\{2\}\}, and \{\{3\}\} while pasting the message body.</td></tr><tr><td>Footer</td><td>Paste the footer from the Gallabox template.</td></tr><tr><td>Buttons</td><td>If you have used Quick Reply Buttons or CTA Buttons, make sure to paste as it is from the verified Gallabox template.</td></tr></tbody></table>
+
+<Info>
+
+**PRO TIP**: Open your Gallabox account in adjacent tab and double check if you have pasted the right contents from your Gallabox to your MoEngage account.
+
+</Info>
+
+After you are done pasting the verified template from Gallabox to your MoEngage account, it would look something like the below picture.
+
+_We have used a sample template here to give you an idea._
+
+4. After copy & pasting the verified template from your Gallabox to your MoEngage account, click on **SAVE** button at the bottom right corner. When the template is saved, you can see in the list of templates as shown in the picture below.
+
+<Frame>
+  <img src="/images/moenagage-template-added.png" alt="" />
+</Frame>
+
+### MoEngage WhatsApp Campaign
+
+In this article, we will understand how you can create a campaign on MoEngage.
+
+Before creating a campaign, make sure you have
+
+-> Connected your Gallabox with MoEngage.
+
+-> Pasted the verified template in Gallabox to your MoEngage account.
+
+1. Sign in on your MoEngage account and from the left navigation click on **Engage**. The dropdown will appear and from the list of options, click on **Campaigns** like shown in the picture.
+
+<Frame>
+  <img src="/images/moengage-campaign.png" alt="" />
+</Frame>
+
+2. The **Campaigns** window will open up and you have to click on Create Campaign on the top right corner like shown in the picture below.
+
+<Frame>
+  <img src="/images/moengage-create-campaign.png" alt="" />
+</Frame>
+
+3. Create Campaign pop-up will open once you click on the button. You have to select the frequency of the campaign under Messaging Apps.
+
+<Frame>
+  <img src="/images/moengage-create-campaign-pop-up.png" alt="" />
+</Frame>
+
+4. Click on Messaging Apps option and you will have 3 options - One Time, Periodic, and Event Triggered. You can select the frequency depending on the nature of the campaign.
+
+<Frame>
+  <img src="/images/moengage-create-campaign-pop-up-frequency.png" alt="" />
+</Frame>
+
+5. Once you click the frequency either One Time, or Periodic, or Event triggered it will redirect you to the window where you will have to select Target Users. Provide the Campaign name and choose the campaign tags from the dropdown.
+
+<Frame>
+  <img src="/images/moengage-create-campaign-targetted-users.png" alt="" />
+</Frame>
+
+Once you select the event in the Audience field, click on **Next** to select the **content** for the campaign.
+
+6. In the content step, you have to select the sender, the template, and you have to provide the sample value for the variable. [**Detailed guide on Personalization**](https://help.moengage.com/hc/en-us/articles/5197221466260-Personalization-in-WhatsApp#steps-to-personalize-0-0).
+
+<Frame>
+  <img src="/images/moengage-create-content.png" alt="" />
+</Frame>
+
+6.1 You have the option to test the campaign before publishing. It gives you the chance to resolve any error. You have to select the **Mobile Numbe**r (External/Not Registered with MoEngage) and provide the **mobile number with Country code** and click on **Test**.
+
+7. After testing the campaign, click on **Next** to schedule the campaign. You can either select **As soon as possible** or **At Specific date and time,** if you want to schedule the campaign for later.
+
+<Frame>
+  <img src="/images/moengage-test-campaign-schedule.png" alt="" />
+</Frame>
+
+You will have to provide the start day and send time for the campaign. Once you do that, click on **Publish** Button at the bottom right of the screen. There will be a pop-up asking you to confirm again.
+
+<Frame>
+  <img src="/images/moengage-test-campaign-publish.png" alt="" />
+</Frame>
+
+Click on **Publish** again.
+
+You will be redirected to the campaign info to monitor the progress.
+
+<Frame>
+  <img src="/images/moengage-test-campaign-info.png" alt="" />
+</Frame>

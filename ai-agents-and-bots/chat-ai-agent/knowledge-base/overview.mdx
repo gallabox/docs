@@ -1,0 +1,197 @@
+---
+title: "Knowledge Base"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access** who want to give their Chat AI Agent domain-specific knowledge.
+> * Roles: Owners and Admins — Knowledge Base is configured in the Chat AI Agent settings.
+
+<Info>
+
+The Knowledge Base is a RAG (Retrieval Augmented Generation) system. When a visitor asks a question, the agent searches the Knowledge Base for relevant documents and uses that information to generate accurate, grounded responses — rather than making things up.
+
+</Info>
+
+## Plan Availability
+
+| Capability                | Basic |  Essential  |      Advanced     |
+| ------------------------- | :---: | :---------: | :---------------: |
+| Knowledge Base total size |   —   |    10 MB    |       100 MB      |
+| Data-source types         |   —   | DOC and PDF | URL, PDF, and DOC |
+
+## What is the Knowledge Base?
+
+The Knowledge Base is a document library that your Chat AI Agent uses to answer questions accurately. Instead of relying only on its general training data, the agent can search through your specific documents — product guides, pricing sheets, FAQs, policies — and use that information to answer visitor questions.
+
+This is called **RAG** (Retrieval Augmented Generation):
+
+1. **Visitor asks a question** in the Web Chat widget
+2. **Agent searches the Knowledge Base** for relevant documents
+3. **Agent retrieves the most relevant chunks** and includes them in the LLM prompt
+4. **Agent generates a response** grounded in your actual documents
+
+## Supported Data Sources
+
+| Data source                | What you upload       | Best for                                  |
+| -------------------------- | --------------------- | ----------------------------------------- |
+| **PDF**                    | PDF files             | Product manuals, policy documents, guides |
+| **Word**                   | .docx files           | Policies, guides, structured documents    |
+| **CSV**                    | CSV spreadsheet files | Product lists, pricing tables, inventory  |
+| **Excel**                  | .xlsx files           | Structured data                           |
+| **Text / Markdown / JSON** | .txt, .md, .json      | Help articles, structured content         |
+| **URL**                    | Website URL to crawl  | FAQs, help articles, product pages        |
+
+> For file size and storage limits, see [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources#what-data-sources-can-i-add).
+
+## How Chunking Works
+
+Documents are split into **chunks** — smaller pieces of text that the agent can search and retrieve quickly. Chunking matters because:
+
+* **Smaller chunks** → more precise answers, but may miss broader context
+* **Larger chunks** → more context, but less precise retrieval
+
+You can configure:
+
+* **Chunk size** — how many tokens per chunk (default: 800 tokens)
+* **Chunk overlap** — how much overlap between adjacent chunks (default: 400 tokens)
+
+## How Retrieval Works
+
+When a visitor asks a question, the agent searches the Knowledge Base and retrieves the most relevant chunks. You can configure:
+
+* **Documents returned per query** — how many chunks the agent retrieves to answer each question (default: 2)
+* **Relevance threshold** — minimum relevance score for a chunk to be included (default: 0.7)
+
+Retrieval uses **hybrid search** (semantic + keyword, enabled by default) with **reranking** of results for better relevance.
+
+## Provider Options
+
+| Provider             | How it works                                  | Best for                                   |
+| -------------------- | --------------------------------------------- | ------------------------------------------ |
+| **Managed (Qdrant)** | Gallabox-managed vector search                | Most users — no setup required             |
+| **OpenAI Assistant** | Uses OpenAI's Assistant API with vector store | Users with existing OpenAI Assistant setup |
+
+The Managed (Qdrant) provider is recommended for most users — it requires no configuration and is fully integrated with Gallabox.
+
+## How to Connect a Knowledge Base to an Agent
+
+<Steps>
+
+<Step>
+Go to **AI Agents and Bots** in the left navigation of Gallabox.
+</Step>
+
+<Step>
+Open or create a Chat AI Agent.
+</Step>
+
+<Step>
+Click **Settings** on the agent.
+</Step>
+
+<Step>
+Click **Knowledge Base**.
+</Step>
+
+<Step>
+Click **Connect Knowledge Base**.
+</Step>
+
+<Step>
+Choose your provider (Managed or OpenAI Assistant).
+</Step>
+
+<Step>
+Add your data sources (see [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources)).
+</Step>
+
+<Step>
+Wait for documents to index — check status in the Knowledge Base panel.
+</Step>
+
+<Step>
+Click **Save**.
+</Step>
+
+</Steps>
+
+<Check>
+
+**Pro tip:** Start with your most commonly asked questions and work backwards. Upload documents that answer your top 10 FAQ topics first. You can always add more documents later. Quality of answers depends on quality of documents — well-structured, clearly written documents produce better answers.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a SaaS company and want the Chat AI Agent to answer common questions about pricing, features, and integrations — without having to write every answer manually.
+
+Here's how you'd set it up:
+
+<Steps>
+
+<Step>
+Create a Chat AI Agent with the use case: **FAQ / Support**.
+</Step>
+
+<Step>
+Go to **Settings → Knowledge Base** and connect a Managed (Qdrant) Knowledge Base.
+</Step>
+
+<Step>
+Upload:
+
+* Your pricing page as a PDF
+* Your feature comparison table as a CSV
+* Your integrations list as a PDF
+* Your FAQ page URL to crawl
+</Step>
+
+<Step>
+Keep the default chunk size (800 tokens) and overlap (400 tokens).
+</Step>
+
+<Step>
+Keep documents returned per query at the default of 2.
+</Step>
+
+<Step>
+Write the agent's instructions: _"Use the Knowledge Base to answer pricing, feature, and integration questions. If you can't find the answer in the Knowledge Base, say you don't know and offer to connect the visitor with your sales team."_
+</Step>
+
+<Step>
+Test in the **Test Widget** with questions like "What's your pricing?" and "Do you integrate with HubSpot?"
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How many Knowledge Bases can I connect to one agent?">
+You can connect up to **3 Knowledge Bases** per Chat AI Agent. This is useful if you want to separate different types of knowledge — e.g., one KB for product docs, one for support policies, one for pricing.
+</Accordion>
+
+<Accordion title="How long does it take for documents to index?">
+Typical indexing time varies by source size:
+
+* Small PDFs (under 10 pages): 1–5 minutes
+* Large PDFs (over 50 pages): 10–30 minutes
+* Website crawl: 5–20 minutes depending on number of pages
+
+You can check the indexing status in the Knowledge Base panel. The status shows: Pending → Processing → Completed.
+</Accordion>
+
+<Accordion title="Can I update documents without re-indexing everything?">
+Yes. When you update a document in the Knowledge Base, you can re-index just that document — without re-indexing your entire Knowledge Base. Go to **Knowledge Base → \[Document] → Re-index**.
+</Accordion>
+
+<Accordion title="What happens if the Knowledge Base doesn't have the answer?">
+Set your agent's instructions to handle this explicitly. For example: _"If you can't find the answer in the Knowledge Base, say: 'I don't have that information yet. Let me connect you with our team who can help.' Then use @assignTo to hand off to a human agent."_
+</Accordion>
+</AccordionGroup>
+
+## In this section
+
+* [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources) — upload files, crawl sites, and manage content

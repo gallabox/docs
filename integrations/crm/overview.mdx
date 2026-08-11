@@ -1,0 +1,232 @@
+---
+title: "CRM"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins. If you don't have access, ask your account owner to grant you the Admin role under **Settings → Team → Roles**.
+
+<Info>
+
+CRM integrations connect bot flows to supported actions in your sales CRM. The available actions depend on the connector you select.
+
+</Info>
+
+## Plan Availability
+
+| CRM                                              | Plan Required       | Authentication                     |
+| ------------------------------------------------ | ------------------- | ---------------------------------- |
+| HubSpot                                          | Essential, Advanced | OAuth                              |
+| Zoho CRM (India `zoho.in` / Global `zoho.com`)   | Essential, Advanced | OAuth                              |
+| Zoho Bigin (India `zoho.in` / Global `zoho.com`) | Essential, Advanced | OAuth                              |
+| Pipedrive                                        | Essential, Advanced | OAuth                              |
+| LeadSquared                                      | Advanced            | Access Key + Secret Key + API Host |
+| Sangam CRM                                       | Essential, Advanced | Domain Name + API Key              |
+| Kylas                                            | All plans           | Kylas Marketplace app              |
+| Odoo                                             | All plans           | Gallabox API key entered in Odoo   |
+
+## HubSpot
+
+### What HubSpot integration does
+
+Connects your HubSpot account to Gallabox so a bot flow can create or update a HubSpot contact.
+
+### Supported HubSpot actions
+
+* **Create or Update Contact** — use the email address to create a contact or update the existing matching contact; map supported standard and custom contact properties
+
+### How to connect HubSpot
+
+1. Go to **Integrations → HubSpot**
+2. Click **Connect with HubSpot** — you'll be redirected to HubSpot's OAuth page
+3. Authorize Gallabox to access your HubSpot account
+4. Select the HubSpot portal to connect
+5. The connection appears in your Integrations list
+
+### HubSpot use cases
+
+**Lead capture from bot flow:**
+
+```
+Ask Name, Ask Email, Ask Phone → Update Contact Fields
+  → HubSpot: Create or Update Contact (name={{name}}, email={{email}}, phone={{phone}}, lead_source="WhatsApp Bot")
+  → Send Text: "Thanks! Our team will be in touch shortly."
+```
+
+## Zoho CRM & Zoho Bigin
+
+### What Zoho CRM and Zoho Bigin integrations do
+
+Connects your Zoho CRM or Zoho Bigin account so bot flows can create or update lead and contact records. Zoho Bigin is Zoho's simplified CRM for small businesses. Each product is available as two regional connectors matching your Zoho data center: India (`zoho.in`) and Global (`zoho.com`).
+
+### Supported Zoho CRM / Zoho Bigin actions
+
+**Zoho CRM**
+
+* **Create One Lead** — create a lead record
+* **Create or Update Lead** — upsert a lead record using the configured lead fields
+
+**Zoho Bigin**
+
+* **Create or Update Contact** — create a contact or update the matching contact
+
+### How to connect Zoho CRM or Zoho Bigin
+
+1. Go to **Integrations → Zoho CRM** or **Zoho Bigin**
+2. Select the connector matching your Zoho data center (India — `zoho.in`, or Global — `zoho.com`)
+3. Click **Connect** — you'll be redirected to Zoho's OAuth page
+4. Authorize Gallabox to access your Zoho account
+5. Select the Zoho organization to connect
+
+### Zoho CRM use cases
+
+**Lead sync:**
+
+```
+Ask Email → Update Contact Fields
+  → Zoho CRM: Create or Update Lead (email={{email}}, phone={{phone}}, lead_source="Gallabox Bot")
+  → Send Text: "You're on the list! Expect a call within 24 hours."
+```
+
+## Pipedrive
+
+### What Pipedrive integration does
+
+Connects your Pipedrive CRM account so bot flows can create leads and deals. Gallabox creates or links the person record required by the selected operation. Available on the Essential and Advanced plans.
+
+### Supported Pipedrive actions
+
+* **Create Lead** — create a Pipedrive lead and associate the required person record
+* **Create Deal** — create a Pipedrive deal and associate the required person record
+
+### How to connect Pipedrive
+
+1. Go to **Integrations → Pipedrive**
+2. Click **Connect with Pipedrive** — OAuth redirect
+3. Authorize Gallabox to access your Pipedrive account
+4. Select the Pipedrive company to connect
+
+### Pipedrive use cases
+
+**Lead capture:**
+
+```
+Ask Name, Ask Phone → Update Contact Fields
+  → Pipedrive: Create Lead (title="WhatsApp Lead: {{name}}", person name={{name}}, person number={{phone}})
+```
+
+**Order → won deal:**
+
+```
+Condition: {{order_paid}} = true
+  → Pipedrive: Create deal (title="Order {{order_id}}", amount={{order_total}}, stage="Won")
+```
+
+## LeadSquared
+
+### What LeadSquared integration does
+
+Connects your LeadSquared account so bot flows can create or update leads and add activities. Available on the Advanced plan.
+
+### Supported LeadSquared actions
+
+* **Create or Update Lead** — create a lead or update the lead matched by phone
+* **Create Activity for a Lead** — add an activity type and optional activity note to the lead matched by phone
+
+### How to connect LeadSquared
+
+1. Go to **Integrations → LeadSquared**
+2. Enter your LeadSquared **Access Key** and **Secret Key** (found in LeadSquared → Settings → API)
+3. Enter your LeadSquared **API Host** — the region-specific base URL, also shown in LeadSquared → Settings → API
+4. Click **Connect**
+
+### LeadSquared use cases
+
+**Lead capture with activity:**
+
+```
+Ask Email, Ask Phone → Update Contact Fields
+  → LeadSquared: Create or Update Lead (Phone={{phone}}, Email={{email}}, Source="WhatsApp Bot")
+```
+
+## Sangam CRM
+
+### What Sangam CRM integration does
+
+Connects your Sangam CRM account so a bot flow can create a lead.
+
+### Supported Sangam CRM actions
+
+* **Create Lead** — create a Lead record using the configured Sangam CRM fields
+
+### How to connect Sangam CRM
+
+1. Go to **Integrations → Sangam CRM**
+2. Enter your Sangam CRM **Domain Name** and **API Key** (from Sangam CRM → Settings → API)
+3. Click **Connect**
+
+### Sangam CRM use cases
+
+**Lead capture:**
+
+```
+Ask Name, Ask Email → Update Contact Fields
+  → Sangam CRM: Create Lead (name={{name}}, email={{email}}, phone={{phone}})
+  → Send Text: "Thanks! Our team will reach out soon."
+```
+
+## Kylas
+
+### What Kylas integration does
+
+Connects your Kylas CRM account with Gallabox so WhatsApp conversations and leads sync into Kylas. Requires the **WhatsApp Business Messaging** app installed from the Kylas Marketplace, and a Kylas **Elevate plan or above**.
+
+### How to connect Kylas
+
+1. In Kylas, make sure you're on the Elevate plan or above and your user has API access to Contacts and Leads (Read, Message)
+2. Go to **Integrations → Kylas** in Gallabox and click **Connect**
+3. You'll be redirected to the Kylas Marketplace — install the **WhatsApp Business Messaging** app (sign in to Kylas if prompted)
+4. Follow the prompts to link your Gallabox WhatsApp account with Kylas
+
+### Kylas use cases
+
+* Send WhatsApp messages to Kylas contacts and leads directly from the CRM
+* Sync WhatsApp conversations into Kylas for sales follow-up
+
+## Odoo
+
+### What Odoo integration does
+
+Connects Odoo with Gallabox so you can send WhatsApp messages from Odoo. Configured from the Odoo side using a Gallabox API key.
+
+### How to connect Odoo
+
+1. In Odoo, activate **developer mode**
+2. Open the **Technical Menu → WhatsApp → WhatsApp configuration**
+3. Click **Create** to add a Gallabox instance
+4. Fill in the configuration details (including your Gallabox API key) and save
+
+### Odoo use cases
+
+* Send WhatsApp messages to customers from Odoo sales and support modules
+* Keep Odoo customer communication and WhatsApp messaging in one place
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I map custom CRM fields to Gallabox variables?">
+Available fields depend on the selected connector and operation. Use the fields shown in that connector's configuration form.
+
+Note: this applies to the bot-flow **Zoho CRM connector** described on this page. The separate "Zoho CRM & Signals" integration only maps Last Name and Phone — the two are easy to confuse.
+</Accordion>
+
+<Accordion title="What happens if the CRM is down when the bot tries to create a contact?">
+See [what happens when a connector call fails](/ai-agents-and-bots/bots/connectors#faqs) — the flow stops at that node. Use a Condition node to check success/failure and add your own fallback branch; failed calls are not retried automatically.
+</Accordion>
+
+<Accordion title="Why can't I find the same actions in every CRM connector?">
+Each connector exposes only the operations listed in its section on this page. For example, Pipedrive includes **Create Deal**, while the HubSpot bot connector includes **Create or Update Contact**.
+</Accordion>
+</AccordionGroup>

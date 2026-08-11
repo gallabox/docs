@@ -1,0 +1,201 @@
+---
+title: "Variables"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users setting up templates, bot flows, or sequences.
+> * Roles: Owners and Admins (and roles with the relevant permission) for configuring variables; Agent role uses variables in compose box.
+
+<Info>
+
+Variables are placeholders that get replaced with actual values when a message is sent. They let you personalise messages with each contact's specific information — their name, company, order number, appointment date, and more.
+
+</Info>
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What are Variables?
+
+Variables are placeholders in message templates that Gallabox replaces with actual values when the message is sent. Instead of writing "Hi customer" in your broadcast, you write `{{contact.name}}` — and Gallabox replaces it with each contact's actual name ("Hi Sarah", "Hi John", etc.).
+
+Variables are used in:
+
+* **WhatsApp template messages** — personalise template content
+* **Bot flow messages** — dynamic responses based on contact data
+* **Sequence messages** — personalised drip campaign content
+* **Broadcast messages** — personalised mass outreach
+
+## System Variables
+
+System variables are built-in values that Gallabox provides automatically. You can use them in any message.
+
+### Contact Variables
+
+| Variable                        | What it returns                             | Example output      |
+| ------------------------------- | ------------------------------------------- | ------------------- |
+| `{{contact.name}}`              | Contact's full name                         | "Sarah Johnson"     |
+| `{{contact.email}}`             | Contact's email address                     | "sarah@example.com" |
+| `{{contact.phone}}`             | Contact's phone number                      | "+919876543210"     |
+| `{{contact.contactOwner.name}}` | Name of the contact's owner (assigned user) | "Priya Sharma"      |
+
+### User Variables
+
+| Variable         | What it returns                 | Example output      |
+| ---------------- | ------------------------------- | ------------------- |
+| `{{user.name}}`  | Your name as the sending agent  | "Priya Sharma"      |
+| `{{user.email}}` | Your email as the sending agent | "priya@example.com" |
+
+### Company Variables
+
+| Variable               | What it returns  | Example output |
+| ---------------------- | ---------------- | -------------- |
+| `{{company.name}}`     | Company name     | "Acme Corp"    |
+| `{{company.industry}}` | Company industry | "Retail"       |
+| `{{company.size}}`     | Company size     | "50-100"       |
+
+> Type `{{` in any supported text field to open the variable picker — it always shows the exact, current list of variables available on your account, including your custom fields.
+
+## Custom Contact Field Variables
+
+In addition to system variables, you can use any custom contact field you've created. Contact fields are set up in **Contacts → Contact Fields**.
+
+### Default Contact Fields
+
+| Field | Variable            |
+| ----- | ------------------- |
+| Name  | `{{contact.name}}`  |
+| Phone | `{{contact.phone}}` |
+| Email | `{{contact.email}}` |
+
+### Custom Contact and Company Fields
+
+Custom fields use the `contact.field.<field_name>` / `company.field.<field_name>` syntax:
+
+| Field name               | Variable                               |
+| ------------------------ | -------------------------------------- |
+| Plan                     | `{{contact.field.plan}}`               |
+| Membership Tier          | `{{contact.field.membership_tier}}`    |
+| Last Purchase Date       | `{{contact.field.last_purchase_date}}` |
+| Annual Revenue (company) | `{{company.field.annual_revenue}}`     |
+
+The variable name uses the field's internal name, which may differ from its display label. Don't type these by hand — type `{{` in the message editor and pick from the list to get the exact variable.
+
+## How to Use Variables
+
+### In WhatsApp Templates
+
+<Steps>
+
+<Step title="Go to WhatsApp Templates">
+Go to **WhatsApp Templates** in the left navigation.
+</Step>
+
+<Step title="Open or create a template">
+Open an existing template or create a new one.
+</Step>
+
+<Step title="Insert a variable">
+In the message body, type `{{` to see available variables.
+</Step>
+
+<Step title="Select the variable">
+Select the variable you want to use.
+</Step>
+
+<Step title="Fill in values when sending">
+Fill in the variable values when sending the template.
+</Step>
+
+</Steps>
+
+**Example:**
+
+> _"Hi \{\{contact.name\}\}! Your order #\{\{order\_number\}\} is confirmed for delivery on \{\{delivery\_date\}\}. Track it here: \{\{tracking\_link\}\}"_
+
+### In Bot Flow Messages
+
+In any message node's text, type `{{` to insert a variable — see [Flow Builder](/ai-agents-and-bots/bots/flow-builder).
+
+### In Sequence Messages
+
+<Steps>
+
+<Step title="Open Sequences">
+Go to **Sequences** in the left navigation.
+</Step>
+
+<Step title="Create or open a sequence">
+Create or open a sequence.
+</Step>
+
+<Step title="Insert a variable">
+In the message step, type `{{` to see available variables.
+</Step>
+
+<Step title="Select the variable">
+Select the variable — it will be inserted into the message.
+</Step>
+
+</Steps>
+
+<Check>
+
+**Pro tip:** Check your contact data before sending — if a contact has no value for a variable, the message renders with a blank in its place ("Hi !"). For broadcasts, filter your segment to contacts that have the fields your template uses, or fill default values when sending.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a fitness studio and want to send a personalised appointment reminder via WhatsApp. The message should include the customer's name, appointment date, class name, and trainer name.
+
+Here's how you'd set up the template:
+
+<Steps>
+
+<Step title="Create a template">
+Go to **WhatsApp Templates → Create Template**.
+</Step>
+
+<Step title="Select a category">
+Select **Utility** category.
+</Step>
+
+<Step title="Name the template">
+Name the template: `appointment_reminder`
+</Step>
+
+<Step title="Write the message body">
+Write the message body:
+
+> _"Hi \{\{contact.name\}\}! Reminder: Your \{\{class\_name\}\} class with \{\{trainer\_name\}\} is tomorrow, \{\{appointment\_date\}\} at \{\{appointment\_time\}\}. See you there! 💪"_
+</Step>
+
+<Step title="Submit for approval">
+Submit for Meta's approval.
+</Step>
+
+<Step title="Fill in the values when sending">
+When sending via broadcast or sequence, fill in the values for `class_name`, `trainer_name`, `appointment_date`, and `appointment_time`.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="A variable is showing as blank in my message — why?">
+The contact doesn't have a value for that field. For example, if `{{company.name}}` is blank, the contact was added without a linked company. Check that: (1) the field exists in **Contacts → Contact Fields**, (2) the contact has a value for that field, (3) the variable name is spelled correctly (check **Contacts → Contact Fields** for the exact name).
+</Accordion>
+
+<Accordion title="Can I use variables in bot flow conditions?">
+Yes. In the bot flow builder, you can use variables in conditions — e.g., "If `{{contact.field.plan}}` equals 'Enterprise'". This lets you create dynamic flows that behave differently based on contact data.
+</Accordion>
+
+<Accordion title="Why doesn't my custom field variable work?">
+Custom fields use the `contact.field.<name>` syntax (e.g., `{{contact.field.plan}}`), not `contact.<name>`. The `<name>` is the field's internal name, which can differ from its display label. Type `{{` in the editor and pick the variable from the list instead of typing it by hand.
+</Accordion>
+</AccordionGroup>

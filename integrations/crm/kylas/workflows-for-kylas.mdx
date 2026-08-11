@@ -1,0 +1,214 @@
+---
+title: "Workflows for Kylas"
+description: "Send automated WhatsApp messages using Kylas CRM. Set up a workflow to send template messages when a lead is created. Follow our step-by-step guide in the CRM settings."
+---
+
+### WhatsApp Messages from Kylas
+
+You can send a template message as soon as a lead gets created in Kylas CRM.
+
+<Info>
+
+You can send the Template message(s) that is/are verified by **META**.
+
+</Info>
+
+1. Go to your Kylas CRM and navigate to CRM Settings at the bottom left of the navigation pane.
+
+<Frame caption="Kylas Dashboard">
+  <img src="/images/kylas-crm-1.png" alt="Kylas Dashboard" />
+</Frame>
+
+2. In the CRM Settings, navigate to **Automations**. Under Automations, you will get the Workflow. Click on it.
+
+<Frame caption="Automations in Kylas CRM Settings">
+  <img src="/images/kylas-crm-1-1.png" alt="Automations in Kylas CRM Settings" />
+</Frame>
+
+3. Click on Add a Workflow as shown in the picture below.
+
+<Frame caption="Add a Workflow">
+  <img src="/images/kylas-crm-1-2.png" alt="Add a Workflow" />
+</Frame>
+
+4. After clicking, it will ask you to Name your Workflow, and let's name it **sending\_message.**
+
+<Frame caption="Naming the Workflow">
+  <img src="/images/send-message-1-1.png" alt="Naming the Workflow" />
+</Frame>
+
+5. Choosing the Entity is the next step. Options available for Entity are Lead, Contact, Deal, Task, Call Log, and Meeting. Select from the options you would like to create an automated flow for. We will take Entity - Lead to create an automated flow as an example.
+
+<Frame caption="Selecting an Entity">
+  <img src="/images/kylas-crm-1-4.png" alt="Selecting an Entity" />
+</Frame>
+
+6. Next is selecting an action type and trigger preference to your workflow.
+
+<Frame caption="Selecting an Action Type">
+  <img src="/images/kylas-crm-1-5.png" alt="Selecting an Action Type" />
+</Frame>
+
+7. We will take the action type as **When a Lead is Created** and the trigger as **Immediately**.
+
+<Frame caption="Selecting the trigger">
+  <img src="/images/kylas-crm-1-6.png" alt="Selecting the trigger" />
+</Frame>
+
+8. Next is setting conditions and the action to be performed automatically. We will take the Condition as **All Leads**, and the action as **Webhook**.
+
+<Frame caption="Setting the Condition and the action to be performed">
+  <img src="/images/kylas-crm-1-7.png" alt="Setting the Condition and the action to be performed" />
+</Frame>
+
+9. A pop-up will appear to edit the webhook. Edit the name and if you would like to add the description, please add.
+
+Select the Request type as **Post** and for the Request URL paste -
+
+```
+https://workflow.gallabox.com/webhook/messages/whatsapp/form
+```
+
+We have named the webhook as **sending\_message.**
+
+<Frame caption="Editing the name , Request Type, and URL for Webhook">
+  <img src="/images/send-message-1-2.png" alt="Editing the name , Request Type, and URL for Webhook" />
+</Frame>
+
+10. Select the authorization as **API Key**. In place of Key Name paste **apikeysecret** and for the value pass both apikey and apisecret separated with colon (:).
+
+<Info>
+
+Get the [apikey and apisecret](https://github.com/mangoleaphq/gallabox-docs/tree/main/developer-resources/api-key-and-secret.md) from your Gallabox Account.
+
+</Info>
+
+<Frame caption="Inserting the Key Name and Value">
+  <img src="/images/kylas-crm-1-9.png" alt="Inserting the Key Name and Value" />
+</Frame>
+
+11. The last Step in editing the webhook is to add the parameters that you would like to push for the sending the automatic message when a lead is created in Kylas CRM.
+
+We have added **channelId**, t**emplateName**, r**ecipientName**, r**ecipientPhones**, and **Name** (_**Variable Name defined in the Message template**_).
+
+<Info>
+
+Copy paste the variables like **channelId or** t**emplateName** as they are without any change.
+
+</Info>
+
+You can add the parameters like headerMediaUrl, headerMediaName, footerButtondomain, and footerButtonUrl depending on the message template you have created.
+
+<Frame caption="Adding the Parameters">
+  <img src="/images/kylas.png" alt="Adding the Parameters" />
+</Frame>
+
+12. Click on Save to Save the Webhook.
+
+The pop-up will close and you will be redirected to the workflow window and you have to click on Save again.
+
+<Frame caption="Saving the workflow">
+  <img src="/images/send-message-1-4.png" alt="Saving the workflow" />
+</Frame>
+
+The automation is complete and wherever a lead is created in Kylas CRM, an automatic message will be shared with them over WhatsApp.
+
+### Move Contacts
+
+You can push the Contact details from Kylas to Gallabox as soon as the lead gets created or when the lead is updated.
+
+Let's take a step-by-step approach to make this happen.
+
+1. Go to your Kylas CRM and navigate to CRM Settings at the bottom left of the navigation pane.
+
+<Frame caption="Kylas Dashboard">
+  <img src="/images/kylas-crm-1.png" alt="Kylas Dashboard" />
+</Frame>
+
+2. In the CRM Settings, navigate to **Automations**. Under Automations, you will get the Workflow. Click on it.
+
+<Frame caption="Automations in Kylas CRM Settings">
+  <img src="/images/kylas-crm-1-1.png" alt="Automations in Kylas CRM Settings" />
+</Frame>
+
+3. Click on Add a Workflow as shown in the picture below.
+
+<Frame caption="Add a Workflow">
+  <img src="/images/kylas-crm-1-2.png" alt="Add a Workflow" />
+</Frame>
+
+4. After clicking, it will ask you to Name your Workflow, and we have named it **upsert\_contacts** for example.
+
+<Frame caption="Naming the Workflow">
+  <img src="/images/kylas-crm-1-3.png" alt="Naming the Workflow" />
+</Frame>
+
+5. Selecting Entity is the next step. Options available for Entity are Lead, Contact, Deal, Task, Call Log, and Meeting. Select from the options you would like to create an automated flow for. We will take Entity - Lead to create an automated flow as an example.
+
+<Frame caption="Selecting an Entity">
+  <img src="/images/kylas-crm-1-4.png" alt="Selecting an Entity" />
+</Frame>
+
+6. Next is selecting an action type and trigger preference to your workflow.
+
+<Frame caption="Selecting an Action Type">
+  <img src="/images/kylas-crm-1-5.png" alt="Selecting an Action Type" />
+</Frame>
+
+7. We will take the action type as **When a Lead is Created** and the trigger as **Immediately**.
+
+<Frame caption="Selecting the trigger">
+  <img src="/images/kylas-crm-1-6.png" alt="Selecting the trigger" />
+</Frame>
+
+8. Next is setting conditions and the action to be performed automatically. We will take the Condition as **All Leads**, and the action as **Webhook**.
+
+<Frame caption="Setting the Condition and the action to be performed">
+  <img src="/images/kylas-crm-1-7.png" alt="Setting the Condition and the action to be performed" />
+</Frame>
+
+9. A pop-up will appear to edit the webhook. Edit the name and if you would like to add the description, please add.
+
+Select the Request type as **Post** and for the Request URL paste -
+
+```
+https://workflow.gallabox.com/webhook/contacts/upsert/form
+```
+
+We have named the webhook as **upsert\_contacts.**
+
+<Frame caption="Editing the name , Request Type, and URL for Webhook">
+  <img src="/images/kylas-crm-1-8.png" alt="Editing the name , Request Type, and URL for Webhook" />
+</Frame>
+
+10. Select the authorization as **API Key**. In place of Key Name paste **apikeysecret** and for the value pass both apikey and apisecret separated with colon (:).
+
+<Info>
+
+Get the [apikey and apisecret](https://github.com/mangoleaphq/gallabox-docs/tree/main/developer-resources/api-key-and-secret.md) from your Gallabox Account.
+
+</Info>
+
+<Frame caption="Inserting the Key Name and Value">
+  <img src="/images/kylas-crm-1-9.png" alt="Inserting the Key Name and Value" />
+</Frame>
+
+11. The last Step in editing the webhook is to add the parameters that you would like to push for the lead in Gallabox. We have added Name, **Email**, **Phone**, and **ContactownerId**. You can add the parameters like tags or any field value.
+
+<Info>
+
+Copy paste the variables like **channelId or** t**emplateName** as they are without any change.
+
+</Info>
+
+You can add the parameters like headerMediaUrl, headerMediaName, footerButtondomain, and footerButtonUrl depending on the message template you have created.
+
+12. Click on Save to Save the Webhook.
+
+The pop-up will close and you will be redirected to the workflow window and you have to click on Save again.
+
+<Frame caption="Saving the workflow">
+  <img src="/images/kylas-crm-1-11.png" alt="Saving the workflow" />
+</Frame>
+
+The automation is complete and wherever a lead is created in Kylas CRM, it will be pushed to Gallabox.

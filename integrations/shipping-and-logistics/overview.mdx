@@ -1,0 +1,109 @@
+---
+title: "Shipping & Logistics"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Shipping integrations send automatic WhatsApp updates to your customers as their orders move — picked up, out for delivery, delivered — using your approved message templates. No bot flow needed: shipment events from your logistics platform trigger the messages directly.
+
+</Info>
+
+## Plan Availability
+
+| Integration | Plan Required              | Authentication            |
+| ----------- | -------------------------- | ------------------------- |
+| Shiprocket  | Basic, Essential, Advanced | API user email + password |
+| Shipway     | Basic, Essential, Advanced | Username + License Key    |
+
+## How Shipping Integrations Work
+
+These are **workflow integrations** — different from bot flow connectors:
+
+1. Your shipping platform sends a shipment event (order picked up, out for delivery, delivered) to Gallabox via webhook
+2. The matching **workflow** you configured fires
+3. Gallabox sends the WhatsApp template you selected, with variables (order ID, tracking link) mapped from the event
+
+You configure each workflow once — pick a template, map variables, submit — and every future shipment event triggers the message automatically.
+
+## Shiprocket
+
+### What Shiprocket integration does
+
+Connects your Shiprocket account to Gallabox — sends automatic WhatsApp notifications at every stage of the shipment.
+
+### Available Shiprocket workflows
+
+* **Pickup Scheduled** — order scheduled for pickup
+* **Order Picked** — courier has collected the order
+* **Order Shipped** — shipment is on the way
+* **Out for Delivery** — shipment is out for delivery
+* **Delivered** — order delivered successfully
+
+### How to connect Shiprocket
+
+1. In Shiprocket, create an API user: **Settings → API → Configure → Create an API user** (use an email different from your Shiprocket login)
+2. In Gallabox, go to **Integrations → Shiprocket** and click **Connect**
+3. Enter an integration name plus the API user's **email and password**, then click **Submit**
+4. Select the WhatsApp channel and click **Update Configuration**
+5. Copy the generated **Webhook URL and Secret** from Gallabox into Shiprocket: **Settings → API → Webhook**, then test and save
+
+### Shiprocket use cases
+
+```
+Shiprocket event: "Out for Delivery"
+  → Workflow fires: send template "delivery_update"
+    "Hi {{name}}, your order {{order_id}} is out for delivery today! Track it here: {{tracking_link}}"
+```
+
+---
+
+## Shipway
+
+### What Shipway integration does
+
+Connects your Shipway account to Gallabox — sends WhatsApp notifications when shipment statuses update in Shipway.
+
+### Available Shipway workflows
+
+* **Order Picked Up** — courier has collected the order
+* **Out for Delivery** — shipment is out for delivery
+* **Order Delivered** — order delivered successfully
+
+### How to connect Shipway
+
+1. In Shipway One, connect Shipway Experience first: **Settings → Integrations → 3rd party Integrations → Add New Third Party → Shipway Experience** (paste your Username and License Key)
+2. In Gallabox, go to **Integrations → Shipway** and click **Connect**
+3. Enter an integration name, your Shipway **Username**, and your **License Key** in the password field (both from your Shipway dashboard)
+4. Select the WhatsApp channel and click **Update Configuration**
+5. For each workflow, click **Use**, pick a template, map the variables, and click **Update Workflow**
+
+### Checking that it works
+
+Open the Shipway integration and click **Logs**. The log stays empty until shipment statuses start updating in Shipway. If you see error logs, check that:
+
+* The template you're sending is approved
+* The variables are mapped correctly
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do these notifications need the customer to message us first?">
+No — workflow messages use approved WhatsApp templates, which can be sent outside the 24-hour service window. Standard template (utility) pricing applies per message.
+</Accordion>
+
+<Accordion title="Can I turn off a single notification without disconnecting the integration?">
+Yes — toggle off the switch beside the individual workflow. The integration and other workflows keep running.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Integrations Overview](/integrations/overview) — all available integrations
+* [Create and Manage Templates](/whatsapp/templates/create-template) — the templates your workflows send
+* [E-Commerce Integrations](/integrations/e-commerce/overview) — Shopify, WooCommerce, and store events

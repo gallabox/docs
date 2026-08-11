@@ -1,0 +1,97 @@
+---
+title: "Zoho Lead Panel"
+description: "With Gallabox’s Zoho Leads Panel, your team can view Zoho CRM lead information directly within Gallabox conversations. This eliminates the need to switch tabs or manually search for lead data."
+---
+
+### How to Set Up the Zoho Leads Panel
+
+Follow the steps below to configure the Zoho Leads Panel in your Gallabox workspace.
+
+#### Step 1: Open Zoho Leads Panel in the Gallabox Dashboard
+
+1. You can log in to your Gallabox account.
+2. From the left navigation, click on Integrations.
+3. You can just scroll through the list of integrations and select Zoho Leads Panel.
+
+<Frame>
+  <video src="/images/update-configuration.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+**Step 2: Click Configure and Select Channel**
+
+1. Click on the Configure button.
+2. In the integration setup, select the channel where you want the lead info widget to appear.
+3. Click on Connect to begin the integration.
+
+<Frame>
+  <video src="/images/configure-channel.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+**Step 3: Log in to Zoho and Authorize Access**
+
+1. You’ll be redirected to the Zoho login page.
+2. Log in to your Zoho CRM account using your credentials.
+3. Choose the CRM organization that you want to link with the Gallabox Leads Panel.
+4. Click on Submit to authorize access and complete the connection.
+
+<Frame>
+  <video src="/images/zoho-crm.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+**Step 4: Configure Custom JSON Schema for Zoho Leads Panel**
+
+Once the connection is successful, you will be redirected to the Zoho Leads Panel configuration page inside Gallabox.
+
+This is where you define which lead fields from Zoho CRM should appear inside Gallabox conversations using a custom JSON schema.
+
+By default, Gallabox will display the following fields: Lead name, Lead Email, Lead ID, Lead Status, Contact owner name, Contact owner ID, and Contact owner email. If you want additional fields from Zoho to be displayed, define it in the custom Schema.
+
+---
+
+### How to define Lead Fields using JSON Schema
+
+In your JSON Schema, define the fields you want to display in the app panel by listing them under the properties section. We support specific types of field definitions, which must be used correctly.
+
+<Warning>
+
+If any field's data doesn't match its expected type, the entire panel will fail to load, and you'll see an error message saying "Something went wrong."
+
+</Warning>
+
+<table><thead><tr><th width="149">Object property</th><th width="251">Object property type</th><th>Format requirements</th><th width="178">Examples</th></tr></thead><tbody><tr><td>Text</td><td>$ref: "#/definitions/text"</td><td>maxLength: 255</td><td>First Name</td></tr><tr><td>Numerical</td><td>$ref: "#/definitions/numerical"</td><td>Decimal or integer</td><td>12.00, 100, 45.6</td></tr><tr><td>Date</td><td>$ref: "#/definitions/date"</td><td>YYYY-MM-DD</td><td>2024-07-08</td></tr><tr><td>Time</td><td>$ref: "#/definitions/time"</td><td>hh:mm:ssZ</td><td>14:30:00+05:30</td></tr><tr><td>DateTime</td><td>$ref: "#/definitions/date-time"</td><td>YYYY-MM-DDThh:mm:ssZ</td><td>2024-07-08T14:30:00+05:30</td></tr><tr><td>Email</td><td>$ref: "#/definitions/email"</td><td>Valid email address</td><td>jane.doe@example.com</td></tr><tr><td>Link</td><td>$ref: "#/definitions/link"</td><td>Must be a valid URI</td><td>https://example.com</td></tr><tr><td>Phone number</td><td>$ref: "#/definitions/phone"</td><td>^[+]?[0-9]\{1,15\}$</td><td>+3725000001</td></tr><tr><td>Address</td><td>$ref: "#/definitions/address"</td><td>maxLength: 500</td><td>123 Main St, New York, NY</td></tr><tr><td>Currency</td><td>$ref: "#/definitions/currency"</td><td>Object: code (string), value (number)</td><td>\{ "code": "USD", "value": 120.5 \}</td></tr><tr><td>Label</td><td>$ref: "#/definitions/label"</td><td>Object: color (hex), label (text)</td><td>\{ "color": "#FF5733", "label": "Urgent" \}</td></tr><tr><td>Tags</td><td>$ref: "#/definitions/tags"</td><td>Array of strings</td><td>["priority", "vip"]</td></tr><tr><td>Chip</td><td>$ref: "#/definitions/chip"</td><td>Single string value</td><td>"Lead Won"</td></tr><tr><td>Boolean</td><td>$ref: "#/definitions/boolean"</td><td>true or false</td><td>true</td></tr></tbody></table>
+
+**Example Usage:**
+
+Here, properties contain fields from Zoho Leads and its type is defined in the $ref key. 
+
+**Phone** field from Zoho is of type **Phone,** which is mentioned as **#/definitions/phone**
+
+**Company** field from Zoho is of type **Text,** which is mentioned as **#/definitions/text**
+
+<Frame>
+  <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfx69oYTVLlFKVlMEZRonlbwDAlx_ZzMRr3SR7Bn1hXe_XTKYEXWTm0-OyjjDa64JaOL7K_TKM7DYCwMEaZdDNMGZdCqO2nzJGd2-s3YOjkzS40lmG_RUlVmKEMuBtu-bllTPBx_A?key=2t8X9rQmgZ6eJfAXMSOerA" alt=""  />
+</Frame>
+
+**Helpful Links**
+
+Standard Fields - Zoho CRM Leads: 
+
+[https://help.zoho.com/portal/en/kb/crm/sales-force-automation/leads/articles/standard-fields-leads](https://help.zoho.com/portal/en/kb/crm/sales-force-automation/leads/articles/standard-fields-leads)
+
+**Step 5: Save and Preview**
+
+1. After entering the schema, click on update configuration.
+2. You can go to the conversation tab and choose a conversation to verify how the panel will appear.
+3. It will be available in right pane.
+
+<Frame>
+  <video src="/images/33cb107a-3967-4cc5-a851-82c7af7cfe4d-ezgif-com-video-to-gif-converter.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+Only contacts in Zoho as a Lead will be available.
+
+</Info>
+
+<br />

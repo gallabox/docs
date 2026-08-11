@@ -1,0 +1,230 @@
+---
+title: "Payment Gateways"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Payment gateway integrations let you collect payments directly within WhatsApp conversations — send a payment link without redirecting customers to a separate storefront.
+
+</Info>
+
+## Plan Availability
+
+| Gateway  | Plan Required              | Market |
+| -------- | -------------------------- | ------ |
+| Razorpay | Basic, Essential, Advanced | India  |
+| Stripe   | Basic, Essential, Advanced | Global |
+| Cashfree | Basic, Essential, Advanced | India  |
+| PhonePe  | Basic, Essential, Advanced | India  |
+
+## Razorpay
+
+### What Razorpay integration does
+
+Connects your Razorpay account to Gallabox — generate payment links from inside bot flows.
+
+**Note:** Razorpay is available on Basic, Essential, and Advanced plans. Best for Indian businesses.
+
+### Supported Razorpay actions
+
+* **Create payment link** — generate a shareable payment link with custom amount and validity
+
+**Note:** Refunds are processed in the Razorpay Dashboard — they're not available as a bot flow action. You can still notify customers automatically when a refund is processed by using Razorpay's refund webhook event with a workflow.
+
+### How to connect Razorpay
+
+1. Go to **Integrations → Razorpay**
+2. Click **Connect** — you'll be redirected to Razorpay to sign in and authorize Gallabox (OAuth — you log into Razorpay directly, Gallabox never sees your password)
+3. Once authorized, the connection appears in your Integrations list
+
+**Note:** Razorpay has two environments — test (for testing) and live (for real payments). Make sure you connect the correct one for your use case.
+
+### Reconnecting Razorpay
+
+The Razorpay authorization token expires periodically — this is Razorpay's security design, not an error. When it expires:
+
+* Payment link actions in bot flows start failing, and you may receive an email titled "\[ACTION REQUIRED] Reconnect your Razorpay Connection"
+* To check: go to **Integrations → Razorpay** — an expired connection shows a reconnect prompt
+* To fix: click **Reconnect** and complete the Razorpay sign-in again — your bot flows resume working immediately; no flow changes are needed
+
+### Razorpay use cases
+
+**Send a payment link via WhatsApp:**
+
+```
+Ask Amount → "Enter the amount to pay (in ₹)"
+  → Store in {{payment_amount}}
+
+Razorpay: Create payment link
+  Amount: {{payment_amount}}
+  Purpose: "Order payment"
+  Validity: 24 hours
+  Customer contact: {{contact.phone}}
+  → Store payment_link in {{razorpay_link}}
+
+Send Text: "Here's your payment link — valid for 24 hours: {{razorpay_link}}"
+```
+
+**Wait for payment → fulfill order:**
+
+```
+Razorpay: Create payment link
+  → Send Text: "Complete your payment: {{razorpay_link}}"
+
+Wait for Order (via Razorpay webhook)
+  Event: "Payment successful"
+  Timeout: 24 hours
+    → on event:
+      Shopify: Update order status = "Confirmed"
+      Send Text: "Payment received! Your order is confirmed and being prepared."
+    → on timeout:
+      Send Text: "Your payment link has expired. Need a new one? Type 'pay' to get a fresh link."
+```
+
+## Stripe
+
+### What Stripe integration does
+
+Connects your Stripe account to Gallabox — creates payment links from your Stripe products and prices, so customers can pay via a secure Stripe checkout page. Advanced plan only.
+
+**Note:** Stripe is available on Advanced plan only and supports global payment methods including cards, bank transfers, and wallets.
+
+### Supported Stripe actions
+
+* **Create payment link** — generate a Stripe payment link for a selected product and price
+* **Select product** — choose from your active Stripe products when configuring the action
+* **Select price** — choose from the active prices of the selected product
+
+**Note:** Refunds, subscriptions, and customer management are handled in the Stripe Dashboard — they're not available as bot flow actions.
+
+### How to connect Stripe
+
+1. Go to **Integrations → Stripe**
+2. Enter your Stripe **Secret API Key** (from Stripe Dashboard → Developers → API Keys)
+3. Click **Connect** — the connection appears in your Integrations list
+
+**Note:** Stripe has test mode and live mode. When testing, use a Stripe test API key — switch to your live key before going public.
+
+### Stripe use cases
+
+**Send a Stripe payment link:**
+
+```
+Ask Product → "What would you like to buy?"
+  → Store in {{product_name}}
+
+Stripe: Create payment link
+  Product: {{product_name}} (selected from your Stripe products)
+  Price: selected Stripe price
+  Quantity: 1
+  → Store payment link URL in {{stripe_checkout_link}}
+
+Send Text: "Complete your purchase: {{stripe_checkout_link}}"
+```
+
+## PhonePe
+
+### What PhonePe integration does
+
+Connects your PhonePe merchant account to Gallabox — generates PhonePe payment links from inside bot flows, so customers can pay via UPI and the PhonePe app.
+
+### Supported PhonePe actions
+
+* **Create payment link** — generate a PhonePe payment link for a given amount
+
+### How to connect PhonePe
+
+1. Go to **Integrations → PhonePe**
+2. Enter your PhonePe **Merchant ID**, **Salt Key**, and **Salt Index** (from your PhonePe Business dashboard)
+3. Click **Connect**
+
+### PhonePe use cases
+
+```
+Ask Amount → "Enter the amount to pay (in ₹)"
+  → Store in {{payment_amount}}
+
+PhonePe: Create payment link
+  Amount: {{payment_amount}}
+  → Store link in {{phonepe_link}}
+
+Send Text: "Pay securely via PhonePe: {{phonepe_link}}"
+```
+
+## Cashfree
+
+### What Cashfree integration does
+
+Connects your Cashfree account to Gallabox — sends automatic WhatsApp notifications to customers when payments are captured or fail. Unlike Razorpay and Stripe, Cashfree is a **workflow integration**: it doesn't create payment links from bot flows; it reacts to payment events from Cashfree via webhook.
+
+### Available workflows
+
+* **Payment Success** — template sent automatically when a payment is captured
+* **Payment Failed** — template sent automatically when a payment fails
+
+For each workflow, pick a message template, map the variables, and optionally add a button payload to trigger a bot in response.
+
+### How to connect Cashfree
+
+1. Go to **Integrations → Cashfree**, click **Connect**, name the integration, and click **Submit** — Gallabox generates a **Webhook URL**
+2. In Cashfree: **Developers → Webhooks → Add Webhook Endpoint**, paste the Gallabox webhook URL and choose the webhook version
+3. Click **Test** to verify the endpoint, then select **all events** and click **Add Webhook**
+4. Back in Gallabox, choose the WhatsApp channel and click **Update Configurations**
+
+**Note:** If the test returns "Merchant Key is not present", generate an API key in Cashfree first (**Developers → API Keys → Generate API Key**).
+
+### Cashfree use cases
+
+```
+Customer pays via Cashfree checkout
+  → Payment Success workflow fires
+  → Template: "Payment of ₹{{amount}} received! Your order {{order_id}} is confirmed."
+
+Payment fails
+  → Payment Failed workflow fires
+  → Template: "Your payment didn't go through. Tap below to retry." (button triggers retry bot)
+```
+
+To disable a workflow, toggle off the switch beside it.
+
+## Comparing Razorpay vs Stripe
+
+| Feature         | Razorpay                         | Stripe                                           |
+| --------------- | -------------------------------- | ------------------------------------------------ |
+| Availability    | Basic+                           | Advanced only                                    |
+| Market          | India                            | Global                                           |
+| Payment methods | UPI, cards, wallets, net banking | Cards, bank transfer, wallets, buy-now-pay-later |
+| WhatsApp Pay    | ✓                                | —                                                |
+| Multi-currency  | INR only via Gallabox            | ✓                                                |
+| Dashboard       | Razorpay                         | Stripe Dashboard                                 |
+| Authentication  | OAuth (expiring token)           | Secret API Key                                   |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can customers pay directly in WhatsApp without leaving the chat?">
+On WhatsApp, customers can tap a payment button (WhatsApp Pay) if they have WhatsApp Payments set up with a linked bank account. For Razorpay and Stripe, customers are redirected to a secure payment page (via a link) — they complete payment in their browser or payment app, then return to the conversation. Gallabox detects the payment completion via webhook and continues the bot flow.
+</Accordion>
+
+<Accordion title="How long does payment confirmation take?">
+Payment confirmation via webhook is usually instant (1-5 seconds). If the webhook is delayed, use the **Wait for Order** node with a timeout (e.g., 24 hours) — the flow continues automatically when payment is confirmed, or routes to the timeout branch if not.
+</Accordion>
+
+<Accordion title="What happens if a payment fails after the order was created?">
+Use the **Wait for Order** node's timeout branch:
+
+```
+Razorpay: Create payment link
+  → Send Text: "Complete your payment: {{razorpay_link}}"
+  → Wait for Order: Event = "Payment successful"
+    → on event: Shopify: Update order status = "Confirmed"
+    → on timeout: Send Text: "Payment failed or expired. Please try again or use a different payment method."
+```
+</Accordion>
+</AccordionGroup>

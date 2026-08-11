@@ -1,0 +1,98 @@
+---
+title: "Shopflo"
+description: "Connect Shopflo with Gallabox to recover abandoned carts by sending automated WhatsApp messages. Follow the integration steps carefully to set up the process."
+---
+
+### **Connecting with Shopflo**
+
+Connecting Shopflo with Gallabox helps you recover abandoned carts. By merging these platforms, you can easily send automated follow-up WhatsApp messages to customers who left items in their carts.
+
+### Shopflo Integration
+
+To integrate Shopflo with Gallabox, follow these steps carefully:
+
+1. Go to **Integrations** in the left navigation. Hover on **Shopflo** Integration from the available applications and click on the application.
+
+<Frame>
+  <video src="/images/shopflo-in-gallabox.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on "Connect". Enter the desired Integration Name and submit.
+
+<Frame>
+  <video src="/images/integration-name-shopflo.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Copy the Webhook URL. In your Shopflo dashboard, go to Settings. Select Integrations, choose Abandoned Cart Webhooks. 
+
+<Frame>
+  <video src="/images/shopflo-dashboard.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Enable the Webhook Tracking and add the Webhook Configuration. Paste the Webhook URL under the Webhook Configuration and enable it. Click on Save.
+
+<Frame>
+  <video src="/images/webhook-configuration-in-shopflo.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+5. In your Gallabox Dashboard, choose the desired WhatsApp Channel for this Integration and click on '**Update Configuration**'.
+
+<Frame>
+  <video src="/images/update-configuration-for-shopflo.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+You can now create workflow to recover Abandoned Cart. 
+
+### Abandoned Checkout Workflow
+
+You can use this workflow to send payment status notifications to your customers via your official WhatsApp number. To set this workflow:
+
+1. Click on 'Use' besides the Abandoned Checkout Workflow. 
+
+<Frame>
+  <video src="/images/shopflo-workflow.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Select the WhatsApp template you'd like to use to help customers recover their abandoned carts. Map the variables (if any) for the Template. 
+
+<Info>
+
+Here is an example of personalized template with placeholders for all the available variables:
+
+---
+
+**Hi \{\{Full Name\}\},**
+
+Thank you for your order! Here are the details:
+
+**Total Price:** \{\{Total Price\}\}
+
+**Order Items:** \{\{Order Items\}\}
+
+You can complete your purchase using the link below:
+
+(\{\{Checkout URL\}\}?token=\{\{Checkout Token\}\})
+
+Thank you for shopping with us!
+
+</Info>
+
+<Frame>
+  <video src="/images/whatsapp-template-shopflo.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Click on **Add Action**. Choose the action you would like the workflow to perform after sending the message like Updating contact tags, conversation tags, or contact email and so on. Click on 'Create Workflow'.
+
+<Frame>
+  <video src="/images/action-for-shopflo.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+### Disable Workflow
+
+To disable a workflow, go to the **Workflows** tab and toggle the **Status** switch to **Off**.
+
+<Frame>
+  <video src="/images/disable-workflow.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+These steps help you create, customize, and manage automated workflows to enhance user engagement and streamline processes.

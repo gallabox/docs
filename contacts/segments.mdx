@@ -1,0 +1,110 @@
+---
+title: "Segments"
+description: "Contact segments are dynamic groups that update automatically based on rules you define. Use them to target the right contacts in broadcasts without manually maintaining lists."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Contact Management access**.
+> * Roles: Admins (Owners and Admins) can create and manage segments. Agents can view segments.
+
+Use segments when you need to send a broadcast to a specific subset of your contacts — for example, everyone tagged VIP, or contacts added in the last 30 days. Unlike a manually curated list, a segment updates automatically as contacts are added or change.
+
+Segments are dynamic — they recalculate in real time as contacts are added, updated, or removed. When you select a segment as a broadcast audience, the broadcast sends to everyone who currently matches the rules.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What are Contact Segments?
+
+Contact segments are dynamic groups of contacts that update automatically based on rules you define. Instead of manually managing who belongs in a group, you define conditions — and any contact that meets those conditions is automatically included.
+
+**Example:** Instead of creating a static list of "VIP customers" that you update manually, create a segment using the **Tags** field and the value **VIP**. Any contact you tag as VIP is automatically added. Remove the VIP tag and they're automatically removed.
+
+## How the Rule Builder Works
+
+You build a segment by adding conditions. Each condition checks a contact field or attribute.
+
+### Available Fields
+
+You can build conditions on these contact fields:
+
+| Field group             | Available fields                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| Standard contact fields | Name, Marketing Optin, Phone, Email, Instagram ID, Tags, Created At, Updated At, Creator, Contact Owner |
+| Workspace fields        | Custom contact fields configured in your workspace                                                      |
+
+After you select a field, the rule builder displays the operators supported by that field.
+
+## How to Create a Segment
+
+1. Go to **Contacts** in the left navigation of Gallabox.
+2. Click **Segments** in the top bar.
+3. Click **Create Segment**.
+4. Enter a **Segment Name** — descriptive enough that your team knows who it contains.
+5. Add your **conditions** using the rule builder.
+6. Click **View count** to see how many contacts currently match.
+7. Click **Save**.
+
+<Check>
+
+**Pro tip:** Name segments by their use case, not their contents. "High-intent leads" is better than "Tag VIP, Created within 30 days, WhatsApp". When you're setting up a broadcast, you'll immediately know which segment to use.
+
+</Check>
+
+## Example
+
+**Scenario:** You want to broadcast a loyalty offer to VIP customers who have opted in to marketing and were added this year.
+
+Add conditions using these fields and values:
+
+1. **Tags:** VIP
+2. **Marketing Optin:** Yes
+3. **Created At:** 2026-01-01
+
+For each field, select the appropriate operator displayed by the rule builder.
+
+Click **View count** to check the match count, then save the segment and select it as your broadcast audience.
+
+## Using Segments in Broadcasts
+
+When you create a broadcast, you can select a segment as the audience. The broadcast will send to everyone currently in the segment.
+
+**Important:** Segments are dynamic. If a contact is added to or removed from a segment after you've set up the broadcast but before it's sent, they will or won't receive the broadcast accordingly. Always use **View count** immediately before sending.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often do segments update?">
+Segments update in real time. When a contact is added, updated, or removed, the segment recalculates immediately. If a contact meets all conditions, they're added. If they no longer meet the conditions, they're removed. There's no delay.
+</Accordion>
+
+<Accordion title="My segment shows 0 contacts — what's wrong?">
+Click **View count** on the segment to see the current count. If it shows 0, check:
+
+1. **Condition logic** — Segment conditions use AND logic. If a contact must have Tag A AND Tag B, only contacts with both tags match.
+2. **Tag selection** — make sure you selected the right tag from the picker. Tags are matched by the selected tag itself, so check you didn't pick a similarly named duplicate tag.
+3. **Date conditions** — make sure the date range isn't filtering out all contacts (e.g., "Created after tomorrow" matches nobody).
+
+If contacts still don't appear, open each condition in the rule builder and select an available field and value again, then click **View count**.
+</Accordion>
+
+<Accordion title="Can I create a segment for contacts who have never received a broadcast?">
+For re-targeting based on a previous broadcast's delivery status, use **Broadcast Retargeting** instead of a segment — see [Broadcast Overview](/whatsapp/broadcasts/overview).
+</Accordion>
+
+<Accordion title="What's the difference between a tag and a segment?">
+A **tag** is a single label you apply manually or via automation to a contact. A **segment** is a dynamic group defined by rules. Tags are one input to segments — you can use tags as conditions, but segments can also use contact fields, dates, and more. Use tags for one-off labels; use segments for ongoing, rule-based audience groups.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Tags](/settings/tags) — label contacts for use in segment conditions
+* [Broadcast Overview](/whatsapp/broadcasts/overview) — send broadcasts to a segment audience
+
+## Next Steps
+
+* [Create a broadcast using this segment](/whatsapp/broadcasts/overview) — select your segment as the broadcast audience
+* [Add tags to your contacts](/settings/tags) — tags are the most flexible segment condition

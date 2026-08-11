@@ -1,0 +1,183 @@
+---
+title: "Tags"
+---
+
+<Info>
+
+**Who can use this?**
+
+* Gallabox users with **tag management permissions**.
+* Roles: Owners and Admins (and roles with the relevant permission)
+* Plans: Available on all plans.
+
+</Info>
+
+## Plan Availability
+
+| Feature | Basic | Essential | Advanced |
+|---|:---:|:---:|:---:|
+| Tags | ✓ | ✓ | ✓ |
+
+## What are Tags?
+
+Tags are **labels** you apply to contacts and conversations to categorize, organize, and filter them. Unlike segments (which are dynamic groups based on rules), tags are manually applied — you decide when and why to tag a contact.
+
+Tags are the connective tissue across Gallabox:
+
+* Filter conversations in the inbox by tag
+* Build contact segments based on tags
+* Trigger sequences when contacts receive a tag
+* Target audiences in broadcast campaigns
+
+Think of tags as sticky notes — you can put multiple tags on one contact, and tags don't change the contact's data — they just help you organize.
+
+## Creating Tags
+
+1. Go to **Settings → Tags** in the left navigation of Gallabox.
+2. Click **Add Tag**.
+3. Enter the **tag name** — use clear, descriptive names your team will instantly understand.
+4. Choose a **color** (optional) — colors help you spot tags faster in the inbox.
+5. Click **Save**.
+
+**Naming conventions that work well:**
+
+* `"Hot Lead"` — intent level
+* `"Enterprise"` — customer type
+* `"Spanish Speaker"` — language
+* `"Awaiting Payment"` — status
+* `"Escalated"` — urgency
+* `"Newsletter"` — campaign membership
+* `"VIP"` — priority
+
+Avoid vague names like `"Active"` or `"Open"` — these don't tell your team what action to take.
+
+<Check>
+
+**Pro tip:** Create a **tag taxonomy** before adding tags ad hoc — e.g., a prefix system like `intent:Hot Lead`, `type:Enterprise`, `language:Spanish`. This keeps your tag list organized as it grows and makes filtering much more intuitive.
+
+</Check>
+
+## Applying Tags
+
+### Manually — in the contact profile
+
+1. Open the contact's profile.
+2. Click **Add Tag** in the Tags section.
+3. Select from existing tags or create a new one.
+4. The tag is applied immediately.
+
+### Manually — in a conversation
+
+1. Open the conversation.
+2. Click the **Tag** icon in the conversation header.
+3. Select a tag. It is added to that conversation, not to the contact record.
+
+To tag the contact record, open the contact profile and add the tag in its Tags section.
+
+## Using Tags Across Gallabox
+
+### In the Inbox
+
+Filter conversations by tag to see specific types of conversations:
+
+* `Tag = "Hot Lead"` — all hot lead conversations
+* `Tag contains "Enterprise"` — all enterprise customer conversations
+
+Create a **View** for each priority tag so your team sees the right conversations automatically.
+
+### In Broadcasts
+
+When creating a broadcast audience, filter by tag:
+
+* `"Newsletter"` — contacts who opted in to your newsletter
+* `"Summer Sale Interested"` — contacts tagged during a previous campaign
+* `"Customers"` — all paying customers (vs. leads)
+
+### In Sequences
+
+Tags are commonly used as **start conditions** and **stop conditions** for sequences:
+
+* **Start condition:** "Contact tag = 'Demo Requested'" → triggers onboarding sequence
+* **Success stop:** "Contact tag = 'Demo Booked'" → contact exits sequence with success
+* **Failure stop:** "Contact tag = 'Unsubscribed'" → contact exits sequence
+
+## Tag Taxonomy Example
+
+Here's a recommended structure as your tag list grows:
+
+| Category          | Example Tags                                                          |
+| ----------------- | --------------------------------------------------------------------- |
+| **Intent**        | `intent:Pricing`, `intent:Demo`, `intent:Complaint`, `intent:Renewal` |
+| **Customer Type** | `type:Enterprise`, `type:SMB`, `type:Free Trial`                      |
+| **Language**      | `lang:Spanish`, `lang:Portuguese`, `lang:English`                     |
+| **Campaign**      | `campaign:Summer Sale`, `campaign:Webinar Q3`                         |
+| **Status**        | `status:Awaiting Reply`, `status:Payment Pending`                     |
+| **Priority**      | `priority:VIP`, `priority:Urgent`                                     |
+| **Product**       | `product:Enterprise Plan`, `product:Add-on:Analytics`                 |
+
+This makes filtering fast and predictable — type `intent:` in the filter and see all intent tags.
+
+## Example
+
+**Scenario:** You run a SaaS business and want agents to tag conversations consistently based on what customers ask about, so the sales team can prioritize follow-ups.
+
+<Steps>
+
+<Step title="Create tags">
+Create tags: `intent:Pricing`, `intent:Demo`, `intent:Integration`, `intent:Enterprise`
+</Step>
+
+<Step title="Tag conversations as they come in">
+Agents apply the right tag based on what the customer asks about:
+
+* Pricing questions → add `intent:Pricing`
+* Demo requests → add `intent:Demo`
+* Integration questions → add `intent:Integration`
+* Enterprise inquiries → add `intent:Enterprise`
+</Step>
+
+<Step title="Create Views">
+Create Views for each tag so your sales team can quickly see `intent:Demo` conversations.
+</Step>
+
+<Step title="Create a sequence">
+Create a sequence that starts when the `intent:Enterprise` tag is added to a contact. The sequence can send enterprise case studies and a direct booking link.
+</Step>
+
+<Step title="Trigger the Demo sequence">
+When a contact books a demo, an agent opens the contact profile and adds `intent:Demo`. The Demo sequence then starts based on its contact-tag condition.
+</Step>
+
+</Steps>
+
+## Managing Tags
+
+* **Edit a tag** — change the name or color. This updates all contacts and conversations with that tag everywhere in Gallabox.
+* **Delete a tag** — removes the tag from all contacts and conversations. The contact data itself is not deleted.
+* **Merge tags** — if you have duplicate tags (e.g., `"Hot Lead"` and `"hot-lead"`), manually consolidate them by editing contacts. Gallabox doesn't have an automatic merge function yet.
+
+<Warning>
+
+Deleting a tag is permanent — it removes the tag from all contacts immediately. Make sure no active sequences or broadcasts depend on the tag before deleting.
+
+</Warning>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What's the difference between a tag and a segment?">
+A **tag** is a label that can be applied separately to a contact or to a conversation. A **segment** is a dynamic group of contacts defined by rules (e.g., "all contacts with tag 'Hot Lead' AND country = India AND last activity &lt; 7 days"). Segments update automatically; tags are individual labels. Use tags for quick labeling; use segments for complex audience building.
+</Accordion>
+
+<Accordion title="Can I apply multiple tags to one contact?">
+Yes — contacts can have as many tags as you need. There is no practical limit. Multiple tags on one contact are independent of each other.
+</Accordion>
+
+<Accordion title="Can I apply a tag to a conversation instead of a contact?">
+Yes — tags can be applied to conversations (not just contacts). This is useful for organizing your inbox without changing the contact's permanent record. Conversation-level tags are visible in the inbox and Views but not on the contact profile.
+</Accordion>
+
+<Accordion title="Do tags auto-remove when conditions change?">
+Tags are not auto-removed by Gallabox. When a condition changes, remove the tag manually. For example: when a contact becomes a paying customer, remove the `intent:Demo` tag and add `type:Customer`.
+</Accordion>
+</AccordionGroup>

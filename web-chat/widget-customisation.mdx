@@ -1,0 +1,158 @@
+---
+title: "Widget Customisation"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access**.
+> * Roles: Owners and Admins — widget customisation is configured in the Chat AI Agent settings.
+
+<Info>
+
+The Web Chat widget is configured inside your Chat AI Agent's settings, not in a separate section. You customise the widget when you create or edit an agent that has the Web channel enabled.
+
+</Info>
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What is Widget Customisation?
+
+The Web Chat widget is the chat window that appears on your website when visitors want to talk to you. You can customise how it looks and behaves — colours, logo, position, welcome message, away message, and branding — so it matches your brand and gives visitors the right impression.
+
+## How to Customise the Widget
+
+<Steps>
+
+<Step>
+Go to **AI Agents and Bots** in the left navigation of Gallabox.
+</Step>
+
+<Step>
+Create a new Chat AI Agent or open an existing one that has **Web** selected as a channel.
+</Step>
+
+<Step>
+Click **Settings** on the agent.
+</Step>
+
+<Step>
+Click **Web Widget Settings**.
+</Step>
+
+<Step>
+Configure the options below.
+</Step>
+
+<Step>
+Click **Save**.
+</Step>
+
+<Step>
+Copy the widget embed code and add it to your website.
+</Step>
+
+</Steps>
+
+### Widget Colours
+
+| Setting                | What it does                                                 |
+| ---------------------- | ------------------------------------------------------------ |
+| **Primary colour**     | The main colour of the widget — header, buttons, and accents |
+| **Secondary colour**   | Background colour of chat bubbles from the agent             |
+| **User bubble colour** | Background colour of bubbles from the visitor                |
+| **Text colour**        | Colour of text in the widget                                 |
+
+### Widget Position
+
+Choose where the widget appears on your website:
+
+| Position         | Description                                        |
+| ---------------- | -------------------------------------------------- |
+| **Bottom right** | Default — widget floats in the bottom-right corner |
+| **Bottom left**  | Widget floats in the bottom-left corner            |
+| **Top right**    | Widget appears in the top-right corner             |
+| **Top left**     | Widget appears in the top-left corner              |
+
+### CTA Button
+
+The CTA button is what visitors click to open the chat window. You can customise:
+
+* **Button text** — e.g., "Chat with us", "Need help?", "Get a quote"
+* **Button icon** — chat bubble icon (default) or custom icon
+* **Always visible** — toggle to keep the button visible at all times vs. only when the agent is active
+
+### Welcome Message
+
+The welcome message is shown automatically when a visitor opens the widget. Write something that:
+
+* Greets the visitor
+* Explains what the agent can help with
+* Encourages them to start a conversation
+
+**Example:** _"Hi there! I'm your virtual assistant. I can help you find the right product, answer pricing questions, or connect you with our team. What can I help you with today?"_
+
+### Away Message
+
+The away message is shown when your team is offline or the agent is not available. Configure:
+
+* **Away message text** — what the visitor sees when no agent is available
+* **Show away message** — toggle on/off
+
+**Example:** _"We're currently offline. Leave a message and we'll get back to you within 24 hours, or connect with us on WhatsApp for immediate help."_
+
+### Branding
+
+| Setting          | What it does                                                 |
+| ---------------- | ------------------------------------------------------------ |
+| **Company logo** | Upload your logo — appears in the widget header              |
+| **Custom CSS**   | Add custom CSS to further style the widget (Advanced option) |
+
+<Check>
+
+**Pro tip:** Use the away message to redirect visitors to WhatsApp. Include a WhatsApp link in the away message text so visitors who need immediate help can reach you on WhatsApp — where you can send broadcasts and use all of Gallabox's commerce features.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a SaaS company and want the widget to match your brand colours (navy blue and white), show your company logo, and greet visitors with a message that sets expectations about response time.
+
+Here's how you'd set it up:
+
+1. Go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**.
+2. Set **Primary colour** to `#1a2b4a` (navy blue) and **Secondary colour** to `#f0f4f8` (light blue-grey).
+3. Set **User bubble colour** to `#1a2b4a` and **Text colour** to `#ffffff` (white).
+4. Upload your company logo in **Company logo**.
+5. Set **CTA button text** to _"Chat with us — we reply in minutes"_.
+6. Set **Welcome message** to _"Hi! I'm your Gallabox assistant. I can help you compare plans, answer pricing questions, and get you set up. What would you like to know?"_
+7. Set **Away message** to _"We're away right now. For immediate help, reach us on WhatsApp: \[link]"_
+8. Save and copy the embed code to your website's `<body>` tag.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Where do I add the widget embed code on my website?">
+Copy the embed code from **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings → Copy Code**. Add it to your website's HTML just before the closing `</body>` tag. If you're using a CMS like WordPress, add it via your theme's custom HTML block or footer section.
+</Accordion>
+
+<Accordion title="Can I use different widgets for different pages on my website?">
+Yes. You can add the widget embed code to specific pages only, or configure the widget differently for different subdomains. Each embed code is tied to a specific Chat AI Agent — so you can have different agents (and therefore different configurations) on different parts of your site.
+</Accordion>
+
+<Accordion title="The widget is not showing on my website">
+Check these in order:
+
+1. Is the embed code added correctly before the `</body>` tag?
+2. Is JavaScript enabled on your website?
+3. Does your website's Content Security Policy allow the Gallabox widget domain?
+4. Is the Chat AI Agent active and published?
+5. Try opening the embed URL directly in your browser to verify it's loading.
+</Accordion>
+
+<Accordion title="Can I change the widget position on mobile vs desktop?">
+The widget position setting applies to both desktop and mobile by default. You can use custom CSS to set different positions for mobile screens using `@media` queries in the **Custom CSS** field.
+</Accordion>
+</AccordionGroup>

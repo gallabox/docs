@@ -1,0 +1,128 @@
+---
+title: "Activity Log"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Admin role**.
+> * Roles: Owners and Admins
+
+<Info>
+
+The Activity Log is a chronological record of every significant action taken in your Gallabox account. Use it to audit team activity, investigate issues, track changes, and meet compliance requirements.
+
+</Info>
+
+## What the Activity Log Tracks
+
+| Category                   | Events logged                                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Authentication**         | User logins (with IP address and source)                                                                      |
+| **Security / 2FA**         | 2FA enforcement enabled/disabled, 2FA enforced or reset for a member                                          |
+| **Channels**               | Channel connections and disconnections                                                                        |
+| **Bots & Flows**           | Bot and flow create, update, delete                                                                           |
+| **Broadcasts & Sequences** | Create, update, send, cancel; sequence enrolments                                                             |
+| **Integrations**           | Integration connect/disconnect, enable/disable                                                                |
+| **Team & Roles**           | Member invites, role changes, team changes                                                                    |
+| **Contacts**               | Contact changes, merges, bulk import/delete                                                                   |
+| **Other entities**         | Tags, custom fields, conversation fields, templates, webhooks, API keys, payments, catalogs, views, pipelines |
+
+## Accessing the Activity Log
+
+Go to **Settings → Developer → Activity Log**
+
+## Filtering Events
+
+### By date range
+
+Select a start and end date to narrow down the time period you're investigating.
+
+**Example:** "Show me all events from last Monday to Friday" → select Monday as start, Friday as end.
+
+### By module and action
+
+Select a module first, then select the action you want to investigate.
+
+**Example:** To find bot flow changes, select **Agent** under **Module**, then select the relevant action. The Agent module includes Agent and Flow activity.
+
+**Available filters:**
+
+On the Activity Logs screen you can filter by:
+
+* **Date range** — defaults to the past 30 days
+* **Module** — All module, Account, Agent, Broadcast, Sequence, APIkey & Webhook, Integration, WhatsApp Templates & Tracking, Commerce, User Activity, Views
+* **Action** — All Action, Updated, Created, Deleted, Sent, Cancel, and similar
+* **User** — searchable list of team members
+
+### By team member
+
+Filter to see what a specific team member has been doing.
+
+**Example:** "What has Rahul been changing?" → select Rahul's name → see all events by Rahul.
+
+### By User Activity
+
+Filter to see logins by user — useful for investigating suspicious access.
+
+## Understanding Event Entries
+
+Each log entry shows:
+
+* **Timestamp** — exact date and time (in your timezone)
+* **Event type** — category of the action
+* **Description** — what happened (e.g., "WhatsApp channel connected")
+* **Actor** — who did it (team member name)
+* **IP address** — where it happened from
+* **Details** — additional context (e.g., which bot flow was changed)
+
+**Example entry:**
+
+```
+Jun 5, 2026 10:32 AM · Bot flow published
+Rahul (admin@gallabox.com) · IP: 103.21.45.67
+"Order Confirmation Flow v2" — published from web (Chrome, Windows)
+```
+
+## Common Use Cases
+
+### Investigating a bot flow change
+
+1. Select **Agent** under **Module**.
+2. Select the relevant action, such as **Updated** or **Published**.
+3. Select the date range.
+4. Find the bot flow name in the description.
+5. See who edited it, when, and from what IP.
+
+### Checking for unauthorized access
+
+1. Filter by the **User** entity with the **login** action
+2. Look for logins from unexpected IPs or sources
+3. If suspicious activity is found: change your password and enable 2FA immediately
+
+### Compliance audit
+
+1. Filter by the relevant date range (e.g., last quarter)
+2. Filter by event types relevant to your compliance needs
+3. Review the filtered log for your compliance documentation
+
+### Tracking team activity
+
+1. Filter by team member name
+2. Review their actions over a period (e.g., last month)
+3. Identify training needs — someone changing bot flows frequently may need more guidance
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How far back does the activity log go?">
+The activity log retains data based on your plan. Check your data retention policy in **Settings → Developer → Activity Log** or contact Gallabox support for retention limits on your specific plan.
+</Accordion>
+
+<Accordion title="A team member did something they shouldn't have — can I see who it was?">
+Yes — every event in the activity log is tied to a specific team member account (identified by email) and IP address. Filter by the event type and date to find the exact entry. The actor's email is always shown in the log entry.
+</Accordion>
+
+<Accordion title="Can I get real-time alerts when specific events happen?">
+Currently, the activity log is a passive record — it doesn't send real-time alerts. For critical events (e.g., new channel connections), you can check the log periodically. If you need real-time alerts, contact Gallabox support to discuss custom webhook integrations.
+</Accordion>
+</AccordionGroup>

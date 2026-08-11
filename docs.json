@@ -1,37 +1,387 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Gallabox",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2563EB",
+    "light": "#60A5FA",
+    "dark": "#1D4ED8"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "groups": [
       {
         "group": "Getting Started",
+        "icon": "rocket",
         "pages": [
-          "index",
-          "quickstart"
+          "index"
         ]
+      },
+      {
+        "group": "Concepts",
+        "pages": [
+          "concepts/overview",
+          "concepts/channels"
+        ],
+        "icon": "lightbulb"
+      },
+      {
+        "group": "Inbox",
+        "pages": [
+          "conversations/overview",
+          "conversations/omnichannel-inbox",
+          "conversations/team-views",
+          "conversations/optimize-inbox",
+          "conversations/ai-reply"
+        ],
+        "icon": "inbox"
+      },
+      {
+        "group": "Contacts",
+        "pages": [
+          "contacts/overview",
+          "contacts/segments"
+        ],
+        "icon": "address-book"
+      },
+      {
+        "group": "AI Agents & Bots",
+        "pages": [
+          "ai-agents-and-bots/overview",
+          {
+            "group": "Rule-Based Bots",
+            "pages": [
+              "ai-agents-and-bots/bots/overview",
+              "ai-agents-and-bots/bots/flow-builder",
+              {
+                "group": "Nodes",
+                "pages": [
+                  "ai-agents-and-bots/bots/nodes/overview",
+                  "ai-agents-and-bots/bots/nodes/send-nodes",
+                  "ai-agents-and-bots/bots/nodes/ask-nodes",
+                  "ai-agents-and-bots/bots/nodes/action-nodes",
+                  "ai-agents-and-bots/bots/nodes/flow-control-nodes"
+                ]
+              },
+              "ai-agents-and-bots/bots/connectors"
+            ]
+          },
+          {
+            "group": "Chat AI Agent",
+            "pages": [
+              "ai-agents-and-bots/chat-ai-agent/overview",
+              {
+                "group": "Knowledge Base",
+                "pages": [
+                  "ai-agents-and-bots/chat-ai-agent/knowledge-base/overview",
+                  "ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources"
+                ]
+              },
+              "ai-agents-and-bots/chat-ai-agent/agent-actions",
+              "ai-agents-and-bots/chat-ai-agent/ai-agent-analytics",
+              "ai-agents-and-bots/chat-ai-agent/channel-behaviour",
+              "ai-agents-and-bots/chat-ai-agent/faqs"
+            ]
+          }
+        ],
+        "icon": "robot"
+      },
+      {
+        "group": "WhatsApp",
+        "pages": [
+          "whatsapp/overview",
+          "whatsapp/connect-your-whatsapp",
+          "whatsapp/migrate-from-business-app",
+          "whatsapp/whatsapp-coexistence",
+          {
+            "group": "Broadcasts",
+            "pages": [
+              "whatsapp/broadcasts/overview",
+              "whatsapp/broadcasts/create-broadcast",
+              "whatsapp/broadcasts/broadcast-analytics"
+            ]
+          },
+          {
+            "group": "Sequences",
+            "pages": [
+              "whatsapp/sequences/overview",
+              "whatsapp/sequences/create-sequence",
+              "whatsapp/sequences/sequence-analytics"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "whatsapp/templates/overview",
+              "whatsapp/templates/create-template"
+            ]
+          },
+          "whatsapp/flows",
+          "whatsapp/canned-responses",
+          {
+            "group": "WhatsApp Calling",
+            "pages": [
+              "whatsapp/calling/overview",
+              "whatsapp/calling/incoming-calls",
+              "whatsapp/calling/outgoing-calls",
+              "whatsapp/calling/pricing"
+            ]
+          },
+          "whatsapp/shop",
+          {
+            "group": "Click-to-WhatsApp Ads (CTWA)",
+            "pages": [
+              "whatsapp/ad-campaigns/overview",
+              "whatsapp/ad-campaigns/ctwa-ads",
+              "whatsapp/ad-campaigns/ctwa-leads",
+              "whatsapp/ad-campaigns/capi"
+            ]
+          }
+        ],
+        "icon": "whatsapp"
+      },
+      {
+        "group": "Instagram",
+        "pages": [
+          "instagram/overview",
+          "instagram/connect-instagram-channel",
+          "instagram/instagram-dm-conversations",
+          "instagram/comment-automation",
+          "instagram/instagram-vs-whatsapp",
+          "instagram/faqs"
+        ],
+        "icon": "instagram"
+      },
+      {
+        "group": "Web",
+        "pages": [
+          "web-chat/overview",
+          "web-chat/setup",
+          "web-chat/widget-customisation",
+          "web-chat/ice-breakers-and-ctas",
+          "web-chat/visitor-tracking",
+          "web-chat/faqs"
+        ],
+        "icon": "globe"
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/overview",
+          {
+            "group": "CRM",
+            "pages": [
+              "integrations/crm/overview",
+              {
+                "group": "HubSpot",
+                "pages": [
+                  "integrations/crm/hubspot/overview",
+                  "integrations/crm/hubspot/workflows-for-hubspot"
+                ]
+              },
+              {
+                "group": "Zoho CRM & Signals",
+                "pages": [
+                  "integrations/crm/zoho-crm-and-signals/overview",
+                  "integrations/crm/zoho-crm-and-signals/workflows-for-zoho"
+                ]
+              },
+              {
+                "group": "Kylas",
+                "pages": [
+                  "integrations/crm/kylas/overview",
+                  "integrations/crm/kylas/workflows-for-kylas"
+                ]
+              },
+              {
+                "group": "LeadSquared",
+                "pages": [
+                  "integrations/crm/leadsquared/overview",
+                  "integrations/crm/leadsquared/workflows-for-leadsquared"
+                ]
+              },
+              "integrations/crm/pipedrive",
+              "integrations/crm/sangam",
+              "integrations/crm/odoo"
+            ]
+          },
+          {
+            "group": "E-Commerce",
+            "pages": [
+              "integrations/e-commerce/overview",
+              {
+                "group": "Shopify",
+                "pages": [
+                  "integrations/e-commerce/shopify/overview",
+                  "integrations/e-commerce/shopify/workflows-for-shopify",
+                  "integrations/e-commerce/shopify/shopify-template-variables-for-whatsapp-messages"
+                ]
+              },
+              {
+                "group": "WooCommerce",
+                "pages": [
+                  "integrations/e-commerce/woocommerce/overview",
+                  "integrations/e-commerce/woocommerce/workflows-for-woocommerce"
+                ]
+              },
+              "integrations/e-commerce/shopflo",
+              "integrations/e-commerce/woocommerce-cart-abandonment-recovery"
+            ]
+          },
+          {
+            "group": "Payment Gateways",
+            "pages": [
+              "integrations/payment-gateways/overview",
+              {
+                "group": "Razorpay",
+                "pages": [
+                  "integrations/payment-gateways/razorpay/overview",
+                  "integrations/payment-gateways/razorpay/workflows-for-razorpay"
+                ]
+              },
+              {
+                "group": "Stripe",
+                "pages": [
+                  "integrations/payment-gateways/stripe/overview",
+                  "integrations/payment-gateways/stripe/stripe-workflows"
+                ]
+              },
+              {
+                "group": "Cashfree",
+                "pages": [
+                  "integrations/payment-gateways/cashfree/overview",
+                  "integrations/payment-gateways/cashfree/workflows-for-cashfree"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Shipping & Logistics",
+            "pages": [
+              "integrations/shipping-and-logistics/overview",
+              {
+                "group": "Shiprocket",
+                "pages": [
+                  "integrations/shipping-and-logistics/shiprocket/overview",
+                  "integrations/shipping-and-logistics/shiprocket/workflows-for-shiprocket"
+                ]
+              },
+              {
+                "group": "Shipway",
+                "pages": [
+                  "integrations/shipping-and-logistics/shipway/overview",
+                  "integrations/shipping-and-logistics/shipway/workflows-for-shipway"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Marketing Platforms",
+            "pages": [
+              "integrations/marketing-platforms/overview",
+              "integrations/marketing-platforms/clevertap",
+              "integrations/marketing-platforms/moengage",
+              {
+                "group": "WebEngage",
+                "pages": [
+                  "integrations/marketing-platforms/webengage/overview",
+                  "integrations/marketing-platforms/webengage/webengage-whatsapp-campaigns"
+                ]
+              },
+              "integrations/marketing-platforms/fyno",
+              {
+                "group": "Facebook Leads",
+                "pages": [
+                  "integrations/marketing-platforms/facebook-leads/overview",
+                  "integrations/marketing-platforms/facebook-leads/send-automated-messages-on-whatsapp-to-facebook-leads",
+                  "integrations/marketing-platforms/facebook-leads/send-sequence-of-messages-to-facebook-leads"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Other Integrations",
+            "pages": [
+              "integrations/other/overview",
+              {
+                "group": "Calendly",
+                "pages": [
+                  "integrations/other/calendly/overview",
+                  "integrations/other/calendly/workflows-for-calendly"
+                ]
+              },
+              {
+                "group": "Zoho Books",
+                "pages": [
+                  "integrations/other/zoho-books/overview",
+                  "integrations/other/zoho-books/workflow-for-zoho-books",
+                  "integrations/other/zoho-books/zoho-books-notifications"
+                ]
+              },
+              "integrations/other/google-sheets",
+              "integrations/other/miitel",
+              "integrations/other/pabbly",
+              "integrations/other/zapier",
+              "integrations/other/generic-webhooks",
+              "integrations/other/zoho-lead-app",
+              "integrations/other/zoho-lead-panel",
+              "integrations/other/zoho-signals"
+            ]
+          }
+        ],
+        "icon": "puzzle-piece"
+      },
+      {
+        "group": "Analytics",
+        "pages": [
+          "reports-and-analytics/overview",
+          "reports-and-analytics/conversation-analytics",
+          "reports-and-analytics/whatsapp-analytics",
+          "reports-and-analytics/template-analytics",
+          "reports-and-analytics/bot-analytics",
+          "reports-and-analytics/whatsapp-failed-messages",
+          "reports-and-analytics/whatsapp-notification-messages",
+          "reports-and-analytics/conversation-report",
+          "reports-and-analytics/message-reports"
+        ],
+        "icon": "chart-line"
+      },
+      {
+        "group": "Settings",
+        "pages": [
+          "settings/overview",
+          "settings/tags",
+          "settings/variables",
+          "settings/webhooks",
+          "settings/security",
+          "settings/two-factor-authentication",
+          "settings/activity-log"
+        ],
+        "icon": "gear"
+      },
+      {
+        "group": "Pricing & Billing",
+        "pages": [
+          "pricing-and-billing/overview",
+          "pricing-and-billing/billing-and-subscriptions",
+          "pricing-and-billing/conversation-pricing",
+          "pricing-and-billing/message-credits",
+          "pricing-and-billing/ai-wallet",
+          "pricing-and-billing/faqs"
+        ],
+        "icon": "credit-card"
+      },
+      {
+        "group": "Privacy & Security",
+        "pages": [
+          "privacy-and-security/overview",
+          "privacy-and-security/data-security",
+          "privacy-and-security/dpa",
+          "privacy-and-security/subprocessors"
+        ],
+        "icon": "shield-halved"
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -41,13 +391,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@gallabox.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Go to Gallabox",
+      "href": "https://app.gallabox.com"
     }
   },
   "contextual": {
@@ -62,11 +412,181 @@
       "vscode"
     ]
   },
+  "redirects": [
+    {
+      "source": "/concepts",
+      "destination": "/concepts/overview"
+    },
+    {
+      "source": "/conversations",
+      "destination": "/conversations/overview"
+    },
+    {
+      "source": "/contacts",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/ai-agents-and-bots",
+      "destination": "/ai-agents-and-bots/overview"
+    },
+    {
+      "source": "/ai-agents-and-bots/bots",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/ai-agents-and-bots/bots/nodes",
+      "destination": "/ai-agents-and-bots/bots/nodes/overview"
+    },
+    {
+      "source": "/ai-agents-and-bots/chat-ai-agent",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/overview"
+    },
+    {
+      "source": "/ai-agents-and-bots/chat-ai-agent/knowledge-base",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview"
+    },
+    {
+      "source": "/whatsapp",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp/broadcasts",
+      "destination": "/whatsapp/broadcasts/overview"
+    },
+    {
+      "source": "/whatsapp/sequences",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp/templates",
+      "destination": "/whatsapp/templates/overview"
+    },
+    {
+      "source": "/whatsapp/calling",
+      "destination": "/whatsapp/calling/overview"
+    },
+    {
+      "source": "/whatsapp/ad-campaigns",
+      "destination": "/whatsapp/ad-campaigns/overview"
+    },
+    {
+      "source": "/instagram",
+      "destination": "/instagram/overview"
+    },
+    {
+      "source": "/web-chat",
+      "destination": "/web-chat/overview"
+    },
+    {
+      "source": "/integrations",
+      "destination": "/integrations/overview"
+    },
+    {
+      "source": "/integrations/crm",
+      "destination": "/integrations/crm/overview"
+    },
+    {
+      "source": "/integrations/crm/hubspot",
+      "destination": "/integrations/crm/hubspot/overview"
+    },
+    {
+      "source": "/integrations/crm/zoho-crm-and-signals",
+      "destination": "/integrations/crm/zoho-crm-and-signals/overview"
+    },
+    {
+      "source": "/integrations/crm/kylas",
+      "destination": "/integrations/crm/kylas/overview"
+    },
+    {
+      "source": "/integrations/crm/leadsquared",
+      "destination": "/integrations/crm/leadsquared/overview"
+    },
+    {
+      "source": "/integrations/e-commerce",
+      "destination": "/integrations/e-commerce/overview"
+    },
+    {
+      "source": "/integrations/e-commerce/shopify",
+      "destination": "/integrations/e-commerce/shopify/overview"
+    },
+    {
+      "source": "/integrations/e-commerce/woocommerce",
+      "destination": "/integrations/e-commerce/woocommerce/overview"
+    },
+    {
+      "source": "/integrations/payment-gateways",
+      "destination": "/integrations/payment-gateways/overview"
+    },
+    {
+      "source": "/integrations/payment-gateways/razorpay",
+      "destination": "/integrations/payment-gateways/razorpay/overview"
+    },
+    {
+      "source": "/integrations/payment-gateways/stripe",
+      "destination": "/integrations/payment-gateways/stripe/overview"
+    },
+    {
+      "source": "/integrations/payment-gateways/cashfree",
+      "destination": "/integrations/payment-gateways/cashfree/overview"
+    },
+    {
+      "source": "/integrations/shipping-and-logistics",
+      "destination": "/integrations/shipping-and-logistics/overview"
+    },
+    {
+      "source": "/integrations/shipping-and-logistics/shiprocket",
+      "destination": "/integrations/shipping-and-logistics/shiprocket/overview"
+    },
+    {
+      "source": "/integrations/shipping-and-logistics/shipway",
+      "destination": "/integrations/shipping-and-logistics/shipway/overview"
+    },
+    {
+      "source": "/integrations/marketing-platforms",
+      "destination": "/integrations/marketing-platforms/overview"
+    },
+    {
+      "source": "/integrations/marketing-platforms/webengage",
+      "destination": "/integrations/marketing-platforms/webengage/overview"
+    },
+    {
+      "source": "/integrations/marketing-platforms/facebook-leads",
+      "destination": "/integrations/marketing-platforms/facebook-leads/overview"
+    },
+    {
+      "source": "/integrations/other",
+      "destination": "/integrations/other/overview"
+    },
+    {
+      "source": "/integrations/other/calendly",
+      "destination": "/integrations/other/calendly/overview"
+    },
+    {
+      "source": "/integrations/other/zoho-books",
+      "destination": "/integrations/other/zoho-books/overview"
+    },
+    {
+      "source": "/reports-and-analytics",
+      "destination": "/reports-and-analytics/overview"
+    },
+    {
+      "source": "/settings",
+      "destination": "/settings/overview"
+    },
+    {
+      "source": "/pricing-and-billing",
+      "destination": "/pricing-and-billing/overview"
+    },
+    {
+      "source": "/privacy-and-security",
+      "destination": "/privacy-and-security/overview"
+    }
+  ],
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "website": "https://gallabox.com",
+      "linkedin": "https://www.linkedin.com/company/gallabox",
+      "x": "https://x.com/gallabox"
     }
   }
 }
