@@ -1,0 +1,41 @@
+---
+title: "Shopify Template Variables for WhatsApp Messages"
+---
+
+When creating WhatsApp message templates with Shopify integration, you can personalize messages using dynamic variables. These variables pull real-time data from your Shopify store, orders, and checkout information.
+
+Use the below listed dynamic variables to personalize your WhatsApp messages based on customer orders, checkout events, and refunds from Shopify.
+
+### 🛒 Order Variables
+
+| Label               | Variable                      | Description                                                       | Sample Value                       |
+| ------------------- | ----------------------------- | ----------------------------------------------------------------- | ---------------------------------- |
+| Order ID            | `{{shopify_order_id}}`        | Unique ID of the customer’s order                                 | `4589327832`                       |
+| Customer Name       | `{{shopify_customer_name}}`   | Billing name or customer’s first name                             | `Jane Doe`                         |
+| Price               | `{{shopify_order_price}}`     | Order amount with currency                                        | `USD 299.00`                       |
+| Brand Name          | `{{shopify_brand_name}}`      | Name of your Shopify store                                        | `GadgetZone`                       |
+| Order Name / Number | `{{shopify_order_name}}`      | Shopify-generated order reference                                 | `#1001`                            |
+| Order Items         | `{{shopify_order_items}}`     | List of purchased items                                           | `1x iPhone 15 Pro, 2x AirPods Pro` |
+| Product Items       | `{{shopify_product_items}}`   | Product names from the order                                      | `iPhone 15 Pro, AirPods Pro`       |
+| Total Price         | `{{shopify_total_price}}`     | Total amount including product price, shipping charges, and taxes | `INR 1250.00`                      |
+| Sub-total Price     | `{{shopify_sub_total_price}}` | Product price only, excluding shipping charges and taxes.         | `INR 1000.00`                      |
+
+### 🧾 Checkout Variables
+
+| **Label**              | **Variable**                         | **Description**                      | **Sample Value**                     |
+| ---------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Checkout Token         | `{{shopify_checkout_token}}`         | Unique checkout session ID.          | `chkt_92817`                         |
+| Checkout URL           | `{{shopify_checkout_url}}`           | Link to resume abandoned checkout.   | `https://mystore.com/checkout/92817` |
+| Checkout Customer Name | `{{shopify_checkout_customer_name}}` | Customer name from shipping details. | `John Smith`                         |
+| Items                  | `{{shopify_checkout_items}}`         | Products and quantities in checkout. | `1x MacBook Air, 1x Magic Mouse`     |
+| Checkout Price         | `{{shopify_checkout_price}}`         | Total price for the abandoned cart.  | `USD 1199.00`                        |
+| Product Name           | `{{shopify_product_name}}`           | Main product in checkout/cart.       | `MacBook Air`                        |
+| Product Image          | `{{shopify_product_image}}`          | Image URL of product in checkout.    | `https://.../macbook.jpg`            |
+| Brand Name             | `{{shopify_brand_name}}`             | Store or business name.              | `TechHouse`                          |
+
+### 💸 Refund Variables
+
+| **Label**     | **Variable**                       | **Description**                | **Sample Value** |
+| ------------- | ---------------------------------- | ------------------------------ | ---------------- |
+| Customer Name | `{{shopify_refund_customer_name}}` | Name on the refunded order.    | `Alice Green`    |
+| Refund Amount | `{{shopify_refund_amount}}`        | Total refund amount processed. | `USD 89.99`      |

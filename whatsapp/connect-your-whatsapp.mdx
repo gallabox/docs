@@ -1,0 +1,182 @@
+---
+title: "Connect Your WhatsApp"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **channel management permissions**.
+> * Roles: Owners and Admins
+> * Plans: Available on all Gallabox plans. Note: messaging limits differ before and after Meta Business verification.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+> **Messaging limits before verification:** After connecting, you can reply to customer-initiated conversations (unlimited) and send business-initiated messages to up to **50 unique customers per 24-hour rolling period**. After completing Meta Business verification, you gain access to higher messaging tiers based on your quality rating.
+
+## What is the WhatsApp Business API?
+
+The WhatsApp Business API (also called WhatsApp Cloud API) lets your business send and receive WhatsApp messages at scale through a platform like Gallabox — instead of a single phone.
+
+Compared to the WhatsApp Business App:
+
+|            | WhatsApp Business App | WhatsApp Business API (via Gallabox)        |
+| ---------- | --------------------- | ------------------------------------------- |
+| Users      | 1 person              | Entire team                                 |
+| Automation | Basic auto-replies    | Bot flows, AI agents, broadcasts, sequences |
+| Channels   | Single device         | Omnichannel (WA + IG + Web Chat)            |
+| Scale      | Small teams           | Businesses of any size                      |
+| Pricing    | Free                  | Per-message pricing                         |
+
+## Prerequisites
+
+Before you connect, make sure you have:
+
+1. **A Facebook Business Manager account** — this is where your WhatsApp Business Account (WABA) will live. Create one at [business.facebook.com](https://business.facebook.com/) if you don't have one yet.
+2. **A phone number to use** — this must be a mobile number that is **not already connected to WhatsApp Business API** via another provider. If you want to keep the WhatsApp Business App on the same number, see [WhatsApp Co-existence](/whatsapp/whatsapp-coexistence) instead.
+3. **Access to that phone number** — you'll receive an OTP during setup. The SIM must be active.
+4. **A verified Meta Business** — for higher messaging limits. You can connect before verifying, but your sending limits will be restricted.
+
+## How to Connect
+
+<Steps>
+
+<Step title="Start the connection">
+1. Go to **WhatsApp Channel** in the left navigation of Gallabox.
+2. Click **Connect Your WhatsApp**.
+3. Choose **Connect by Yourself** (the standard Cloud API setup).
+</Step>
+
+<Step title="Fill in your business information">
+1. Enter your **Business Name** — this will appear as your display name on WhatsApp.
+2. Enter your **Business Website** — must be active and show your business name.
+3. Enter your **Business Address** and **Phone Number**.
+4. Click **Next**.
+
+<Info>
+
+The business name and details you enter here will be reviewed by Meta. They must match the documents you submit for Business verification. Inconsistencies between your business profile, website, and verification documents are a common cause of rejection.
+
+</Info>
+</Step>
+
+<Step title="Create or select your WABA">
+1. You'll be redirected to **Meta's WhatsApp Manager**.
+2. Sign in with your **Facebook Business Manager** account. If you don't have one, create it at [business.facebook.com](https://business.facebook.com/).
+3. Choose one of:
+   * **Use existing WABA** — if you already have a WhatsApp Business Account connected to your Business Manager
+   * **Create new WABA** — enter a name and select your business use case
+</Step>
+
+<Step title="Add your phone number">
+1. Enter the **mobile number** you want to connect.
+2. Select the **country code** from the dropdown.
+3. Click **Send Code** — an OTP will be sent to that number via SMS or call.
+4. Enter the **6-digit OTP** to verify ownership.
+5. Wait 3–5 minutes for your WhatsApp instance to be provisioned.
+</Step>
+
+<Step title="Authorize Gallabox">
+1. Once your instance is ready, you'll be redirected to authorize Gallabox.
+2. Click **Authorize** to allow Gallabox to send and receive messages on behalf of your WABA.
+3. You'll be redirected back to Gallabox — your WhatsApp channel will now appear as **Connected**.
+
+<Check>
+
+**Pro tip:** Once connected, go to **Channel Settings** to configure your greeting message, away message, and display name — before you start receiving customer messages.
+
+</Check>
+</Step>
+
+</Steps>
+
+## What Happens After Connection
+
+| Status                     | What it means                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| **Connected (unverified)** | You can receive and reply to messages. Business-initiated sends limited to 50 customers/24hr. |
+| **Connected (verified)**   | After Meta Business verification, your messaging tier increases based on quality rating.      |
+| **Pending Verification**   | Connection is active but Meta Business verification is still in progress.                     |
+
+To check your connection status and messaging limits, go to **WhatsApp Channel → \[your channel] → Settings**.
+
+## Meta Business Verification
+
+Completing Meta Business verification unlocks higher messaging limits and (optionally) a verified badge. Verification is separate from connecting your channel — you can do it after connecting.
+
+### What you'll need
+
+* A **Facebook Business Manager** account with admin access
+* A **business website** with SSL, matching your business name
+* **Business registration documents** — accepted documents vary by country. Common ones: Certificate of Incorporation, Business License, Business Bank Statement
+
+<Info>
+
+Facebook cross-checks submitted documents against government records (e.g., MCA in India). Ensure all details — legal name, address, phone number — match exactly what appears on your registration documents.
+
+</Info>
+
+### How to verify
+
+1. Go to [business.facebook.com](https://business.facebook.com/) → **Business Settings** → **Security Center**.
+2. Click **Start Verification**.
+3. Fill in your business details — name, address, phone, website. Must match your documents.
+4. Select your business from the matched list Facebook generates.
+5. Submit documents for **Legal Business Name**, **Address**, and **Phone** verification.
+6. Choose a verification method: **Email**, **Phone call**, or **Domain verification**.
+7. Enter the code and submit.
+
+**Review time:** 3 business days to 4 weeks. You'll receive an email when Facebook makes a decision.
+
+### What verification unlocks
+
+* **Higher messaging tiers** — move from 50 customer/24hr limit to 1,000+ per day
+* **Verified badge** (green tick) — available for well-known brands after additional review
+* **Display name visibility** — your business name is visible to all WhatsApp users you message
+
+## Connecting Multiple Numbers
+
+You can connect **multiple WhatsApp numbers** to Gallabox — each as a separate channel. Each number:
+
+* Has its own WABA
+* Has its own messaging limits and quality rating
+* Can be managed independently in Gallabox
+
+To add another number: go to **WhatsApp Channel → Add Channel → Connect Another Number**.
+
+## Using the WhatsApp Business App on the Same Number
+
+To keep the WhatsApp Business App on your phone while using Gallabox on the same number, use Co-existence — see [WhatsApp Co-existence](/whatsapp/whatsapp-coexistence).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My connection is stuck at 'Pending' — what do I do?">
+Wait up to 5 minutes after entering the OTP. If it stays stuck for more than 10 minutes:
+
+1. Check that the phone number hasn't been used with another WhatsApp Business API provider (this blocks new connections).
+2. Try clearing your browser cache and starting again.
+3. If the issue persists, [contact Gallabox support](mailto:support@gallabox.com) with your phone number and screenshot.
+</Accordion>
+
+<Accordion title="The OTP isn't arriving on my phone — what do I check?">
+1. Make sure the phone has a working SIM and mobile data is enabled for SMS reception.
+2. Check that the country code is correct.
+3. If you have an IVR (auto-attendant) on that number, disable it temporarily — it can block SMS OTPs.
+4. Try requesting the OTP again after 2 minutes.
+5. If it still doesn't arrive, try the **Call Me** option to receive the code via a phone call instead.
+</Accordion>
+
+<Accordion title="How long does Meta Business verification take?">
+Typically 3 business days to 4 weeks. New businesses or businesses with incomplete documents may take longer. You'll receive an email from Meta with the outcome. Check your status in Facebook Business Manager → Security Center.
+</Accordion>
+
+<Accordion title="Can I connect a landline or VoIP number?">
+No. WhatsApp requires a **mobile phone number** with SMS or voice call capability for OTP verification. Landlines and VoIP numbers (Google Voice, etc.) are not supported.
+</Accordion>
+
+<Accordion title="What happens to my WhatsApp chats after connecting?">
+With standard Cloud API setup, **no existing chats are imported**. Only new conversations after connection will appear in Gallabox. For chat history sync options, see [WhatsApp Co-existence](/whatsapp/whatsapp-coexistence).
+</Accordion>
+</AccordionGroup>

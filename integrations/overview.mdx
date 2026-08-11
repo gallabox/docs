@@ -1,0 +1,182 @@
+---
+title: "Integrations"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Integrations access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Integrations connect Gallabox to the tools you already use — your online store, CRM, payment gateway, spreadsheet, and more. Once connected, data flows automatically between systems, eliminating manual data entry and enabling real-time actions in your conversations.
+
+</Info>
+
+## Plan Availability
+
+Integration availability varies by plan. Open an integration category below to see supported plans and connection methods.
+
+## How Integrations Work in Gallabox
+
+There are three ways to use integrations:
+
+### Bot Flow Connectors
+
+Connectors are used inside **bot flows** — when a specific action happens in the conversation, the connector performs an operation in the external tool.
+
+**Example:** Bot flow creates a Razorpay payment link → customer pays → Wait for Order node catches the payment event → bot updates the Shopify order status to "Confirmed" and sends a confirmation message
+
+### API Call Node
+
+For tools without a pre-built connector, the **API Call node** (Essential+) can make HTTP requests to any REST API.
+
+**Example:** Custom ERP system → API Call node fetches real-time inventory → Bot tells customer if a product is in stock
+
+### Workflow Integrations
+
+Some integrations work without any bot flow — an event in the external tool (payment captured, order shipped, cart abandoned, meeting booked) arrives via webhook and triggers a **workflow** that sends an approved WhatsApp template automatically.
+
+**Example:** Shiprocket marks an order "Out for Delivery" → workflow fires → customer gets a WhatsApp update with the tracking link
+
+## Connecting Your First Integration
+
+1. Go to **Integrations**
+2. Find the tool you want to connect
+3. Click **Connect** → authenticate with OAuth (a secure sign-in — you log into the other tool directly, and Gallabox never sees your password) or enter your API key
+4. Once connected, the tool is available inside bot flow nodes
+
+## Integration Categories
+
+### E-commerce (Basic+)
+
+Connect your online store to sync orders, update status, and manage products.
+
+**Tools:** [Shopify](/integrations/e-commerce/shopify/overview), [WooCommerce](/integrations/e-commerce/woocommerce/overview), Razorpay, PhonePe
+
+**What you can do:**
+
+* Update order status when payment is confirmed
+* Send shipping notifications when orders ship
+* Sync customer data between platforms
+
+[See e-commerce integrations →](/integrations/e-commerce/overview)
+
+### CRM (Essential+)
+
+Connect your CRM to capture leads, update deals, and manage your sales pipeline.
+
+**Tools:** [HubSpot](/integrations/crm/hubspot/overview), [Zoho CRM & Zoho Bigin](/integrations/crm/zoho-crm-and-signals/overview), [Sangam CRM](/integrations/crm/sangam), [LeadSquared](/integrations/crm/leadsquared/overview) (Essential+); [Pipedrive](/integrations/crm/pipedrive) (Advanced); [Kylas](/integrations/crm/kylas/overview), [Odoo](/integrations/crm/odoo)
+
+**What you can do:**
+
+* Create a CRM contact when someone fills out a form
+* Update deal stages when orders are placed
+* Log conversation data to CRM for sales follow-up
+* Trigger sales notifications when high-value leads interact
+
+[See CRM integrations →](/integrations/crm/overview)
+
+### Payment Gateways (Basic+ / Advanced)
+
+Process payments and manage transactions directly in WhatsApp.
+
+**Tools:** [Razorpay](/integrations/payment-gateways/razorpay/overview), [Stripe](/integrations/payment-gateways/stripe/overview), [Cashfree](/integrations/payment-gateways/cashfree/overview)
+
+**What you can do:**
+
+* Send payment links and collect payments via WhatsApp Pay
+* Wait for the payment event with the Wait for Order node before continuing the flow
+* Handle failed payments with retry flows
+
+[See payment gateway integrations →](/integrations/payment-gateways/overview)
+
+### Productivity (Google Sheets: Basic+; Zoom: Essential+)
+
+Connect spreadsheets and communication tools to log data and create meetings.
+
+**Tools:** [Google Sheets](/integrations/other/google-sheets), Zoom
+
+**What you can do:**
+
+* Log every lead, order, and conversation to Google Sheets
+* Create Zoom meeting links for demo requests
+* Sync data with internal dashboards
+* Maintain shared records across teams
+
+[See productivity integrations →](/integrations/other/overview)
+
+### AI (Advanced)
+
+Power your bot with AI-generated replies.
+
+**Tools:** OpenAI
+
+**What you can do:**
+
+* Handle complex customer queries with AI-generated responses
+
+[See AI integrations →](/integrations/other/overview)
+
+## Common Integration Patterns
+
+Each arrow (→) in the examples below represents one step added to your bot flow in the Bot Flow Builder.
+
+### Lead Capture → CRM Sync
+
+```
+Bot flow: Ask Email → Update Contact Fields
+  → HubSpot: Create/update contact
+  → Google Sheets: Log lead with source, timestamp
+  → Subscribe to Sequence: Nurture email sequence
+```
+
+### Order Confirmation → Payment + Status Update
+
+```
+Bot flow: Razorpay: Create payment link
+  → Send Text: "Complete your payment: {{payment_link}}"
+  → Wait for Order: Event = "Payment Successful"
+    → on event: Shopify: Update order status to "Confirmed"
+               Send Text: "Your order is confirmed!"
+               HubSpot: Create/update deal
+```
+
+### Appointment Booking → Meeting Creation
+
+```
+Bot flow: Ask Date, Ask Time → Update Contact Fields
+  → Zoom: Create meeting link
+  → Send Text: "Your demo is booked! Join here: {{zoom_link}}"
+  → Google Sheets: Log booking to schedule sheet
+```
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I connect multiple tools at once?">
+Yes — there's no limit on the number of integrations you can connect. You can have Shopify + HubSpot + Google Sheets + Zoom all connected simultaneously.
+</Accordion>
+
+<Accordion title="My tool isn't listed — can I still connect it?">
+Yes — use the **API Call node** in bot flows (Essential+) to make HTTP requests to any REST API. If the tool has a public API, you can connect it even without a pre-built Gallabox connector. Contact Gallabox support to request a new connector if you need one.
+</Accordion>
+
+<Accordion title="What happens if an integration goes down?">
+If an integration call fails, the bot flow stops at that node and logs an error. Use a Condition node to check success/failure and add your own fallback — failed calls are not retried automatically.
+</Accordion>
+
+<Accordion title="Do integrations work with sequences?">
+Integrations primarily work inside **bot flows**. In **sequences** (proactive multi-step campaigns), only message sending is available — connector-based actions require bot flows. For lead capture with CRM sync, use a bot flow triggered by a keyword.
+</Accordion>
+</AccordionGroup>
+
+## In this section
+
+* [CRM](/integrations/crm/overview) — Zoho, HubSpot, and other CRM integrations
+* [E-Commerce](/integrations/e-commerce/overview) — Shopify, WooCommerce, Shopflo, and store events
+* [Payment Gateways](/integrations/payment-gateways/overview) — Razorpay, Stripe, and Cashfree payment alerts
+* [Shipping & Logistics](/integrations/shipping-and-logistics/overview) — Shiprocket and Shipway delivery notifications
+* [Marketing Platforms](/integrations/marketing-platforms/overview) — CleverTap, MoEngage, WebEngage, Fyno, and Facebook Leads
+* [Other](/integrations/other/overview) — Google Sheets, Zoom, Calendly, Zoho Books, MiiTel, Pabbly, Zapier, AI tools, and webhooks

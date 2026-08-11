@@ -1,0 +1,199 @@
+---
+title: "Workflows for Zoho CRM"
+description: "Enhance productivity and efficiency with Zoho workflows. Easily add Zoho Contacts to Gallabox and automate lead creation using Zoho New Lead Automation. Follow the simple instructions provided."
+---
+
+Discover how Zoho's workflows can streamline your business processes, enhancing productivity and efficiency across teams.
+
+To set the workflow rules, go to automation. Click on Workflow Rules under Automation. 
+
+## Add Zoho Contacts in Gallabox
+
+Have you ever wondered how cool it will be if you get the contacts from Zoho to your Gallabox account? Well, Gallabox has brought you this feature. 
+
+Follow the below steps to create contacts in your Gallabox account
+
+<Check>
+
+_Pro tip:- Follow the Gifs and you are good to go._ 
+
+</Check>
+
+1. Go to **Setup** in the Zoho's Admin dashboard and Select **Workflow Rules** under Automation as shown in the gif below. 
+
+<Frame>
+  <video src="/images/12-zoho-0.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on **+ Create Rule** and add **Leads** for Module, provide the name for **Rule Name** and click on **Next**.
+
+<Frame>
+  <video src="/images/zoho-create.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Follow the below steps to create the workflow:-
+
+a) **WHEN**> Select **Record action**> Select **Create**> Click on **Next**
+
+b) **Condition 1**> Select **All Leads**> Click on **Next** 
+
+c) **Instant Actions**> Select **Webhook**
+
+<Frame>
+  <video src="/images/12-zoho-1.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Fill the information on Webhooks. Name the webhook and Add Method as **POST**. 
+
+<Frame>
+  <video src="/images/12-zoho-2.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Just copy paste the **URL to Notify** link from below:-
+
+```
+URL to Notify:-
+https://server.gallabox.com/devapi/contacts/upsert
+```
+
+5. Choose the Connection from the options. 
+
+Don't know how to establish a **new connection**? Don't worry; we have got your back!! Just go to [#create-gallabox-connection-in-zoho](./#create-gallabox-connection-in-zoho "mention").
+
+6. After choosing the connection, go to **Body** and select the type as **Raw** and Format as **JSON.** Paste the below code in the space provided. 
+
+<Frame>
+  <video src="/images/12-zoho-7.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+For **Body**, You can just copy paste the code provided below
+
+```
+Body code:-
+
+{
+	"name": "${Leads.First Name}",
+	"email": [
+		"${Leads.Email}"
+	],
+	"phone": [
+		"${Leads.Mobile}"
+	],
+	"contactOwnerId": "${Lookup:Lead Owner.Email}"
+}
+```
+
+7. Click on **Save**. 
+
+<Frame>
+  <video src="/images/12-zoho-8.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+You have successfully created a workflow to push the contacts on Gallabox.
+
+## Zoho New Lead Automation
+
+This workflow is mandatory if you would like to send a welcome message or an team member's introduction or any other messages as soon as the lead gets created. 
+
+Here are the steps to create this workflow: 
+
+1. Go to **Setup** in the Zoho's Admin dashboard and Select **Workflow Rules** under Automation as shown in the gif below. 
+
+<Frame>
+  <video src="/images/12-zoho-0.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. You can edit the previous rule created or you can create a new rule in Zoho. Click on **+ACTION**> Select **Send\_WhatsApp(Sendwhatsappwidget).** 
+
+<Frame>
+  <video src="/images/send-8.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+If you haven't created any workflow yet, no need to worry, you can have a [detailed read](https://help.zoho.com/portal/en/kb/crm/automate-business-processes/workflow-management). 
+
+</Info>
+
+3. To configure the WhatsApp Template, fill the details like Template Name. Recipient Name, Phone Number, and the variables (Zoho fields). Click on **Configure**> Provide the name to the Action and **Save** **and Associate** 
+
+<Frame>
+  <video src="/images/send-9.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Check if the action is added and click on **Save**.
+
+<Frame>
+  <video src="/images/send-10.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Congratulations! You have successfully created a workflow to send an automated message to your contacts.
+
+<Info>
+
+You can automate the workflow by creating different Rules for different modules in Zoho CRM (like leads, contacts ,accounts, deals, calls and more). Workflow automations can send emails, update fields, create records and much more.
+
+</Info>
+
+## Add Record after attending a Inbound Call
+
+1. Go to **Setup** in the Zoho's Admin dashboard and Select **Workflow Rules** under Automation as shown in the gif below.
+
+<Frame>
+  <img src="https://docs.gallabox.com/~gitbook/image?url=https:%2F%2F3137140735-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FZcl3T6ePz95GpzjAeOLW%252Fuploads%252FFjpf3KJX4AR81UrccXOy%252F12%2520zoho%25200.gif%3Falt=media%26token=484c81af-526c-4867-a199-59d2df7c6484&width=768&dpr=4&quality=100&sign=4925ff9875a61fe76effe85d02da359767b682c1c1e459f9ba69cb2003e4e7bb" alt=""  />
+</Frame>
+
+2. Click on **+ Create Rule** and add **Calls** for Module, provide the name for **Rule Name** and click on **Next**.
+
+<Frame>
+  <video src="/images/record-action-for-call.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Follow the below steps to create the workflow:-
+
+a) **WHEN**> Select **Record action**> Incoming Call as **Action**> logged or modified as **condition >** click on **Next.**
+
+b) **Condition 1 >** Would you like to set conditions for call properties? **No** > Select **All Leads**> Click on **Next**
+
+c) **Instant Actions**> Select **Create Record >** Fill the fields.
+
+<Frame>
+  <video src="/images/record-call-workflow.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Click on Save to save the workflow.
+
+<Frame>
+  <video src="/images/save-call-record-workflow.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+To send the WhatsApp message for the created contact, create another flow which sends WhatsApp Message when a Lead is created. 
+
+<Frame>
+  <video src="/images/send-whatsapp-message-workflow.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+## Sending WhatsApp Templates
+
+WhatsApp templates are pre-approved messages that can be sent from Zoho CRM to leads in various modules. Follow these steps to configure and send WhatsApp templates to your leads:
+
+1. Go to any Module (Lead, Accounts, Deals, or Contacts) in your Zoho CRM. 
+2. Select your customer's Name to send the WhatsApp Template to.
+3. Click on the drop-down menu to select the option - WhatsApp Chat.
+4. A Gallabox Chat window will pop-up for you to sign in using your Gallabox credentials. 
+5. Once you are signed in, you can select the desired WhatsApp Template to share; map the variables (if any) and click on Send. 
+6. Your customer will receive the WhatsApp Template. 
+
+<Frame>
+  <video src="/images/whatsapp-chat-in-zoho.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+**Points to be noted**:
+
+1. Only the Approved templates (by Meta) in Gallabox will be listed for you to share it with your customers.
+2. Map the Template Variables with Zoho Variables.
+3. [Detailed guide](https://help.zoho.com/portal/en/kb/crm/customize-crm-account/customizing-fields/articles/standard-modules-fields#Leads) on Standard Modules & Fields in Zoho to create your database. 
+
+</Info>

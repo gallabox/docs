@@ -1,0 +1,84 @@
+---
+title: "Privacy & Security"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Security information is available to all Gallabox users.
+> * Roles: Admin role for security settings management
+
+<Info>
+
+Gallabox takes security seriously — your customer data is encrypted, access is controlled, and we're committed to protecting your information. This page covers our overall security posture, compliance, and how to report vulnerabilities.
+
+</Info>
+
+## Encryption
+
+| Data state     | Encryption method                   |
+| -------------- | ----------------------------------- |
+| **In transit** | TLS 1.2+ (all connections)          |
+| **At rest**    | AES-256 (database and file storage) |
+| **Backups**    | Encrypted backups with AES-256      |
+
+All data transmitted between Gallabox and your systems (web browsers, mobile apps, API integrations) is encrypted using TLS 1.2 or higher. Data stored in our databases and file storage is encrypted at rest using AES-256.
+
+## Data Residency
+
+Gallabox is hosted on AWS and MongoDB Atlas. Backups are distributed across multiple zones, with a primary data center in the US. For customers with specific data residency requirements, contact Gallabox support to discuss options.
+
+## Access Control
+
+* **Role-based access control (RBAC)** — team members only have access to features and data relevant to their role
+* **Principle of least privilege** — new team members start with minimal access and are granted more as needed
+* **2FA enforcement** — Admins can require all team members to enable two-factor authentication
+
+[Learn more about account security →](/settings/security)
+
+## Compliance
+
+Gallabox is committed to maintaining industry-standard security practices. Contact Gallabox support for our current compliance certifications and audit reports.
+
+## Reporting Security Issues
+
+If you've found a security vulnerability in Gallabox:
+
+<Steps>
+
+<Step title="Don't report it in public channels">
+Email security@gallabox.com with details.
+</Step>
+
+<Step title="Include the following details">
+* Description of the vulnerability
+* Steps to reproduce
+* Potential impact
+* Your contact details (for follow-up)
+</Step>
+
+<Step title="We'll acknowledge within 48 hours">
+We'll acknowledge within 48 hours and work on a fix.
+</Step>
+
+<Step title="Credit after the fix">
+Once fixed, we'll credit your account (if applicable) and credit the finding in our security acknowledgements page.
+</Step>
+
+</Steps>
+
+**Note:** For critical vulnerabilities, contact security@gallabox.com directly with "URGENT" in the subject line.
+
+## Security Best Practices for Your Team
+
+1. **Enable 2FA** — for yourself and all team members; enforce it team-wide under **Settings → Workspace → Users, Teams and Roles**
+2. **Use strong passwords** — use a password manager to generate and store them
+3. **Limit integrations** — only connect tools you actively use
+4. **Review activity log** — check **Settings → Developer → Activity Log** for unusual activity
+
+## Related Articles
+
+* [Data Security](/privacy-and-security/data-security) — data storage, retention, and deletion
+* [Data Processing Agreement (DPA)](/privacy-and-security/dpa) — Gallabox as a data processor
+* [Sub-processors](/privacy-and-security/subprocessors) — third-party services Gallabox uses
+* [Account Security Overview](/settings/security) — 2FA, activity log, IP restrictions

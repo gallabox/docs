@@ -1,0 +1,237 @@
+---
+title: "Web Chat Setup"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **channel management permissions**.
+> * Roles: Owners and Admins
+> * Plans: Available on all Gallabox plans.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## What is Web Chat?
+
+Web Chat is a chat widget you embed on your website. Visitors can message your business directly from the website, and you can review those conversations in the Web Agent's chat logs. They appear in the shared Inbox only after a WhatsApp handoff.
+
+Unlike WhatsApp and Instagram (which are Meta platforms), Web Chat is fully controlled by Gallabox — meaning:
+
+* **No 24-hour window restriction** — there's no time-based gating on when you can reply to a visitor (unlike WhatsApp/Instagram)
+* **No Meta Business verification needed** — just add the code and it's live
+* **Built-in visitor presence** — see which visitors are currently online with the widget loaded
+* **Auto-open greeting** — the widget can auto-open after a set time (using the Trigger Widget Timer), but the visitor must still initiate the conversation — Gallabox cannot proactively send outbound messages to visitors
+
+## Prerequisites
+
+Before starting, make sure you have:
+
+1. **Admin access to your website** — you'll need to add a JavaScript snippet to your site's HTML.
+2. **A Gallabox account** with Web Chat available on your plan.
+3. **A web developer or CMS access** — if you're using a CMS like WordPress, Shopify, or Webflow, you may need to use their specific widget/embed code injection method.
+
+<Info>
+
+Web Chat is available on all plans, including the free trial. You can set it up before connecting WhatsApp or Instagram.
+
+</Info>
+
+## How to Set Up
+
+<Steps>
+
+<Step title="Create a Web Chat widget in Gallabox">
+1. Go to **AI Agents and Bots** in the left navigation of Gallabox.
+2. Click **Create New → Chat AI Agent** and select **Web** as the channel, then open **Settings → Web Widget Settings**.
+3. Fill in the widget details:
+
+| Field                    | Description                                                | Example                                                       |
+| ------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| **Website Name**         | Your website's name                                        | "Acme Store"                                                  |
+| **Website URL**          | Where the widget will be installed                         | `https://acmestore.com`                                       |
+| **Widget Headline**      | Title shown at the top of the chat window                  | "Chat with us"                                                |
+| **Status Tagline**       | Subtitle shown under the headline (max 20 characters)      | "Available 24/7"                                              |
+| **Welcome Message**      | First message shown when the widget is opened              | "Hi! How can we help you today?"                              |
+| **Away Message**         | Message shown when no agents are online                    | "We're away right now. Leave a message and we'll reply soon." |
+| **Button Text**          | Text on the chat trigger button                            | "Chat with us"                                                |
+| **Theme Color**          | Primary color for the widget                               | `#3264F9`                                                     |
+| **Widget Position**      | Where the widget appears on the page                       | Bottom right                                                  |
+| **Trigger Widget Timer** | Seconds before the widget auto-opens (set to 0 to disable) | 0                                                             |
+| **Allow Anonymous Chat** | Let visitors chat without entering their name/email        | Enabled or Disabled                                           |
+| **Logo**                 | Your business logo shown in the chat header                | Upload your logo                                              |
+
+4. Click **Save**.
+</Step>
+
+<Step title="Copy the embed code">
+1. In **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**, find the widget you just created.
+2. Click **Embed Script** to open the embed code modal.
+3. Copy the JavaScript snippet shown there — it comes pre-filled with your widget token and SDK URL, so always copy it from the modal rather than hand-editing a template.
+
+The snippet looks like this:
+
+```html
+<script>
+  const token = "YOUR_WIDGET_TOKEN";
+  (function(w, d, s, u, t) {
+    w.Chatty = function(c) { w.Chatty._.push(c) };
+    w.Chatty._ = [];
+    w.Chatty.url = u;
+    w.Chatty.hash = t;
+    var h = d.getElementsByTagName(s)[0],
+      j = d.createElement(s);
+    j.async = true;
+    j.src = u + '/chatty-widget-v2.min.js?_=' + Math.random();
+    h.parentNode.insertBefore(j, h);
+  })(window, document, 'script', 'WIDGET_SDK_URL', token);
+</script>
+```
+</Step>
+
+<Step title="Add the code to your website">
+Paste the embed snippet into your website's HTML — **right before the closing `</body>` tag** on every page where you want the widget to appear.
+
+**For specific pages only:** If you only want the widget on certain pages (e.g., your pricing page or support page), add the code only to those page templates.
+
+<Check>
+
+**Pro tip:** Test on a single page first — your homepage or a test/staging environment — before deploying site-wide. This lets you catch any issues before they affect all visitors.
+
+</Check>
+</Step>
+
+</Steps>
+
+## Content Security Policy (CSP) — If Your Site Has Strict CSP
+
+If your website has a **Content Security Policy** (CSP) header configured, the Gallabox widget may be blocked. You'll need to add Gallabox's domain to your CSP allowlist.
+
+Add these directives to your CSP header:
+
+```
+script-src https://cdn.gallabox.com;
+frame-src https://cdn.gallabox.com;
+connect-src https://cdn.gallabox.com;
+```
+
+<Warning>
+
+If you're not sure whether your site has CSP headers, try loading your website after adding the widget. If the chat icon doesn't appear, check your browser's developer console (F12 → Console) for CSP errors. If you see `Refused to load script` errors pointing to `cdn.gallabox.com`, your site has CSP and needs the allowlist above.
+
+</Warning>
+
+## Common Website Platforms
+
+<Tabs>
+
+<Tab title="WordPress">
+
+Go to **Appearance → Theme Editor → footer.php** and paste the code before `</body>`. Or use a plugin like WPCode to inject the snippet without editing theme files.
+
+</Tab>
+
+<Tab title="Shopify">
+
+Go to **Online Store → Themes → Actions → Edit Code → theme.liquid** and paste the code before `</body>`.
+
+</Tab>
+
+<Tab title="Webflow">
+
+Go to **Project Settings → Custom Code → Footer Code** and paste the snippet.
+
+</Tab>
+
+<Tab title="Wix">
+
+Go to **Settings → Tracking & Analytics → Custom Header/Footer Code** and add the code to all pages.
+
+</Tab>
+
+<Tab title="Squarespace">
+
+Go to **Settings → Advanced → Code Injection → Footer** and paste the code.
+
+</Tab>
+
+</Tabs>
+
+## Testing Your Setup
+
+1. Visit the page where you added the embed code.
+2. Look for the chat widget icon (usually bottom-right corner).
+3. Click it to open the chat window.
+4. Send a test message. It should appear under **AI Agents and Bots → \[Your Web Agent] → View Chat Logs**.
+5. If using a Chat AI Agent, the agent should respond automatically.
+
+If the widget doesn't appear:
+
+* Check the browser console for errors (F12 → Console).
+* Verify the embed code was copied completely (no truncation).
+* Confirm the Website URL in Gallabox matches the URL where the widget is installed (including `https://`).
+
+## Multiple Widgets
+
+You can create **multiple Web Chat widgets** — one per website or per section of your site. Each widget has its own:
+
+* Embed code
+* Chat history
+
+This is useful if you manage multiple brands or want different chat configurations for different parts of your site.
+
+To get the right widget on the right page, use the embed code specific to that widget.
+
+## Example
+
+**Scenario:** You run a SaaS company with three websites — a main marketing site (`acme.com`), a help center (`help.acme.com`), and a pricing page (`acme.com/pricing`). You want the chat widget on all three, but with different configurations:
+
+* Main site: your branding colors and a sales-focused greeting
+* Help center: a "Browse our docs first" ice-breaker
+* Pricing page: Chat with a "Talk to Sales" CTA and aggressive handoff to WhatsApp
+
+Here's how you'd set it up:
+
+1. Create **3 separate widgets** in Gallabox — one for each site/section.
+2. For the main site: configure branding and set the greeting message.
+3. For the help center: enable **ice-breakers** with FAQ questions.
+4. For the pricing page: enable **WhatsApp handoff** and add a CTA button linking to your booking link.
+5. Copy each widget's unique embed code and add it to the respective website section.
+6. Each widget's conversations appear in your Gallabox inbox.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="The widget is not showing on my website — how do I debug?">
+1. **Open your browser's developer console** (F12 → Console tab).
+2. Look for any `Refused to load script` errors — if you see `cdn.gallabox.com` blocked, your site has a CSP that needs to allowlist Gallabox.
+3. Check the **Network** tab for failed requests to `cdn.gallabox.com` — if they're red, the request is being blocked.
+4. Verify the embed code is complete — try copying it from Gallabox again and re-pasting.
+5. Make sure the Website URL in Gallabox exactly matches the page URL (including `https://` and no trailing slash mismatch).
+6. Clear your browser cache and try an incognito/private window.
+</Accordion>
+
+<Accordion title="Can I add the widget to only specific pages on my site?">
+Yes. Add the embed code only to the page templates or specific pages where you want it. Don't add it to your global footer if you only want it on certain pages. Each CMS has a different way to add page-specific code — check your CMS documentation or ask your developer.
+</Accordion>
+
+<Accordion title="Do I need HTTPS for the widget to work?">
+Yes. Your website must be served over **HTTPS** for the Gallabox widget to load. If your site is on HTTP (no SSL), the widget will be blocked by the browser. Get a free SSL certificate from your hosting provider (Let's Encrypt is the standard option).
+</Accordion>
+
+<Accordion title="Can visitors chat without giving their name or email?">
+Yes — enable **Allow Anonymous Chat** in the widget settings. Visitors can chat without entering any contact information. However, you'll only see their messages, not their name or email, until they provide it voluntarily.
+</Accordion>
+
+<Accordion title="Can I customize the widget's appearance beyond colors and logo?">
+Yes — go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings** to change fonts, button styles, chat bubble appearance, and more. For advanced customisation (CSS overrides, custom launcher button), [contact Gallabox support](mailto:support@gallabox.com).
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Web Chat Widget Customisation](/web-chat/widget-customisation) — Colors, fonts, branding options
+* [Web Chat Ice-breakers and CTAs](/web-chat/ice-breakers-and-ctas) — Pre-set questions and call-to-action buttons
+* [Web Chat Visitor Tracking](/web-chat/visitor-tracking) — How visitor data is captured and used
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — Continue a Web Chat conversation through WhatsApp handoff

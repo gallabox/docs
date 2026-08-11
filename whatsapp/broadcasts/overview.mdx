@@ -1,0 +1,168 @@
+---
+title: "Broadcasts"
+sidebarTitle: "Overview"
+---
+
+<Columns cols="2">
+  <Card title="Create a Broadcast" href="/whatsapp/broadcasts/create-broadcast">
+    Select an audience, choose a WhatsApp template, and send or schedule a broadcast.
+  </Card>
+  <Card title="Broadcast Analytics" href="/whatsapp/broadcasts/broadcast-analytics">
+    Review delivery, engagement, failures, retries, and retargeting for a broadcast.
+  </Card>
+</Columns>
+
+> **Who can use this?**
+>
+> * Gallabox users with **broadcast management permissions**.
+> * Roles: Owners and Admins
+> * Plans: All plans. Broadcast limits vary by plan (Basic: 10K/month, Essential: 500K/month, Advanced: 1M/month).
+
+## Plan Availability
+
+| Feature                           |  Basic | Essential |  Advanced |
+| --------------------------------- | :----: | :-------: | :-------: |
+| Send Broadcasts                   |    ✓   |     ✓     |     ✓     |
+| Broadcast contact limit per month | 10,000 |  500,000  | 1,000,000 |
+| Retargeting                       |    —   |     ✓     |     ✓     |
+| Repeat & Retarget                 |    —   |     ✓     |     ✓     |
+
+## What is Broadcast?
+
+Broadcast is a **one-to-many messaging tool** — you send a single message (or set of messages) to a selected group of contacts simultaneously, on demand.
+
+Unlike Sequences (which are automated drip journeys triggered by contact behavior), Broadcasts are **manually sent** — you choose the audience, write the message, and click send. Everyone in the audience receives it at roughly the same time.
+
+Broadcast is designed for:
+
+* Promotional campaigns (sales, new products, seasonal offers)
+* Announcements (new features, company updates)
+* Event reminders (webinars, launches, appointments)
+* Re-engagement campaigns (win-back for inactive contacts)
+
+## Broadcast vs Sequences — The Difference
+
+**Quick decision guide:**
+
+* Is this a **one-time message to a specific group right now?** → Broadcast
+* Is this a **multi-step journey triggered by a contact's action**? → Sequence
+
+For the full comparison, see [Sequences Overview](/whatsapp/sequences/overview).
+
+## How Broadcast Works
+
+<Steps>
+
+<Step title="Select Your Audience">
+Choose which contacts receive the broadcast. You can select:
+
+* **A saved segment** — use a pre-built contact segment (e.g., "Customers — Last 30 Days", "Hot Leads")
+* **A tag** — filter by a specific tag (e.g., "Summer Sale Interested")
+* **Manual selection** — pick individual contacts (for small campaigns)
+
+<Warning>
+
+Use the **"Send only to opted-in contacts"** option when creating a broadcast to restrict delivery to contacts who have **opted in to marketing messages**. Sending to unconsented contacts violates WhatsApp's business policy and can result in your account being flagged. See Marketing Opt-In for details.
+
+</Warning>
+</Step>
+
+<Step title="Choose or Create a Template">
+All broadcast messages must use **pre-approved template messages** — choose an approved template from your library, or create a new one and wait for Meta approval. For template guidelines, categories, and approval timelines, see [WhatsApp Templates Overview](/whatsapp/templates/overview).
+</Step>
+
+<Step title="Schedule or Send Immediately">
+* **Send now** — the broadcast goes out immediately to all eligible contacts
+* **Schedule** — set a specific date and time (useful for campaigns targeting a specific timezone or launch moment)
+* **Send in batches** — for large audiences, Gallabox can send in batches to stay within your messaging tier limits
+</Step>
+
+<Step title="Monitor Results">
+After sending, track delivery in the Broadcast dashboard:
+
+| Status              | What it means                                                               |
+| ------------------- | --------------------------------------------------------------------------- |
+| **Sent**            | Message was sent to WhatsApp                                                |
+| **Delivered**       | Confirmed delivered to the recipient's phone by WhatsApp                    |
+| **Read**            | Recipient opened the message (only if read receipts enabled)                |
+| **Replied**         | Recipient responded to the message                                          |
+| **Clicked**         | Recipient clicked a link or button in the message                           |
+| **Failed**          | Could not be delivered (invalid number, contact blocked, template rejected) |
+| **Not in WhatsApp** | The number does not have a WhatsApp account                                 |
+| **Unsubscribed**    | Contact opted out — will not receive future broadcasts                      |
+</Step>
+
+</Steps>
+
+## Understanding Your Messaging Limits
+
+WhatsApp imposes daily sending limits based on your quality rating and verification status — see [Connect Your WhatsApp](/whatsapp/connect-your-whatsapp) for the messaging tiers. For large campaigns, use **Send in Batches** to spread delivery across hours or days and stay within limits.
+
+## Example
+
+**Scenario:** You run an e-commerce store and want to announce a 30%-off summer sale to all customers who made a purchase in the last 90 days.
+
+Here's how you'd run this as a broadcast:
+
+1. Go to **Broadcast** → **Create Broadcast**.
+2. **Audience:** Select segment "Customers — Last 90 Days" (created in Contacts → Segments).
+3.  **Template:** Either use an existing approved promotional template, or create a new one:
+
+    > "Hi \{\{contact.first\_name\}\}! 🌞 Summer Sale is here — 30% off everything. Use code SUMMER30 at checkout. Valid until \[date]. \[Unsubscribe]"
+4. Submit for Meta approval (if new template).
+5. Once approved, **Schedule** for 10 AM on the sale launch day.
+6. The campaign goes out to all 5,000 customers simultaneously.
+7. Track delivery, opens, and failures in the Broadcast dashboard.
+8. Run a **Retarget** campaign for contacts who were delivered but didn't reply — send a follow-up with a direct link.
+
+## Repeat and Retarget
+
+After a broadcast is sent, you can **Retarget** contacts based on what happened with the first message:
+
+* **Sent / Delivered / Read** — contacts the message reached
+* **Delivered but not replied** — contacts who got the message but didn't respond
+* **Replied** — contacts who responded to the message
+* **Clicked** — contacts who clicked a link or button
+* **Replied to a Flow** — contacts who submitted a WhatsApp Flow from the message
+* **Failed** — contacts the message couldn't reach (e.g., to retry later)
+
+Retargeting lets you send a **follow-up broadcast** specifically to the contacts who need another nudge — without disturbing contacts who already converted.
+
+<Check>
+
+**Pro tip:** Always plan a retarget message before sending the initial broadcast. If someone opened but didn't act, a well-timed follow-up with a stronger CTA can significantly improve conversion without feeling spammy to those who already converted.
+
+</Check>
+
+## Best Practices
+
+* **Segment before sending** — don't send promotional messages to contacts who aren't relevant. A smaller, well-targeted audience converts better than a large, unqualified one.
+* **Include an unsubscribe option** — Meta requires this for marketing templates. It's also required by law in most countries.
+* **Time your broadcasts** — consider your audience's timezone and when they're most likely to engage. For most businesses, mid-morning mid-week (Tuesday–Thursday, 10 AM–12 PM) performs best.
+* **Check your quality rating** — before a big campaign, go to **WhatsApp Channel → Settings → Quality Rating**. If your rating is Poor (red), your sending limits are restricted and messages may be blocked.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My broadcast shows 'Failed' for many contacts — what's wrong?">
+Common reasons for broadcast failures:
+
+* **Invalid phone numbers** — contacts with malformed or disconnected numbers fail automatically
+* **Contact blocked the business** — the contact has blocked your WhatsApp number
+* **Template rejected** — Meta rejected the template used in the broadcast
+* **Daily limit exceeded** — you've hit your messaging tier limit for the day
+</Accordion>
+
+<Accordion title="How do I know if a contact has opted in to marketing messages?">
+Go to **Contacts → \[contact name]** and check the **Marketing Opt-In** field.
+</Accordion>
+
+<Accordion title="Can I broadcast to contacts outside India?">
+Yes — Gallabox broadcasts work globally as long as you have a WhatsApp Business API connection. Note that per-message pricing varies by country. Check [message credits](/pricing-and-billing/message-credits) for rates by country.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [WhatsApp Templates Overview](/whatsapp/templates/overview) — Template guidelines and approval process
+* [Sequences Overview](/whatsapp/sequences/overview) — When to use Sequences instead of Broadcasts

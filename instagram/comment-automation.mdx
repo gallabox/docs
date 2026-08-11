@@ -1,0 +1,199 @@
+---
+title: "Comment Automation"
+description: "Instagram Comment Automation lets you configure posts and intents for public comment replies and initial Instagram DMs."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with the **Instagram channel connected**.
+> * Roles: Owners and Admins — comment automation is configured in the Channels section.
+
+<Info>
+
+Instagram Comment Automation is available on **all plans** when the Instagram channel is connected. The Instagram account must be a **Professional account** (Business or Creator). Comment automation consumes **AI credits** — each AI-classified comment and auto-reply deducts from your [AI Wallet](/pricing-and-billing/ai-wallet).
+
+</Info>
+
+## What it is
+
+Instagram Comment Automation lets you set instructions for individual Instagram posts, then automate public comment replies and initial Instagram DMs.
+
+When someone comments on a post you've connected to Gallabox, the automation uses that post's instructions to generate the public reply and, when configured, an initial Instagram DM.
+
+All of this happens automatically, at scale, from your Gallabox inbox.
+
+## How it works
+
+1. **You connect your Instagram Professional account** directly to Gallabox.
+2. **You enable comment automation** on individual posts — either manually or by selecting recent posts.
+3. **You add post-level instructions** that guide the public reply and initial Instagram DM for each comment.
+4. In SIMULATED mode, generated replies are shown in Gallabox only. In LIVE mode, the automation posts the public reply and sends the configured initial Instagram DM.
+5. **You manage everything** from your Gallabox inbox — including comments and Instagram DMs.
+
+## Plan Availability
+
+Instagram Comment Automation is available on all Gallabox plans and uses AI credits.
+
+## Setting up comment automation
+
+### Prerequisites
+
+Before enabling comment automation, make sure you have:
+
+* **Instagram Professional account** (Business or Creator) — personal accounts don't support automation
+* **Instagram channel connected** in Gallabox
+
+<Steps>
+
+<Step title="Connect Instagram to Gallabox">
+Follow the steps in [Connect Instagram Channel](/instagram/connect-instagram-channel) to connect your account.
+</Step>
+
+<Step title="Enable comment automation on posts">
+1. Open **Instagram → Posts** in Gallabox.
+2. You'll see a list of your recent Instagram posts.
+3. Toggle **Enable** on the posts you want to automate.
+4. Add the **post-level instructions** that should guide the replies for that post.
+5. Configure the public reply and initial Instagram DM.
+6. Click **Save**.
+</Step>
+
+</Steps>
+
+## How post-level instructions guide replies
+
+Comment Automation reads each new comment and uses the instructions configured for that post. You control the reply logic with those instructions.
+
+**Example instruction:**
+
+> "When someone comments on this Instagram post:
+>
+> * If they ask about price, availability, or how to buy → reply with a brief answer and send an initial Instagram DM with more details.
+> * If they ask a general question → reply with a helpful answer.
+> * If they leave a negative comment → reply professionally and suggest they DM you for support.
+> * If they tag a friend → reply warmly and invite them to explore."
+
+Replies are generated dynamically rather than from a fixed template.
+
+## Using Intents
+
+Intents classify what a person means when they comment. Use them to decide which types of comments should receive an automated public reply or initial DM.
+
+Gallabox adds default intents when you connect Instagram. Default intents cannot be edited. If your plan includes Custom Intents, you can add intents for business-specific cases such as pricing requests, store availability, or wholesale enquiries.
+
+### Create a Custom Intent
+
+1. Open **Instagram → Intents**.
+2. Click **Add Intent**.
+3. Enter an **Intent** name and **Intent description**.
+4. Add up to five **Sample comments/keywords** that represent the intent.
+5. Choose an icon and color so the intent is easy to identify.
+6. Click **Create**.
+
+For example, create an intent named `Pricing enquiry` with samples such as `price`, `how much`, and `cost please`.
+
+### Test an Intent
+
+1. Open the intent and click **Test Intent**.
+2. Enter a test **Comment**.
+3. Add the **Post caption** when it provides useful context.
+4. Run the test and review the matched result and confidence.
+
+Update the intent description or samples when common customer comments are not classified as expected.
+
+### Select Intents for Automation
+
+When configuring global or post-level Comment Automation, select the intents that should automate **Comments and DMs**. At least one intent must be selected. Use **Select all** when the same reply behavior should apply to every available intent, or select only the intents relevant to that post.
+
+| Capability                                  | Basic | Essential | Advanced |
+| ------------------------------------------- | :---: | :-------: | :------: |
+| Use default intents with Comment Automation |   ✓   |     ✓     |     ✓    |
+| Create Custom Intents                       |   —   |     ✓     |     ✓    |
+
+## Managing automated replies
+
+### Reviewing and editing replies
+
+1. Go to **Inbox** in Gallabox.
+2. Filter by **Instagram → Comment Replies** to see all automated replies.
+3. Click on any conversation to view the full thread.
+4. You can reply manually at any time — the automation stops replying to that conversation once you take over.
+
+### Disabling automation per post
+
+To stop automated replies on a specific post:
+
+1. Open **Instagram → Posts**.
+2. Toggle **Enable** off for that post.
+3. Click **Save**.
+
+The automation stops replying to new comments on that post immediately.
+
+### Pausing all comment automation
+
+To pause all automated replies across all posts:
+
+1. Open **Instagram → Comments**.
+2. Toggle **Comment Automation** off at the top of the page.
+3. Click **Save**.
+
+This pauses automation without disconnecting your Instagram account or removing the configuration.
+
+## How SIMULATED vs LIVE Mode Works
+
+When you enable comment automation, you choose between two modes:
+
+<Tabs>
+
+<Tab title="SIMULATED Mode (All plans)">
+
+The automation reads each comment and generates a reply — but the reply is **not posted or sent to Instagram**. It is only shown in the Gallabox UI, so you can see how the AI would respond. This is useful for reviewing replies before going fully automated.
+
+</Tab>
+
+<Tab title="LIVE Mode (All plans)">
+
+The automation reads each comment, posts the public reply, and sends the configured initial Instagram DM automatically — no manual approval needed. This is the full automation experience.
+
+</Tab>
+
+</Tabs>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My Instagram account is personal — can I use comment automation?">
+No. Comment automation requires an **Instagram Professional account** (Business or Creator). Personal accounts cannot be used with Gallabox's automation features. You can convert a personal account to a Professional account from within the Instagram app (Settings → Account → Switch to Professional Account).
+</Accordion>
+
+<Accordion title="Can I customize replies for different posts?">
+Yes. Configure post-level instructions for each post. This is useful when different products or campaigns need different reply guidance.
+</Accordion>
+
+<Accordion title="An automated reply to a comment is wrong — how do I fix it?">
+1. Go to **Inbox** and open the comment thread.
+2. Reply manually with the correct response — the automation stops replying to that thread.
+3. Update that post's instructions to prevent the issue in future comments.
+4. Review the updated configuration in SIMULATED mode before switching to LIVE mode.
+</Accordion>
+
+<Accordion title="Can I set up auto-reply templates instead of using automation?">
+Comment automation generates contextual replies dynamically. If you want more control over the reply text, add explicit rules to the post-level instructions.
+</Accordion>
+
+<Accordion title="Does Comment Automation reply to comments on Instagram Reels and Carousels?">
+Yes. Comment automation works on posts, Reels, and Carousels — any content where comments are enabled on Instagram.
+</Accordion>
+
+<Accordion title="How quickly does Comment Automation reply to new comments?">
+The automation processes new comments on monitored posts within seconds. In LIVE mode, replies are posted to Instagram automatically with no manual approval. In SIMULATED mode, replies are only shown in the Gallabox UI — nothing is posted or sent to Instagram. You can always override by replying manually.
+</Accordion>
+
+<Accordion title="Can I exclude certain comments from automation (e.g., spam)?">
+Yes. You can add negative keywords or patterns to the post-level instructions (e.g., "Ignore comments that are spam, unrelated to the product, or contain offensive language"). The automation will skip those comments and not reply.
+</Accordion>
+
+<Accordion title="What happens if Comment Automation can't understand a comment?">
+Use the post-level instructions to define how the automation should respond when a comment is unclear — for example: "If you're unsure what the comment means, reply: 'Thanks for your comment! Please send us an Instagram DM for more details.'"
+</Accordion>
+</AccordionGroup>

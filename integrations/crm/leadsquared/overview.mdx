@@ -1,0 +1,177 @@
+---
+title: "LeadSquared"
+description: "Discover how to seamlessly integrate Leadsquared CRM with Gallabox by following easy steps."
+sidebarTitle: "Overview"
+---
+
+<Info>
+
+Before integrating Leadsquared CRM, make sure you are on **Pro Plan** or above. If not, [click here](https://www.leadsquared.com/sales-crm-plans/). 
+
+</Info>
+
+To connect your Leadsquared account with Gallabox follow the below steps: 
+
+### Generate User Id and Password
+
+1. From the left navigation go to **Integration** and Click on **LeadSquared** from the available apps. 
+
+<Frame>
+  <img src="/images/leadsquared-integration.png" alt="" />
+</Frame>
+
+2. Click on **Connect** and provide a name for the integration and click on **Submit**.
+
+<Frame>
+  <video src="/images/ls-connection-name.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Select **Channel Name** that you would like to connect with your Leadsquared account and click on **Update Configure**. You can also Enable the toggle for LeadSquared Converse. 
+
+<Frame>
+  <video src="/images/update-configuration-ls.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+You will get the Namespace ID, User Name and Password which has to be used in the further steps along with the Webhook URL. 
+
+### Install and Configure WhatsApp Extension on your Leadsquared Account
+
+1. Install the WhatsApp Messaging Connector on your Leadsquared account – From the main menu, navigate to [Apps>Apps Marketplace](https://in21.leadsquared.com/Apps/Marketplace). Search for **WhatsApp Business**, and click **Install**.\
+   Alternatively, you’ll find the connector listed under the Messaging tab. Once installed, hover your cursor over ![Settings icon](https://help.leadsquared.com/wp-content/uploads/2018/03/settings-1.png) and click **Configure**. On the **Configure WhatsApp Business** pop-up, click **Add Number**.
+
+<Frame>
+  <video src="/images/leadsquared-gallabox.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Once the connector is installed, add and configure your WhatsApp phone numbers to the connector. 
+
+<table data-header-hidden><thead><tr><th width="212.5"></th><th></th></tr></thead><tbody><tr><td><strong>Field</strong></td><td><strong>Description</strong></td></tr><tr><td>WhatsApp Business Number</td><td>Select the country code, and provide your WhatsApp business number associated with Gallabox. This field is mandatory.</td></tr><tr><td>Account Name</td><td>Provide a relevant name for your connector. This field is mandatory.</td></tr><tr><td>Allow Lead Generation on incoming message</td><td>Click <img src="https://help.leadsquared.com/wp-content/uploads/2019/08/Slider.png" alt="Slider" /> to allow automatic lead creation when you receive messages from unknown mobile numbers.</td></tr><tr><td>Lead Source</td><td>From the dropdown, select a lead source for your leads. If any lead is received with the Source, this option will be selected. </td></tr></tbody></table>
+
+<Frame>
+  <video src="/images/basic-details-ls.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Once you’re done, click **Next**.
+
+3. From the available options, choose WhatsApp Client and click on the button - "**Next**" to configure the Gallabox. 
+
+<Frame>
+  <video src="/images/ls-service-provider.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. For Authentication, paste the right details. 
+
+<table data-header-hidden><thead><tr><th width="196.5"></th><th></th></tr></thead><tbody><tr><td><strong>Field</strong></td><td><strong>Description</strong></td></tr><tr><td>Client Base URL</td><td>Paste the <strong>Webhook URL</strong> generated in your Gallabox Account. </td></tr><tr><td>WhatsApp Number</td><td><strong>WhatsApp number</strong> connected to Gallabox.</td></tr><tr><td>Username</td><td>The <strong>User Id</strong> generated in your Gallabox Account. </td></tr><tr><td>Password</td><td>The <strong>password</strong> generated in your Gallabox Account.</td></tr></tbody></table>
+
+<Frame>
+  <video src="/images/ls-authentication.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Once you’re done pasting all the details, click **Next**.
+
+5. Move ahead to filling up the details for [**Converse Settings**](/integrations/crm/leadsquared/overview#leadsquared-converse). You can turn the toggle on for Converse Settings if you would like to use Leadsquared Converse instant messaging feature to have real-time conversations with your leads via WhatsApp.
+
+Under **User Access**, grant permissions to users who can communicate with leads through the LeadSquared Converse.
+
+* **Based on Role** – From the **Search and Select Users** dropdown, select the LeadSquared user roles that can send messages through LeadSquared Converse.
+* **Advanced (User Level)** – Based on the value entered in the selected user Boolean field (e.g., for the user Sam, the “Is Employee” user field contains the value “Yes”), the user will be able to send messages through LeadSquared Converse. From the **Select User Field** dropdown, select a relevant Boolean field.
+
+**Functionality** – The following additional settings must be configured –
+
+* **Approved Templates** – Enable this functionality to allow your users to send approved WhatsApp templates to your leads.
+* **Unapproved Templates** – Enable this functionality to allow your users to send unapproved WhatsApp templates to your leads. These can only be sent if the 24-hours service window is active.
+* **Notify Lead Owner\*** – When enabled, only lead owners will get notifications of the WhatsApp messages a lead sends. When disabled, all logged-in users will receive notifications of these WhatsApp messages.
+* **Sending Rich Media** – Enable this functionality to allow your users to send media files in the WhatsApp messages.
+
+<Frame>
+  <video src="/images/converse-settings-in-ls.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+6. In **Advanced Settings**, you must map –
+
+* **Activity Mapping** – A LeadSquared activity field to your WhatsApp messages. This is the activity that will be posted every time a WhatsApp message is sent or received.
+* **Default WhatsApp Number Fields** – The number you set as the default phone number will be automatically selected when you’re sending a WhatsApp message to a lead. You can also select other numbers that are available from the **Add Another Number** dropdown.
+* **Default Country Code** – The default country code will be used to send messages to a phone number that’s stored in a custom field, if no country code is listed.
+* **Enable Rich Media Template Support** – If you want to include media files in your WhatsApp message, you must enable the ![Slider](https://help.leadsquared.com/wp-content/uploads/2019/08/Slider.png) slider.
+* **Compliance Type** – Here, you can select the compliance type for the WhatsApp template, by choosing either WhatsApp Opt-out or Opt-in.
+* **WhatsApp Opt-out** – From the dropdown, select a lead field for the WhatsApp opt-in/opt-out functionality. Your leads can opt-in or out of receiving WhatsApp messages on the basis of this field.
+
+<Info>
+
+Make sure to turn the **Toggle Off** for Enable HSM before saving. 
+
+</Info>
+
+<Frame>
+  <video src="/images/ls-advance-settings.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Hurrah! Your Leadsquared account is connected to Gallabox. 
+
+### Supported WhatsApp Templates
+
+Apart from the Text Templates and Button Templates, you can also send the below WhatsApp Templates via LeadSquared to your customers: 
+
+* Flow Template
+* Carousal Template
+* Location Template
+* Catalogue Template
+* Payment Template
+
+### LeadSquared WhatsApp Template
+
+1. From the top navigation bar, click on **Apps** and from the drop-down select **WhatsApp Templates** and click on **Add Template**.
+
+<Frame>
+  <video src="/images/ls3.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. If you have connected more than 1 WhatsApp API Accounts, choose the right WhatsApp Account from the drop-down as shown in the GIF below. 
+
+<Frame>
+  <video src="/images/choose-the-right-whatsapp-account.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Provide the **Name** for the template (the same name as in your Gallabox account), **Namespace ID** and add the **Content** (the message body in Gallabox). Click on **Save**. Follow the below **GIF**.
+
+<Info>
+
+Pro Tip: Open the Gallabox Templates window & LeadSquared Integration (in Gallabox) in adjacent tabs for easy pasting. 
+
+</Info>
+
+<Frame>
+  <video src="/images/paste-whatsapp-template-in-ls.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+If your message template is a media template, make sure to select & upload the same media file as you did in Gallabox.
+
+</Info>
+
+In the content for the message, you can add the variables where ever necessary. 
+
+Here’s what a message may look like –
+
+> _“Welcome \{\{1\}\}. We look forward to serving you on WhatsApp.”_
+>
+> And here’s a sample order confirmation message (order\_confirmation can be the message name) –
+>
+> _“Your order \{\{2\}\} for a total of \{\{3\}\} is confirmed. The expected delivery is \{\{3\}\}.”_
+
+In the above example, Variables (e.g., \{\{2\}\}, \{\{3\}\}) can later be replaced using Leadsquared mail merge fields like Order Id and Order Amount respectively. 
+
+### Leadsquared Converse
+
+LeadSquared Converse is an all-in-one platform for communicating with potential customers across different channels, immediately. When you combine it with Gallabox, you get to enjoy more advanced ways to talk to people, such as:
+
+* Send and receive WhatsApp Messages. 
+* View WhatsApp conversations in the context of a lead.
+* Eliminate the need to switch between Gallabox and other applications  to converse with your leads.
+* Get real-time notifications for messages sent by leads.
+* Send content-rich WhatsApp Templates, with multi-language and emoji support.
+
+<Frame>
+  <video src="/images/leadsquared-converse.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>

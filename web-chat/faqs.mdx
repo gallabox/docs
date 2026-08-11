@@ -1,0 +1,85 @@
+---
+title: "Web Chat FAQs"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with the Web Chat channel set up or considering setting it up.
+> * Roles: Owners, Admins, and roles with Web Agent configuration permission can configure Web Chat.
+
+<Info>
+
+Web Chat is available on all Gallabox plans. Chat AI Agents on Web Chat are available on Basic plan (without Knowledge Base). Knowledge Base for AI Agents requires Essential or Advanced.
+
+</Info>
+
+## Setup and Installation
+
+<AccordionGroup>
+<Accordion title="How do I set up Web Chat on my website?">
+Create a Chat AI Agent with **Web** as the channel (**AI Agents and Bots → Create New → Chat AI Agent**), configure the widget in **Settings → Web Widget Settings**, then add the embed code to your site. Full steps: [Web Chat Setup](/web-chat/setup).
+</Accordion>
+
+<Accordion title="Where do I add the widget embed code on my website?">
+Just before the closing `</body>` tag in your website's HTML. CMS-specific instructions: [Web Chat Setup](/web-chat/setup#common-website-platforms).
+</Accordion>
+
+<Accordion title="The widget is not showing on my website">
+Check the embed code placement, CSP/script blocking, agent status, and browser console. Full debugging checklist: [Web Chat Setup](/web-chat/setup#testing-your-setup).
+</Accordion>
+</AccordionGroup>
+
+## Widget Customisation
+
+<AccordionGroup>
+<Accordion title="Can I change the widget colours to match my brand?">
+Yes — set the colours in **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**. Full options: [Web Chat Widget Customisation](/web-chat/widget-customisation).
+</Accordion>
+
+<Accordion title="Can I use different widgets on different pages?">
+Yes. Each Chat AI Agent has its own widget configuration. You can create multiple agents with different configurations and embed different agents on different pages of your website. This is useful if different pages serve different purposes (e.g., a pricing page vs. a support page).
+</Accordion>
+</AccordionGroup>
+
+## Chat AI Agent on Web Chat
+
+<AccordionGroup>
+<Accordion title="Why isn't the Chat AI Agent responding to Web Chat messages?">
+Check that the agent is active, AI credits are available in your [AI Wallet](/pricing-and-billing/ai-wallet), and the session hasn't timed out (Web Chat sessions time out after 1 hour of inactivity by default). See [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+</Accordion>
+
+<Accordion title="Why does the Web Chat session close so quickly?">
+Web Chat and WhatsApp/Instagram use separate configurable inactivity settings. WhatsApp and Instagram default to 3 minutes. You can change the timeout in the agent's drop-off settings. Details: [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+</Accordion>
+</AccordionGroup>
+
+## Contact Capture and Handoff
+
+<AccordionGroup>
+<Accordion title="How do I capture visitor email addresses?">
+Enable **Contact Capture** in **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**, select the Email field, and choose when to ask. See [Web Chat Setup](/web-chat/setup).
+</Accordion>
+
+<Accordion title="How do I set up WhatsApp handoff from Web Chat?">
+Enable **Handoff Configuration** in **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**, select the WhatsApp channel, and choose a display style. Details: [Web Chat Visitor Tracking](/web-chat/visitor-tracking#handoff-to-whatsapp).
+</Accordion>
+</AccordionGroup>
+
+## General
+
+<AccordionGroup>
+<Accordion title="Can I use Web Chat without a Chat AI Agent?">
+Web Chat is created with a Web AI Agent. Rule-based bot flows are not available on Web Chat. Configure a WhatsApp handoff when a visitor needs to continue the conversation with your team.
+</Accordion>
+
+<Accordion title="Can website visitors on mobile use Web Chat?">
+Yes. The Web Chat widget is responsive and works on mobile browsers. The widget adapts to the visitor's screen size automatically. You can also control the widget position separately for mobile using custom CSS.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Web Chat Widget Customisation](/web-chat/widget-customisation) — Widget appearance options
+* [Web Chat Ice-breakers and CTAs](/web-chat/ice-breakers-and-ctas) — Engagement options
+* [Web Chat Visitor Tracking](/web-chat/visitor-tracking) — Tracking and contact capture
+* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — How agents behave on Web Chat

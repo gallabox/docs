@@ -1,0 +1,175 @@
+---
+title: "Click-to-WhatsApp Ads (CTWA)"
+description: "Track which WhatsApp conversations started from your Facebook and Instagram ads, measure ad performance in Gallabox, and send conversion signals back to Meta."
+sidebarTitle: "Overview"
+---
+
+Click-to-WhatsApp (CTWA) ads are Facebook and Instagram ads with a button that opens a WhatsApp conversation directly. Instead of landing on a website, the person who clicks your ad starts a WhatsApp conversation with your business. CTWA ads can appear across Facebook Feed, Instagram Feed, Instagram Stories, and Messenger — Gallabox tracks and manages leads from both platforms.
+
+Gallabox connects to your Meta Ad Account so you can:
+
+* See which ads are driving WhatsApp conversations
+* Track leads and purchases that came from specific ads
+* Send conversion events back to Meta (via CAPI) to improve ad performance
+
+> **Who can use this?**
+>
+> * Roles: Owners and Admins (and roles with the relevant permission).
+
+## Articles in this section
+
+* [CTWA Ads](/whatsapp/ad-campaigns/ctwa-ads) — Connect your Facebook Ad Account and view ad-level performance metrics in Gallabox
+* [CTWA Leads](/whatsapp/ad-campaigns/ctwa-leads) — See the individual conversations and contacts that came from each ad
+* [Conversions API (CAPI)](/whatsapp/ad-campaigns/capi) — Send lead and purchase events back to Meta to optimize your ad campaigns
+
+## Plan Availability
+
+| Capability                              | Basic | Essential | Advanced |
+| --------------------------------------- | :---: | :-------: | :------: |
+| Ad ID + source URL in conversation      |   ✓   |     ✓     |     ✓    |
+| CTWA Leads view                         |   —   |     ✓     |     ✓    |
+| CTWA Ads analytics (spend, reach, ROAS) |   —   |     ✓     |     ✓    |
+| CAPI (Conversions API)                  |   —   |     ✓     |     ✓    |
+
+## What is CTWA?
+
+**Click-to-WhatsApp (CTWA)** ads are Facebook or Instagram ads with a **"Send Message"** button. When someone clicks the button, a WhatsApp conversation opens directly with your business — no web form, no landing page, no email required.
+
+The contact lands in your Gallabox inbox the moment they tap the button. From there, your team (or a bot) can respond immediately.
+
+---
+
+## Why Use CTWA?
+
+**Higher response rates.** WhatsApp conversations convert significantly better than email follow-ups or web form submissions. You're meeting the lead where they already are.
+
+**72-hour free entry-point conversation window.** When a conversation starts from a CTWA ad click, Meta does not charge a per-message fee for that conversation for 72 hours. This is a cost benefit — it lowers your cost per lead compared to standard WhatsApp Business API messaging. Gallabox displays a countdown timer in the conversation; the timer begins once your team responds to the customer. This is a billing window, distinct from the standard 24-hour customer service (free-form messaging) window.
+
+**Know which ad drove each message.** Every CTWA conversation in Gallabox shows the **Ad ID** and **source URL** that triggered it. You always know where each lead came from.
+
+**Full ad analytics.** Connect your Facebook Ad Account to see spend, ROAS, reach, and campaign performance directly in Gallabox — no need to cross-reference Meta Ads Manager manually.
+
+**Close the loop with CAPI.** The Conversions API (CAPI) lets you send conversion outcomes — lead qualified, purchase made — back to Meta. Meta uses this data to optimize your ad delivery and target people more likely to convert.
+
+---
+
+## How Gallabox Tracks CTWA Conversations
+
+### CTWA Tagging
+
+Whenever a customer initiates a chat by clicking on your CTWA ad:
+
+* A **"CTWA" tag** is added to that conversation — you'll see it in both the chat list and inside the conversation.
+* Hover over the tag to see: _"This conversation was initiated through the CTWA ad."_
+
+<Info>
+
+The CTWA tag appears only for the first interaction triggered by the ad. If the conversation is resolved/closed and restarted later, the tag will disappear. This action will close the Ad Engagement Window.
+
+</Info>
+
+### The 72-Hour Ad Engagement Window
+
+When a customer clicks your CTWA ad and starts a conversation, Meta provides a **72-hour free entry-point conversation window** — Meta does not charge a per-message fee for that conversation during this period. Gallabox displays a countdown timer in the conversation so your team can respond and engage within this window.
+
+Please note:
+
+* The timer begins **once your team responds** to the customer.
+* It shows how much time is left in the free window.
+* This window is about conversation fees, not message formats — the standard 24-hour customer service window rules for free-form messaging still apply separately.
+
+### Automatic Source Tracking
+
+If a new contact is created through a CTWA conversation, Gallabox automatically logs key details under the contact's profile:
+
+* **Contact Created Source:** CTWA
+* **Source ID:** Ad ID
+* **Source URL:** The link from which the customer clicked
+
+<Info>
+
+These fields appear only if your account has had at least one CTWA conversation. These fields are not editable, ensuring consistent data tracking.
+
+</Info>
+
+---
+
+## Prerequisites
+
+Before setting up CTWA, make sure you have:
+
+* **A verified Facebook Business Manager.**
+* **An active Facebook Page** — required for any Facebook or Instagram ad.
+* **A valid Facebook Ad Account** with a working payment method attached to Meta, running at least one CTWA ad — the ad must use a "Send Message" CTA linked to your WhatsApp number.
+* **Gallabox WhatsApp channel connected** — your WhatsApp number must already be active in Gallabox. If it isn't, set that up first.
+* **Owner or Admin access in Gallabox** (or a role with the relevant permission).
+* **Facebook Business Manager access** — you'll need permission to authorize the OAuth connection between your Ad Account and Gallabox.
+
+---
+
+## Onboarding Checklist
+
+Complete these steps in order:
+
+1. **Connect your Facebook Ad Account** — Go to **CTX → CTX Ads** in the left navigation and authorize your Ad Account via OAuth. This is a separate connection from CAPI — you need both if you want full analytics and conversion tracking.
+2. **Verify your ads appear** — After connecting, open **CTWA Ads** and confirm your active campaigns and ads are listed. If they don't appear, check that the authorized account has access to the correct Ad Account.
+3. **(Optional but recommended) Connect CAPI** — Open the CAPI configuration from the CTWA section and follow the CAPI connection steps. CAPI lets you send conversion events back to Meta to improve campaign optimization.
+4. **Set up the Lead event trigger in CAPI** — Configure when Gallabox fires a Lead conversion event to Meta (e.g., when a contact replies to a CTWA conversation, or when a tag is applied).
+5. **(Optional) Set up the Purchase event trigger** — If you're tracking transactions, configure the Purchase event trigger to fire when a purchase outcome is recorded in Gallabox.
+6. **Review CTWA Leads** — Open **CTX → CTX Leads** in the left navigation and confirm that conversations from your ads are appearing. Each row should show the contact, the ad that drove the conversation, and the current conversion state.
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What is the CTWA feature?">
+CTWA or Click-to-WhatsApp allows businesses to create ads with links or buttons that enable users to initiate WhatsApp chats directly with the business, making it easy for customers to reach out.
+</Accordion>
+
+<Accordion title="Can I track the performance of my CTWA links?">
+Yes, you can track the performance of your CTWA links, including the number of clicks and conversations initiated. Gallabox provides analytics to help you assess the effectiveness of your CTWA campaigns — see [CTWA Ads](/whatsapp/ad-campaigns/ctwa-ads).
+</Accordion>
+
+<Accordion title="Do customers need to have my number saved in their contacts to use CTWA?">
+No, one of the benefits of CTWA is that customers can start a WhatsApp chat without saving your number.
+</Accordion>
+
+<Accordion title="Can CTWA be used for customer support or sales inquiries?">
+Absolutely. CTWA is versatile and can be used for various purposes, including customer support, product inquiries, or initiating sales conversations.
+</Accordion>
+
+<Accordion title="Can my CTWA ads appear on Instagram?">
+Yes. When setting up your ad in Meta Ads Manager, you can select Instagram as a placement (Feed, Stories, etc.) in addition to or instead of Facebook. Gallabox will automatically track and manage all incoming leads from both platforms — no additional setup needed on the Gallabox side.
+</Accordion>
+
+<Accordion title="What is the 72-hour free window and when does it start?">
+When a customer clicks your CTWA ad and starts a conversation, Meta does not charge a per-message fee for that conversation for 72 hours. This is called the free entry-point conversation window, and it significantly lowers your cost per lead compared to standard WhatsApp Business API messaging. Gallabox displays a countdown timer in the conversation; the timer begins once your team responds to the customer. Note that this is a conversation-fee window, not the same as the 24-hour customer service window that governs free-form messaging.
+</Accordion>
+
+<Accordion title="Why should I set up CAPI?">
+Without CAPI, Meta only knows that someone clicked your ad — it never learns whether that click became a real lead or a sale. With CAPI, Gallabox sends those conversion signals back to Meta, so Meta's algorithm can find more people like your best customers. This leads to lower cost per lead over time and helps your campaign exit Meta's "Learning Phase" faster.
+</Accordion>
+
+<Accordion title="My CTWA ads are running on Meta but nothing is showing up in Gallabox — why?">
+First, open **CTWA Ads** and check whether your Facebook Ad Account is connected to Gallabox. If the page is empty or shows a "Connect" prompt, complete the OAuth flow. Once connected, existing active ads should populate within a few minutes. If they still don't appear, verify that the authorized Facebook account has access to the correct Ad Account in Meta Business Manager.
+</Accordion>
+
+<Accordion title="I connected CTWA to Gallabox, but I am not receiving any messages. Why?">
+Check the following:
+
+1. **Destination number**: The phone number in your ad must be the same channel connected to Gallabox. If it points to a different number, responses won't appear in Gallabox.
+2. **Ad account permissions**: Ensure Gallabox has the required permissions on your Meta Ad Account.
+3. **Ad type**: Confirm the ad is set up as a Click-to-WhatsApp ad, not a different ad type.
+4. **User behaviour**: Customers can click the ad and open WhatsApp but choose not to send a message. Check your message volume alongside your link-click count in the analytics dashboard.
+</Accordion>
+
+<Accordion title="Do I need to connect CAPI separately from the Ad Account OAuth connection?">
+Yes — these are two separate connections. The **Ad Account OAuth** (in CTWA Ads) connects Gallabox to your Meta Ads data so you can see campaign performance. **CAPI** is a separate connection that sends conversion events _back_ to Meta. You can have the Ad Account connected without CAPI, but you won't be sending conversion data back to Meta to optimize your campaigns. Set up CAPI if you want to close the attribution loop.
+</Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+* [Connect your Facebook Ad Account in CTWA Ads →](/whatsapp/ad-campaigns/ctwa-ads)
+* [Set up CAPI to send conversion events back to Meta →](/whatsapp/ad-campaigns/capi)

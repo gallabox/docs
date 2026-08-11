@@ -1,0 +1,213 @@
+---
+title: "Chat AI Agent"
+sidebarTitle: "Overview"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **AI Agent creation permissions**.
+> * Roles: Owners and Admins (and roles with AI agent permissions)
+> * Plans: Available on all plans. Basic plan supports Chat AI Agents on Web Chat only. WhatsApp and Instagram AI agents require Essential or Advanced.
+
+## Plan Availability
+
+| Feature                     | Basic | Essential | Advanced |
+| --------------------------- | :---: | :-------: | :------: |
+| Chat AI Agents on Web Chat  |   ✓   |     ✓     |     ✓    |
+| Chat AI Agents on WhatsApp  |   —   |     ✓     |     ✓    |
+| Chat AI Agents on Instagram |   —   |     ✓     |     ✓    |
+| Knowledge Base              |   —   |   10 MB   |  100 MB  |
+| Core Agent Actions          |   ✓   |     ✓     |     ✓    |
+| apiCall action              |   —   |     —     |     ✓    |
+
+## What is a Chat AI Agent?
+
+A Chat AI Agent is an AI persona you create for your business. You give it a name, a set of instructions, and access to your knowledge base. It then talks to customers on its own — answering questions, qualifying leads, and escalating when it can't help.
+
+Unlike bot flows (which follow a fixed decision tree) or AI Reply (which suggests drafts a human then sends), a Chat AI Agent:
+
+* Holds full conversational context across multiple turns
+* Decides when to escalate based on its own judgment
+* Works across WhatsApp, Instagram, and Web Chat simultaneously
+* Can route to specific team members or inboxes
+
+<Info>
+
+A Chat AI Agent is not a chatbot with pre-scripted responses. It uses a Knowledge Base to answer questions accurately without you programming every possible question.
+
+</Info>
+
+## How a Chat AI Agent Works
+
+### Creating an agent
+
+You create an agent with a 4-step wizard:
+
+<Steps>
+
+<Step>
+Go to **AI Agents and Bots → Create New → Chat AI Agent**.
+</Step>
+
+<Step>
+**Step 1 — Industry:** Select your industry or type a custom one.
+</Step>
+
+<Step>
+**Step 2 — Use Case:** Choose a use case (Lead Qualification, Sales, FAQ, etc.).
+</Step>
+
+<Step>
+**Step 3 — Channel:** Select WhatsApp, Instagram, and/or Web Chat.
+</Step>
+
+<Step>
+**Step 4 — Business Details:** Provide a website URL or short description for the agent to learn from.
+</Step>
+
+</Steps>
+
+The wizard then generates the agent's role, goal, and instructions automatically.
+
+### Editing and refining your agent
+
+After creation, open the agent to review and refine its setup manually:
+
+<Steps>
+
+<Step>
+Give the agent a **name** and a **persona description**.
+</Step>
+
+<Step>
+Write its **instructions** — what it should do, how it should behave, when to escalate.
+</Step>
+
+<Step>
+Connect a **Knowledge Base** — the source of truth it answers from.
+</Step>
+
+<Step>
+Set the **channel** — WhatsApp, Instagram, Web Chat, or all three.
+</Step>
+
+<Step>
+Save and activate.
+</Step>
+
+</Steps>
+
+### Writing effective instructions
+
+Instructions define the agent's behavior. Be specific:
+
+```
+You are a sales agent for a B2B SaaS product.
+Your job is to qualify leads by asking about their company size,
+current tools, and budget. If they fit the criteria (5+ users,
+budget > $500/month), offer to book a demo. Otherwise, send
+them a link to your free trial.
+```
+
+You can also include:
+
+* Tone and style guidelines (e.g., "Be friendly but professional")
+* Topics to avoid or refuse
+* What to say during escalation
+* How to handle off-topic questions
+
+<Check>
+
+**Pro tip:** Start with a narrow scope — a single agent doing one job well (e.g., answering pricing questions) is more effective than one agent handling everything. You can create multiple agents for different use cases.
+
+</Check>
+
+### Per-channel settings
+
+For each channel the agent is connected to, you can set:
+
+* **Greeting message** — what it says when a customer starts a conversation
+* **Channel-specific instructions** — extra behavior rules for that channel
+* **Availability hours** — when the agent is active vs. offline
+
+### Choosing the AI model
+
+In the agent's **Settings** tab, the **AI Model Settings** section controls which model powers the agent:
+
+* **Model** — the language model the agent uses. The dropdown shows the models enabled for your account's AI wallet — the catalog includes the GPT-4o/4.1/5 family, grok-4.3, Gemini 2.5 Pro/Flash, DeepSeek, Kimi, and Qwen models.
+* **LLM Temperature** — how creative the responses are, from 0 to 2 (default 0.1). Lower values give more consistent answers; higher values give more creative ones.
+* **Thinking Level** — None, Low, Medium, or High. Shown only for reasoning-capable models.
+
+There are two provider versions:
+
+* **v2 (recommended)** — default model **grok-4.3**
+* **v1 (legacy)** — default model gpt-4o-mini
+
+<Warning>
+
+AI credit consumption varies by model — each model has its own per-token credit rates. Check your [AI Wallet](/pricing-and-billing/ai-wallet) to see how the model you choose affects credit usage.
+
+</Warning>
+
+## Example
+
+**Scenario:** You run a clinic and want an agent that books appointments over WhatsApp. Create the agent, describe its persona as a friendly front-desk assistant, and write instructions to collect the patient's name, preferred date, and reason for visit, then escalate to the reception team with @assignTo. Enable the WhatsApp channel, set a greeting, and activate. For a full Knowledge Base–driven walkthrough, see the [Knowledge Base example](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview#example).
+
+## Chat AI Agent vs. Bot Flow vs. AI Reply
+
+|             | Bot Flow              | AI Reply               | Chat AI Agent                     |
+| ----------- | --------------------- | ---------------------- | --------------------------------- |
+| Setup       | Visual flow builder   | No setup needed        | Create agent + instructions       |
+| Responses   | Pre-scripted          | AI draft, human sends  | Fully autonomous                  |
+| Context     | Single turn           | Single message         | Full conversation                 |
+| Maintenance | Update flows manually | AI improves over time  | Update Knowledge Base             |
+| Channel     | WhatsApp              | WhatsApp, Instagram    | WhatsApp, Instagram, Web Chat     |
+| Best for    | Structured processes  | Faster human responses | Natural, open-ended conversations |
+
+## Human Handoff
+
+When the agent can't answer or the customer asks for human help, it escalates. The handoff includes:
+
+* **Full conversation history** — all messages in the session
+* **Customer details** — name, email, phone (if captured)
+* **Reason for escalation** — the agent's assessment of what the customer needs
+* **Agent's notes** — any context gathered during the conversation
+
+The conversation lands in the team inbox. An available agent picks it up and continues from where the AI left off.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What's the difference between a Chat AI Agent and a bot flow?">
+A bot flow follows a pre-scripted decision tree — you build every path the conversation can take. A Chat AI Agent uses a Knowledge Base to answer questions naturally, without you scripting every response. Bot flows are best for structured processes (e.g., appointment booking). Chat AI Agents are best for open-ended conversations (e.g., answering product questions).
+</Accordion>
+
+<Accordion title="Can one Chat AI Agent work on multiple channels?">
+Yes. When creating or editing an agent, you can enable multiple channels — WhatsApp, Instagram, Web Chat, or all three. You can also set channel-specific greeting messages and instructions for each channel.
+</Accordion>
+
+<Accordion title="What happens if the Chat AI Agent gives a wrong or harmful answer?">
+Use the [Agent Actions](/ai-agents-and-bots/chat-ai-agent/agent-actions) feature to restrict what the agent can do. You can also set explicit instructions to refuse sensitive topics. If the agent consistently gives wrong answers, review and update the Knowledge Base — the agent only knows what's in the Knowledge Base. Test answers in the **Test Widget** before going live.
+</Accordion>
+
+<Accordion title="Can I use a Knowledge Base with a bot flow (not a Chat AI Agent)?">
+Yes — bot flows include a Knowledge Base node; see [Bots](/ai-agents-and-bots/bots/overview) for details.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — How agents behave differently on each channel
+* [Knowledge Base Overview](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — What data sources the agent can use
+* [AI Reply](/conversations/ai-reply) — an Inbox feature that drafts replies for a human agent to review and send
+* [Agent Actions](/ai-agents-and-bots/chat-ai-agent/agent-actions) — Custom actions the agent can execute
+* [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics) — Review sessions from a specific agent's Analysis tab
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — Managing agent and human conversations in one inbox
+
+## In this section
+
+* [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — feed the agent your docs, websites, and FAQs
+* [Agent Actions](/ai-agents-and-bots/chat-ai-agent/agent-actions) — let the agent assign chats, call APIs, and run tasks
+* [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics) — review sessions for a specific agent
+* [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — how the agent behaves on each channel
+* [FAQs](/ai-agents-and-bots/chat-ai-agent/faqs) — common questions about Chat AI Agents

@@ -1,0 +1,60 @@
+---
+title: "WhatsApp Failed Messages"
+description: "Inspect recent WhatsApp messages that ended in a failed or error state."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with Analytics access and at least one connected WhatsApp channel.
+
+Use WhatsApp Failed Messages when you need the recent message-level details behind a delivery failure.
+
+## Plan Availability
+
+This report has no separate frontend plan gate. It appears according to your Analytics permission and WhatsApp channel access.
+
+## Review Failed Messages
+
+1. Open **Analytics**.
+2. Select **WA Failed Message**.
+3. Search for and select one or more WhatsApp channels.
+4. Review the message ID, content, recipient, date and time, remarks, channel, and sender.
+5. Use the failure details to decide whether the message or recipient data needs correction.
+
+The report shows up to the latest 50 matching message logs from the last 15 days. It includes messages with a **failed** or **error** status.
+
+## Example
+
+**Scenario:** A customer says an order update never arrived.
+
+1. Select the WhatsApp number used for order updates.
+2. Find the recipient and send time in the failed-message table.
+3. Review **Remarks** and the failure details.
+4. Correct the number, template, or sending condition before trying again.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why can I not see a failure from last month?">
+The screen shows the latest 50 message logs from the last 15 days. Use a generated message report when you need a wider reporting period.
+</Accordion>
+
+<Accordion title="Can I select more than one WhatsApp channel?">
+Yes. Search for each channel and add it to the current selection.
+</Accordion>
+
+<Accordion title="Where can I export message-level records?">
+Use [Message Reports](/reports-and-analytics/message-reports) to generate a downloadable message report for a selected date range.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Message Reports](/reports-and-analytics/message-reports) for downloadable message-level data.
+* [WhatsApp Notification Messages](/reports-and-analytics/whatsapp-notification-messages) for notification-context logs.
+* [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) for failures within one broadcast.
+
+## Next Steps
+
+* Select the WhatsApp channel associated with the failed send.
+* Use the message ID and remarks when investigating the failure.

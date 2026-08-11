@@ -1,0 +1,265 @@
+---
+title: "Webhooks"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users who need to connect Gallabox to external systems.
+> * Roles: Owners and Admins (and roles with the relevant permission). Custom Roles with the "Can view and manage webhooks, API keys" permission (Developer modules) can also configure webhooks.
+> * Plans: Essential and Advanced plans. Basic plan does not include webhooks.
+
+<Info>
+
+This article explains webhooks in plain language. For technical implementation details, see the Developer Resources.
+
+</Info>
+
+## Plan Availability
+
+Webhooks require the Essential or Advanced plan.
+
+## What is a Webhook?
+
+A webhook is a **real-time notification** — a way for Gallabox to tell another system (like your CRM, ERP, or custom software) when something happens, the moment it happens.
+
+Think of it like a phone call: instead of the other system constantly asking "Did anything happen? Did anything happen? Did anything happen?" — Gallabox calls them the instant something happens.
+
+For example: when a new contact is created in Gallabox, a webhook fires → your CRM gets notified → the CRM automatically creates a lead record. No manual export, no delay.
+
+## How Webhooks Work — Step by Step
+
+<Steps>
+
+<Step title="You give Gallabox a URL">
+You give Gallabox a **URL** (called the "Request URL") — this is the address of your receiving system.
+</Step>
+
+<Step title="You choose which events to notify">
+You tell Gallabox **which events** to notify you about (e.g., "new contact", "message sent", "broadcast completed").
+</Step>
+
+<Step title="Gallabox sends a request">
+When one of those events happens in Gallabox, Gallabox sends an HTTP request using the method configured for that webhook. The event name is sent in the `x-event-name` header.
+</Step>
+
+<Step title="Your system receives and responds">
+Your system receives it, processes it, and responds with "Got it!"
+
+This all happens in **real time** — typically within seconds of the event.
+</Step>
+
+</Steps>
+
+## When to Use Webhooks
+
+Webhooks are useful when you need Gallabox to talk to systems that don't have a native Gallabox integration.
+
+**Common use cases:**
+
+| Use Case                 | How it works                                                                         |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| **CRM sync**             | New contact in Gallabox → webhook fires → CRM creates lead                           |
+| **Order management**     | Customer confirms order in WhatsApp → webhook fires → ERP creates order              |
+| **Analytics**            | Broadcast sent → webhook fires → analytics platform records event                    |
+| **Support escalation**   | Conversation tagged "Urgent" → webhook fires → Slack notification to support channel |
+| **Custom notifications** | Sequence completed → webhook fires → internal dashboard updates                      |
+| **Data backup**          | All events → webhook fires → data warehouse receives copy                            |
+
+## What Events Can You Subscribe To?
+
+Gallabox supports webhooks for these event categories:
+
+### Contact Events
+
+| Event                  | Trigger                       |
+| ---------------------- | ----------------------------- |
+| `Contact.Created`      | New contact added to Gallabox |
+| `Contact.Updated`      | Contact details changed       |
+| `Contact.Tag.Mapped`   | Tag added to a contact        |
+| `Contact.Tag.Unmapped` | Tag removed from a contact    |
+
+### Conversation Events
+
+| Event                                                                       | Trigger                                            |
+| --------------------------------------------------------------------------- | -------------------------------------------------- |
+| `Conversation.Create`                                                       | New conversation started                           |
+| `Conversation.Update`                                                       | Conversation details changed                       |
+| `Conversation.Resolve`                                                      | Conversation marked resolved                       |
+| `Conversation.Followup`                                                     | Conversation marked for follow-up                  |
+| `Conversation.UnAttended`                                                   | Conversation left unattended                       |
+| `Conversation.Tag.Mapped` / `Conversation.Tag.Unmapped`                     | Tag added to / removed from a conversation         |
+| `Conversation.HandoverAgentFallback` / `Conversation.InactiveAgentFallback` | Agent handover fallback events (advanced)          |
+| `Conversation.AI.Analyse`                                                   | AI analysis of a conversation completed (advanced) |
+
+### Message Events
+
+| Event                                                     | Trigger                                              |
+| --------------------------------------------------------- | ---------------------------------------------------- |
+| `Message.Received`                                        | New message received from customer                   |
+| `Message.Send`                                            | Message sent from Gallabox                           |
+| `Message.Flow.Received`                                   | WhatsApp Flow response received                      |
+| `Message.WA.Cart.Received`                                | WhatsApp cart received                               |
+| `Message.WA.Status.Received` / `Message.WA.Status.Failed` | WhatsApp message delivery status updates             |
+| `Message.WA.Payment.Status.Received`                      | WhatsApp payment status update                       |
+| `Message.WA.Interaction.Received`                         | Customer interacted with a message (button/list tap) |
+
+### Template & Broadcast Events
+
+| Event                                                                         | Trigger                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------- |
+| `Template.Status`                                                             | Template approval status changed          |
+| `Broadcast.WA.Message.Status.Received` / `Broadcast.WA.Message.Status.Failed` | Broadcast message delivery status updates |
+| `Broadcast.WA.Message.Engaged.Received`                                       | Customer engaged with a broadcast message |
+
+<Info>
+
+The webhook configuration screen in **Settings → Webhooks** shows the events available for your account.
+
+</Info>
+
+## What Does the Webhook Send?
+
+When an event fires, Gallabox sends the event data in the request body using the HTTP method configured for that webhook. The event name is sent separately in the `x-event-name` header; it is not wrapped inside the body.
+
+For example, a contact-created event includes:
+
+```text
+x-event-name: Contact.Created
+```
+
+The request body contains the event data:
+
+```json
+{
+  "id": "cnt_abc123",
+  "name": "Sarah Chen",
+  "phone": "+919876543210",
+  "email": "sarah@example.com",
+  "tags": ["hot-lead", "enterprise"],
+  "channel": "whatsapp",
+  "created_at": "2026-06-05T14:32:00Z"
+}
+```
+
+Your system receives this payload and can extract the data it needs. For example, a CRM would take the `name`, `phone`, and `email` fields and create a new lead record.
+
+## Setting Up a Webhook
+
+<Steps>
+
+<Step title="Have your endpoint ready">
+Before configuring in Gallabox, you need a receiving URL. This is typically an endpoint in your CRM, custom application, or an automation tool like Zapier or Make (which can act as a receiver and forward to other apps).
+
+If using **Zapier or Make**:
+
+1. Create a new Zap/Webhook in Zapier.
+2. Choose "Webhooks by Zapier → Catch Hook" as the trigger.
+3. Zapier will give you a unique URL — copy it.
+4. Paste it into Gallabox.
+
+If using a **custom application**, your developer will create an endpoint that:
+
+* Accepts the HTTP method you configure for the webhook
+* Reads the JSON payload
+* Responds with HTTP 200 (success)
+</Step>
+
+<Step title="Configure in Gallabox">
+1. Go to **Settings → Webhooks → Add Webhook**.
+2. Enter your **Request URL** — the endpoint you prepared in Step 1.
+3. Select the **HTTP method** your endpoint accepts.
+4. (Optional) Add a **Secret** — a shared key used to verify requests are actually from Gallabox and not from a third party.
+5. (Optional) Add **Custom Headers** — e.g., an authorization token if your endpoint requires one.
+6. Select the **Events** you want to subscribe to.
+7. Click **Save**.
+</Step>
+
+<Step title="Test your webhook">
+1. In Gallabox, trigger the event (e.g., create a test contact).
+2. Check your receiving system — you should see the payload arrive within seconds.
+3. If nothing arrives, check:
+   * The URL is correct and publicly accessible
+   * Your endpoint is responding with HTTP 200
+   * The event is selected in your webhook configuration
+</Step>
+
+</Steps>
+
+## Security
+
+### Verifying webhook authenticity
+
+If you set a **Secret** in your webhook configuration, Gallabox includes a signature header in every request. Your endpoint should verify this signature to confirm the request came from Gallabox:
+
+```
+x-gallabox-signature: <base64-encoded HMAC-SHA256 of the payload>
+```
+
+Your developer can compute the HMAC-SHA256 of the payload using your secret (base64-encoded) and compare it to the signature header. If they don't match, the request is not from Gallabox and should be rejected.
+
+### Common security practices
+
+* Always use HTTPS for your Request URL
+* Verify the signature on every request
+* Return HTTP 200 quickly and process asynchronously (don't block the request while doing heavy processing)
+* Log incoming webhook payloads for debugging
+
+## Example
+
+**Scenario:** You use HubSpot as your CRM and want every new Gallabox contact to automatically become a lead in HubSpot — without manual exports.
+
+Here's how you'd set it up:
+
+1. In HubSpot, create an incoming webhook or use a Zapier/Make integration that accepts webhook data and creates a HubSpot contact.
+2. Copy the webhook URL from HubSpot/Zapier.
+3. In Gallabox: **Settings → Webhooks → Add Webhook**
+   * **Request URL:** \[paste URL from step 2]
+   * **Events:** `Contact.Created`
+   * **Secret:** \[set a secret for verification]
+4. Save.
+5. Now whenever a new contact is created in Gallabox (via any channel), Gallabox fires a webhook → HubSpot receives it → a lead is created automatically.
+
+## Webhooks vs Native Integrations
+
+|                   | Webhooks                                             | Native Integration                                  |
+| ----------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| **Setup**         | Requires developer                                   | Point-and-click (no code)                           |
+| **Customization** | Full control over what data and when                 | Pre-built logic by Gallabox                         |
+| **Maintenance**   | You maintain your endpoint                           | Managed by Gallabox                                 |
+| **Use for**       | Custom systems, internal tools, automation platforms | HubSpot, Shopify, WooCommerce, Calendly (pre-built) |
+| **Latency**       | Real-time                                            | Real-time (usually)                                 |
+
+If Gallabox has a native integration for your tool (see **Integrations**), use that instead of webhooks — it's faster to set up and requires no code.
+
+## Webhook Logs
+
+To check if your webhook is working: go to **Settings → Webhooks** and open the **Logs** tab. Each entry shows:
+
+* **Webhook name**
+* **Webhook log ID**
+* **Event** — which event triggered the delivery
+* **Created At** — when the delivery happened
+* **Status** — SUCCESS or FAILED
+* **Payload** — click **View info** to see the JSON sent to your endpoint (masked if you don't have PII permission)
+
+Logs are kept for **7 days**. If you see failures, check your endpoint logs alongside the payload for details.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do webhooks retry if my endpoint fails?">
+Gallabox retries failed webhook deliveries automatically — up to 5 attempts with increasing delays between them. Retry details aren't shown in the UI. If your endpoint is consistently unavailable, events may be lost. For critical events, implement a queue or logging system so nothing is missed.
+</Accordion>
+
+<Accordion title="What's the difference between a webhook and an API?">
+A **webhook** is Gallabox pushing data to you when something happens. An **API** is you pulling data from Gallabox when you ask for it. Webhooks are real-time and event-driven. APIs are on-demand. Use webhooks for real-time notifications; use the API for querying historical data or taking actions in Gallabox.
+</Accordion>
+
+<Accordion title="Can I receive webhook events in Zapier or Make?">
+Yes — both Zapier and Make (formerly Integromat) have a "Catch Webhook" trigger that generates a URL you can paste into Gallabox. From there, you can connect to thousands of other apps — e.g., webhook → Zapier → Google Sheets, Notion, Slack, etc. This is the no-code way to use webhooks.
+</Accordion>
+
+<Accordion title="How do I know if my webhook is working?">
+See the [Webhook Logs](#webhook-logs) section above.
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,181 @@
+---
+title: "Conversions API (CAPI)"
+description: "Send lead and purchase conversion events from Gallabox back to Meta to optimize your Click-to-WhatsApp ad campaigns with real outcome data from your WhatsApp conversations."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **CTWA access** on their plan.
+> * Roles: Owners and Admins (and roles with the relevant permission).
+
+<Warning>
+
+**Important:** CAPI is **not available in Europe or Japan** at this time, so it will not work in those regions.
+
+</Warning>
+
+## Plan Availability
+
+CAPI is available on Essential and Advanced. See [Ad Campaigns](/whatsapp/ad-campaigns/overview#plan-availability) for the complete plan matrix.
+
+## What is CAPI?
+
+Meta's Conversions API (CAPI) is a server-side integration that sends conversion events — "this contact became a lead" or "this contact made a purchase" — from Gallabox directly back to Meta. CAPI works for ads running on both **Facebook and Instagram**.
+
+Meta uses these events to:
+
+* **Optimise ad delivery** — show your CTWA ads to people more likely to become leads or purchase
+* **Measure ROAS** — see actual return on ad spend beyond just clicks and conversations
+* **Build audiences** — use converters to create lookalike audiences for future campaigns
+
+Without CAPI, Meta only knows someone clicked your ad and started a WhatsApp chat. With CAPI, Meta knows whether that conversation resulted in a qualified lead or a purchase.
+
+## Why Send Conversion Data to Meta?
+
+Without CAPI, Meta only knows someone clicked your ad — it can't see what happened next. With CAPI, you tell Meta: "this conversation became a qualified lead" or "this contact made a purchase." Meta uses this to:
+
+* **Optimise ad delivery** — show your ads to people more likely to become leads or buyers, not just people who chat
+* **Speed up Meta's Learning Phase** — Meta needs approximately 50 conversion events per week to optimize your campaign stably; CAPI provides those signals from WhatsApp conversations, not just ad clicks
+* **Prevent wasted budget ("Learning Limited")** — without enough conversion data, Meta can't optimize and your budget is spent inefficiently
+* **Accurate, server-side tracking** — works even if customers use ad blockers or iOS privacy settings
+* **Full funnel visibility** — see the complete journey from ad click → WhatsApp message → Lead → Purchase
+
+The difference in campaign performance between running CTWA with and without CAPI is significant — Meta's optimisation is only as good as the outcome data you send back.
+
+## Two Conversion Events
+
+You configure two types of conversion events. Each event is configured independently — you can set up either or both.
+
+| Event        | What it signals to Meta                                 | Required?     |
+| ------------ | ------------------------------------------------------- | ------------- |
+| **Lead**     | A contact reached a meaningful milestone in your funnel | No — optional |
+| **Purchase** | A contact completed a transaction                       | No — optional |
+
+A Purchase event doesn't require a prior Lead event for the same contact — but the contact must already exist as a CTWA lead (otherwise the event fails with a "Lead not found" error), and the Purchase event must be configured in your CAPI settings.
+
+## Trigger Configuration
+
+Each event uses one configured trigger. Lead events can use an incoming-message, tag, or Dev API trigger. Purchase events support a **conversation-tag** trigger only.
+
+| Event        | Available trigger                           |
+| ------------ | ------------------------------------------- |
+| **Lead**     | On Incoming Message, On Tag Add, or Dev API |
+| **Purchase** | Conversation tag                            |
+
+## How to Set Up CAPI
+
+CAPI is configured from within the CTWA section. Both CTWA and CAPI require **separate Facebook authorizations** — each has its own connect button and set of permissions.
+
+<Steps>
+
+<Step title="Connect CAPI to Facebook">
+1. On the CTWA page, click the **CAPI Configuration** button in the top-right corner.
+2. A Meta window will pop up asking you to give permission to sync your Click-to-WhatsApp campaigns.
+3. Authorize Gallabox with your Meta Business account — grant all CAPI permissions.
+4. Once you approve, your account is connected and the CAPI status shows **Connected**.
+
+<Warning>
+
+Connecting CTWA (for reading ad data) does **not** automatically connect CAPI (for sending events). You must authorize both separately.
+
+</Warning>
+</Step>
+
+<Step title="Configure the Lead event">
+1. In **CAPI Configuration**, toggle **Lead event** on.
+2. Select the **trigger** — one trigger only:
+   * **On Incoming Message** — when someone messages you through the CTWA ad, they are automatically marked as a lead
+   * **On Tag Add** — fires when a specific [tag](/settings/tags) (like "Interested") is added. Select the tag.
+   * **Dev API** — fires when your backend calls Gallabox's conversion API: `POST /accounts/{accountId}/channels/{channelId}/ctwa/conversion` with `phone` or `ctwaClickId` plus `eventType` set to `lead` or `purchase`
+3. Click **Save** to send the trigger to Meta.
+</Step>
+
+<Step title="Configure the Purchase event (optional)">
+1. Toggle **Purchase event** on.
+2. Select the **conversation tag** that triggers the Purchase event.
+3. Set the **average order value** and **currency** your business uses — Meta uses this to calculate ROAS.
+4. Click **Save**.
+
+<Warning>
+
+Do not use the same tag for both Lead and Purchase events. If the same tag fires both, Meta counts the contact twice as a converter.
+
+</Warning>
+</Step>
+
+</Steps>
+
+With everything set up, the CTWA leads view displays Lead/Purchase events. Errors are clearly indicated, and duplicate events are prevented.
+
+## Monitoring CAPI Events
+
+Once CAPI is live, monitor conversion event status from [CTWA Leads](/whatsapp/ad-campaigns/ctwa-leads):
+
+* Hover over any lead's **Conversion Status** to see the event's **Sent at** time and **Dataset ID**
+* Filter by **Conversion Status: Failure** to investigate failed events
+* Filter by **No Conversion Events** to find leads that weren't counted
+
+| Status       | What it means                                                                   |
+| ------------ | ------------------------------------------------------------------------------- |
+| **Success**  | Event sent to Meta successfully                                                 |
+| **Failure**  | Event failed — hover to see error. Check CAPI connection and permissions.       |
+| **Retrying** | Event failed with a temporary Meta error and Gallabox is retrying automatically |
+
+## Example
+
+**Scenario:** You run a real estate business. Your bot qualifies leads and books site visits. Agents close deals. You want Meta to optimise toward deal closures.
+
+Setup:
+
+1. **Lead event** — Trigger: On Tag Add, Tag: `Site Visit Booked`. When the bot qualifies a contact and books a site visit, it adds this tag → Lead event fires.
+2. **Purchase event** — Trigger: On Tag Add, Tag: `Deal Closed`. When an agent closes a deal → Purchase event fires. Average order value: 500000, currency: INR.
+
+Meta now sees the full funnel: click → conversation → site visit → deal closed. It optimises your ads to reach people more likely to close, not just chat.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do I need CTWA connected before setting up CAPI?">
+Yes. CAPI is configured within the CTWA section and requires an active CTWA (Facebook Ad Account) connection first.
+</Accordion>
+
+<Accordion title="What happens if I try to delete a tag used for CAPI?">
+If you want to delete a tag used for lead or purchase tracking, the system will show a pop-up asking you to update or remove the lead and purchase setup first.
+</Accordion>
+
+<Accordion title="Can I use more than one tag for an event?">
+No, only one tag can be configured for each event (Lead or Purchase).
+</Accordion>
+
+<Accordion title="Can I set up CAPI without a Lead event?">
+Yes. Lead and Purchase events are configured independently — you can enable either one on its own. Note that a Purchase event will only fire for contacts that already exist as CTWA leads in Gallabox; otherwise the event fails with a "Lead not found" error.
+</Accordion>
+
+<Accordion title="The CAPI event shows 'failure' — what do I do?">
+1. Open the CAPI Configuration and check the CAPI connection status.
+2. If there's a permission error, click **Reconfigure** and re-authorize with Facebook.
+3. If connected, check the error message by hovering over the failed event in CTWA Leads.
+4. Gallabox retries automatically — if retries keep failing, contact Gallabox support with the error code.
+</Accordion>
+
+<Accordion title="What's the difference between 'On Incoming Message' and 'On Tag Add' for Lead?">
+**On Incoming Message** fires for every CTWA contact who sends their first message — high volume, low quality signal.
+
+**On Tag Add** fires only when a contact is deliberately tagged — smaller volume, higher quality signal. Better for optimising toward real qualified leads. Use **On Tag Add** whenever you have a qualification step in your flow.
+</Accordion>
+
+<Accordion title="Can I change the trigger after CAPI is live?">
+Yes. Update the trigger in CAPI Configuration and save. The new trigger applies to future events — existing records are not retroactively updated.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [CTWA Leads](/whatsapp/ad-campaigns/ctwa-leads) — Monitoring CAPI event states per conversation
+* [CTWA Ads](/whatsapp/ad-campaigns/ctwa-ads) — Ad-level performance including ROAS
+* [Tags](/settings/tags) — Creating tags used as CAPI triggers
+
+## Next Steps
+
+* [Monitor your conversion events →](/whatsapp/ad-campaigns/ctwa-leads)
+* [View ad performance →](/whatsapp/ad-campaigns/ctwa-ads)

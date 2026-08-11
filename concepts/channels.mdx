@@ -1,0 +1,157 @@
+---
+title: "Compare Channels"
+---
+
+> **Who can use this?**
+>
+> * All Gallabox users.
+> * Roles: Owners, Admins, and roles with channel-management permission can connect and configure channels. Agents can use connected channels in conversations.
+
+<Info>
+
+Gallabox brings WhatsApp and Instagram conversations into one shared Inbox. Web Chat conversations stay in the Web Agent's chat logs unless the visitor continues through a WhatsApp handoff.
+
+</Info>
+
+## Plan Availability
+
+| Feature                    | Basic | Essential | Advanced |
+| -------------------------- | :---: | :-------: | :------: |
+| WhatsApp channel           |   ✓   |     ✓     |     ✓    |
+| Instagram channel          |   ✓   |     ✓     |     ✓    |
+| Web Chat widget            |   ✓   |     ✓     |     ✓    |
+| Chat AI Agent on WhatsApp  |   —   |     ✓     |     ✓    |
+| Chat AI Agent on Instagram |   —   |     ✓     |     ✓    |
+| Chat AI Agent on Web Chat  |   ✓   |     ✓     |     ✓    |
+
+## What are Channels?
+
+Channels are the different ways customers can reach you through Gallabox. Each channel has its own setup process, capabilities, and pricing implications.
+
+Gallabox currently supports three channels:
+
+| Channel       | What it is                             | Best for                                          |
+| ------------- | -------------------------------------- | ------------------------------------------------- |
+| **WhatsApp**  | Full WhatsApp Business API integration | Sales, support, transactions, broadcasts          |
+| **Instagram** | Instagram DM + comment automation      | Social-first brands, influencer marketing         |
+| **Web Chat**  | Embedded chat widget for your website  | Website visitors, lead capture, real-time support |
+
+WhatsApp and Instagram conversations route to the shared Inbox. Web Chat is handled in the Web Agent's chat logs and appears in the Inbox only after a WhatsApp handoff.
+
+## Feature Comparison
+
+| Feature                                |             WhatsApp             |             Instagram            |   Web Chat   |
+| -------------------------------------- | :------------------------------: | :------------------------------: | :----------: |
+| Inbound messages                       |                 ✓                |                 ✓                |       ✓      |
+| Proactive outbound messages            |                 ✓                |                 —                |       —      |
+| Replies after a customer starts a chat |                 ✓                |        ✓ (within 24 hours)       |       ✓      |
+| Broadcast campaigns                    |                 ✓                |                 —                |       —      |
+| Template messages                      |                 ✓                |                 —                |       —      |
+| Chat AI Agent (autonomous)             |                 ✓                |                 ✓                |       ✓      |
+| AI Reply (human assist)                |                 ✓                |                 ✓                |       —      |
+| Comment automation                     |                 —                |                 ✓                |       —      |
+| Bot flows                              |                 ✓                |                 —                |       —      |
+| Native payments                        |                 ✓                |                 —                |       —      |
+| Product catalog / shop                 |                 ✓                |                 —                |       —      |
+| WhatsApp Flows                         |                 ✓                |                 —                |       —      |
+| Contact capture                        |                 ✓                |                 ✓                |       ✓      |
+| Visitor tracking                       |                 —                |                 —                |       ✓      |
+| 24-hour messaging window               |                 ✓                |                 ✓                |       —      |
+| Session timeout (AI Agent)             | Configurable (default 3 minutes) | Configurable (default 3 minutes) | Configurable |
+
+For the full per-channel session comparison, see [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+
+## How to Use Channels
+
+### Connect WhatsApp
+
+See the step-by-step guide: [Connect Your WhatsApp](/whatsapp/connect-your-whatsapp).
+
+### Connect Instagram
+
+See the step-by-step guide: [Connect Instagram Channel](/instagram/connect-instagram-channel).
+
+### Set Up Web Chat
+
+See the step-by-step guide: [Web Chat Setup](/web-chat/setup).
+
+<Check>
+
+**Pro tip:** Use channel indicators to filter the Inbox by WhatsApp or Instagram. Open the Web Agent's chat logs to review Web Chat conversations that have not been handed off to WhatsApp.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a fitness studio and want to capture leads from your website, hand qualified visitors off to WhatsApp, and handle Instagram DMs from your followers.
+
+Here's how you'd set it up:
+
+<Steps>
+
+<Step>
+Go to **AI Agents and Bots → Create New → Chat AI Agent**, select **Web** as the channel, and configure the widget in **Settings → Web Widget Settings**. Set the welcome message to: _"Hi! Interested in our fitness classes? Chat with us or leave your number and we'll call you back."_
+</Step>
+
+<Step>
+Go to **Channels → WhatsApp** and connect your WhatsApp Business account.
+</Step>
+
+<Step>
+Go to **Channels → Instagram** and connect your Instagram Professional account (Business or Creator) directly.
+</Step>
+
+<Step>
+Create a Chat AI Agent and select all three channels. Set its goal to qualify leads and hand off high-intent contacts to your sales team on WhatsApp.
+</Step>
+
+<Step>
+Instagram and WhatsApp conversations appear in **Inbox** with channel indicators. Web Chat conversations remain in the Web Agent's chat logs unless the visitor continues through a WhatsApp handoff.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I connect multiple WhatsApp numbers?">
+Yes. You can connect up to your plan's channel limit. Each WhatsApp number appears as a separate connection in the Channels section. Additional channels can be added as add-ons on Essential and Advanced plans.
+</Accordion>
+
+<Accordion title="Can one Chat AI Agent handle all three channels?">
+Yes. When creating a Chat AI Agent, you can select multiple channels. The agent will handle conversations on all selected channels. Note that the agent's behaviour differs per channel — see [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+</Accordion>
+
+<Accordion title="What's the 24-hour messaging window?">
+A Meta policy limiting free-form messages to within 24 hours of the user's last message; it applies to WhatsApp (templates can be sent after) and Instagram (nothing can be sent after), but not Web Chat. See [Instagram DM Conversations](/instagram/instagram-dm-conversations#the-24-hour-messaging-window).
+</Accordion>
+
+<Accordion title="Can customers switch between channels mid-conversation?">
+Not automatically. Each conversation is tied to one channel. However, you can handoff a Web Chat conversation to WhatsApp using the handoff feature in the Chat AI Agent settings — useful when a website visitor wants to continue the conversation on WhatsApp.
+</Accordion>
+
+<Accordion title="My WhatsApp connection is stuck at 'Pending verification' — what do I do?">
+Meta's WhatsApp Business API verification can take 24–48 hours for new businesses. If your connection is stuck:
+
+1. **Check your Meta Business Manager** — go to business.facebook.com and check if verification is pending or rejected there.
+2. **Verify your business documents** — Meta requires business registration documents (GSTIN in India, company registration elsewhere). Upload them in Meta Business Manager.
+3. **Check your phone number** — the WhatsApp number must be on the same account as your Meta Business verification.
+4. **Wait 48 hours** — if verification is in progress, it typically completes within 24–48 hours.
+5. If rejected, Meta will show a reason. Fix the issue and resubmit.
+
+If the verification expires or fails repeatedly, [contact Gallabox support](mailto:support@gallabox.com) with your account details.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Connect WhatsApp Channel](/whatsapp/connect-your-whatsapp) — Step-by-step WhatsApp setup
+* [Connect Instagram Channel](/instagram/connect-instagram-channel) — Step-by-step Instagram setup
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — Managing all channels from one inbox
+* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — How agents behave differently per channel
+
+## Channel guides
+
+* [WhatsApp](/whatsapp/overview) — connect your number, migrate, voice calls, coexistence
+* [Instagram](/instagram/overview) — DMs and comment automation
+* [Web Chat](/web-chat/overview) — embeddable website chat widget

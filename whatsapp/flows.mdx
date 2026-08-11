@@ -1,0 +1,154 @@
+---
+title: "Forms"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Flow Builder access**.
+> * Roles: Owners and Admins
+> * Plans: All plans (Basic Forms). Dynamic Forms require the Advanced plan.
+
+## Plan Availability
+
+| Feature                | Basic | Essential | Advanced |
+| ---------------------- | :---: | :-------: | :------: |
+| WhatsApp Basic Forms   |   ✓   |     ✓     |     ✓    |
+| WhatsApp Dynamic Forms |   —   |     —     |     ✓    |
+
+## What are WhatsApp Flows?
+
+WhatsApp Flows are **interactive, multi-screen forms** that let customers complete tasks — like booking appointments, filling out surveys, placing orders, or submitting support requests — directly inside a WhatsApp chat, without being redirected to a website or app.
+
+Instead of asking customers to fill out a form on a website or copy-paste information, you send them a Flow. It opens as a rich, structured interface inside WhatsApp:
+
+* Multi-step screens with fields, buttons, dropdowns, ratings, and more
+* Customers fill in their answers without leaving WhatsApp
+* Submitted data is captured with the Flow response in Gallabox
+
+## WhatsApp Flows vs Bot Flows — What's the Difference?
+
+These are often confused. Here's the key difference:
+
+|                         | Bot Flow                                    | WhatsApp Flow                                        |
+| ----------------------- | ------------------------------------------- | ---------------------------------------------------- |
+| **Where it runs**       | In Gallabox's flow builder                  | Inside WhatsApp chat (rendered by Meta)              |
+| **UI control**          | You control the look and logic              | Meta controls the rendering                          |
+| **Customer experience** | Step-by-step text/button prompts            | Rich, form-like interface                            |
+| **Setup complexity**    | More complex — build full logic in Gallabox | Simpler — design in Gallabox, render in WhatsApp     |
+| **When to use**         | Conversational journeys, AI agents          | Structured data collection (forms, bookings, orders) |
+| **Triggered by**        | Customer message or keyword                 | Sent via bot flow, sequence, or template message     |
+
+Think of it this way:
+
+* **Bot flows** = conversations — the customer talks to your bot via text and buttons
+* **WhatsApp Flows** = forms — the customer fills in structured fields inside WhatsApp
+
+You can **trigger a WhatsApp Flow from a bot flow** — for example: a bot flow qualifies a lead, then sends a Flow to collect their address for delivery.
+
+## What You Can Build with WhatsApp Flows
+
+**Common use cases:**
+
+* **Appointment booking** — collect date, time, service type, and customer details
+* **Lead capture forms** — gather company name, budget, timeline without a website form
+* **Order and delivery** — collect delivery address and order preferences
+* **Support requests** — let customers describe their issue and upload a screenshot
+* **Feedback and surveys** — star ratings, NPS scores, open-text feedback
+* **Event registration** — collect name, email, attendance preference
+
+## How WhatsApp Flows Work
+
+<Steps>
+
+<Step title="Design the Flow in Gallabox">
+You build the Flow using Gallabox's Flow Builder — defining screens, fields, and validation rules. New Flows begin as drafts.
+
+Each Flow has:
+
+* **Screens** — individual steps shown one at a time
+* **Fields** — text input, email, phone, number, date picker, rating, dropdown, checkbox
+* **Validation** — required fields, format rules (e.g., valid email)
+</Step>
+
+<Step title="Publish the Flow">
+When the Flow is ready, publish it. The product lifecycle is **Draft → Publish**.
+</Step>
+
+<Step title="Send the Flow to Customers">
+Once published, a Flow is sent to customers via:
+
+* **A bot flow** — use the "Send WhatsApp Form" action node to trigger the Flow
+* **A sequence step** — use a template with a Flow button as a sequence step
+* **A template message** — link to the Flow from a pre-approved template
+
+The Flow appears in the customer's WhatsApp chat as a tappable card. They tap it, fill in the screens, and submit — all without leaving WhatsApp.
+</Step>
+
+</Steps>
+
+## Example
+
+**Scenario:** You run a dental clinic and want patients to book appointments via WhatsApp without calling or using a website.
+
+Here's how you'd use WhatsApp Flows:
+
+<Steps>
+
+<Step title="Create the Flow">
+Create a Flow called "Book an Appointment" with these screens:
+
+* **Screen 1:** Select service (Clean-up, Filling, Whitening, Consultation)
+* **Screen 2:** Select preferred date (date picker)
+* **Screen 3:** Enter your phone number and reason for visit
+* **Screen 4:** Confirmation screen
+</Step>
+
+<Step title="Publish the Flow">
+Review the draft, then publish it when it is ready to send.
+</Step>
+
+<Step title="Trigger it from your bot flow">
+In your bot flow, add a node: "Patient asks about booking" → "Send WhatsApp Form" (your appointment Flow).
+</Step>
+
+<Step title="Send the Flow card">
+When a patient asks "I want to book", the Flow card is sent.
+</Step>
+
+<Step title="Collect the details">
+The patient fills in their preferred date and details inside WhatsApp.
+</Step>
+
+<Step title="Review the submission">
+The submitted details are recorded with the Flow response in Gallabox.
+</Step>
+
+</Steps>
+
+## Best Practices
+
+* **Keep Flows short** — 3–5 screens maximum. Long Flows have higher drop-off rates.
+* **Ask for only what's necessary** — don't collect information you don't need.
+* **Use clear labels** — screen titles and field labels should be specific, not generic ("Enter your phone number" not "Phone").
+* **Test thoroughly** — use Simulation mode in Gallabox before publishing.
+* **Provide a confirmation** — always show a final screen confirming what was submitted.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I make a Flow available to customers?">
+Build and test the Flow while it is a draft, then publish it. The lifecycle is **Draft → Publish**.
+</Accordion>
+
+<Accordion title="Can I edit a Flow after publishing it?">
+Edit and test the Flow in Gallabox, then publish the version you want to make available.
+</Accordion>
+
+<Accordion title="What's the difference between a WhatsApp Flow and a bot flow with buttons?">
+Bot flow buttons are clickable options inside a text conversation — good for simple yes/no or menu choices. WhatsApp Flows are full multi-screen forms that render as rich, structured interfaces inside WhatsApp. Flows are better for collecting structured data (addresses, dates, form answers) that needs validation and structured storage.
+</Accordion>
+
+<Accordion title="Can I trigger a WhatsApp Flow from a sequence?">
+Yes. Sequence steps send template messages — to send a Flow, use a template that has a **Flow button**. The Flow card will be sent at the scheduled time to contacts who reach that step.
+</Accordion>
+</AccordionGroup>

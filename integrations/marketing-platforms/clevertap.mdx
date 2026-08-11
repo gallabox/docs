@@ -1,0 +1,134 @@
+---
+title: "CleverTap"
+description: "Connect CleverTap with Gallabox to send personalized WhatsApp campaigns, track stats, and automate workflows. Enhance your marketing strategy today!"
+---
+
+### Overview
+
+CleverTap Integration with Gallabox will help you to effortlessly send WhatsApp campaigns, track stats, and set up automated workflows for personalized engagement in turn transforming your marketing strategy. 
+
+### Configuring CleverTap in Gallabox
+
+1. From the left navigation go to **Integration** in your Gallabox and Click on **CleverTap** from the available apps.
+
+<Frame>
+  <video src="/images/clever-tap-integration-in-gallabox.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on Connect, provide the integration name, and click on Submit.
+
+<Frame>
+  <video src="/images/clevertap-integration-name.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Gallabox will generate a **"Webhook URL End Point"** which has to be pasted in the CleverTap Application. Choose the **"Channel Name"** you would like to connect with CleverTap. Update the configuration.
+
+<Frame>
+  <video src="/images/clevertap-channel-name.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Sign in on your **CleverTap** account, from the left navigation go to settings. Under the Channels, go to WhatsApp. Click on WhatsApp Connect to add the configuration.
+
+<Frame>
+  <video src="/images/clevertap-whatsapp-connect.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+5. Click on **+Provider Configuration** to connect your Gallabox Account with your CleverTap Account. The setup page will open up.
+
+<Frame>
+  <video src="/images/clevertap-provider-configuration.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+6. To set the Provider Configuration, select Generic (other) from the drop-down or Provider Option. Provide a name and the phone number of your Gallabox Account. 
+
+<Info>
+
+When providing the phone number, make sure to type or paste the number using country code. For instance, If you are residing in India, paste or copy the number as 9198XXXXXXXX. 
+
+</Info>
+
+<Frame>
+  <video src="/images/clevertap-provider-setup.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+7. Copy the Delivery Report Callback URL and Inbound Message Callback URL from CleverTap Account to your Gallabox Account in the CleverTap Configuration page. 
+
+<Frame>
+  <video src="/images/clevertap-callback-urls.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+8. Copy and paste Webhook URL End Point from your CleverTap Configuration Page in Gallabox to WhatsApp Setup page on CleverTap.
+
+<Frame>
+  <video src="/images/clevertap-http-end-point.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+9. Save the WhatsApp Setup details on CleverTap and update the configuration in your Gallabox Account to connect CleverTap with Gallabox. 
+
+<Frame>
+  <video src="/images/clevertap-save-the-details.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+#### _**Your  configuration is ready. You can now start using CleverTap to send WhatsApp messages via Gallabox**_
+
+### Adding WhatsApp Templates
+
+To send WhatsApp Messages via Gallabox, you need to copy and paste the Verified WhatsApp Templates on CleverTap. To do so:
+
+1. Select the Provider you created from the list and select Templates. 
+
+<Frame>
+  <video src="/images/clevertap-whatsapp-templates.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on **+Template** to paste the verified template from Gallabox. 
+
+<Info>
+
+A Tip: Open your Gallabox Account on other tab to copy and paste all the Template fields correctly. 
+
+</Info>
+
+<Frame>
+  <video src="/images/clevertap-add-template.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Paste the Template Name, Header, Body, Buttons, and language to CleverTap. 
+
+<Frame>
+  <video src="/images/clevertap-paste-the-template.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. Click on **SAVE TEMPLATE** to add the template in your CleverTap Account. 
+
+<Frame>
+  <video src="/images/clevertap-save-template.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Get Ready to Launch your first WhatsApp Campaign on CleverTap! :thumbsup:
+
+### Error Handling in CleverTap Logs
+
+Below tables lists down the errors you might encounter in the logs and how to resolve them. 
+
+<table><thead><tr><th width="330.25">Error</th><th>What to do</th></tr></thead><tbody><tr><td>The channel number specified in the integration does not match the channel number in the request. </td><td>Make sure to copy and paste the channel number from the configuration. </td></tr><tr><td>Parameter mismatch: The request has a different number of parameters than the template variables </td><td>Check if the number of variables in the template in Gallabox is same in CleverTap also. Since CleverTap does not allow duplication of variables, make sure not to reuse variables in your templates in Gallabox as well.</td></tr><tr><td>The processed template message does not match the request message body.</td><td>Check if the template body content is the same as the Gallabox template body.</td></tr></tbody></table>
+
+### Performance Metrics
+
+1. **Qualified:**\
+   Number of contacts that met the criteria and were eligible to receive the campaign.
+2. **Sent:**\
+   Number of messages successfully dispatched from Gallabox. 
+3.  **Delivered:**\
+    Number of messages that reached the recipient's WhatsApp inbox.
+
+    > **Note:** If this count remains zero, it could mean the delivery status update hasn't been received from WhatsApp. Make sure the **Status Callback** is correctly configured with your WhatsApp provider.
+4. **Viewed:**\
+   Number of recipients who opened/read the message. 
+5. **Clicks:**\
+   Number of times users clicked on a CTA (call-to-action) in your message.
+
+> If you've enabled **Track Link Clicks** in the Gallabox WhatsApp template and added the **"Visit Website"** Call-To-Action button with **Provider click tracking** enabled in CleverTap’s WhatsApp template, then any clicks will be tracked and reflected in the campaign's performance metrics within CleverTap.
+
+7. **Converted Users:**\
+   Users who completed the defined conversion action within the window.

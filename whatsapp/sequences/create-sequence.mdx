@@ -1,0 +1,200 @@
+---
+title: "Create a Sequence"
+description: "Create a Sequence in Gallabox — configure a trigger, add template steps with delays and conditions, tune delivery settings, and activate an automated WhatsApp drip journey."
+---
+
+This guide walks through every field and setting you need to configure to build a working Sequence — from naming it to activating it.
+
+## Plan Availability
+
+Creating sequences requires the Essential or Advanced plan. See [Sequences](/whatsapp/sequences/overview#plan-availability) for plan limits.
+
+## Before You Start
+
+Make sure you have the following before beginning:
+
+* **Approved WhatsApp templates** — Each Sequence step sends a template message. Templates must be approved by Meta before you can add them to a step. If your templates are still pending, wait for approval before creating the Sequence.
+* **Contact segments or tags defined** — Sequences filter entry using subscription conditions based on contact tags, attributes, or segments. If you haven't tagged your contacts yet, set that up first so the Sequence targets the right people.
+* **Owner or Admin role in Gallabox (or a role with sequence management permissions)** — these permissions are required to create and activate Sequences.
+
+<Warning>
+
+**Always configure a subscription condition.** Without one, every contact create or update event will trigger the Sequence — including contacts you didn't intend to enroll. This can send messages to thousands of unintended contacts within minutes of activation.
+
+</Warning>
+
+## Steps
+
+### Step 1: Open the Sequence Builder
+
+1. In the Gallabox left navigation, click **Broadcasts**.
+2. Click **Sequences**.
+3. Click **Create Sequence** in the top-right corner.
+
+The Sequence builder opens with three tabs: **Trigger**, **Messages**, and **Settings**.
+
+---
+
+### Step 2: Name the Sequence
+
+1. In the **Sequence Name** field at the top, enter an internal label for this Sequence.
+
+This name is only visible to your team — it does not appear to contacts. Use something descriptive: e.g., `Trial User Onboarding — 5 Days` or `Demo Follow-Up`.
+
+---
+
+### Step 3: Configure the Trigger
+
+The trigger defines when a contact enters the Sequence.
+
+1. Under the **Trigger** tab, select one of:
+   * **On Create** — fires when a new contact is created in Gallabox
+   * **On Update** — fires when any field, tag, or attribute on an existing contact changes
+   * **Both** — fires on either create or update
+2. Click **Add Subscription Condition** and define the filter a contact must match to enter the Sequence.
+   * Example: `Tag` `is` `Trial User`
+   * Example: `Contact Stage` `changed to` `Demo Requested`
+
+Multiple conditions can be added and combined with AND/OR logic.
+
+---
+
+### Step 4: Add Sequence Steps
+
+1. Click the **Messages** tab.
+2. Click **Add Step**.
+3. In the step panel that opens:
+   * Select an **approved template** from the dropdown.
+   * Set the **delay** before this step sends:
+     * **Immediately** — sends right after the previous step completes
+     * **Wait** — enter a number and choose minutes, hours, or days
+4. Repeat — click **Add Step** for each subsequent message in the journey.
+
+The Sequence supports a maximum of **10 steps**.
+
+---
+
+### Step 5: (Optional) Add Step-Level Conditions
+
+Step conditions filter contacts _before_ a step sends. If a contact doesn't match the condition, that step is skipped for them — they are not removed from the Sequence.
+
+1. On any step, click **Add Condition**.
+2. Define the filter — e.g., `Tag` `is` `Enterprise`.
+
+Use step conditions to personalize: send one message to high-value contacts and a different one (or none) to others.
+
+---
+
+### Step 6: (Optional) Add Step-Level Time Preference
+
+Time preferences restrict when a step's message is delivered, regardless of when the delay expires.
+
+1. On any step, click **Time Preference**.
+2. Select the allowed **days of the week** and a **time window** (e.g., Mon–Fri, 9:00 AM–6:00 PM).
+
+If a delay expires outside the allowed window, the message waits until the next window opens.
+
+<Warning>
+
+**Do not enable both a Time Preference and Retry on the same step.** Combining them causes retried messages to queue until the next delivery window, which can create unexpected delays. Use one or the other per step.
+
+</Warning>
+
+---
+
+### Step 7: Configure Sequence Settings
+
+1. Click the **Settings** tab.
+
+Configure the following options:
+
+**Global Time Preference** Sets a default delivery window for all steps. Steps that have their own time preference override this. If a step has no time preference, the global setting applies.
+
+**Run only once**
+
+* Default: **on**
+* When on, each contact can enter this Sequence only once. Even if the trigger fires again for that contact later, they are not re-enrolled.
+* Turn **off** for transactional Sequences where each trigger event is independent — e.g., a post-purchase follow-up that should fire for every order, not just the first.
+
+**Send message only if previous message was sent**
+
+* Default: **off**
+* When off, the next step is scheduled once the previous message is sent. When on (or when retry is enabled), the Sequence waits for WhatsApp to confirm the previous message was **delivered** before scheduling the next step — if delivery fails, the contact stops progressing through the Sequence.
+* Turn **on** when step 2 references content from step 1 — sending step 2 without step 1 arriving would be confusing.
+
+---
+
+### Step 8: (Optional) Add Start/Stop Goal Conditions
+
+Goal conditions define what counts as success or failure for each contact in this Sequence.
+
+1. Still in **Settings**, scroll to **Goal Tracking**.
+2. Click **Add Success Condition** — define the outcome that means a contact achieved the goal (e.g., `Tag` `changed to` `Demo Booked`). When met, the contact exits the Sequence as successful and no further steps are sent.
+3. Click **Add Failure Condition** — define the outcome that means a contact churned or opted out (e.g., `Tag` `changed to` `Unsubscribed`). When met, the contact exits as failed.
+4. Set the **Cooling Period** (1–7 days, default 1) — the number of days a contact must wait before they can re-enter this Sequence after exiting via a goal condition. Goal tracking is off by default; the cooling period applies only when you enable it.
+
+The cooling period prevents a contact from immediately looping back into a Sequence they just completed or exited.
+
+---
+
+### Step 9: Activate the Sequence
+
+1. Review all tabs — Trigger, Messages, Settings — before activating.
+2. Click **Activate**.
+
+Once active, the Sequence begins enrolling contacts as soon as the trigger condition is met. Contacts already in your system who matched the condition before activation are **not** retroactively enrolled — only future trigger events enroll contacts.
+
+---
+
+## How to Confirm It's Working
+
+After activating:
+
+* Go to **Broadcasts → Sequences** and confirm the Sequence shows status **Active**.
+* Trigger the condition manually on a test contact (e.g., add the tag you set as the subscription condition) and verify the contact appears in the Sequence's **Logs** view.
+* In **Logs**, confirm the contact's status shows **Enrolled** and the first step is queued or sent.
+
+## Common Setup Errors
+
+| Error or symptom                                                      | Why it happens                                                                                       | How to fix it                                                                                                                                                   |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Contacts aren't entering the Sequence after it's activated            | No subscription condition matches existing contacts, OR the trigger hasn't fired yet                 | Manually update a test contact to match the subscription condition and check Logs. Sequences only enroll contacts when the trigger fires — they don't backfill. |
+| Template not appearing in the step dropdown                           | Template is not yet approved by Meta, or it's paused/disabled                                        | Go to **Broadcasts → Templates** and verify the template status is **Approved**. Pending or rejected templates cannot be added to steps.                        |
+| Step is being skipped for some contacts                               | A step condition is filtering those contacts out                                                     | Go to **Logs** for the affected contact and check the skip reason. Review the step condition — it may be too narrow.                                            |
+| Messages sending outside business hours despite a time preference set | Global Time Preference and step-level Time Preference are conflicting, or the step has Retry enabled | Check each step's time preference individually. If Retry is on for a step with a time window, disable Retry on that step.                                       |
+| Contact re-entered the Sequence unexpectedly                          | **Run only once** is disabled                                                                        | Go to **Settings** and enable **Run only once**. If re-entry is intentional (transactional use case), set a cooling period to add a gap between entries.        |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I activated the Sequence but none of my existing contacts entered it — what happened?">
+Sequences are trigger-based — they only enroll contacts when the trigger event fires _after_ activation. Contacts who already matched the subscription condition before you activated the Sequence are not retroactively enrolled. To enroll existing contacts, manually update them to fire the trigger (e.g., re-apply the tag), or use a Broadcast for a one-time send to your existing list.
+</Accordion>
+
+<Accordion title="Can I add more than 10 steps?">
+No. Sequences support a maximum of 10 steps. If your journey requires more touchpoints, split it into two Sequences and chain them — use a success condition on the first to trigger entry into the second.
+</Accordion>
+
+<Accordion title="What happens to contacts already mid-Sequence if I edit it?">
+Contacts already enrolled continue with the version of the Sequence they entered. Edits apply only to contacts who enroll after the change is saved. Make structural changes (adding/removing steps, changing delays) during low-traffic periods to reduce the number of contacts on the old version.
+</Accordion>
+
+<Accordion title="I turned on 'Send message only if previous message was sent' but contacts are still progressing after a failed step — why?">
+Check the step's delivery status in **Logs**. With this setting on, the Sequence waits for WhatsApp to confirm the previous message was _delivered_ to the recipient's device before scheduling the next step — it does not gate on the recipient reading it. If the step shows "Delivered" in Logs, the Sequence correctly continues.
+</Accordion>
+
+<Accordion title="Can I pause a Sequence without deactivating it?">
+Yes — toggle the Sequence to **Inactive** from the Sequences list. Contacts currently enrolled are paused mid-journey. When you reactivate, they resume from where they left off. Deactivating and re-activating resets the Sequence entirely for new enrollments.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Sequences Overview](/whatsapp/sequences/overview) — How triggers, messages, and settings work conceptually before you build
+* [Sequence Analytics](/whatsapp/sequences/sequence-analytics) — Track enrollment, success rate, and per-contact logs after your Sequence is live
+* [WhatsApp Templates Overview](/whatsapp/templates/overview) — Get templates approved so they're available to add as steps
+
+## Next Steps
+
+* [Review your Sequence performance in Analytics →](/whatsapp/sequences/sequence-analytics)
+* [Set up a Broadcast for a one-time send to an existing list →](/whatsapp/sequences/overview)

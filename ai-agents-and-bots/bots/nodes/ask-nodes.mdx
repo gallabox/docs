@@ -1,0 +1,243 @@
+---
+title: "Ask Nodes"
+---
+
+<Info>
+
+**Who can use this?**
+
+* Gallabox users with **Bot Builder access** (Owners and Admins included)
+
+</Info>
+
+<Info>
+
+Ask nodes pause the bot flow and wait for the customer to reply with a specific type of input — text, email, phone number, date, file, location, or a button/list selection. The response is stored in a variable for use in downstream nodes.
+
+</Info>
+
+## Plan Availability
+
+| Node                 | Basic | Essential | Advanced |
+| -------------------- | :---: | :-------: | :------: |
+| Ask Text             |   ✓   |     ✓     |     ✓    |
+| Ask Email            |   ✓   |     ✓     |     ✓    |
+| Ask Number           |   ✓   |     ✓     |     ✓    |
+| Ask Phone            |   ✓   |     ✓     |     ✓    |
+| Ask Date             |   ✓   |     ✓     |     ✓    |
+| Ask URL              |   ✓   |     ✓     |     ✓    |
+| Ask Reply Buttons    |   ✓   |     ✓     |     ✓    |
+| Ask List             |   ✓   |     ✓     |     ✓    |
+| Ask Keyword Options  |   ✓   |     ✓     |     ✓    |
+| Ask Collections List |   ✓   |     ✓     |     ✓    |
+| Ask Address          |   ✓   |     ✓     |     ✓    |
+| Ask File             |   —   |     ✓     |     ✓    |
+| Ask Location         |   —   |     ✓     |     ✓    |
+| Ask Form             |   —   |     ✓     |     ✓    |
+
+## How Ask Nodes Work
+
+1. **The bot sends a question** — the customer sees the message in WhatsApp, Instagram, or Web Chat
+2. **The flow pauses** — the bot waits for the customer's reply
+3. **The customer responds** — the input is validated and stored in a variable you name
+4. **The flow continues** — the next node uses `{{variable_name}}` to insert the value
+
+If the customer sends the wrong type of input (e.g., text when you asked for a phone number), the bot shows your configured **retry message** and stays on the same step.
+
+## Ask Node Types
+
+### Text Input Nodes
+
+#### Ask Text
+
+Collects any open-ended text response. No format validation.
+
+**Example:** Question: _"What's your order number?"_ → stores reply in `{{order_number}}`
+
+Use when you need free-form text — order IDs, names, notes, custom queries.
+
+#### Ask Email
+
+Validates that the input is a properly formatted email address (must contain `@` and a domain).
+
+**Example:** Question: _"Please share your email address for your account"_ → stored in `{{contact_email}}`
+
+#### Ask Phone
+
+Validates a phone number format. Supports international formats.
+
+**Example:** Question: _"What's the best number to reach you?"_ → stored in `{{customer_phone}}`
+
+#### Ask Number
+
+Accepts only numeric input. Can be configured with min/max values.
+
+**Example:** Question: _"How many units would you like to order?"_ → stored in `{{quantity}}`
+
+Validation: set min=1, max=1000 to restrict range.
+
+#### Ask URL
+
+Validates a properly formatted URL (must start with `http://` or `https://`).
+
+**Example:** Question: _"Share your website URL"_ → stored in `{{website_url}}`
+
+#### Ask Date
+
+Opens a date picker on Web Chat; accepts natural language dates on WhatsApp/Instagram ("next Monday", "December 15").
+
+**Example:** Question: _"When would you like your delivery?"_ → stored in `{{delivery_date}}` in YYYY-MM-DD format
+
+---
+
+### Choice-Based Nodes
+
+#### Ask Reply Buttons
+
+Shows up to 3 tappable buttons. The customer taps instead of typing — reduces errors.
+
+**Example:** Question: _"What do you need help with?"_\
+Buttons: \[Track Order] \[Place Order] \[Talk to Agent]
+
+The selected button text is stored in your variable. Use a Condition node to branch based on the selection.
+
+#### Ask List
+
+Shows a structured list of options — scrollable, can have more options than buttons.
+
+**Example:** Question: _"Select your department:"_\
+Options: \[Sales] \[Support] \[Billing] \[Returns] \[Other]
+
+#### Ask Keyword Options
+
+Matches the customer's typed keyword against a list of predefined triggers.
+
+**Example:** Question: _"Type 'sales' for Sales, 'support' for Support, 'demo' to book a demo"_
+
+If customer types "sales" → `{{keyword_response}}` = "sales" → branch to sales flow.
+
+#### Ask Collections List
+
+Shows WhatsApp collections (product or service categories) as selectable options.
+
+**Example:** Question: _"Browse our categories:"_ → sends a collection of category cards
+
+---
+
+### Advanced Input Nodes (Essential+)
+
+#### Ask Address
+
+Collects a structured address with fields: street, city, state, postal code, country.
+
+**Example:** Question: _"Please share your delivery address"_ → stored in `{{delivery_address}}` as structured JSON
+
+#### Ask File
+
+Asks the customer to upload a file — images, PDFs, or documents.
+
+**Example:** Question: _"Upload your ID document for verification"_ → stored in `{{id_document}}` as a file reference
+
+**Limits:** WhatsApp supports files up to 16MB; supported formats depend on the channel.
+
+#### Ask Location
+
+Asks the customer to share their current location. Works on WhatsApp and Web Chat.
+
+**Example:** Question: _"Share your location to find the nearest store"_ → stored in `{{customer_location}}` as lat/long coordinates
+
+#### Ask Form
+
+Combines multiple fields into one screen — the customer fills in all fields in one go.
+
+**Example:** Collect booking details: name, email, phone, date, notes — all in a single form submission.
+
+**Example configuration:**
+
+* Field 1: Name (text)
+* Field 2: Email (email)
+* Field 3: Preferred date (date)
+* Field 4: Notes (text, optional)
+
+> To **request a payment** during a flow, use the [Send WhatsApp Payment node](/whatsapp/overview) — payments are a Send node, not an Ask node.
+
+---
+
+## Validating Input
+
+Each Ask node has built-in validation. You can also configure retry behavior:
+
+| Node       | Validation                              | Retry message example                                  |
+| ---------- | --------------------------------------- | ------------------------------------------------------ |
+| Ask Email  | Format check (`@` + domain)             | "Please enter a valid email like name@example.com"     |
+| Ask Phone  | Format check (digits + optional prefix) | "Please enter a valid phone number (e.g., 9876543210)" |
+| Ask Number | Min/max numeric values                  | "Please enter a number between 1 and 1000"             |
+| Ask Date   | Min date / max date                     | "Please choose a date in the future"                   |
+| Ask URL    | Must start with http:// or https://     | "Please enter a valid URL starting with https://"      |
+
+## Storing Responses in Variables
+
+Every Ask node saves the customer's response to a **variable** you name:
+
+1. Find the **Variable name** field in the Ask node
+2. Enter a descriptive name: `customer_email`, `delivery_date`, `support_topic`
+3. Use `{{customer_email}}` in any downstream Send node to personalise the message
+
+**Example flow:**
+
+```
+Ask Phone → Variable: "support_phone"
+  → next node: "We'll call you at {{support_phone}} within 2 hours"
+```
+
+## Branching Based on Ask Responses
+
+Use a **Condition node** after an Ask node to split the flow:
+
+```
+Ask Number → "How many units?"
+  → Condition: {{quantity}} >= 10 → Send bulk pricing message
+  → Condition: {{quantity}} < 10 → Send standard pricing message
+```
+
+For Ask Reply Buttons:
+
+```
+Ask Reply Buttons: [Track Order] [Place Order] [Talk to Agent]
+  → Condition: {{help_topic}} = "Track Order" → Track order flow
+  → Condition: {{help_topic}} = "Place Order" → Place order flow
+  → Condition: {{help_topic}} = "Talk to Agent" → Assign to agent
+```
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="The bot keeps repeating the same question — what do I do?">
+The customer is either:
+
+1. **Sending the wrong type of input** — e.g., typing text when you asked for a phone number
+2. **Not responding at all** — the session may have timed out
+
+Check your retry message is clear: _"Please enter a 10-digit phone number, e.g., 9876543210."_ Also check the **timeout setting** — if the customer takes too long, the session expires and the flow restarts. Consider adding a Condition node that checks if the variable is empty after a timeout and routes to a different branch or sends a "Taking too long?" message.
+</Accordion>
+
+<Accordion title="Can customers respond with natural language dates like 'next Tuesday'?">
+Yes — on WhatsApp and Instagram, Gallabox's NLP understands natural language dates ("next Monday", "December 15", "in 3 days"). On Web Chat, the customer sees a date picker. Dates are stored in ISO format (YYYY-MM-DD) in variables, so you can use them in calculations or comparisons with a Condition node.
+</Accordion>
+
+<Accordion title="Ask File doesn't work on WhatsApp — why?">
+Ask File requires the customer to upload a file. WhatsApp supports file uploads, but file size and type are limited by Meta's API. For WhatsApp, an alternative is Ask Text with instructions like _"Reply with your document name and we'll send you a secure upload link."_
+</Accordion>
+
+<Accordion title="How do I make an Ask node optional — skip if the customer doesn't respond?">
+Add a **Condition node** after the Ask node that checks if the variable is empty:
+
+```
+Condition: {{customer_email}} is empty
+  → true: Send "No email provided — we'll continue without it"
+  → false: Send "Thanks! We've sent a confirmation to {{customer_email}}"
+```
+
+You can also set a timeout in the Ask node that routes to a different branch if no response is received within the configured time.
+</Accordion>
+</AccordionGroup>

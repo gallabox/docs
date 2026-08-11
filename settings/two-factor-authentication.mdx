@@ -1,0 +1,210 @@
+---
+title: "Two Factor Authentication"
+description: "Without 2FA, your account is protected by only one factor — your password."
+---
+
+> **Who can use this?**
+>
+> * All Gallabox users can enable 2FA on their own account.
+> * Only Admins can enforce 2FA for all team members.
+> * Roles: Owners and Admins (for team-wide enforcement)
+
+<Info>
+
+Two-Factor Authentication (2FA) adds a second verification step when logging in. Even if someone knows your password, they can't access your account without also having access to your second factor (email or a TOTP authenticator app). 2FA is mandatorily enforced for Owners and Admins. We strongly recommend enabling 2FA on your account.
+
+</Info>
+
+## Why Enable 2FA?
+
+Without 2FA, your account is protected by only one factor — your password. If someone guesses or steals your password, they have full access to your Gallabox account, including:
+
+* All customer conversation data
+* All connected channels (WhatsApp, Instagram, Web Chat)
+* All integrations (Shopify, HubSpot, payment data)
+* All bot flows and automation settings
+
+2FA makes this significantly harder — even with your password, an attacker needs your second factor to log in.
+
+## Supported 2FA Methods
+
+| Method                   | Setup                                                       |
+| ------------------------ | ----------------------------------------------------------- |
+| **Email Authentication** | Receive and verify a code sent to the account email address |
+| **TOTP Authentication**  | Scan the QR code with a compatible authenticator app        |
+
+## Enabling 2FA on Your Account
+
+<Steps>
+
+<Step title="Go to Two-Factor Authentication">
+Go to your **Profile** section
+</Step>
+
+<Step title="Choose a method">
+Choose **Setup Email Authentication** or **Setup TOTP**.
+</Step>
+
+<Step title="Complete verification">
+* For **Email Authentication**, enter the verification code sent to your account email address.
+* For **TOTP Authentication**, scan the QR code with your authenticator app and enter the code shown in the app.
+</Step>
+
+<Step title="Save your recovery codes">
+For TOTP setup, save the recovery codes shown after verification. Copy or download them to a safe place, such as a password manager or encrypted note.
+</Step>
+
+</Steps>
+
+### Recovery Codes
+
+Recovery codes are one-time use codes that let you log in if you lose access to your authenticator app. Gallabox shows your recovery codes when you set up TOTP — save them at that point; they aren't shown again.
+
+**Important:**
+
+* Each code can only be used once
+* Store them securely — in a password manager, encrypted document, or safe location
+* Never share recovery codes with anyone
+
+## Logging in with 2FA
+
+After enabling 2FA, every time you log in:
+
+<Steps>
+
+<Step title="Enter your login details">
+Enter your **email** and **password** as usual
+</Step>
+
+<Step title="Enter the 2FA code">
+You'll be asked for a **6-digit code**
+</Step>
+
+<Step title="Get the verification code">
+* For **Email Authentication**, open the verification email and enter the code.
+* For **TOTP Authentication**, open your authenticator app, find Gallabox, and enter the current code.
+</Step>
+
+<Step title="Verify">
+Click **Verify** → you're logged in
+</Step>
+
+</Steps>
+
+**Tip:** TOTP authenticator codes refresh automatically. Enter the current code before it changes.
+
+## Enforcing 2FA for Your Team
+
+As an Admin, you can require all team members to enable 2FA:
+
+<Steps>
+
+<Step title="Open the Users, Teams and Roles settings">
+Go to **Settings → Workspace → Users, Teams and Roles**
+</Step>
+
+<Step title="Enable the team requirement">
+Toggle **Enforce 2FA to all**
+</Step>
+
+<Step title="Confirm the action">
+Confirm the action — this will prompt all non-2FA users on their next login
+</Step>
+
+</Steps>
+
+### Enforcing 2FA for an individual member
+
+You can also enforce 2FA for a single team member: open the **three-dot menu** on that user in **Settings → Workspace → Users, Teams and Roles** and choose the enforce option.
+
+Once enabled, the Owner or Admin can **reset** that user's 2FA. After a reset, the user picks their preferred 2FA type at their next login.
+
+## If You Lose Your 2FA Device
+
+### Method 1: Use a recovery code
+
+<Steps>
+
+<Step title="Open the recovery code option">
+On the 2FA code entry screen, click **"Use a recovery code"** (below the code entry field)
+</Step>
+
+<Step title="Enter a saved code">
+Enter one of your saved recovery codes
+</Step>
+
+<Step title="Set up 2FA again">
+You're logged in — immediately go to your **Profile** section and set up 2FA on your new device
+</Step>
+
+</Steps>
+
+### Method 2: Contact support to reset 2FA
+
+If you've lost both your device and recovery codes:
+
+<Steps>
+
+<Step title="Contact support">
+Contact Gallabox support — provide your account email and billing information to prove ownership
+</Step>
+
+<Step title="Wait for the reset">
+Gallabox support will manually reset your 2FA
+</Step>
+
+<Step title="Enable 2FA again">
+Once reset, log in and enable 2FA again on your new device
+</Step>
+
+</Steps>
+
+## Managing 2FA Settings
+
+### Resetting a team member's 2FA
+
+An Owner or Admin can reset a user's 2FA:
+
+<Steps>
+
+<Step title="Open the user's menu">
+Go to **Settings → Workspace → Users, Teams and Roles** and open the **three-dot menu** on that user
+</Step>
+
+<Step title="Reset 2FA">
+Choose the reset option
+</Step>
+
+<Step title="The user re-enrolls">
+At their next login, the user picks their preferred 2FA type and sets it up again
+</Step>
+
+</Steps>
+
+### If your recovery codes are unavailable
+
+Recovery codes are generated and displayed during TOTP setup. If the saved codes are no longer available, ask an Owner or Admin to reset 2FA and complete TOTP setup again.
+
+### Disabling 2FA
+
+There is no direct option to disable 2FA from your account. If you need to change your 2FA setup, ask an Owner or Admin to **reset** your 2FA (via the three-dot menu on your user in **Settings → Workspace → Users, Teams and Roles**) — you'll then pick your preferred 2FA type at your next login.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Does Gallabox support hardware security keys (YubiKey)?">
+Gallabox supports TOTP-based 2FA, which includes hardware keys that support the TOTP protocol (like YubiKey with Yubico Authenticator). Dedicated FIDO2/WebAuthn hardware keys (like YubiKey security key mode) are not currently supported. For the highest security with Gallabox, use an authenticator app like Google Authenticator or Authy.
+</Accordion>
+
+<Accordion title="Will 2FA affect API access or integrations?">
+No — 2FA only affects web and mobile app logins. API keys and integration OAuth connections are not affected by 2FA. Your bot flows, integrations, and API calls continue to work normally.
+</Accordion>
+
+<Accordion title="What happens if my team member refuses to enable 2FA?">
+If 2FA is enforced for a team member, they must complete 2FA setup before they can continue using Gallabox — they'll be held at the setup screen on login. They can complete it with Email Authentication or TOTP Authentication. You, as Admin, cannot enable 2FA on their behalf — they must set it up themselves.
+</Accordion>
+
+<Accordion title="Can I use the same authenticator app for Gallabox and my other accounts?">
+Yes — your authenticator app (Google Authenticator, Authy, etc.) can store multiple accounts. Each Gallabox account you log into will add a separate entry. Keep them named clearly so you know which code belongs to which Gallabox account (e.g., "Gallabox - Work" vs "Gallabox - Personal").
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,98 @@
+---
+title: "Instagram FAQs"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with the Instagram channel connected or considering connecting it.
+> * Roles: Admin role for configuration; Agent role for general usage questions.
+
+## Connecting Instagram
+
+<AccordionGroup>
+<Accordion title="How do I connect my Instagram account to Gallabox?">
+1. Go to **Channels → Instagram** in the left navigation of Gallabox.
+2. Click **Connect Instagram Account**.
+3. Log in directly with the Instagram Professional account you want to connect (Business or Creator).
+4. Grant Gallabox permission to access your messages and comments.
+5. Your Instagram DMs will start appearing in the inbox.
+
+For full step-by-step instructions, see [Connect Instagram Channel](/instagram/connect-instagram-channel).
+</Accordion>
+
+<Accordion title="Why can't I connect my Instagram account?">
+Check these requirements:
+
+1. **Professional account:** Instagram must be a Professional account (Business or Creator). Personal accounts cannot be connected. Go to your Instagram settings → Account → Switch to Professional Account.
+2. **Permissions:** Grant all requested permissions during the direct Instagram connection, particularly messaging, comments, and insights.
+</Accordion>
+</AccordionGroup>
+
+## Messaging Issues
+
+<AccordionGroup>
+<Accordion title="Why can't I send a message to an Instagram contact?">
+The 24-hour messaging window has expired. Meta only allows free-form messages within 24 hours of a customer's last message. After that window closes, you cannot send outbound messages on Instagram — the customer must message you again to reset the window.
+</Accordion>
+
+<Accordion title="Instagram DMs are not showing up in my inbox">
+Check these in order:
+
+1. **Is Instagram connected?** Go to **Channels → Instagram** and verify the connection shows as active.
+2. **Is Meta Business verified?** Unverified accounts may have limited API access.
+3. **Has the customer messaged you first?** Gallabox only receives messages from your connected Instagram account. If the customer hasn't sent a DM yet, you can't initiate contact outside the 24-hour window.
+4. **Check the Instagram app:** Make sure you haven't muted the conversation or set it to message requests.
+5. **Token expired:** Sometimes the OAuth token expires — reconnect the account if needed.
+</Accordion>
+</AccordionGroup>
+
+## Comment Automation
+
+<AccordionGroup>
+<Accordion title="Comment automation is not replying to comments">
+Check these in order:
+
+1. **Is comment automation enabled?** Go to **Channels → Instagram → Comment Automation** and verify it's turned on.
+2. **Is a Chat AI Agent connected?** Comment automation requires an active Chat AI Agent.
+3. **AI credits:** Make sure you have AI credits available in your [AI Wallet](/pricing-and-billing/ai-wallet).
+4. **Which posts are monitored?** Verify the automation rule covers the post where the comment was made.
+5. **Comment timing:** Comments made before the automation was set up won't trigger a reply.
+</Accordion>
+
+<Accordion title="Comment automation replied with the wrong message">
+The Chat AI Agent is generating responses based on its instructions. To fix:
+
+1. Go to **AI Agents and Bots → \[Your Agent] → Home**.
+2. Review the **Role**, **Goal**, and **Instructions** fields.
+3. Make the instructions more specific about what the agent should and should not say.
+4. Test in the **Test Widget** before going live.
+</Accordion>
+</AccordionGroup>
+
+## 24-Hour Window
+
+You can send free-form messages only within 24 hours of the customer's last message; after that, nothing can be sent until they message you again (Instagram has no template message mechanism). Full details: [Instagram DM Conversations](/instagram/instagram-dm-conversations#the-24-hour-messaging-window).
+
+## General
+
+<AccordionGroup>
+<Accordion title="Can I use broadcasts on Instagram?">
+No. Broadcast campaigns are not available for Instagram. Your options are:
+
+* Message contacts within the 24-hour window
+* Use comment automation to engage post commenters
+* Drive Instagram followers to WhatsApp for broadcast-ready messages
+</Accordion>
+
+<Accordion title="Why are my Instagram analytics different from Gallabox reports?">
+Gallabox reports reflect conversations handled through the Gallabox inbox. Instagram's native analytics include all DM activity, including conversations handled directly in the Instagram app. If you're managing Instagram from Gallabox exclusively, the numbers should match. If some conversations are handled in the Instagram app, those won't appear in Gallabox reports.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Connect Instagram Channel](/instagram/connect-instagram-channel) — Step-by-step setup
+* [Instagram DM Conversations](/instagram/instagram-dm-conversations) — How Instagram messaging works
+* [Instagram vs WhatsApp](/instagram/instagram-vs-whatsapp) — Feature comparison
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — Managing all channels
+* [AI Wallet](/pricing-and-billing/ai-wallet) — AI credits management

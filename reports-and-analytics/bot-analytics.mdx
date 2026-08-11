@@ -1,0 +1,109 @@
+---
+title: "Bot Analytics"
+description: "Available on all Gallabox plans."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Analytics access** who want to track bot flow performance.
+> * Roles: Gallabox users with permission to read Analytics.
+
+<Info>
+
+Bot analytics show session totals, average session length, flow distribution, and the cards where sessions drop. Use these results to find parts of a bot flow that need attention.
+
+</Info>
+
+## Plan Availability
+
+| Feature | Basic | Essential | Advanced |
+|---|:---:|:---:|:---:|
+| Bot Analytics dashboard | — | ✓ | ✓ |
+
+## What Bot Analytics Shows
+
+The Bot report shows how rule-based bot flows perform for the selected channel, bot, and date range.
+
+| Metric                         | What the report shows                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| **Bot Session**                | Total bot sessions for the selected filters                                             |
+| **Completed Session**          | Sessions marked completed                                                               |
+| **Dropped Session**            | Sessions that dropped before completion                                                 |
+| **Flow session distribution**  | Session distribution for the selected bot flows                                         |
+| **Average bot session length** | Average duration of a bot session                                                       |
+| **Top drop cards**             | Cards with the most drop-offs, including Card Name, Reference ID, percentage, and count |
+
+You can calculate a completion percentage from the displayed totals: **Completed Session ÷ Bot Session × 100**.
+
+## How to Access Bot Analytics
+
+<Steps>
+
+<Step title="Open Analytics">
+Open **Analytics** in the left navigation of Gallabox.
+</Step>
+
+<Step title="Open the Bots tab">
+Select **Dashboard**, then click **Bots**.
+</Step>
+
+<Step title="Select the report filters">
+Select the **channel**, **bot**, and **date range** you want to analyse.
+</Step>
+
+<Step title="Review the data">
+Review the session totals, flow session distribution, average session length, and top drop cards.
+</Step>
+
+</Steps>
+
+## Find Where Sessions Drop
+
+1. Go to **Analytics → Dashboard** and open the **Bots** tab.
+2. Select the channel, bot, and date range.
+3. Review **Bot Session**, **Completed Session**, and **Dropped Session**.
+4. In **Top drop cards**, select the published bot flow.
+5. Use **Card Name**, **Reference ID**, and **Drop-off Count** to identify the card with the highest drop-off percentage and count.
+6. Open the bot builder separately, locate that card by its reference ID, and review its question, options, validation, and next path.
+7. After publishing a change, compare the same date-range metrics with the earlier baseline.
+
+## Measure Flow Completion
+
+1. Note the **Bot Session** and **Completed Session** values for the selected filters.
+2. Calculate **Completed Session ÷ Bot Session × 100**.
+3. Save the result as your baseline.
+4. After changing and publishing the flow, use the same filters and calculate the percentage again.
+
+<Check>
+
+**Pro tip:** Keep the channel, bot, and date-range length consistent when comparing results before and after a flow change.
+
+</Check>
+
+## Example
+
+**Scenario:** You run an e-commerce store and want to improve an order-tracking bot.
+
+1. Open **Analytics → Dashboard → Bots** and select the order-tracking bot.
+2. Set the date range you want to inspect.
+3. Review the completed and dropped session totals.
+4. Open **Top drop cards** and select the published order-tracking flow.
+5. Note the card with the highest drop-off percentage and its **Reference ID**.
+6. Open the bot builder, locate that card, and review whether its question, options, and validation are clear.
+7. Publish the change and compare the same metrics over an equivalent date range.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I calculate the completion percentage?">
+Divide **Completed Session** by **Bot Session**, then multiply by 100.
+</Accordion>
+
+<Accordion title="Can I see bot results for a specific period?">
+Yes. Use the date range selector on the **Bot** report before reviewing the metrics.
+</Accordion>
+
+<Accordion title="How do I find the exact card that has the most drop-offs?">
+Open **Top drop cards**, select the published bot flow, and compare the **Drop-off Count** values. Use the **Reference ID** to locate the matching card in the bot builder.
+</Accordion>
+</AccordionGroup>

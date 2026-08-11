@@ -1,0 +1,155 @@
+---
+title: "CTWA Leads"
+description: "See every WhatsApp conversation that came from a Click-to-WhatsApp ad, track lead and purchase conversions, and manage CAPI event states — all from a single view."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **CTWA access** on their plan.
+> * Roles: Owners and Admins (and roles with the relevant permission).
+
+## Plan Availability
+
+The CTWA Leads view is available on Essential and Advanced. Basic includes CTWA labelling in Inbox but not the Leads analytics view. See [Ad Campaigns](/whatsapp/ad-campaigns/overview#plan-availability) for the complete plan matrix.
+
+## Why CTWA Leads?
+
+CTWA Leads serves two purposes:
+
+1. **Conversation performance of your ad leads** — Every conversation that started from a CTWA ad click appears here as a row. You can see whether each person was a new contact, which source (Facebook ad, Instagram, organic post), and click any row to open the full conversation. This is your per-lead view of how your ad traffic converted into real conversations.
+2. **CAPI analytics and monitoring** — This is also where you monitor your Conversions API events. Once CAPI is configured, hover over any lead's Conversion Status to see the event's **Sent at** time and **Dataset ID**. Use filters to audit: which leads had a lead event fire, which had a purchase event, which had failures, and which were missed entirely (no conversion events). The filter options available are: WhatsApp channel, date range (default past 7 days), search by phone number, Event type (Lead / Purchase / None), and Status (Success / Failure).
+
+## What is CTWA Leads?
+
+CTWA Leads is the per-conversation analytics view for your Click-to-WhatsApp ad traffic. Every conversation that started from a CTWA ad click appears here as a lead record, along with:
+
+* The contact and their conversation
+* Whether they were a new contact when they clicked
+* The ad source (Facebook ad, Facebook post, Instagram, etc.)
+* Whether a lead or purchase conversion event was sent to Meta via CAPI
+* The current state of those conversion events
+
+**Clicking any lead record opens the full conversation** in the Gallabox inbox, so you can see exactly what happened after the ad click.
+
+CAPI conversion events — lead and purchase — are managed and monitored from this view. You can hover over a contact's conversion status or use filters to see event states across your leads.
+
+## Lead Sources
+
+The lead source is derived from the ad's platform and type. Common values include:
+
+| Source          | What it means                                       |
+| --------------- | --------------------------------------------------- |
+| **fbAd**        | Clicked from a paid Facebook Click-to-WhatsApp ad   |
+| **fbPost**      | Clicked from a Facebook post with a WhatsApp button |
+| **instagramAd** | Clicked from an Instagram ad                        |
+| **othersAd**    | Ad source not attributed to a specific platform     |
+
+The **Source type** column shows Meta's referral source type when it's available.
+
+## Reading the CTWA Leads Table
+
+Each row is one lead — one WhatsApp conversation that started from an ad click.
+
+| Column             | What it shows                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| **Date**           | When the conversation started                                                        |
+| **Contact Name**   | The contact's name                                                                   |
+| **Phone Number**   | The contact's WhatsApp number                                                        |
+| **Source type**    | Where the click came from (e.g., fbAd, instagramAd)                                  |
+| **Source content** | The ad or post content that drove the click                                          |
+| **Source Url**     | The link from which the contact clicked                                              |
+| **Source ID**      | The Ad ID                                                                            |
+| **Event**          | The CAPI conversion event recorded for this contact (Lead / Purchase) and its status |
+
+When you drill into a specific ad, the per-ad conversations table shows: Date, Contact name, Contact number, New contact, Eligible lead, Purchase, and Actions.
+
+### Hovering for Conversion Details
+
+Hover over a contact's **Conversion Status** to see the event's **Sent at** time and **Dataset ID**.
+
+### Filtering Leads
+
+Use the filters at the top to narrow leads by:
+
+* **WhatsApp channel** — select which connected number to view
+* **Date range** — default is the **past 7 days**; presets include Past 7/30/90 days, This/Previous week, and This/Previous month, or set a custom period
+* **Search** — find a lead by phone number
+* **Event type** — Lead, Purchase, or None (no conversion events)
+* **Status** — Success or Failure
+
+The **Event type: None** filter shows leads that came from a CTWA ad but had no CAPI event fired — useful for identifying contacts that slipped through your conversion configuration.
+
+### Opening a Conversation
+
+Click any lead row to open the full conversation in the inbox. You'll see the complete chat history, the contact's details, and the ad context (Ad ID, source URL) attached to the conversation.
+
+### Exporting Leads
+
+Click **Export** to download the leads table as a CSV. Includes contact details, ad source, lead/purchase flags, and conversion event status.
+
+Exporting requires the **PII-read** (and bulk-read) permission on your role. Without it, the Export option is hidden entirely — no error is shown. Contact your Gallabox Admin if you don't see it.
+
+## New Contact vs Eligible Lead
+
+New Contact and Eligible Lead measure different things:
+
+|                   | New Contact                                                                | Eligible Lead                                                                           |
+| ----------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **What it means** | This person had never messaged your business before                        | This contact met your defined lead criteria and a CAPI Lead event was fired to Meta     |
+| **How it's set**  | Automatically — Gallabox checks if the contact existed before the ad click | Configured in CAPI — triggered by your chosen condition (incoming message, tag, or API) |
+| **Overlap**       | A new contact may or may not be an eligible lead                           | An eligible lead may or may not be a new contact                                        |
+
+## Managing CAPI from CTWA Leads
+
+CAPI configuration (what counts as a lead, what counts as a purchase, which trigger to use) is set up within the CTWA section. See [CAPI](/whatsapp/ad-campaigns/capi).
+
+Once configured, CTWA Leads is where you **monitor** CAPI:
+
+* Check conversion event success rates via the Conversion Status column
+* Filter for failures to investigate CAPI errors
+* Filter for "No Conversion Events" to find contacts who were missed
+
+## Example
+
+**Scenario:** You run a furniture store. Your CTWA ad campaign ran last week. You want to see which customers actually became leads (submitted their contact info via your bot) and which ones resulted in purchases.
+
+1. Open **CTX → CTX Leads** in the left navigation.
+2. Set the date range to last week.
+3. Filter by **Event type: Lead** — see all contacts for whom a lead event fired to Meta.
+4. Filter by **Conversion Status: Failure** — check if any lead events failed to send. Click the status to see the error.
+5. Click any lead row — the conversation opens. You can see what the customer asked about, whether the bot qualified them, and whether your agent followed up.
+6. Filter by **Event type: Purchase** — see which contacts converted to a purchase.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I clicked a lead but the conversation didn't open — why?">
+The conversation may have been deleted. If the conversation still exists in your inbox, verify that the contact's phone number matches.
+</Accordion>
+
+<Accordion title="A contact messaged me from WhatsApp but isn't showing as a CTWA Lead">
+CTWA Leads only shows conversations that started from a Click-to-WhatsApp ad click. Direct WhatsApp messages (not from an ad) won't appear here. If the ad data wasn't synced when the conversation started, the referral data may also be missing.
+</Accordion>
+
+<Accordion title="The conversion status shows 'failure' — what do I do?">
+Hover over the status to see the error. Common causes:
+
+* **CAPI not connected or permissions missing** — go to CAPI settings and reconnect
+* **Meta API error** — if the error is temporary, Gallabox retries automatically (you'll see a "Retrying" status). If it stays as "failure" after retries, check the error code.
+</Accordion>
+
+<Accordion title="What is the 'No Conversion Events' filter for?">
+It shows CTWA leads where Gallabox received the ad click but no CAPI event (lead or purchase) was ever fired. These are contacts who messaged you from an ad but weren't counted by Meta as a conversion. Use this to check whether your CAPI triggers are working as intended.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [CTWA Ads](/whatsapp/ad-campaigns/ctwa-ads) — Ad-level performance metrics
+* [CAPI](/whatsapp/ad-campaigns/capi) — Configuring lead and purchase conversion events
+* [Tags](/settings/tags) — Used as CAPI triggers for On Tag Add
+
+## Next Steps
+
+* [Configure CAPI →](/whatsapp/ad-campaigns/capi)
+* [View ad performance →](/whatsapp/ad-campaigns/ctwa-ads)

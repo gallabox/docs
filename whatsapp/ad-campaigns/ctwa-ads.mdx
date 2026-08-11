@@ -1,0 +1,191 @@
+---
+title: "CTWA Ads"
+description: "Connect your Facebook Ad Account to Gallabox and view Click-to-WhatsApp ad performance — spend, reach, conversations, and leads — alongside your WhatsApp data."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **CTWA access** on their plan.
+> * Roles: Owners and Admins (and roles with the relevant permission).
+
+## Plan Availability
+
+CTWA Ads analytics is available on Essential and Advanced. See [Ad Campaigns](/whatsapp/ad-campaigns/overview#plan-availability) for the complete plan matrix.
+
+## Why CTWA Ads?
+
+Connecting your Facebook Ad Account to Gallabox unlocks three things:
+
+1. **Lead enrichment** — Every CTWA conversation in Gallabox automatically shows which ad it came from (Ad ID, Ad name, Ad Set, Campaign, source URL). Your team can see exactly what ad a customer clicked before they messaged — this context enriches conversations and helps agents qualify leads faster.
+2. **Ad management** — See ad performance (spend, reach, link clicks, cost per result, eligible leads, purchases) from inside Gallabox alongside your conversations. No switching between Meta Ads Manager and your WhatsApp inbox. Analytics covers leads from both **Facebook and Instagram** CTWA ads in one place.
+3. **Syncing with Meta** — Connecting your Facebook Ad Account brings live ad data into Gallabox. Combined with CAPI (Conversions API), you can send conversion outcomes back to Meta so it can optimize your ads toward real results — not just clicks.
+
+## What is CTWA Ads?
+
+CTWA Ads is Gallabox's ad analytics view for Click-to-WhatsApp campaigns. It connects to your Facebook Ad Account and pulls ad performance data from Meta — so you can see which specific ads are driving WhatsApp conversations, what they cost, and what return you're getting, without leaving Gallabox.
+
+<Info>
+
+When a contact messages you from a Click-to-WhatsApp ad, Gallabox captures the **Ad ID and source URL** and attaches it to the conversation. The CTWA Ads view aggregates this data across all contacts into ad-level analytics.
+
+</Info>
+
+## The 72-Hour Ad Engagement Window
+
+When a contact starts a conversation from a CTWA ad click, Meta provides a **72-hour free entry-point conversation window** — Meta does not charge a per-message fee for that conversation during this period. Gallabox displays a countdown timer in the conversation; the timer begins **once your team responds** to the customer. This is a conversation-fee benefit, separate from the standard 24-hour customer service window that governs free-form messaging.
+
+## Prerequisites
+
+1. **A Facebook Ad Account** running Click-to-WhatsApp campaigns.
+2. **A WhatsApp channel connected in Gallabox.**
+3. **Owner or Admin access** in Gallabox (or a role with the relevant permission).
+4. **Facebook page admin or ad account access** — you'll authorize via Facebook OAuth.
+
+## How to Connect Your Facebook Ad Account
+
+<Steps>
+
+<Step title="Connect to Facebook">
+1. Go to **CTX → CTX Ads** in the left navigation.
+2. Click **Connect Facebook Ad Account**.
+3. Click **Connect with Facebook** — you'll be redirected to Facebook's authorization screen.
+4. Log in with a Facebook account that has access to your Ad Account.
+5. Grant all requested permissions — Gallabox needs access to read your ad data.
+6. Select the **Ad Account(s)** you want to connect.
+7. Click **Confirm**.
+
+<Warning>
+
+Grant all requested permissions. Skipping any will cause incomplete data or connection failure.
+
+</Warning>
+</Step>
+
+<Step title="Verify the connection">
+After authorizing, Gallabox shows a connection status badge:
+
+* **CTWA connection** — whether your Ad Account is linked and syncing ad data
+* **CAPI connection** — whether Gallabox can send conversion events back to Meta (configured separately — see [CAPI](/whatsapp/ad-campaigns/capi))
+
+If either shows an error, click the badge to see the missing permission.
+</Step>
+
+<Step title="Sync your ads">
+Gallabox performs a **full sync** on first connection to pull all your ad data. After that, ad performance data syncs from Meta automatically **once a day**.
+
+To manually trigger a sync: click **Sync Ads** in the CTWA Ads view. Manual sync can be triggered once every 30 minutes.
+</Step>
+
+</Steps>
+
+## Reading the CTWA Analytics
+
+### Campaign Summary
+
+The CTWA dashboard summarizes your campaign performance over a selected period:
+
+* **Ad Spend**: The total amount spent on your CTWA ads in the selected time frame.
+* **Reach**: The number of unique people who saw your ad.
+* **Link Clicks**: The number of times users clicked the ad link that redirects them to WhatsApp.
+* **Conversations Started**: How many users started a conversation after clicking the ad.
+* **Cost per Result**: The average cost for each conversation initiated.
+* **Eligible Leads**: The number of potential leads generated.
+* **Purchases**: If tracking is set up, this shows how many purchases happened due to the campaign.
+
+<Info>
+
+Use the filter to select a custom time frame and view results specific to that duration.
+
+</Info>
+
+### Ad-Level Insights
+
+Each ad is tracked individually, and the dashboard displays:
+
+* **CTWA ID and Name**: Unique identifier and name of the ad.
+* **Status**: Whether the ad is active, paused, or completed.
+* **Ad Set ID and Name**: The group of ads it belongs to, used for targeting and budget settings.
+* **Campaign Set ID and Name**: The overall marketing objective or campaign these ads are part of.
+* **Created Date**: When the ad was first published.
+* **Ad Spend**: Budget used specifically for this ad.
+* **Reach / Link Clicks / Conversations Started**: Individual metrics to see how this specific ad is performing.
+* **Cost per Result**: How much you're paying per conversion (e.g., per conversation).
+* **Eligible Leads and Purchases**: Results directly attributed to this ad.
+
+**ROAS** (Return on Ad Spend — revenue ÷ spend) is not a column in the ads table. It appears as a stat card when you drill into an ad's leads view, and requires CAPI purchase tracking to have data.
+
+### Filtering by Date Range
+
+Use the **date range picker** to filter metrics. Default range is the **past 7 days**; change it to any custom period.
+
+### Drilling into an Ad
+
+Click any ad row to open **CTWA Leads** filtered to that ad — showing the individual conversations and contacts that came from that specific ad. See [CTWA Leads](/whatsapp/ad-campaigns/ctwa-leads).
+
+## Export CTWA Reports
+
+To export CTWA reports in Gallabox, follow these steps:
+
+1. Click on the **"Export"** option and select the **CTWA Summary** option from the dropdown.
+2. Select the date range for the report you wish to export.
+3. Click on the **"Initiate Exports"** button to start the process. Click on **"Download Export File"** to download the generated file.
+
+After clicking the export button, the system will generate the report, which is downloadable as a CSV or Excel file.
+
+<Info>
+
+Export time may vary based on the data range and size of the report. Exporting requires the **PII-read** and **bulk-read** permissions on your role. Without them, the Export option is hidden.
+
+</Info>
+
+## Multiple Ad Accounts
+
+Use the **Ad Account selector** at the top to switch between connected ad accounts. To add another: click **Add Ad Account**.
+
+## Example
+
+**Scenario:** You run a clothing brand with two Facebook campaigns — a new arrivals campaign and a sale campaign. Both use Click-to-WhatsApp ads. You want to know which campaign is actually converting to purchases, not just starting conversations.
+
+Here's how you'd use it:
+
+1. Open **CTWA Ads**.
+2. Set the date range to the campaign period.
+3. Compare the two campaigns:
+   * New arrivals: 500 conversations, 120 eligible leads, 15 purchases
+   * Sale campaign: 2,000 conversations, 80 eligible leads, 8 purchases
+4. The sale campaign drives more conversations but fewer quality conversions — you can reallocate budget to the new arrivals campaign.
+5. Click the new arrivals ad row to open CTWA Leads and see which specific contacts purchased, so your sales team can follow up.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My ad data is not showing after connecting">
+1. Check the connection status badge — if it shows an error, reconnect via **Reconfigure**.
+2. Click **Sync Ads** to trigger a manual sync.
+3. Verify the date range includes the period when the ads were running.
+4. Only Click-to-WhatsApp ads appear here — standard Facebook/Instagram ads won't show.
+</Accordion>
+
+<Accordion title="Why is 'Conversations Started' lower than 'Link Clicks'?">
+Not every click on the WhatsApp button results in a message. Gallabox counts a conversation only when a message is received from the contact — so conversations ≤ link clicks is expected.
+</Accordion>
+
+<Accordion title="Why does ROAS show 0 or nothing?">
+ROAS requires purchase conversion events to be set up and firing successfully via CAPI. If CAPI is not configured or no purchase events have been sent, ROAS will not have data. See [CAPI setup](/whatsapp/ad-campaigns/capi).
+</Accordion>
+
+<Accordion title="Figures differ between Meta Ads Manager and Gallabox — why?">
+Small differences are normal: attribution window differences, sync delays, and the fact that eligible leads and purchases are Gallabox-defined CAPI events (not Meta's native metrics).
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Click-to-WhatsApp Ads (CTWA)](/whatsapp/ad-campaigns/overview) — What Click-to-WhatsApp is and how it works
+* [CTWA Leads](/whatsapp/ad-campaigns/ctwa-leads) — Individual conversations from each ad
+* [CAPI](/whatsapp/ad-campaigns/capi) — Sending conversion events to Meta
+
+## Next Steps
+
+* [View individual leads from an ad →](/whatsapp/ad-campaigns/ctwa-leads)
+* [Set up conversion tracking →](/whatsapp/ad-campaigns/capi)

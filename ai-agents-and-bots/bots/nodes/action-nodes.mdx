@@ -1,0 +1,265 @@
+---
+title: "Action Nodes"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **Bot Builder access**.
+> * Roles: Owners and Admins
+
+<Info>
+
+Action nodes perform operations on the conversation and its data — resolving conversations, assigning to agents, updating contact fields, changing order status, and enrolling contacts into sequences. These nodes don't send messages; they change the state of the conversation or contact record.
+
+</Info>
+
+## Plan Availability
+
+| Node                        | Basic | Essential | Advanced |
+| --------------------------- | :---: | :-------: | :------: |
+| Resolve Conversation        |   ✓   |     ✓     |     ✓    |
+| Assign Conversation         |   ✓   |     ✓     |     ✓    |
+| Unassign Conversation       |   ✓   |     ✓     |     ✓    |
+| Update Contact Fields       |   ✓   |     ✓     |     ✓    |
+| Update Company Fields       |   ✓   |     ✓     |     ✓    |
+| Update Order Status         |   ✓   |     ✓     |     ✓    |
+| Update Order Payment Status |   ✓   |     ✓     |     ✓    |
+| Update Conversation Fields  |   —   |     ✓     |     ✓    |
+| Push to sequence            |   —   |     ✓     |     ✓    |
+
+## How Action Nodes Work
+
+Action nodes execute in the background — they update records, change conversation states, or trigger workflows. The customer doesn't see any of this happen. After executing, the flow immediately moves to the next node.
+
+Action nodes are typically placed at the end of a flow branch or after an Ask node captures data that needs to be saved.
+
+## Action Node Types
+
+### Conversation Management
+
+#### Resolve Conversation
+
+Marks the conversation as resolved / closed. Removes it from the active inbox queue.
+
+**Example use cases:**
+
+* After completing an order confirmation flow
+* After a FAQ answer satisfies the customer
+* After collecting feedback at the end of a support flow
+
+**Configuration:** Optionally add a resolution note that appears in the conversation history for the agent's reference.
+
+**What it does:**
+
+* Sets the conversation status to **Closed**
+* Removes it from the Open conversation list
+* A new customer reply can reopen the conversation
+
+#### Assign Conversation
+
+Assigns the conversation to a user, team, bot agent, or the contact owner.
+
+**Example use cases:**
+
+* Route order-related queries to the sales team
+* Assign high-value customer queries to a senior agent
+* Route billing questions to the Finance team
+
+**Configuration options:**
+
+* **User** — select a specific team member
+* **Team** — select a configured team
+* **Agent** — select a bot agent
+* **Contact owner** — use the owner already stored on the contact
+
+**Example:**
+
+```
+Assign Conversation → Assignee Type: Team → Assignee: Sales
+```
+
+#### Unassign Conversation
+
+Removes the current assignment — useful when a flow determines the conversation shouldn't be assigned to anyone, or reassigns it to a general queue.
+
+**Example:** If the bot resolves a low-priority issue that was auto-assigned, use Unassign Conversation to free up the agent's queue.
+
+---
+
+### Contact & Company Data
+
+#### Update Contact Fields
+
+Updates a contact's custom fields in Gallabox.
+
+**Example use cases:**
+
+* Save the customer's preferred language after an Ask node
+* Store the product interest they selected
+* Record the campaign source they came from
+
+**Configuration:**
+
+1. Select the contact field to update (from your custom field list)
+2. Set the value — can be a static value or a variable from earlier in the flow
+
+**Example:**
+
+```
+Ask List: "Which product are you interested in?"
+  Options: [Product A] [Product B] [Product C]
+  → Stored in {{product_interest}}
+
+Update Contact Fields → Field: "Product Interest" → Value: {{product_interest}}
+```
+
+#### Update Company Fields
+
+Updates the company/organization fields associated with the contact.
+
+**Example use cases:**
+
+* Update the company tier (e.g., from "Trial" to "Paid") after a conversion flow
+* Record the company size when a lead fills out a form
+
+**Configuration:** Same as Update Contact Fields — select the company field and set the value (static or variable).
+
+---
+
+### Order Management
+
+#### Update Order Status
+
+Updates the status of the WhatsApp Commerce order attached to the current bot session.
+
+**Example use cases:**
+
+* Mark a new order as "Pending" while it is being reviewed
+* Mark order as "Shipped" after a fulfillment update
+* Mark order as "Completed" after fulfillment finishes
+
+**Configuration:**
+
+Select the new status:
+
+* `new`
+* `pending`
+* `processing`
+* `partially_shipped`
+* `shipped`
+* `completed`
+* `canceled`
+
+**Example:**
+
+```
+Condition: {{payment_status}} = "paid"
+  → true: Update Order Status → Status: "processing"
+  → false: Send Text: "Payment not received — please retry"
+```
+
+#### Update Order Payment Status
+
+Updates the payment status of the WhatsApp Commerce order attached to the current bot session.
+
+**Example use cases:**
+
+* Mark order as "Paid" after payment is confirmed
+* Mark order as "Failed" if payment didn't go through
+
+**Configuration:** Select the new payment status:
+
+* `new`
+* `pending`
+* `paid`
+* `failed`
+* `canceled`
+
+Like other action nodes, this node reports a **succeeded** or **failed** status you can branch on after it runs.
+
+---
+
+### Sequence Enrollment (Essential+)
+
+#### Push to sequence
+
+Enrolls the contact into a Gallabox sequence — a multi-step automated message sequence.
+
+**Example use cases:**
+
+* After capturing a lead, enroll them in a WhatsApp nurture sequence
+* After a demo request, enroll in a demo follow-up sequence
+* After cart abandonment, enroll in a recovery sequence
+
+**Configuration:**
+
+1. Select the sequence from your sequence library
+2. Optionally set a delay before the first step (e.g., "Start in 1 hour")
+3. Optionally override the contact's existing sequence enrollment
+
+**Example:**
+
+```
+Ask Email: "What's your email for our newsletter?"
+  → Stored in {{newsletter_email}}
+
+Update Contact Fields → Field: "Email" → Value: {{newsletter_email}}
+
+Push to sequence → Sequence: "Weekly Newsletter Nurture"
+```
+
+---
+
+### Conversation Fields (Essential+)
+
+#### Update Conversation Fields
+
+Updates custom fields on the conversation record itself (not the contact or company).
+
+**Example use cases:**
+
+* Tag the conversation with a category: "billing", "support", "sales"
+* Record the bot flow that handled the conversation
+* Store a reference number from an external system
+
+**Configuration:** Select the conversation field and set the value (static or variable).
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Resolve Conversation vs Unassign Conversation — what's the difference?">
+**Resolve Conversation** closes the conversation and removes it from the active queue — the customer can still reply, which reopens it.
+
+**Unassign Conversation** removes the current team member assignment but keeps the conversation open and in the queue — it remains active and visible to other agents.
+
+Use Resolve Conversation at the end of a successful flow. Use Unassign Conversation when you need to reassign the case or clear a wrong assignment.
+</Accordion>
+
+<Accordion title="The Update Contact Fields node isn't showing my custom fields — why?">
+Custom fields need to be created in **Settings → Contacts → Custom Fields** before they appear in the Update Contact Fields node. If a field is missing, go to Settings and add it first, then it will appear in the node's dropdown.
+</Accordion>
+
+<Accordion title="Do I need to provide an order ID in Update Order Status?">
+No. The node uses the WhatsApp Commerce order attached to the current bot session. Select the new order status in the node.
+</Accordion>
+
+<Accordion title="What happens if a contact is already enrolled in a sequence when Push to sequence runs?">
+By default, if a contact is already in a sequence, the node will skip the enrollment (no duplicate). You can configure the node to:
+
+* Restart the sequence from the beginning
+* Keep the existing enrollment (skip)
+* Update the enrollment with new data
+
+Choose the behavior in the Push to sequence node settings.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Flow Control Nodes](/ai-agents-and-bots/bots/nodes/flow-control-nodes) — Condition, Delay, Switch, and other flow logic
+* [Send Nodes Overview](/ai-agents-and-bots/bots/nodes/send-nodes) — delivering messages after actions
+* [Ask Nodes Overview](/ai-agents-and-bots/bots/nodes/ask-nodes) — collecting data before updating fields
+* [Bot Connectors Overview](/ai-agents-and-bots/bots/connectors) — how connectors work in bot flows
+* [WhatsApp Sequences Overview](/whatsapp/sequences/overview) — building automated message sequences

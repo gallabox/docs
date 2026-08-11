@@ -1,0 +1,154 @@
+---
+title: "Catalog, Orders and Payments"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **catalog and commerce permissions**.
+> * Roles: Owners and Admins
+> * Plans: All plans (Catalog and Payments). WhatsApp Dynamic Form requires the Advanced plan.
+
+## Plan Availability
+
+WhatsApp Basic Forms, Catalog, and Payments are available on all Gallabox plans. WhatsApp Dynamic Forms require the Advanced plan.
+
+## What is WhatsApp Shop?
+
+WhatsApp Shop lets you display your products and let customers browse, inquire, and order — directly inside a WhatsApp chat.
+
+The core of WhatsApp Shop is your **Facebook Product Catalog** — a digital inventory of your products that's connected to Gallabox. Once connected, you can:
+
+* **Share product cards** in WhatsApp conversations — one product or a curated selection
+* **Let customers browse** your full catalog without leaving WhatsApp
+* **Send order summaries** after a transaction — with itemized lists, prices, and totals
+* **Trigger follow-up actions** when customers interact with products (add tag, start sequence)
+
+## How It Works
+
+### The Catalog is the Foundation
+
+WhatsApp Shop uses your **Facebook Product Catalog** — managed through Meta's Commerce Manager. The catalog holds all your product data: images, descriptions, prices, variants (size, color), and inventory.
+
+Gallabox connects to this catalog to display products inside WhatsApp chats. The catalog is the single source of truth — you manage products in Commerce Manager, not in Gallabox.
+
+<Info>
+
+You need a **Facebook Business Page** and a **Meta Business Manager** account to create a catalog. If you already sell on Facebook or Instagram Shopping, you likely already have a catalog.
+
+</Info>
+
+### Sharing Products in WhatsApp
+
+Once your catalog is connected to Gallabox, you can share products in conversations:
+
+* **Single product card** — send one product with image, name, price, and description
+* **Multiple products** — send a selection of products (e.g., "Here are some options in your size")
+* **Catalog browsing link** — send a link to browse the full catalog inside WhatsApp
+
+Customers can respond to product cards directly — asking questions, confirming interest, or requesting to buy.
+
+### Order Summaries
+
+After a transaction (e.g., via phone or another channel), you can send an **Order Summary** — a structured message showing:
+
+* List of items purchased
+* Individual prices
+* Subtotal, taxes, delivery fee
+* Total amount
+* Delivery address and estimated delivery date
+
+Order summaries make transactions feel official and professional, and give customers a clear record of what they ordered.
+
+## Setting Up WhatsApp Shop
+
+<Steps>
+
+<Step title="Create a Facebook Product Catalog">
+If you don't already have a catalog:
+
+1. Go to [Commerce Manager](https://business.facebook.com/commerce_manager/get_started/).
+2. Click **Create Catalog**.
+3. Select your **catalog type**:
+   * **E-commerce** — physical products (most common)
+   * **Travel** — hotels, flights, rental properties
+   * **Property** — real estate listings
+   * **Auto** — vehicles and parts
+4. Choose how to **add products**:
+   * **Manual** — add products one by one in Commerce Manager
+   * **Data feed** — upload a spreadsheet (CSV/XML) or product feed URL
+   * **Partner platform** — import from Shopify, WooCommerce, or other integrations
+5. Assign the catalog to your **Meta Business** account.
+</Step>
+
+<Step title="Connect the Catalog to Gallabox">
+1. In Gallabox, go to **WhatsApp Shop** in the left navigation.
+2. Click **Connect Catalog** or **Add Catalog**.
+3. Authorize Gallabox to access your Meta catalog (you'll be redirected to Meta to approve permissions).
+4. Select the catalog you want to connect.
+5. The connection is established — you can now share products from this catalog in WhatsApp chats.
+
+<Check>
+
+**Pro tip:** If you already have products on Shopify or WooCommerce, use the **Partner Platform** option when creating your catalog — this syncs products automatically so you don't have to manage inventory in two places.
+
+</Check>
+</Step>
+
+<Step title="Share Products in Conversations">
+1. Open any WhatsApp conversation in Gallabox.
+2. Click the **Catalog** or **Product** icon in the compose box.
+3. Browse or search your catalog.
+4. Select the products you want to share.
+5. Click **Send** — the product cards appear in the chat.
+
+You can also use a **bot flow** to send relevant products automatically — for example, when a customer asks "What do you have in size M?", the bot searches the catalog and sends matching products.
+</Step>
+
+</Steps>
+
+## Example
+
+**Scenario:** You run an online clothing store and want to let customers browse and ask about products via WhatsApp — without them needing to visit your website.
+
+Here's how you'd set it up:
+
+1. Create a Facebook Product Catalog in Commerce Manager and add your clothing inventory (manual upload or from your Shopify store).
+2. Connect the catalog to Gallabox via **WhatsApp Shop**.
+3. Set up a bot flow that greets customers and asks what they're looking for.
+4. When a customer says "I'm looking for blue shirts", the bot searches the catalog and sends product cards for all blue shirts in stock.
+5. The customer taps a product card, sees the full details, and replies "Can I get size L in this?"
+6. Your team confirms availability and takes the order over WhatsApp — then sends an Order Summary for the transaction.
+
+## WhatsApp Shop vs. Other Sales Channels
+
+|                        | WhatsApp Shop (Catalog)      | WhatsApp Flows (Forms)                | WhatsApp Broadcast          |
+| ---------------------- | ---------------------------- | ------------------------------------- | --------------------------- |
+| **Purpose**            | Display and browse products  | Collect structured data               | Send promotional messages   |
+| **Customer action**    | Browse, ask questions        | Fill out a form                       | Read a message              |
+| **Inventory**          | Live catalog, real-time      | No inventory — just data collection   | No inventory                |
+| **Use for**            | Product discovery and sales  | Bookings, registrations, lead capture | Promotions, updates, offers |
+| **Best combined with** | Bot flows for product search | Sequences for follow-up               | Sequences for nurture       |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do I need a Facebook Business Page to use WhatsApp Shop?">
+Yes. WhatsApp Shop uses Facebook's Commerce Manager, which requires a Facebook Business Page. The Page must be linked to a Meta Business Manager account. If you don't have one, create them at [facebook.com/pages/create](https://facebook.com/pages/create).
+</Accordion>
+
+<Accordion title="Can customers pay directly inside WhatsApp?">
+Yes — Gallabox supports **payments with checkout inside WhatsApp** on all plans, via native payment integrations such as Razorpay and WhatsApp Pay. You can also use a bot flow to collect payment preferences and send payment links.
+</Accordion>
+
+<Accordion title="How do I update product prices or availability?">
+Products are managed in your **Facebook Product Catalog** (Commerce Manager), not in Gallabox. Update prices, descriptions, images, and inventory in Commerce Manager — the changes sync to Gallabox automatically. If you're using a partner platform (Shopify, WooCommerce), product sync is automatic. If manually adding products, update them directly in Commerce Manager.
+</Accordion>
+
+<Accordion title="Can I show different products to different customers?">
+Yes — via a bot flow. You can configure conditional logic that shares different catalog products based on customer tags, segments, or conversation context. For example: show winter collection products to customers tagged "cold-weather region" and summer collection to others.
+</Accordion>
+
+<Accordion title="What catalog types are supported?">
+Meta Commerce Manager supports: E-commerce (physical products), Travel (hotels, flights, rentals), Property (real estate), and Auto (vehicles). Gallabox supports displaying all catalog types in WhatsApp, but the most common use case is E-commerce.
+</Accordion>
+</AccordionGroup>

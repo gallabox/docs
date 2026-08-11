@@ -1,0 +1,65 @@
+---
+title: "Stripe"
+description: "Streamline payment processing with Stripe integration on Gallabox. Connect accounts, adjust settings, and optimize payment workflows for increased efficiency."
+sidebarTitle: "Overview"
+---
+
+## Overview
+
+This guide outlines the steps to integrate Stripe into Gallabox, allowing for streamlined payment processing. It will walk you through linking your Gallabox accounts with Stripe, adjusting your settings, and refining your payment workflows to enhance efficiency.
+
+## Stripe Integration
+
+1. Go to **Integrations** in the left navigation on your Gallabox account and Select **Stripe** Integration from the available applications. 
+
+<Frame>
+  <video src="/images/gallabox-stripe-integration.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+2. Click on **Connect** and assign the name to this integration and click on **Submit.** It will ask you to Authorize Gallabox.
+
+<Frame>
+  <video src="/images/stripe-connection.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+3. Select the Channel name (_**WhatsApp Number you would like to connect with Stripe**_) for which you would like to integrate Stripe. 
+
+<Frame>
+  <video src="/images/channel-selection-for-stripe.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+4. To get the Stripe API Key, you have to go to your Stripe Dashboard. Click on Developers and scroll down to Restricted keys, select "**+Create Restricted Key**", and click on "_Build your own integration_" to create one. 
+
+<Frame>
+  <video src="/images/stripe-key.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+5. Provide the permissions for the Restricted Key listed below:
+
+<table><thead><tr><th width="369">Resource</th><th>Permission</th></tr></thead><tbody><tr><td>Customers</td><td>Read</td></tr><tr><td>PaymentIntents</td><td>Read</td></tr><tr><td>Prices</td><td>Read</td></tr><tr><td>Invoices</td><td>Read</td></tr><tr><td>Webhook Endpoints</td><td>Write</td></tr></tbody></table>
+
+After providing the permissions, select "Create Key" button at the bottom. Provide your Stripe account password for confirmation if prompted.
+
+<Frame>
+  <video src="/images/restricted-key-stripe.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+<Info>
+
+Make sure you have 2FA enabled for your account. If not, the key will not be created.
+
+</Info>
+
+6. When the Key is created, click on Reveal test Key and select the key to copy. 
+
+<Frame>
+  <video src="/images/copy-the-key.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+7. Go to your Gallabox dashboard, and paste the key in the Stripe API Key placeholder and update configuration. 
+
+<Frame>
+  <video src="/images/stripe-update-configuration.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Your Integration is successful when you have been directed to Workflows for Stripe.

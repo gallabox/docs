@@ -1,0 +1,121 @@
+---
+title: "AI Reply"
+description: "Generate a WhatsApp or Instagram reply from the Inbox composer for a human agent to review and send."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with **AI Reply enabled** on their account.
+> * Roles: Owners and Admins (and roles with AI agent permissions) can enable/disable AI Reply; Agent role uses AI Reply in the compose box.
+
+<Info>
+
+AI Reply is different from Chat AI Agents. Chat AI Agents handle conversations autonomously — AI Reply assists human agents by drafting replies on demand. The human is always in control. AI Reply is available for WhatsApp and Instagram conversations, not Web Chat, and consumes AI credits.
+
+</Info>
+
+## Plan Availability
+
+| Feature      | Basic | Essential | Advanced |
+| ------------ | :---: | :-------: | :------: |
+| AI Reply     |   —   |     ✓     |     ✓    |
+| AI Rewrite   |   —   |     ✓     |     ✓    |
+| AI Translate |   —   |     ✓     |     ✓    |
+
+## What is AI Reply?
+
+AI Reply is an AI-powered compose assist feature that drafts replies for human agents on demand. Instead of composing every reply from scratch, the agent clicks **Generate AI Reply** in the compose box to get an AI-drafted reply based on the conversation — and can send it as-is or edit it before sending.
+
+AI Reply helps your team respond faster without replacing human judgment. The agent always has the final say — they can accept the suggestion, edit it, or ignore it entirely.
+
+## How AI Reply Differs from Chat AI Agents
+
+| Feature                      |               AI Reply              |                     Chat AI Agent                    |
+| ---------------------------- | :---------------------------------: | :--------------------------------------------------: |
+| Who handles the conversation |             Human agent             |                    AI (autonomous)                   |
+| When it activates            | When human clicks Generate AI Reply |             When conversation is assigned            |
+| Human control                |  Full — human accepts/edits/rejects | Autonomous until it escalates to a human via handoff |
+| Escalation                   |    Human decides when to escalate   |    Escalates via human handoff (@assignTo action)    |
+| Knowledge Base               |            Required (1–2)           |                       Optional                       |
+| Session management           |            Human manages            |             Agent manages (TTL, timeout)             |
+
+**Use AI Reply when:** You want to assist human agents without fully automating conversations. Good for teams that want AI to speed up replies but want to keep a human in the loop.
+
+**Use Chat AI Agents when:** You want to handle conversations fully autonomously — especially for high-volume, repetitive queries where human involvement isn't needed.
+
+## How to Enable AI Reply
+
+AI Reply is enabled directly from the **reply box in Inbox** — there's no separate settings page.
+
+1. Open a conversation in Gallabox **Inbox**.
+2. First-time users see an onboarding popover in the reply box introducing AI Reply.
+3. Click **Enable AI Reply**.
+
+<Info>
+
+Enabling AI Reply requires channel-edit (admin) permission. If you don't have it, you'll be asked to contact your account admin to enable it.
+
+</Info>
+
+## How to Use AI Reply
+
+AI Reply is click-to-generate — you trigger it when you want a draft in a WhatsApp or Instagram conversation:
+
+1. Open a conversation in Gallabox **Inbox**.
+2. Click **Generate AI Reply** in the compose box.
+3. AI Reply drafts a reply based on the conversation context.
+4. Edit the draft if needed — or dismiss it and type your own reply.
+5. Send your reply (edited or as-is) by clicking **Send**.
+
+<Check>
+
+**Pro tip:** AI Reply requires one or two connected Knowledge Bases. The more specific they are, the more accurate the suggestions. If suggestions are too generic, add more domain-specific documents.
+
+</Check>
+
+## Example
+
+**Scenario:** You run a customer support team of 5 agents. They're handling 200 conversations a day and spending too much time typing the same responses to common questions. You want to speed up replies without fully automating conversations.
+
+Here's how you'd set it up:
+
+1. Enable AI Reply from the reply box in **Inbox** (you'll need channel-edit permission).
+2. Connect one or two Knowledge Bases with your support FAQ documents, return policy, and common troubleshooting guides.
+3. Tell your team: "Click **Generate AI Reply** when a draft would save you time — send it if it's accurate, edit it if it needs changes. If the draft is completely wrong, dismiss it and type your own reply."
+4. Monitor AI credit usage on the [AI Wallet](/pricing-and-billing/ai-wallet) screen to keep an eye on how much AI Reply is consuming.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="AI Reply is not showing suggestions — why?">
+Check these in order:
+
+1. Is AI Reply enabled? It's enabled from the reply box in **Inbox** — if you don't have channel-edit permission, ask your account admin to enable it.
+2. Are one or two Knowledge Bases connected? AI Reply requires them before it can generate suggestions.
+3. Is the conversation long enough? AI Reply needs context to generate suggestions. A one-message conversation may not have enough context.
+4. Does your plan include AI Reply? AI Reply requires the Essential or Advanced plan. If credits are exhausted, AI Reply will stop generating suggestions until credits are topped up.
+</Accordion>
+
+<Accordion title="How many Knowledge Bases does AI Reply need?">
+AI Reply requires one or two connected Knowledge Bases. It does not generate suggestions from conversation context alone.
+</Accordion>
+
+<Accordion title="Can agents override or ignore AI Reply suggestions?">
+Yes. Agents are always in full control. They can dismiss any suggestion and type their own reply. Accepting a suggestion is never mandatory. If an agent finds suggestions unhelpful, they can dismiss them and type their own reply.
+</Accordion>
+
+<Accordion title="Does AI Reply consume AI credits?">
+Yes. Each AI Reply suggestion consumes a small number of AI credits. The exact amount depends on the length of the suggestion and the model used. You can monitor credit usage in [AI Wallet](/pricing-and-billing/ai-wallet).
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Inbox](/conversations/overview) — Find the conversation workspace where AI Reply is used.
+* [Optimize Inbox](/conversations/optimize-inbox) — Use other tools available while composing a reply.
+* [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — Manage the sources connected to AI Reply.
+
+## Next Steps
+
+* Open a WhatsApp or Instagram conversation in Inbox and generate a draft.
+* Review AI credit consumption in [AI Wallet](/pricing-and-billing/ai-wallet).

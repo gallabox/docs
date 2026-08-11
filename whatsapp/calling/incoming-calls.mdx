@@ -1,0 +1,174 @@
+---
+title: "Incoming Calls"
+---
+
+Incoming calls (also called **User Initiated Calls**) are when a customer calls your business on WhatsApp. **Human Agent** incoming calls are free for both sides. **Voice AI Agent** incoming calls are charged and use AI credits.
+
+Every incoming call can be picked up in one of two ways:
+
+* **A Human Agent** — the call is routed to a User or team on your side, and a real person talks to the customer.
+* **A Voice AI Agent** (Alpha Stage) — an AI answers the call automatically, 24/7.
+
+You choose one handler per WhatsApp number — a single incoming call is handled **either** by a human **or** by a Voice AI Agent, never both at once.
+
+<Frame>
+  <img src="/images/image.png" alt="" />
+</Frame>
+
+This guide focuses on **incoming calls handled by a Human Agent**. For a quick look at the Voice AI option, see Handled by a Voice AI Agent near the end.
+
+---
+
+### How a Human Incoming Call Works <a href="#b74cad3b-e63b-48e3-b3ec-489646807b26" id="b74cad3b-e63b-48e3-b3ec-489646807b26"></a>
+
+When calling is enabled on your WhatsApp number and **Human Agent** is set as the handler, customers see a call button in your business chat. When they call:
+
+* The call rings to your team or a specific agent, based on your **Call Assignment Rules**.
+* The agent sees who's calling, with actions to **Accept**, **Decline**, or **Jump to Conversation** (which opens the caller's chat).
+* If no one is available, your configured **Busy Message** is sent automatically.
+* Every call appears in the conversation as a call record, and in your call logs — so your team always has context to follow up.
+
+<Frame>
+  <video src="/images/incoming-call-gifs.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+---
+
+### Setting Up Incoming Calls <a href="#id-4bb96be4-e48b-4fe5-928a-4edeba282fc3" id="id-4bb96be4-e48b-4fe5-928a-4edeba282fc3"></a>
+
+1. Go to **WhatsApp → Calling** in Gallabox.
+2. Switch on **Enable WhatsApp Calling**.
+3. Under **Who handles incoming calls**, select **Human Agent**.
+4. Configure your **Call Assignment Rules** (below).
+5. Write your **Busy Message**.
+6. **Save Changes.**
+
+---
+
+### Call Assignment Rules <a href="#id-477fdbb4-9568-49ec-9829-53cee478afea" id="id-477fdbb4-9568-49ec-9829-53cee478afea"></a>
+
+Call Assignment Rules decide which agent an incoming call rings — for calls where the conversation isn't already owned by a human agent.
+
+**Assignment depends on the conversation's current state:**
+
+* **Already with a human agent or team** → the call is routed directly to them, and your assignment rule is _not_ applied.
+* **A new conversation, or one currently handled by a bot or AI agent** → your Call Assignment Rule applies.
+
+**Your Call Assignment Rule can route to either:**
+
+* **A specific User** — those calls always ring the same person.
+* **A Team** — the call rings one available agent in the team, chosen by **round robin** (rotation). Only one agent is rung at a time, never the whole team at once.
+
+**Who's eligible to be rung** (for team round robin): an agent must be set to **Active** _and_ **not already on another call**. Agents who are **Away** are skipped.
+
+The conversation moves to an agent **only when the call is answered** — an unanswered call never reassigns a bot or unassigned conversation.
+
+<Frame>
+  <video src="/images/call-assignments-gif.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+---
+
+### Agent Availability <a href="#b6a247ca-927c-445c-82fe-9fef3f1fcd05" id="b6a247ca-927c-445c-82fe-9fef3f1fcd05"></a>
+
+| Agent state               | Can receive a call?                                    |
+| ------------------------- | ------------------------------------------------------ |
+| Active, not on a call     | Yes                                                    |
+| Active, already on a call | Yes — but only as a lighter "second call" notification |
+| Away                      | No                                                     |
+
+* **If everyone in the team is busy (all on calls):** one agent from the team still gets a lighter "second call" notification.
+
+<Frame>
+  <video src="/images/second-call-notification.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+* **If everyone in the team is Away:** the call goes unanswered and your Busy Message is sent.
+
+---
+
+### On the Call <a href="#c87bdb13-06ec-4cff-a1f5-4e202b4f9075" id="c87bdb13-06ec-4cff-a1f5-4e202b4f9075"></a>
+
+When a call comes in, a floating call card appears for the agent. From it, the agent can:
+
+* **Accept** the call to start talking, **Decline** to reject it, or **Jump to Conversation** to open the caller's chat alongside the call.
+* **Silence the ring** for an incoming call without rejecting it.
+
+<Frame>
+  <video src="/images/attending-an-call-gif.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Once the call connects, the agent can:
+
+* **Mute / unmute** their microphone.
+* **Open the conversation** to see chat history and notes while talking.
+* **Hang up** to end the call. A call timer shows the live duration.
+
+<Frame>
+  <video src="/images/ongoing-call.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+**Connection warnings:** if the agent's internet drops or weakens during a call, the card shows a gentle warning (for example, _weak connection — voice may be delayed_, or _you are offline — call may drop_) so they know the audio may be affected.
+
+**Second (waiting) calls** — when a new call arrives while an agent is already on a call:
+
+* It appears as a **second call**, marked **Waiting**.
+* To answer it, the agent must **end the current call first** — the Accept button stays disabled until then.
+* Declining or ignoring it marks the call missed and sends the Busy Message.
+
+<Frame>
+  <video src="/images/second-call-gif.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+---
+
+### When a Call Isn't Answered <a href="#bdcf7cc7-7353-46c7-b7ca-e21a30a2e562" id="bdcf7cc7-7353-46c7-b7ca-e21a30a2e562"></a>
+
+A call is treated as **missed** when no one answers within the pickup window (set by WhatsApp) or when an agent declines it. In either case:
+
+* Your **Busy Message** is sent to the customer.
+* The conversation stays in its original state (a bot conversation reverts to the bot; an unassigned one stays unassigned; a brand-new caller goes to unassigned).
+* The call is logged so your team can follow up.
+
+---
+
+### The Busy Message <a href="#id-8d014458-a879-4515-a6e6-16e448100254" id="id-8d014458-a879-4515-a6e6-16e448100254"></a>
+
+This is the message sent automatically whenever a call can't be answered — when every eligible agent is busy or Away, or when a call is missed or declined. It comes with a default message that you can edit anytime in your Calling settings.
+
+> The Busy Message applies to **Human Agent** calling only. Voice AI Agents answer automatically, so they don't use a Busy Message.
+
+---
+
+### Handled by a Voice AI Agent (Overview) <a href="#id-2fabfc4a-c6b7-4f6d-be9f-84b30fa6c718" id="id-2fabfc4a-c6b7-4f6d-be9f-84b30fa6c718"></a>
+
+Instead of routing calls to your team, you can let a **Voice AI Agent** answer incoming calls automatically — around the clock, with no one needing to pick up. Incoming calls handled by a Voice AI Agent are charged and use AI credits. This feature is currently in **Alpha**. If you want to explore it, [contact our product team](https://calendly.com/balakrishnanr/gallabox-ai-calling-discovery-call?month=2026-06).
+
+A few things that work differently from Human calling:
+
+* **The AI answers every call**, so there's no ringing to agents, no "busy" state, and no Busy Message.
+* **After the AI call ends**, the conversation is handed off to your team using **Post Call Assignment Rules** — you decide whether it lands with a specific User, a Team, the contact's owner, or the agent who previously handled that conversation.
+* **You build the Voice AI Agent** in **AI Agents & Bots**, then select it on the Calling page when you choose _Voice AI Agent_ as the handler.
+
+Remember, a WhatsApp number uses **one** handler at a time — switching to a Voice AI Agent means incoming calls are answered by the AI rather than your team.
+
+---
+
+### Quick Reference <a href="#id-0a583560-bb59-4391-b3d3-619392fc949d" id="id-0a583560-bb59-4391-b3d3-619392fc949d"></a>
+
+| What it is             | Customers calling your business on WhatsApp (User Initiated)                              |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| Cost                   | Human incoming calls are free. Voice AI incoming calls are charged and use AI credits.    |
+| Who can handle it      | A Human Agent (your team) or a Voice AI Agent (automated, 24/7 — Alpha)                   |
+| Routing (Human)        | By Call Assignment Rules — to a specific User or a Team (round robin)                     |
+| Eligible agent (team)  | Active **and** not already on another call; Away agents skipped                           |
+| Rules don't apply when | The conversation is already owned by a human agent or team (call goes straight to them)   |
+| Agent actions          | Accept, Decline, Jump to Conversation, Silence ring; Mute & Hang up once connected        |
+| Second call            | Shows as "Waiting"; end the current call before answering                                 |
+| If unanswered          | Busy Message sent; conversation stays in its original state; call is logged               |
+| Busy Message           | Human calling only; default text, editable in settings                                    |
+| Voice AI difference    | AI answers automatically; no Busy Message; uses Post Call Assignment Rules after the call |
+
+---
+
+_Incoming calling behavior depends on Meta's WhatsApp Business Calling rules, which may change._

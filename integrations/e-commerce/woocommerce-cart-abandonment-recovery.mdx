@@ -1,0 +1,90 @@
+---
+title: "WooCommerce Cart Abandonment Recovery"
+description: "Don't miss out on potential sales! Easily recover abandoned carts with the WooCommerce Cart Abandonment Recovery plugin. Connect Cart Flow from your Gallabox Account today!"
+---
+
+<Danger>
+
+This integration is deprecated. Please note that any existing workflows relying on the old integration may experience disruptions.
+
+</Danger>
+
+### Access Cart Flow from your Gallabox Account <a href="#access-cart-flow-from-your-gallabox-account" id="access-cart-flow-from-your-gallabox-account"></a>
+
+1. 1.From the left navigation go to **Integration** and Click on **Cartflow** from the available apps.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2FYZL5LkepFbhkQPd4NcEY%2FGallabox%20Integration%20-Cart%20Flow.gif?alt=media&token=097b4f4f-4f8b-4e56-b11f-80394448c554" alt=""  />
+</Frame>
+
+2. Click on **Connect** and enter your brand name, choose the connection, and enter your shop URL for the integration and click on **Submit**. A **webhook URL** will be generated which you have to enter in your [WordPress account.](/integrations/e-commerce/woocommerce-cart-abandonment-recovery#adding-webhook-url-in-your-woocommerce)
+
+<Info>
+
+If you already have a connection that you have created for WooCommerce, you can use that existing connection.
+
+</Info>
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2F8tLKN82PT6PVDlsbk61L%2FCreate%20Connection%20-%20Cartflow.gif?alt=media&token=687f59c5-429e-4f70-9a26-82e51babf059" alt=""  />
+</Frame>
+
+3. Once it is done, it will redirect you to Configuration and you will have to select the channel and click on update configuration.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2F55j2pr3nm9DqzAVt3793%2FSelect%20the%20Channel.gif?alt=media&token=6d8aff96-92d9-4b38-b95a-9a2300554a42" alt=""  />
+</Frame>
+
+### Adding Webhook URL in your WooCommerce <a href="#adding-webhook-url-in-your-woocommerce" id="adding-webhook-url-in-your-woocommerce"></a>
+
+1. In your WordPress Account, from the left navigation bar select **Plugins** and click on **Add New**.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2FSWDT4Z9v9SmQYNftFdBy%2FWooCommerce1.1.png?alt=media&token=80028c8b-f42e-48e1-baf2-53aceb29e8d2" alt=""  />
+</Frame>
+
+2. Now in the search bar, search for **Cart Abandonment Recovery** and Install the plug-in as highlighted in the screenshot.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2FJU6CYMIy7XoSrDhXJ4al%2FWooCommerce1.2.png?alt=media&token=7fe6a8ce-c12c-4c45-8943-7139db81e778" alt=""  />
+</Frame>
+
+3. Once it is installed, go to WooCommerce and click on Cart Abandonment as shown in the screenshot below.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2FhtCFQh2wofYcqoHdTduz%2FWooCommerce1.3.png?alt=media&token=42904946-3024-4c0e-b585-d8a2137176f9" alt=""  />
+</Frame>
+
+Go to settings under Cart Abandonment and start adding the details.
+
+4. To enable tracking, check the box for Start capturing abandonment carts. Add the time as per your research for the cart abandoned [cut-off time](#user-content-fn-1)[^1].
+
+If you want to disable tracking for someone, you can check the box for that. Disable tracking for other other status apart from Pending payment, On hold, and Failed as shown in the screenshot below.
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2Fw1D8qu0UQdF0rm6Ds3zR%2FWooCommerce1.4.png?alt=media&token=07295f28-21a5-4775-8d8e-29f059cf8de7" alt=""  />
+</Frame>
+
+5. For the Webhook Settings copy the Webhook URL generated in your Gallabox Account and paste it in the Webhook URL field.
+
+<Info>
+
+The webhook generated in your Gallabox account will look like this:
+
+\[<mark style="color:blue;">`https://server.gallabox.com/accounts/6449104a0a74778d292f255a/integrations/woocommerce-cartflow/65042f036eded7cbe9782159`</mark>]
+
+</Info>
+
+<Frame>
+  <img src="https://2022268617-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZcl3T6ePz95GpzjAeOLW%2Fuploads%2FA3NrBMH2uf7pt5M7drCf%2FWebhook-wC.png?alt=media&token=632ea862-309d-4cf8-8bd7-0da83b4d59c4" alt=""  />
+</Frame>
+
+<Warning>
+
+The working of webhook doesn't depend on the status of **Trigger Sample**. Even if you get "Trigger Failed" as a status, your webhook will work after Saving.
+
+</Warning>
+
+6. Once you are done adding the fields for the plugin, click on Save Changes for this plugin to get into action.
+
+[^1]: This is the cut-off time after which the plugin marks the order as abandoned. The time is in minutes.
