@@ -7,7 +7,10 @@
     "light": "#60A5FA",
     "dark": "#1D4ED8"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/gallabox-icon-logo.svg",
+    "dark": "/images/gallabox-icon-logo.svg"
+  },
   "navigation": {
     "groups": [
       {
@@ -384,8 +387,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/gallabox-logo.svg",
+    "dark": "/images/gallabox-logo.svg"
   },
   "navbar": {
     "links": [
