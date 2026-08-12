@@ -384,19 +384,34 @@
         ],
         "icon": "shield-halved"
       }
-    ]
+    ],
+    "global": {
+      "tabs": [
+        {
+          "tab": "Login",
+          "href": "https://app.gallabox.com"
+        }
+      ],
+      "anchors": [
+        {
+          "anchor": "API Docs",
+          "icon": "rectangle-api",
+          "href": "https://api-docs.gallabox.com"
+        },
+        {
+          "anchor": "Status Page",
+          "icon": "grid",
+          "href": "https://status.gallabox.com"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/images/gallabox-logo.svg",
     "dark": "/images/gallabox-logo.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@gallabox.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Go to Gallabox",
