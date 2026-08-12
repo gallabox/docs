@@ -83,7 +83,8 @@
               "ai-agents-and-bots/chat-ai-agent/agent-actions",
               "ai-agents-and-bots/chat-ai-agent/ai-agent-analytics",
               "ai-agents-and-bots/chat-ai-agent/channel-behaviour",
-              "ai-agents-and-bots/chat-ai-agent/faqs"
+              "ai-agents-and-bots/chat-ai-agent/faqs",
+              "ai-agents-and-bots/chat-ai-agent/migrating-from-v1-agents-to-v2"
             ]
           }
         ],
