@@ -415,8 +415,6 @@
               "pricing-new/untitled-page",
               "pricing-new/untitled-page-2",
               "pricing-new/untitled-page-4",
-              "pricing-new/untitled-page-5",
-              "pricing-new/untitled-page-8",
               "pricing-new/untitled-page-3"
             ]
           }
@@ -429,8 +427,8 @@
             "group": "How-to Guides",
             "icon": "book-open",
             "pages": [
-              "guide/how-whatsapp-message-pricing-works",
-              "guide/reduce-whatsapp-message-costs"
+              "guide/reduce-whatsapp-message-costs",
+              "guide/ad-engagement-window"
             ]
           }
         ]
