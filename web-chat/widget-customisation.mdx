@@ -1,6 +1,6 @@
 ---
 title: "Widget Customisation"
-description: "Available on all Gallabox plans."
+description: "Available on all Gallabox plans — Auto-open language switching requires Essential or Advanced."
 ---
 
 > **Who can use this?**
@@ -16,11 +16,14 @@ The Web Chat widget is configured inside your Chat AI Agent's settings, not in a
 
 ## Plan Availability
 
-Available on all Gallabox plans.
+| Feature | Basic | Essential | Advanced |
+| --- | :-: | :-: | :-: |
+| Colours, position, logo, CTA, ice-breakers, auto-open, contact capture | ✓ | ✓ | ✓ |
+| Multi-language widget (English + Arabic) | — | ✓ | ✓ |
 
 ## What is Widget Customisation?
 
-The Web Chat widget is the chat window that appears on your website when visitors want to talk to you. You can customise how it looks and behaves — colours, logo, position, welcome message, away message, and branding — so it matches your brand and gives visitors the right impression.
+The Web Chat widget is the chat window that appears on your website when visitors want to talk to you. You can customise how it looks and behaves — colours, logo, position, CTA button, ice-breakers, auto-open, and contact capture — so it matches your brand and gives visitors the right impression.
 
 ## How to Customise the Widget
 
@@ -58,31 +61,38 @@ Copy the widget embed code and add it to your website.
 
 ### Widget Colours
 
-| Setting                | What it does                                                 |
-| ---------------------- | ------------------------------------------------------------ |
-| **Primary colour**     | The main colour of the widget — header, buttons, and accents |
-| **Secondary colour**   | Background colour of chat bubbles from the agent             |
-| **User bubble colour** | Background colour of bubbles from the visitor                |
-| **Text colour**        | Colour of text in the widget                                 |
+| Setting | What it does |
+| --- | --- |
+| **Primary colour** | The main colour of the widget — header, buttons, and accents |
+| **Secondary colour** | Background colour of chat bubbles from the agent |
+| **User bubble colour** | Background colour of bubbles from the visitor |
+| **Text colour** | Colour of text in the widget |
 
 ### Widget Position
 
 Choose where the widget appears on your website:
 
-| Position         | Description                                        |
-| ---------------- | -------------------------------------------------- |
-| **Bottom right** | Default — widget floats in the bottom-right corner |
-| **Bottom left**  | Widget floats in the bottom-left corner            |
-| **Top right**    | Widget appears in the top-right corner             |
-| **Top left**     | Widget appears in the top-left corner              |
+| Position | Description |
+| --- | --- |
+| **Right** | Default — widget floats in the bottom-right corner |
+| **Left** | Widget floats in the bottom-left corner |
+| **Center** | Widget is centered on the page |
+
+<Info>
+There's no separate top-corner placement — the widget always anchors to the bottom of the page in Left, Center, or Right position.
+</Info>
 
 ### CTA Button
 
-The CTA button is what visitors click to open the chat window. You can customise:
+Gallabox supports **one** CTA button per widget. You can customise:
 
 * **Button text** — e.g., "Chat with us", "Need help?", "Get a quote"
-* **Button icon** — chat bubble icon (default) or custom icon
-* **Always visible** — toggle to keep the button visible at all times vs. only when the agent is active
+* **Redirect URL** — the page the button links to when clicked
+* **Button colour** — falls back to your brand colour if left blank
+
+<Info>
+The CTA button always links to a URL — it's a separate feature from WhatsApp handoff. If you want a button that redirects visitors to WhatsApp, configure that under **Handoff Configuration** (see [Website Analytics — Handoff to WhatsApp](/web-chat/website-analytics#handoff-to-whatsapp)), not the CTA button.
+</Info>
 
 ### Welcome Message
 
@@ -94,31 +104,46 @@ The welcome message is shown automatically when a visitor opens the widget. Writ
 
 **Example:** _"Hi there! I'm your virtual assistant. I can help you find the right product, answer pricing questions, or connect you with our team. What can I help you with today?"_
 
-### Away Message
+### Auto-open
 
-The away message is shown when your team is offline or the agent is not available. Configure:
+Auto-open lets the widget open on its own after a visitor has been on the page for a set number of seconds — inviting them to start a conversation instead of waiting for them to click the launcher button.
 
-* **Away message text** — what the visitor sees when no agent is available
-* **Show away message** — toggle on/off
+| Setting | What it does |
+| --- | --- |
+| **Auto-open** | Toggle on/off |
+| **Open after** | Delay in seconds before the widget opens (1–300) |
 
-**Example:** _"We're currently offline. Leave a message and we'll get back to you within 24 hours, or connect with us on WhatsApp for immediate help."_
+The visitor still has to send the first message themselves — auto-open only opens the chat window, it doesn't send anything on your behalf.
+
+### Contact Capture
+
+Contact Capture controls when (and whether) a visitor is asked for their details during the conversation.
+
+| Setting | What it does |
+| --- | --- |
+| **Enable Contact Capture** | Turns the capture prompt on or off |
+| **Ask after** | Immediately, or after 1, 2, or 3 replies from the visitor |
+| **Forced Capture** | If on, the visitor must provide their details to continue chatting. If off, they can dismiss the prompt and keep chatting anonymously |
 
 ### Branding
 
-| Setting          | What it does                                                 |
-| ---------------- | ------------------------------------------------------------ |
-| **Company logo** | Upload your logo — appears in the widget header              |
-| **Custom CSS**   | Add custom CSS to further style the widget (Advanced option) |
+| Setting | What it does |
+| --- | --- |
+| **Company logo** | Upload your logo — appears in the widget header |
+
+### Multi-language Widget (Essential/Advanced)
+
+On Essential and Advanced plans, you can add an **Arabic** translation alongside the default English widget copy — welcome message, ice-breaker titles, and CTA label can each have an Arabic version, and Arabic renders right-to-left automatically. On Basic, the language controls are shown locked with an upgrade prompt.
 
 <Check>
 
-**Pro tip:** Use the away message to redirect visitors to WhatsApp. Include a WhatsApp link in the away message text so visitors who need immediate help can reach you on WhatsApp — where you can send broadcasts and use all of Gallabox's commerce features.
+**Pro tip:** If your welcome message links to WhatsApp for urgent help, consider enabling Handoff Configuration instead of hardcoding a WhatsApp link in the text — that way it's tracked as a proper handoff and shows up in your Website Analytics dashboard.
 
 </Check>
 
 ## Example
 
-**Scenario:** You run a SaaS company and want the widget to match your brand colours (navy blue and white), show your company logo, and greet visitors with a message that sets expectations about response time.
+**Scenario:** You run a SaaS company and want the widget to match your brand colours (navy blue and white), show your company logo, and auto-open after visitors have been browsing for a while.
 
 Here's how you'd set it up:
 
@@ -126,9 +151,9 @@ Here's how you'd set it up:
 2. Set **Primary colour** to `#1a2b4a` (navy blue) and **Secondary colour** to `#f0f4f8` (light blue-grey).
 3. Set **User bubble colour** to `#1a2b4a` and **Text colour** to `#ffffff` (white).
 4. Upload your company logo in **Company logo**.
-5. Set **CTA button text** to _"Chat with us — we reply in minutes"_.
+5. Set **CTA button text** to _"Chat with us — we reply in minutes"_ with a redirect URL to your pricing page.
 6. Set **Welcome message** to _"Hi! I'm your Gallabox assistant. I can help you compare plans, answer pricing questions, and get you set up. What would you like to know?"_
-7. Set **Away message** to _"We're away right now. For immediate help, reach us on WhatsApp: \[link]"_
+7. Enable **Auto-open** with a 45-second delay.
 8. Save and copy the embed code to your website's `<body>` tag.
 
 ## FAQs
@@ -147,12 +172,22 @@ Check these in order:
 
 1. Is the embed code added correctly before the `</body>` tag?
 2. Is JavaScript enabled on your website?
-3. Does your website's Content Security Policy allow the Gallabox widget domain?
+3. Does your website's Content Security Policy allow `widget.gallabox.com`?
 4. Is the Chat AI Agent active and published?
 5. Try opening the embed URL directly in your browser to verify it's loading.
 </Accordion>
 
-<Accordion title="Can I change the widget position on mobile vs desktop?">
-The widget position setting applies to both desktop and mobile by default. You can use custom CSS to set different positions for mobile screens using `@media` queries in the **Custom CSS** field.
+<Accordion title="Can I add more than one CTA button?">
+No — the widget supports one CTA button. If you need a second call-to-action, consider using ice-breakers instead, or enabling Handoff Configuration for a dedicated WhatsApp path.
+</Accordion>
+
+<Accordion title="Can I add a custom icon to the CTA button?">
+Not currently — the CTA button supports a text label and a colour, but not a custom icon.
 </Accordion>
 </AccordionGroup>
+
+## Related Articles
+
+* [Web Chat Ice-breakers and CTAs](/web-chat/ice-breakers-and-ctas) — Pre-set questions visitors can click
+* [Website Analytics](/web-chat/website-analytics) — Dashboard data and WhatsApp handoff
+* [Web Chat Setup](/web-chat/setup) — Installing the widget on your site

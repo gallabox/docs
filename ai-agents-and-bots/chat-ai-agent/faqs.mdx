@@ -101,14 +101,14 @@ Check your [AI Wallet](/pricing-and-billing/ai-wallet) — if AI credits are exh
 </Step>
 
 <Step title="Check session timeout">
-If the session has timed out, the agent stops responding. WhatsApp and Instagram default to 3 minutes, and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl).
+If the session has timed out, the agent stops responding. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl).
 </Step>
 
 </Steps>
 </Accordion>
 
 <Accordion title="The agent responded once but then stopped">
-The session likely timed out. WhatsApp and Instagram default to 3 minutes, and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl) for full session details.
+The session likely timed out. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl) for full session details.
 </Accordion>
 </AccordionGroup>
 
@@ -155,12 +155,12 @@ Session timeout is a configurable default of 24 hours for WhatsApp/Instagram and
 Configuring the agent to be more concise in its responses
 </Step>
 
-<Step title="Hand off to a human">
-Using @assignTo to hand off to a human before the session would naturally time out
+<Step title="Hand off to a human (WhatsApp/Instagram only)">
+Using @assignTo to hand off to a human before the session would naturally time out. This doesn't apply to Web Chat — see the next step for the Web Chat equivalent.
 </Step>
 
-<Step title="Continue on WhatsApp">
-On Web Chat, enabling the handoff to WhatsApp so visitors can continue on WhatsApp (which resets the session when they reply)
+<Step title="Continue on WhatsApp (Web Chat)">
+On Web Chat, enabling the handoff to WhatsApp so visitors can continue on WhatsApp (which resets the session when they reply) — this is the only way a Web Chat visitor reaches a human, since @assignTo doesn't work on Web Chat.
 </Step>
 
 </Steps>

@@ -21,8 +21,8 @@ Unlike WhatsApp and Instagram (which are Meta platforms), Web Chat is fully cont
 
 * **No 24-hour window restriction** — there's no time-based gating on when you can reply to a visitor (unlike WhatsApp/Instagram)
 * **No Meta Business verification needed** — just add the code and it's live
-* **Built-in visitor presence** — see which visitors are currently online with the widget loaded
-* **Auto-open greeting** — the widget can auto-open after a set time (using the Trigger Widget Timer), but the visitor must still initiate the conversation — Gallabox cannot proactively send outbound messages to visitors
+* **No human agent in the Inbox** — only the Chat AI Agent can talk to a Web Chat visitor. There's no live Inbox view for Web Chat, and no way for a human to take over directly — the only path to a human is a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp)
+* **Auto-open** — the widget can automatically open after the visitor has been on the page for a set number of seconds, but the visitor must still send the first message — Gallabox cannot proactively send outbound messages to visitors
 
 ## Prerequisites
 
@@ -57,9 +57,9 @@ Web Chat is available on all plans, including the free trial. You can set it up 
 | **Away Message**         | Message shown when no agents are online                    | "We're away right now. Leave a message and we'll reply soon." |
 | **Button Text**          | Text on the chat trigger button                            | "Chat with us"                                                |
 | **Theme Color**          | Primary color for the widget                               | `#3264F9`                                                     |
-| **Widget Position**      | Where the widget appears on the page                       | Bottom right                                                  |
-| **Trigger Widget Timer** | Seconds before the widget auto-opens (set to 0 to disable) | 0                                                             |
-| **Allow Anonymous Chat** | Let visitors chat without entering their name/email        | Enabled or Disabled                                           |
+| **Widget Position**      | Left, Center, or Right — where the widget appears on the page | Right                                                       |
+| **Auto-open**            | Toggle on, then set a delay (1–300 seconds) before the widget opens automatically | Off                                    |
+| **Contact Capture**      | Ask for the visitor's details after a set number of replies, optionally required | Ask after 1 reply, not required        |
 | **Logo**                 | Your business logo shown in the chat header                | Upload your logo                                              |
 
 4. Click **Save**.
@@ -106,19 +106,21 @@ Paste the embed snippet into your website's HTML — **right before the closing 
 
 ## Content Security Policy (CSP) — If Your Site Has Strict CSP
 
-If your website has a **Content Security Policy** (CSP) header configured, the Gallabox widget may be blocked. You'll need to add Gallabox's domain to your CSP allowlist.
+If your website has a **Content Security Policy** (CSP) header configured, the Gallabox widget may be blocked. You'll need to add Gallabox's widget domain to your CSP allowlist.
 
 Add these directives to your CSP header:
 
 ```
-script-src https://cdn.gallabox.com;
-frame-src https://cdn.gallabox.com;
-connect-src https://cdn.gallabox.com;
+script-src https://widget.gallabox.com;
+frame-src https://widget.gallabox.com;
+connect-src https://widget.gallabox.com;
 ```
+
+The widget renders inside an iframe as well as loading a script, which is why both `script-src` and `frame-src` are needed.
 
 <Warning>
 
-If you're not sure whether your site has CSP headers, try loading your website after adding the widget. If the chat icon doesn't appear, check your browser's developer console (F12 → Console) for CSP errors. If you see `Refused to load script` errors pointing to `cdn.gallabox.com`, your site has CSP and needs the allowlist above.
+If you're not sure whether your site has CSP headers, try loading your website after adding the widget. If the chat icon doesn't appear, check your browser's developer console (F12 → Console) for CSP errors. If you see `Refused to load script` or `Refused to frame` errors pointing to `widget.gallabox.com`, your site has CSP and needs the allowlist above.
 
 </Warning>
 
@@ -205,8 +207,8 @@ Here's how you'd set it up:
 <AccordionGroup>
 <Accordion title="The widget is not showing on my website — how do I debug?">
 1. **Open your browser's developer console** (F12 → Console tab).
-2. Look for any `Refused to load script` errors — if you see `cdn.gallabox.com` blocked, your site has a CSP that needs to allowlist Gallabox.
-3. Check the **Network** tab for failed requests to `cdn.gallabox.com` — if they're red, the request is being blocked.
+2. Look for any `Refused to load script` or `Refused to frame` errors — if you see `widget.gallabox.com` blocked, your site has a CSP that needs to allowlist it (see the CSP section above).
+3. Check the **Network** tab for failed requests to `widget.gallabox.com` — if they're red, the request is being blocked.
 4. Verify the embed code is complete — try copying it from Gallabox again and re-pasting.
 5. Make sure the Website URL in Gallabox exactly matches the page URL (including `https://` and no trailing slash mismatch).
 6. Clear your browser cache and try an incognito/private window.
@@ -221,7 +223,7 @@ Yes. Your website must be served over **HTTPS** for the Gallabox widget to load.
 </Accordion>
 
 <Accordion title="Can visitors chat without giving their name or email?">
-Yes — enable **Allow Anonymous Chat** in the widget settings. Visitors can chat without entering any contact information. However, you'll only see their messages, not their name or email, until they provide it voluntarily.
+It depends on your **Contact Capture** setting. By default, a visitor is asked for their details after their first reply, but it isn't required — they can dismiss it and keep chatting anonymously. If you turn on **Forced Capture**, the visitor must provide their details before continuing. See [Widget Customisation](/web-chat/widget-customisation#contact-capture).
 </Accordion>
 
 <Accordion title="Can I customize the widget's appearance beyond colors and logo?">
@@ -233,5 +235,5 @@ Yes — go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget
 
 * [Web Chat Widget Customisation](/web-chat/widget-customisation) — Colors, fonts, branding options
 * [Web Chat Ice-breakers and CTAs](/web-chat/ice-breakers-and-ctas) — Pre-set questions and call-to-action buttons
-* [Web Chat Visitor Tracking](/web-chat/visitor-tracking) — How visitor data is captured and used
+* [Website Analytics](/web-chat/website-analytics) — Dashboard data and WhatsApp handoff
 * [Omnichannel Inbox](/conversations/omnichannel-inbox) — Continue a Web Chat conversation through WhatsApp handoff

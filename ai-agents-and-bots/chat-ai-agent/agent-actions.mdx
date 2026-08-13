@@ -15,14 +15,18 @@ System actions are referenced in the agent's Role, Goal, and Instructions fields
 
 ## Plan Availability
 
-| Feature                  | Basic | Essential | Advanced |
-| ------------------------ | :---: | :-------: | :------: |
-| assignTo                 |   ✓   |     ✓     |     ✓    |
-| assignmentRule           |   ✓   |     ✓     |     ✓    |
-| getCurrentDateTime       |   ✓   |     ✓     |     ✓    |
-| codeExecution            |   ✓   |     ✓     |     ✓    |
-| apiCall                  |   —   |     —     |     ✓    |
-| checkInstagramUserFollow |   —   |     ✓     |     ✓    |
+| Feature                  | Basic | Essential | Advanced | Works on |
+| ------------------------ | :---: | :-------: | :------: | --- |
+| assignTo                 |   ✓   |     ✓     |     ✓    | WhatsApp, Instagram — **not Web Chat** |
+| assignmentRule           |   ✓   |     ✓     |     ✓    | WhatsApp, Instagram — **not Web Chat** |
+| getCurrentDateTime       |   ✓   |     ✓     |     ✓    | All channels |
+| codeExecution            |   ✓   |     ✓     |     ✓    | All channels |
+| apiCall                  |   —   |     —     |     ✓    | All channels |
+| checkInstagramUserFollow |   —   |     ✓     |     ✓    | Instagram only |
+
+<Warning>
+assignTo and assignmentRule hand a conversation to a human — but Web Chat has no Inbox for live conversations, so they have nothing to hand off to. For Web Chat, escalate via a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp) instead.
+</Warning>
 
 ## What are System Actions?
 
@@ -38,6 +42,10 @@ There are two kinds:
 ### assignTo
 
 **What it does:** Assigns the conversation to a specific user, team, or bot.
+
+<Warning>
+**Not available for Web Chat.** Assigning a Web Chat session doesn't put it in front of a human — Web Chat has no Inbox for live conversations. Use this action on WhatsApp/Instagram agents only; for Web Chat, configure a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp) instead.
+</Warning>
 
 **How to use it in instructions:**
 
@@ -57,6 +65,10 @@ There are two kinds:
 ### assignmentRule
 
 **What it does:** Routes the conversation to a configured assignee (a user, team, or bot) when the rule's conditions are met.
+
+<Warning>
+**Not available for Web Chat**, for the same reason as `assignTo` — there's no Inbox for a human to be routed a live Web Chat conversation. Use this on WhatsApp/Instagram agents only.
+</Warning>
 
 **How to use it in instructions:**
 
@@ -114,6 +126,8 @@ There are two kinds:
 ---
 
 ### checkInstagramUserFollow
+
+**Instagram only** — not applicable to WhatsApp or Web Chat agents.
 
 **What it does:** Checks whether an Instagram user follows your connected Instagram account.
 
@@ -199,10 +213,11 @@ Save and test in the **Test Widget**.
 <Accordion title="The @assignTo action is not working — what do I check?">
 Check these in order:
 
-1. Is the action name spelled correctly? Use @assignTo (not @assign or @assign\_to).
-2. Is the target (user, team, or bot name) exactly correct? The agent will fail silently if the target name doesn't match.
-3. Is the condition specific enough? If the agent can't determine when to trigger the action, it won't trigger.
-4. Does the agent have access to the assignTo action on your plan? Check the plan availability table above.
+1. Is this agent on **Web Chat**? If so, that's expected — @assignTo doesn't work on Web Chat, since there's no Inbox for a human to pick up a live Web session. Use a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp) instead.
+2. Is the action name spelled correctly? Use @assignTo (not @assign or @assign\_to).
+3. Is the target (user, team, or bot name) exactly correct? The agent will fail silently if the target name doesn't match.
+4. Is the condition specific enough? If the agent can't determine when to trigger the action, it won't trigger.
+5. Does the agent have access to the assignTo action on your plan? Check the plan availability table above.
 </Accordion>
 
 <Accordion title="Can I chain multiple actions together?">

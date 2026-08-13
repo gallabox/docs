@@ -1,0 +1,170 @@
+---
+title: "Website Analytics"
+description: "What the Web Agent's Dashboard shows about your website visitors, and how handoff to WhatsApp works."
+---
+
+> **Who can use this?**
+>
+> - Gallabox users with **Bot Builder access**.
+> - Roles: Owners and Admins.
+> - Plans: Available on all plans — country, device, and traffic-source breakdowns and the full sessions table require **Essential or Advanced**.
+
+<Info>
+  Go to **AI Agents and Bots → \[Your Web Agent\] → Dashboard** to see this data. The Dashboard tab only appears for agents on the **Web** channel, and only after the agent has been published at least once.
+</Info>
+
+## Plan Availability
+
+| Section | Basic | Essential / Advanced |
+| --- | :-: | :-: |
+| Overview cards (Sessions, Contacts captured, CTA clicks, WhatsApp handoffs) | ✅ | ✅ |
+| Sessions trend chart | ✅ | ✅ |
+| Country-wise sessions | 🔒 | ✅ |
+| Device-wise sessions | 🔒 | ✅ |
+| Full sessions table (with filters) | 🔒 | ✅ |
+
+On Basic, locked sections show a preview with sample data and an **Upgrade** button rather than disappearing entirely — so you can see what you'd get before upgrading.
+
+## What's on the Dashboard
+
+### Overview cards
+
+Shown on every plan, for the selected date range:
+
+- **Sessions** — total chats started by visitors on this agent.
+- **Contacts captured** — chats where the visitor shared their details and was captured as a contact.
+- **CTA clicks** — clicks on the widget's call-to-action button.
+- **WhatsApp handoffs** — clicks that redirected the visitor to WhatsApp.
+
+### Sessions trend
+
+A chart of session volume over the selected date range — available on every plan.
+
+### Country-wise sessions
+
+A breakdown of sessions by visitor country. **Essential/Advanced only.**
+
+### Device-wise sessions
+
+A breakdown of sessions by device — **Desktop**, **Mobile**, **Tablet**, or **Other**. **Essential/Advanced only.**
+
+<Tip>
+  If this breakdown shows most of your sessions coming from Mobile, open your live website on a phone and check how the widget actually looks and behaves there — button size, position, and how much of the screen it covers are easy to get wrong on mobile and easy to miss if you only ever check on desktop.
+</Tip>
+
+### Sessions table
+
+A row-level table of individual sessions. **Essential/Advanced only.** Columns:
+
+| Column | What it shows |
+| --- | --- |
+| **Name** | Visitor's name, if captured |
+| **Contact details** | Phone/email, if captured |
+| **Session ID** | Unique identifier for the session |
+| **Contact type** | New contact, Returning Contact, or Anonymous |
+| **Country** | Visitor's country |
+| **Device** | Desktop, Mobile, Tablet, or Other |
+| **Traffic source** | Where the visitor came from (e.g. organic, a UTM source) |
+| **Page source** | The page path the widget was opened from |
+| **Timestamp** | When the session started |
+
+You can filter the table by search term, contact type, traffic source, page source, country, and device — useful for narrowing down to, say, mobile visitors from a specific campaign.
+
+<Info>
+  Gallabox does not track general browsing behavior — only sessions where a visitor actually opened and used the widget. There's no live "who's on my site right now" presence view; the Dashboard is a historical view over your chosen date range.
+</Info>
+
+## Handoff to WhatsApp
+
+Web Chat visitors who need immediate or more detailed support can be handed off to WhatsApp — where you can send broadcasts, use templates, and handle transactions.
+
+<Warning>
+  A human agent cannot take over a live Web Chat session directly — there's no Inbox view for in-progress Web Chat conversations. Handoff to WhatsApp is the **only** way a Web Chat conversation reaches a human agent. See [Omnichannel Inbox](/conversations/omnichannel-inbox) for how WhatsApp and Instagram conversations are handled by humans — Web Chat is not part of that shared inbox until after a handoff.
+</Warning>
+
+### How handoff works
+
+<Steps>
+  <Step title="A visitor chats with your Web Chat agent.">
+  </Step>
+  <Step title="The visitor (or the agent) triggers a handoff to WhatsApp.">
+  </Step>
+  <Step title="The visitor sees a WhatsApp link or button in the Web Chat widget.">
+  </Step>
+  <Step title="Clicking the link opens WhatsApp with a pre-filled message.">
+  </Step>
+  <Step title="The conversation continues on WhatsApp as a normal, human-assignable conversation in the Inbox.">
+  </Step>
+</Steps>
+
+Once the handoff happens, the resulting WhatsApp conversation's contact detail panel shows where it came from:
+
+| Field | What it shows |
+| --- | --- |
+| **Contact Created Source** | "Web Agent" |
+| **Agent Name** | The Web Agent the visitor was chatting with |
+| **Web Conversation** | A link back to view the original Web Chat session logs |
+| **Handoff URL** | The page on your website the visitor was on when they handed off |
+
+### Configuring handoff
+
+<Steps>
+  <Step title="Go to AI Agents and Bots → [Your Agent] → Settings → Web Widget Settings.">
+  </Step>
+  <Step title="Scroll to Handoff Configuration.">
+  </Step>
+  <Step title="Toggle Enable handoff to on.">
+  </Step>
+  <Step title="Select the WhatsApp channel to hand off to.">
+  </Step>
+  <Step title="Choose the Display style:">
+    - **Aggressive header** — a banner appears at the top of the chat asking if the visitor wants to switch to WhatsApp
+    - **Floating pill** — a small WhatsApp icon floats on the screen
+    - **Action button** — a "Chat on WhatsApp" button appears in the conversation
+  </Step>
+  <Step title="Write the Prompt text — the message shown to the visitor before handoff.">
+  </Step>
+  <Step title="Optionally write a Pre-fill message — pre-filled in WhatsApp when the link is clicked.">
+  </Step>
+  <Step title="Click Save.">
+  </Step>
+</Steps>
+
+<Info>
+  Handoff is a separate, independent setting from the widget's CTA button — enabling Handoff does not require or use the CTA button's URL field. See [Ice-breakers and CTAs](/web-chat/ice-breakers-and-ctas) for how the CTA button works on its own.
+</Info>
+
+<Check>
+  **Pro tip:** Use the pre-fill message to give context to your WhatsApp team. Something like: _"Hi! I was just chatting on your website about \[topic\]. Here's what I need help with:"_ — this saves the visitor from repeating themselves and creates a smoother experience.
+</Check>
+
+<Info>
+  Web Chat is **reactive only** — visitors initiate the conversation by opening the chat widget on your website. Gallabox cannot send proactive outbound messages to website visitors outside of an active chat session.
+</Info>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why don't I see the Dashboard tab on my Web Agent?">
+    The Dashboard tab only appears for agents on the **Web** channel, and only once the agent has been published at least once. If you've just created the agent, publish it first.
+  </Accordion>
+
+  <Accordion title="Why are the country and device charts blurred out?">
+    Those sections, along with the full sessions table, require an **Essential** or **Advanced** plan. On Basic, they show sample data behind an upgrade prompt so you can see what's available.
+  </Accordion>
+
+  <Accordion title="Can I see which visitors are on my site right now?">
+    No — Gallabox doesn't have a live "who's online" presence view. The Dashboard shows session history over a date range you choose, not a real-time visitor list.
+  </Accordion>
+
+  <Accordion title="Can a human agent reply to a Web Chat visitor directly, without a WhatsApp handoff?">
+    No. Web Chat has no Inbox presence for live conversations — only the Chat AI Agent responds. If a visitor needs a human, the only path is handing the conversation off to WhatsApp, where a person on your team can then reply from the Inbox.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Web Chat Setup](/web-chat/setup) — installing the widget
+- [Web Chat Widget Customisation](/web-chat/widget-customisation) — widget appearance and behavior settings
+- [Omnichannel Inbox](/conversations/omnichannel-inbox) — how WhatsApp/Instagram conversations are handled by humans
+- [AI Wallet](/pricing-and-billing/ai-wallet) — plan and usage details
