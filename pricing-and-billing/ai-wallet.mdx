@@ -4,56 +4,54 @@ title: "AI Wallet"
 
 > **Who can use this?**
 >
-> * AI Wallet management is available to all plans.
-> * Only the **Account Owner** or users with the **Admin** role can monitor usage and purchase top-ups.
+> - AI Wallet management is available to all plans.
+> - Only the **Account Owner** or users with the **Admin** role can monitor usage and purchase top-ups.
 
 <Info>
-
-The AI Wallet holds your monthly AI credit allocation — credits are consumed when AI-powered features are used. Each plan includes a monthly credit allowance; additional credits can be purchased as top-ups.
-
+  The AI Wallet holds your monthly AI credit allocation — credits are consumed when AI-powered features are used. Each plan includes a monthly credit allowance; additional credits can be purchased as top-ups.
 </Info>
 
 ## Plan Availability & Credit Allocation
 
-| Plan          | Monthly AI Credits | Notes |
-| ------------- | ------------------ | ----- |
-| **Basic**     | 500 credits        |       |
-| **Essential** | 2,000 credits      |       |
-| **Advanced**  | 8,000 credits      |       |
+| Plan | Monthly included AI Credits |
+| --- | --- |
+| **Basic** | 500 credits |
+| **Essential** | 2,000 credits |
+| **Advanced** | 8,000 credits |
 
-> Credit top-ups are available on all plans in increments of 1,000 credits.
+> Credit top-ups are available on all plans in increments of 1,000 credits. They always credit on 30th of the month, irrespective of billing date.
 
 ## What Uses AI Credits?
 
 AI credits are consumed by any feature that calls an AI model (OpenAI GPT-4 or equivalent):
 
-| Feature                                 | Credit cost     | Notes                                          |
-| --------------------------------------- | --------------- | ---------------------------------------------- |
-| **Chat AI Agent** — response generation | Per message     | \~1-5 credits per response depending on length |
-| **AI Reply** (quick reply suggestions)  | Per suggestion  | Consumes AI credits |
-| **AI Rewrite** (improve message copy)   | Per rewrite     | \~1-3 credits per rewrite                      |
-| **AI Translate** (translate messages)   | Per translation | \~1 credit per translation                     |
-| **GPT Dialog node** (bot flows)         | Per AI response | \~2-5 credits per response                     |
-| **GPT Knowledge Base node** (bot flows) | Per lookup      | \~2-4 credits per query                        |
+| Feature | Credit cost | Notes |
+| --- | --- | --- |
+| **Chat AI Agent** — response generation | Per message | ~1-5 credits per response depending on length |
+| **AI Reply** (quick reply suggestions) | Per suggestion | Consumes AI credits |
+| **AI Rewrite** (improve message copy) | Per rewrite | ~1-3 credits per rewrite |
+| **AI Translate** (translate messages) | Per translation | ~1 credit per translation |
+| **GPT Dialog node** (bot flows) | Per AI response | ~2-5 credits per response |
+| **GPT Knowledge Base node** (bot flows) | Per lookup | ~2-4 credits per query |
 
 ### Credit consumption examples
 
 **Chat AI Agent:**
 
-* Customer asks a question → AI responds → \~3 credits consumed
-* 500 credits on Basic = \~165 AI responses/month (at 3 credits/response)
+- Customer asks a question → AI responds → ~3 credits consumed
+- 500 credits on Basic = ~165 AI responses/month (at 3 credits/response)
 
 **Bot flow with GPT Dialog:**
 
-* Flow with GPT Dialog node handles 50 conversations/day
-* Each conversation \~5 AI responses
-* Daily consumption: 50 × 5 × 3 = 750 credits/day
-* Monthly: \~22,500 credits (exceeds Basic and Essential — Advanced recommended)
+- Flow with GPT Dialog node handles 50 conversations/day
+- Each conversation ~5 AI responses
+- Daily consumption: 50 × 5 × 3 = 750 credits/day
+- Monthly: ~22,500 credits (exceeds Basic and Essential — Advanced recommended)
 
 **AI Reply suggestions:**
 
-* Agent sees AI Reply suggestions while chatting
-* Each generated suggestion consumes AI credits
+- Agent sees AI Reply suggestions while chatting
+- Each generated suggestion consumes AI credits
 
 ## Monitoring AI Credit Usage
 
@@ -61,11 +59,11 @@ Go to **Settings → Billing → AI Wallet**
 
 The AI Wallet page shows:
 
-* **Credits remaining** — how many credits you have left this billing cycle
-* **Credits used this month** — total consumed so far
-* **Daily usage chart** — see consumption trends
-* **Usage by feature** — breakdown of which features consumed the most credits
-* **Projection** — estimated date when credits will run out (at current usage rate)
+- **Credits remaining** — how many credits you have left this billing cycle
+- **Credits used this month** — total consumed so far
+- **Daily usage chart** — see consumption trends
+- **Usage by feature** — breakdown of which features consumed the most credits
+- **Projection** — estimated date when credits will run out (at current usage rate)
 
 ### Setting up alerts
 
@@ -78,10 +76,10 @@ The AI Wallet page shows:
 
 When your AI credits reach zero:
 
-* **Chat AI Agent** stops responding with AI — falls back to your configured fallback message (e.g., "Our AI is taking a break — a human agent will respond shortly")
-* **AI Reply** suggestions stop appearing
-* **AI Rewrite** and **AI Translate** stop working
-* **Bot flow AI nodes** (GPT Dialog, GPT Knowledge Base) stop executing — the flow errors at that node
+- **Chat AI Agent** stops responding with AI — falls back to your configured fallback message (e.g., "Our AI is taking a break — a human agent will respond shortly")
+- **AI Reply** suggestions stop appearing
+- **AI Rewrite** and **AI Translate** stop working
+- **Bot flow AI nodes** (GPT Dialog, GPT Knowledge Base) stop executing — the flow errors at that node
 
 **Conversation handling continues** — your bot flows still work for non-AI nodes (Send, Ask, Condition, etc.). Only AI-powered features are affected.
 
@@ -95,7 +93,7 @@ If you need more credits before the end of your billing cycle:
 4. Click **Purchase** — credits are added immediately
 5. The top-up charge appears on your next invoice
 
-**Top-up pricing:** Credits are sold in blocks of 1,000, priced per credit by currency: **₹0.30 (INR)**, **$0.00266 (USD)**, **AED 0.012**.
+**Top-up pricing:** Credits are sold in blocks of 1,000, priced per credit by currency: **₹0.30 (INR)**, **\$0.00266 (USD)**, **AED 0.012**.
 
 **Note:** Purchased top-up credits remain in your wallet and do not reset at the end of a billing cycle.
 
@@ -121,33 +119,33 @@ If you expect a high-volume period (e.g., sale, event, campaign):
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="What happens to unused AI credits at the end of a billing cycle?">
-Your plan's monthly AI credit allocation resets at the start of each billing cycle. Purchased top-up credits do not reset and remain in your wallet.
+  <Accordion title="What happens to unused AI credits at the end of a billing cycle?">
+    Your plan's monthly AI credit allocation resets at the start of each billing cycle. Purchased top-up credits do not reset and remain in your wallet.
 
-**Tip:** If you consistently run out of credits before the end of the month, consider upgrading to a higher plan with more credits, or purchasing a larger top-up.
-</Accordion>
+    **Tip:** If you consistently run out of credits before the end of the month, consider upgrading to a higher plan with more credits, or purchasing a larger top-up.
+  </Accordion>
 
-<Accordion title="Are AI credits shared across my team or per user?">
-AI credits are shared across the entire account — not per user. All team members use the same credit pool. If one person uses many AI features, it reduces the credits available for everyone else.
-</Accordion>
+  <Accordion title="Are AI credits shared across my team or per user?">
+    AI credits are shared across the entire account — not per user. All team members use the same credit pool. If one person uses many AI features, it reduces the credits available for everyone else.
+  </Accordion>
 
-<Accordion title="What's the cost per AI credit?">
-Top-up credits cost **₹0.30 per credit (INR)**, **$0.00266 (USD)**, or **AED 0.012**, purchased in blocks of 1,000 credits. Your plan's monthly allocation (500 / 2,000 / 8,000) is included in the subscription at no extra cost.
-</Accordion>
+  <Accordion title="What's the cost per AI credit?">
+    Top-up credits cost **₹0.30 per credit (INR)**, **\$0.00266 (USD)**, or **AED 0.012**, purchased in blocks of 1,000 credits. Your plan's monthly allocation (500 / 2,000 / 8,000) is included in the subscription at no extra cost.
+  </Accordion>
 
-<Accordion title="Can I disable AI features to save credits?">
-Yes — you can disable specific AI features in their settings:
+  <Accordion title="Can I disable AI features to save credits?">
+    Yes — you can disable specific AI features in their settings:
 
-* **Chat AI Agent:** Settings → Chat AI Agent → toggle off
-* **AI Reply:** Settings → Chat AI Agent → AI Reply → toggle off
-* **AI Rewrite:** Settings → Chat AI Agent → AI Rewrite → toggle off
+    - **Chat AI Agent:** Settings → Chat AI Agent → toggle off
+    - **AI Reply:** Settings → Chat AI Agent → AI Reply → toggle off
+    - **AI Rewrite:** Settings → Chat AI Agent → AI Rewrite → toggle off
 
-Disabling these features stops credit consumption for those features entirely.
-</Accordion>
+    Disabling these features stops credit consumption for those features entirely.
+  </Accordion>
 </AccordionGroup>
 
 ## Related Articles
 
-* [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) — managing your plan and billing
-* [Message Credits Overview](/pricing-and-billing/message-credits) — per-message WhatsApp pricing
-* [Billing FAQs](/pricing-and-billing/faqs) — common billing and AI credit questions
+- [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) — managing your plan and billing
+- [Message Credits Overview](/pricing-and-billing/message-credits) — per-message WhatsApp pricing
+- [Billing FAQs](/pricing-and-billing/faqs) — common billing and AI credit questions

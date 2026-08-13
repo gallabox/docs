@@ -6,17 +6,15 @@ description: "Create a WhatsApp broadcast in Gallabox — name it, pick a channe
 This guide walks through every step of creating and sending a WhatsApp broadcast in Gallabox — from naming the broadcast to scheduling or sending it immediately.
 
 <Warning>
-
-Before sending a large broadcast, confirm that the audience has marketing opt-in, the selected template is approved, and Smart Retry is configured. These checks reduce policy violations and delivery failures.
-
+  Before sending a large broadcast, confirm that the audience has marketing opt-in, the selected template is approved, and Smart Retry is configured. These checks reduce policy violations and delivery failures.
 </Warning>
 
 ## Plan Availability
 
-| Capability             | Basic | Essential | Advanced |
-| ---------------------- | :---: | :-------: | :------: |
-| Send Broadcasts        |   ✓   |     ✓     |     ✓    |
-| Retargeting after send |   —   |     ✓     |     ✓    |
+| Capability | Basic | Essential | Advanced |
+| --- | :-: | :-: | :-: |
+| Send Broadcasts | ✓ | ✓ | ✓ |
+| Retargeting after send | — | ✓ | ✓ |
 
 > **Note:** For monthly broadcast limits per plan, see the [Broadcasts overview](/whatsapp/broadcasts/overview#plan-availability).
 
@@ -24,15 +22,13 @@ Before sending a large broadcast, confirm that the audience has marketing opt-in
 
 Make sure you have the following before beginning:
 
-* **Owner or Admin role in Gallabox (or a role with broadcast management permissions)** — only users with broadcast management permissions can create broadcasts.
-* **At least one approved WhatsApp template** — broadcasts cannot use free-form text. If you don't have an approved template, [create and submit one first](/whatsapp/templates/create-template).
-* **A WhatsApp channel connected** — you'll need at least one active WABA number in Gallabox. Go to **Channels** to confirm.
-* **A prepared audience** — either a saved segment, a tag, or a list of individual contacts. If you are sending a marketing message, your audience must be opted in (see warning below).
+- **Owner or Admin role in Gallabox (or a role with broadcast management permissions)** — only users with broadcast management permissions can create broadcasts.
+- **At least one approved WhatsApp template** — broadcasts cannot use free-form text. If you don't have an approved template, [create and submit one first](/whatsapp/templates/create-template).
+- **A WhatsApp channel connected** — you'll need at least one active WABA number in Gallabox. Go to **Channels** to confirm.
+- **A prepared audience** — either a saved segment, a tag, or a list of individual contacts. If you are sending a marketing message, your audience must be opted in (see warning below).
 
 <Warning>
-
-**Marketing Opt-In is mandatory for marketing templates.** Sending to contacts who have not opted in to marketing messages violates WhatsApp's policies and can get your number quality-rated or restricted. Before sending, filter your audience using the **Marketing Opt-In = Yes** segment filter.
-
+  **Marketing Opt-In is mandatory for marketing templates.** Sending to contacts who have not opted in to marketing messages violates WhatsApp's policies and can get your number quality-rated or restricted. Before sending, filter your audience using the **Marketing Opt-In = Yes** segment filter.
 </Warning>
 
 ---
@@ -60,9 +56,9 @@ The broadcast creation form opens. You'll move through it in a single flow.
 
 Choose who receives this broadcast. You have three options:
 
-* **Saved segment** — select a pre-built contact segment (e.g., "Active Customers", "Hot Leads"). Recommended for recurring campaigns.
-* **Tag** — select all contacts tagged with a specific label.
-* **Individual contacts** — search and select contacts manually. Use this for small or one-off sends only.
+- **Saved segment** — select a pre-built contact segment (e.g., "Active Customers", "Hot Leads"). Recommended for recurring campaigns.
+- **Tag** — select all contacts tagged with a specific label.
+- **Individual contacts** — search and select contacts manually. Use this for small or one-off sends only.
 
 To select a saved segment:
 
@@ -71,9 +67,7 @@ To select a saved segment:
 3. The contact count for that segment appears below the dropdown. Review it before continuing.
 
 <Warning>
-
-**If you are sending a marketing template**, your segment must use the **Marketing Opt-In = Yes** filter. Contacts without opt-in should not receive marketing messages. Go to **Contacts → Segments → Create Segment** and add the Marketing Opt-In filter if your current segment doesn't already include it. See [Contact Segments](/contacts/segments) for help building this filter.
-
+  **If you are sending a marketing template**, your segment must use the **Marketing Opt-In = Yes** filter. Contacts without opt-in should not receive marketing messages. Go to **Contacts → Segments → Create Segment** and add the Marketing Opt-In filter if your current segment doesn't already include it. See [Contact Segments](/contacts/segments) for help building this filter.
 </Warning>
 
 ---
@@ -85,14 +79,12 @@ To select a saved segment:
 3. Click a template to preview it on the right panel.
 4. Once selected, any variable placeholders in the template (e.g., `{{1}}` for a contact's name) appear as editable fields below the template preview.
 5. For each variable, choose one of:
-   * **Contact attribute** — maps the variable to a contact field (e.g., First Name). This personalises each message automatically.
-   * **Static value** — enter a fixed text value used for every recipient.
+   - **Contact attribute** — maps the variable to a contact field (e.g., First Name). This personalises each message automatically.
+   - **Static value** — enter a fixed text value used for every recipient.
 6. Review the preview to confirm the message looks correct before continuing.
 
 <Warning>
-
-You cannot send a broadcast without an approved template. If no templates appear, your templates may still be pending Meta approval or may have been rejected. Go to **Broadcasts → Templates** to check template status.
-
+  You cannot send a broadcast without an approved template. If no templates appear, your templates may still be pending Meta approval or may have been rejected. Go to **Broadcasts → Templates** to check template status.
 </Warning>
 
 ---
@@ -101,8 +93,8 @@ You cannot send a broadcast without an approved template. If no templates appear
 
 Choose when the broadcast goes out:
 
-* **Send Now** — the broadcast starts immediately after you click **Send**.
-* **Schedule** — set a specific date and time. Useful for time-zone targeting, launch events, or coordinating with campaigns.
+- **Send Now** — the broadcast starts immediately after you click **Send**.
+- **Schedule** — set a specific date and time. Useful for time-zone targeting, launch events, or coordinating with campaigns.
 
 To schedule:
 
@@ -118,10 +110,10 @@ Smart Retry is **enabled by default**. It automatically re-attempts delivery for
 
 Two modes are available:
 
-| Mode                | How it works                                                                                                                                                                                       |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Smart (default)** | Gallabox determines the optimal retry schedule automatically, up to a maximum retry date you set (2–8 days from the original send).                                                                |
-| **Manual**          | You specify up to 3 retry times (First, Second, Third), each as an "in N hours" offset of 6–24 hours from the previous attempt. The first retry must be at least 12 hours after the original send. |
+| Mode | How it works |
+| --- | --- |
+| **Smart (default)** | Gallabox determines the optimal retry schedule automatically, up to a maximum retry date you set (2–8 days from the original send). |
+| **Manual** | You specify up to 3 retry times (First, Second, Third), each as an "in N hours" offset of 6–24 hours from the previous attempt. The first retry must be at least 12 hours after the original send. |
 
 To configure retry:
 
@@ -131,9 +123,7 @@ To configure retry:
 4. For **Manual**: set up to 3 retry times (First, Second, Third), each as an "in N hours" offset of 6–24 hours. The first retry must be at least 12 hours later. Retry attempts are capped at 3.
 
 <Warning>
-
-**Do not disable Smart Retry.** If you turn it off, failed messages are never retried — contacts with temporary delivery failures won't receive your message. Smart Retry improves delivery rates meaningfully on large broadcasts without any extra effort on your part.
-
+  **Do not disable Smart Retry.** If you turn it off, failed messages are never retried — contacts with temporary delivery failures won't receive your message. Smart Retry improves delivery rates meaningfully on large broadcasts without any extra effort on your part.
 </Warning>
 
 ---
@@ -152,25 +142,23 @@ Your broadcast is now queued. It appears in the **Broadcasts** list with a **Sen
 
 After sending:
 
-* Go to **Broadcasts** in the left navigation. Your broadcast should appear in the list with status **Sending** or **Completed**.
-* Click the broadcast name to open the analytics view. You should see contacts moving through states: **Sent → Delivered → Read**.
-* If the broadcast shows **Failed** for a large percentage of contacts, open the **Failed** state and check the breakdown by failure type. See [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) for how to interpret these states.
+- Go to **Broadcasts** in the left navigation. Your broadcast should appear in the list with status **Sending** or **Completed**.
+- Click the broadcast name to open the analytics view. You should see contacts moving through states: **Sent → Delivered → Read**.
+- If the broadcast shows **Failed** for a large percentage of contacts, open the **Failed** state and check the breakdown by failure type. See [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) for how to interpret these states.
 
 ---
 
 ## Common Setup Errors
 
-| Error or symptom                                | Why it happens                                                                          | How to fix it                                                                                                                       |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| No templates appear in the template picker      | Templates are pending Meta approval or were rejected                                    | Go to **Broadcasts → Templates**, check each template's status. If rejected, edit and resubmit.                                     |
-| Contact count shows 0 after selecting a segment | The segment has no matching contacts, or the segment filter is too restrictive          | Go to **Contacts → Segments**, open the segment, and check the filter conditions. Broaden the filter or choose a different segment. |
-| "Daily limit exceeded" appears in Failed state  | You hit your WhatsApp messaging tier limit for the day                                  | Wait 24 hours and retry, or request a tier upgrade from Meta by maintaining high delivery quality over time.                        |
-| Scheduled broadcast did not send                | The send time passed but the broadcast wasn't triggered, often due to timezone mismatch | Check the broadcast's configured time in **Broadcasts → \[name] → Edit**. Reschedule if needed, confirming the correct timezone.    |
+| Error or symptom | Why it happens | How to fix it |
+| --- | --- | --- |
+| No templates appear in the template picker | Templates are pending Meta approval or were rejected | Go to **Broadcasts → Templates**, check each template's status. If rejected, edit and resubmit. |
+| Contact count shows 0 after selecting a segment | The segment has no matching contacts, or the segment filter is too restrictive | Go to **Contacts → Segments**, open the segment, and check the filter conditions. Broaden the filter or choose a different segment. |
+| "Daily limit exceeded" appears in Failed state | You hit your WhatsApp messaging tier limit for the day | Wait 24 hours and retry, or request a tier upgrade from Meta by maintaining high delivery quality over time. |
+| Scheduled broadcast did not send | The send time passed but the broadcast wasn't triggered, often due to timezone mismatch | Check the broadcast's configured time in **Broadcasts → \[name\] → Edit**. Reschedule if needed, confirming the correct timezone. |
 
 <Info>
-
-For delivery issues not listed above, see [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) for a full breakdown of message states and failure types.
-
+  For delivery issues not listed above, see [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) for a full breakdown of message states and failure types.
 </Info>
 
 ---
@@ -178,38 +166,42 @@ For delivery issues not listed above, see [Broadcast Analytics](/whatsapp/broadc
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="I selected 5,000 contacts but the broadcast only shows 3,800 sent — where did the rest go?">
-Contacts are filtered at send time for validity. Common reasons for the count dropping: some contacts had invalid numbers, some were already unsubscribed, or some were blocked by Meta's frequency limits before the message could send. Open the analytics view and check the **Not in WhatsApp**, **Unsubscribed**, and **Frequency Limit** states for those contacts.
-</Accordion>
+  <Accordion title="I selected 5,000 contacts but the broadcast only shows 3,800 sent — where did the rest go?">
+    Contacts are filtered at send time for validity. Common reasons for the count dropping: some contacts had invalid numbers, some were already unsubscribed, or some were blocked by Meta's frequency limits before the message could send. Open the analytics view and check the **Not in WhatsApp**, **Unsubscribed**, and **Frequency Limit** states for those contacts.
+  </Accordion>
 
-<Accordion title="Can I edit a broadcast after I've sent it?">
-No. Once a broadcast is sent, the message content, audience, and template cannot be changed. If you made an error, you'll need to create a new broadcast. For a scheduled broadcast that hasn't sent yet, go to **Broadcasts → \[name] → Edit** to make changes before the send time.
-</Accordion>
+  <Accordion title="Can I edit a broadcast after I've sent it?">
+    No. Once a broadcast is sent, the message content, audience, and template cannot be changed. If you made an error, you'll need to create a new broadcast. For a scheduled broadcast that hasn't sent yet, go to **Broadcasts → \[name\] → Edit** to make changes before the send time.
+  </Accordion>
 
-<Accordion title="Why is my Smart Retry not retrying — contacts are still showing as Failed hours later?">
-Smart Retry only re-attempts delivery for messages that failed due to temporary issues (e.g., phone offline). It does not retry permanent failures like invalid numbers, blocked contacts, or rejected templates — those failures cannot be resolved by retrying the same message. Check the failure subtype in the analytics view. If the failure is temporary, retries will appear in the retry log within the configured window.
-</Accordion>
+  <Accordion title="Why is my Smart Retry not retrying — contacts are still showing as Failed hours later?">
+    Smart Retry only re-attempts delivery for messages that failed due to temporary issues (e.g., phone offline). It does not retry permanent failures like invalid numbers, blocked contacts, or rejected templates — those failures cannot be resolved by retrying the same message. Check the failure subtype in the analytics view. If the failure is temporary, retries will appear in the retry log within the configured window.
+  </Accordion>
 
-<Accordion title="My broadcast says 'Scheduled' but the send time already passed — why didn't it go out?">
-This is usually a timezone mismatch. The scheduled time is displayed in the timezone set on your Gallabox account — confirm that matches your local time. If the send time is in the past, the broadcast may need to be rescheduled. Contact support if the broadcast is stuck in Scheduled status past its send time.
-</Accordion>
+  <Accordion title="My broadcast says 'Scheduled' but the send time already passed — why didn't it go out?">
+    This is usually a timezone mismatch. The scheduled time is displayed in the timezone set on your Gallabox account — confirm that matches your local time. If the send time is in the past, the broadcast may need to be rescheduled. Contact support if the broadcast is stuck in Scheduled status past its send time.
+  </Accordion>
 
-<Accordion title="Can I send the same broadcast to multiple segments at once?">
-No — each broadcast targets one segment, tag, or contact selection. To reach multiple segments, create separate broadcasts for each. If you need a combined audience, build a new segment that includes all the contacts you want using Gallabox's segment filter logic.
-</Accordion>
+  <Accordion title="Can I send the same broadcast to multiple segments at once?">
+    No — each broadcast targets one segment, tag, or contact selection. To reach multiple segments, create separate broadcasts for each. If you need a combined audience, build a new segment that includes all the contacts you want using Gallabox's segment filter logic.
+  </Accordion>
+
+  <Accordion title="Why wasn't the broadcast sent successfully?">
+    If your Message Credits balance was insufficient at send time, the broadcast is not sent and shows a **failed** status rather than sending partially. Top up and resend.
+  </Accordion>
 </AccordionGroup>
 
 ---
 
 ## Related Articles
 
-* [Broadcast Overview](/whatsapp/broadcasts/overview) — What broadcasts are, when to use them, and how Smart Retry works
-* [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) — Reading message states, retry stats, and retargeting
-* [WhatsApp Templates Overview](/whatsapp/templates/overview) — Creating and submitting templates for approval
-* [Contact Segments](/contacts/segments) — Building targeted audience segments with filters
+- [Broadcast Overview](/whatsapp/broadcasts/overview) — What broadcasts are, when to use them, and how Smart Retry works
+- [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) — Reading message states, retry stats, and retargeting
+- [WhatsApp Templates Overview](/whatsapp/templates/overview) — Creating and submitting templates for approval
+- [Contact Segments](/contacts/segments) — Building targeted audience segments with filters
 
 ## Next Steps
 
-* [Read your broadcast results →](/whatsapp/broadcasts/broadcast-analytics)
-* [Retarget contacts who didn't engage →](/whatsapp/broadcasts/broadcast-analytics#retargeting)
-* [Build a follow-up sequence →](/whatsapp/sequences/overview)
+- [Read your broadcast results →](/whatsapp/broadcasts/broadcast-analytics)
+- [Retarget contacts who didn't engage →](/whatsapp/broadcasts/broadcast-analytics#retargeting)
+- [Build a follow-up sequence →](/whatsapp/sequences/overview)

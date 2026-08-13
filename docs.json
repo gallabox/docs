@@ -388,8 +388,8 @@
     "global": {
       "tabs": [
         {
-          "tab": "Login",
-          "href": "https://app.gallabox.com"
+          "tab": "Signup",
+          "href": "https://app.gallabox.com/signup"
         }
       ],
       "anchors": [

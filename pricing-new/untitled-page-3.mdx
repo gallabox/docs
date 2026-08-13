@@ -1,0 +1,113 @@
+---
+title: "AI Wallet"
+description: "The usage-based wallet that funds AI-powered features in Gallabox — monthly allowance, top-ups, and what happens when credits run out."
+---
+
+> **Who can use this?**
+>
+> - AI Wallet management is available to all plans.
+> - Only the **Account Owner** or users with the **Admin** role can monitor usage and purchase top-ups.
+
+<Info>
+  The AI Wallet holds your monthly AI credit allocation — credits are consumed when AI-powered features are used. Each plan includes a monthly credit allowance; additional credits can be purchased as top-ups.
+</Info>
+
+<Note>
+  The AI Wallet is separate from your [Message Credits](/pricing-and-billing/message-credits) wallet. AI Credits fund AI-powered features (Chat AI Agent, GPT nodes, AI Reply, and more); Message Credits fund WhatsApp's per-message charges. Both are usage-based add-ons that run independently on top of your plan — topping up one never affects the other.
+</Note>
+
+## Plan Availability & Credit Allocation
+
+> Credited on the 1st of the month account wide, irrespective of billing cycle / date .
+
+| Plan | Monthly included AI Credits |
+| --- | --- |
+| **Basic** | 500 credits |
+| **Essential** | 2,000 credits |
+| **Advanced** | 8,000 credits |
+
+> Credit top-ups are available on all plans in increments of 1,000 credits. 
+
+## What Uses AI Credits?
+
+AI credits are consumed by any feature that calls an AI model:
+
+| Feature | Credit cost | Notes |
+| --- | --- | --- |
+| **Chat AI Agent** — response generation | Per message | ~1-5 credits per response depending on length |
+| **AI Reply** (quick reply suggestions) | Per suggestion | Consumes AI credits |
+| **AI Rewrite** (improve message copy) | Per rewrite | ~1-3 credits per rewrite |
+| **AI Translate** (translate messages) | Per translation | ~1 credit per translation |
+| **GPT Dialog node** (bot flows) | Per AI response | ~2-5 credits per response |
+| **GPT Knowledge Base node** (bot flows) | Per lookup | ~2-4 credits per query |
+
+### Credit consumption examples
+
+**Chat AI Agent:**
+
+- Customer asks a question → AI responds → ~3 credits consumed
+- 500 credits on Basic = ~165 AI responses/month (at 3 credits/response)
+
+**Bot flow with GPT Dialog:**
+
+- Flow with GPT Dialog node handles 50 conversations/day, each ~5 AI responses
+- Daily consumption: 50 × 5 × 3 = 750 credits/day → ~22,500 credits/month (exceeds Basic and Essential — Advanced recommended)
+
+## Monitoring AI Credit Usage
+
+Go to **Settings → Billing → AI Wallet**. The page shows credits remaining, credits used this month, a daily usage chart, a breakdown by feature, and a projected run-out date at current usage.
+
+### Setting up alerts
+
+1. Go to **Settings → Billing → AI Wallet → Alerts**.
+2. Set an alert threshold — e.g., "Alert me when 80% of credits are used."
+3. Choose notification method: email to Admin, or in-app notification.
+4. Save.
+
+## When Credits Run Out
+
+- **Chat AI Agent** falls back to your configured fallback message
+- **AI Reply**, **AI Rewrite**, and **AI Translate** stop working
+- **Bot flow AI nodes** (GPT Dialog, GPT Knowledge Base) error at that node
+
+**Conversation handling continues** — non-AI nodes (Send, Ask, Condition, etc.) keep working. Only AI-powered features are affected.
+
+## Purchasing Top-Ups
+
+1. Go to **Settings → Billing → AI Wallet → Buy Top-Up**.
+2. Select the top-up amount in 1,000-credit units.
+3. Review the price and click **Purchase** — credits are added immediately.
+4. The charge appears on your next invoice.
+
+**Top-up pricing:** blocks of 1,000 credits, priced per credit: **₹0.30 (INR)**, **\$0.00266 (USD)**, **AED 0.012**.
+
+Purchased top-up credits remain in your wallet and do not reset at the end of a billing cycle.
+
+## Optimizing AI Credit Usage
+
+1. Configure your Chat AI Agent to only handle specific topics; redirect off-topic queries to human agents
+2. Enable AI Reply only for agents who need it most
+3. Keep GPT Dialog prompts short and focused
+4. Route to human agents when credits run out, instead of showing errors
+5. Check the usage breakdown by feature to see what's driving consumption
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What happens to unused AI credits at the end of a billing cycle?">
+    Your plan's monthly allocation resets each billing cycle. Purchased top-up credits don't reset and stay in your wallet.
+  </Accordion>
+
+  <Accordion title="Are AI credits shared across my team or per user?">
+    Shared across the whole account, not per user. All team members draw from the same pool.
+  </Accordion>
+
+  <Accordion title="Can I disable AI features to save credits?">
+    Yes — disable Chat AI Agent, AI Reply, or AI Rewrite individually under **Settings → Chat AI Agent**. Disabling a feature stops credit consumption for it entirely.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Message Credits](/pricing-and-billing/message-credits) — the separate wallet for WhatsApp per-message charges
+- [Billing and Subscriptions](/pricing-and-billing/billing-and-subscriptions) — managing your plan and billing
