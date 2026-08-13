@@ -188,7 +188,6 @@
               "web-chat/setup",
               "web-chat/widget-customisation",
               "web-chat/ice-breakers-and-ctas",
-              "web-chat/visitor-tracking",
               "web-chat/website-analytics",
               "web-chat/faqs"
             ]
@@ -402,10 +401,11 @@
             "group": "Pricing and Billing",
             "icon": "money-bills",
             "pages": [
-              "pricing-new/untitled-page",
-              "pricing-new/untitled-page-2",
-              "pricing-new/untitled-page-4",
-              "pricing-new/untitled-page-3"
+              "pricing-and-billing/overview",
+              "pricing-and-billing/billing-and-subscriptions",
+              "pricing-and-billing/message-credits",
+              "pricing-and-billing/ai-wallet",
+              "pricing-and-billing/faqs"
             ]
           }
         ]
