@@ -383,6 +383,19 @@
           "privacy-and-security/subprocessors"
         ],
         "icon": "shield-halved"
+      },
+      {
+        "group": "pricing-new",
+        "pages": [
+          "pricing-new/untitled-page-2",
+          "pricing-new/untitled-page-3",
+          "pricing-new/untitled-page-4",
+          "pricing-new/untitled-page-5",
+          "pricing-new/untitled-page-6",
+          "pricing-new/untitled-page-7",
+          "pricing-new/untitled-page-8",
+          "pricing-new/untitled-page"
+        ]
       }
     ],
     "global": {
