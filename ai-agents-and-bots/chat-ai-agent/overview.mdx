@@ -166,14 +166,22 @@ AI credit consumption varies by model — each model has its own per-token credi
 
 ## Human Handoff
 
-When the agent can't answer or the customer asks for human help, it escalates. The handoff includes:
+When the agent can't answer or the customer asks for human help, it escalates — but the path differs by channel.
+
+### WhatsApp and Instagram: lands in the team Inbox
+
+The conversation lands in the [Omnichannel Inbox](/conversations/omnichannel-inbox) as unassigned, carrying:
 
 * **Full conversation history** — all messages in the session
 * **Customer details** — name, email, phone (if captured)
 * **Reason for escalation** — the agent's assessment of what the customer needs
 * **Agent's notes** — any context gathered during the conversation
 
-The conversation lands in the team inbox. An available agent picks it up and continues from where the AI left off.
+An available agent picks it up in the Inbox and continues from where the AI left off.
+
+### Web Chat: no Inbox handoff — redirect to WhatsApp
+
+A human agent cannot take over a live Web Chat session directly — there's no Inbox view for in-progress Web Chat conversations. The only escalation path is a **WhatsApp handoff**, which redirects the visitor to continue on WhatsApp. Once they do, it becomes a normal, human-assignable conversation in the Inbox, tagged with its Web origin. See [Website Analytics — Handoff to WhatsApp](/web-chat/website-analytics#handoff-to-whatsapp) for how to configure this.
 
 ## FAQs
 

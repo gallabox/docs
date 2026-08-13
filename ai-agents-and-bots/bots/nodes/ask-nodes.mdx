@@ -37,7 +37,7 @@ Ask nodes pause the bot flow and wait for the customer to reply with a specific 
 
 ## How Ask Nodes Work
 
-1. **The bot sends a question** — the customer sees the message in WhatsApp, Instagram, or Web Chat
+1. **The bot sends a question** — the customer sees the message on WhatsApp
 2. **The flow pauses** — the bot waits for the customer's reply
 3. **The customer responds** — the input is validated and stored in a variable you name
 4. **The flow continues** — the next node uses `{{variable_name}}` to insert the value
@@ -84,7 +84,7 @@ Validates a properly formatted URL (must start with `http://` or `https://`).
 
 #### Ask Date
 
-Opens a date picker on Web Chat; accepts natural language dates on WhatsApp/Instagram ("next Monday", "December 15").
+Accepts natural language dates ("next Monday", "December 15").
 
 **Example:** Question: _"When would you like your delivery?"_ → stored in `{{delivery_date}}` in YYYY-MM-DD format
 
@@ -138,11 +138,11 @@ Asks the customer to upload a file — images, PDFs, or documents.
 
 **Example:** Question: _"Upload your ID document for verification"_ → stored in `{{id_document}}` as a file reference
 
-**Limits:** WhatsApp supports files up to 16MB; supported formats depend on the channel.
+**Limits:** WhatsApp supports files up to 16MB.
 
 #### Ask Location
 
-Asks the customer to share their current location. Works on WhatsApp and Web Chat.
+Asks the customer to share their current location.
 
 **Example:** Question: _"Share your location to find the nearest store"_ → stored in `{{customer_location}}` as lat/long coordinates
 
@@ -222,7 +222,7 @@ Check your retry message is clear: _"Please enter a 10-digit phone number, e.g.,
 </Accordion>
 
 <Accordion title="Can customers respond with natural language dates like 'next Tuesday'?">
-Yes — on WhatsApp and Instagram, Gallabox's NLP understands natural language dates ("next Monday", "December 15", "in 3 days"). On Web Chat, the customer sees a date picker. Dates are stored in ISO format (YYYY-MM-DD) in variables, so you can use them in calculations or comparisons with a Condition node.
+Yes — Gallabox's NLP understands natural language dates ("next Monday", "December 15", "in 3 days"). Dates are stored in ISO format (YYYY-MM-DD) in variables, so you can use them in calculations or comparisons with a Condition node.
 </Accordion>
 
 <Accordion title="Ask File doesn't work on WhatsApp — why?">

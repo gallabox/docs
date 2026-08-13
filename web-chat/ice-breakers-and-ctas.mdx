@@ -35,16 +35,19 @@ Ice-breakers are pre-set questions that visitors can click to start a conversati
 
 When a visitor clicks an ice-breaker, it sends that question as the first message in the chat — and the Chat AI Agent responds accordingly.
 
-## What are CTA Buttons?
+## What is the CTA Button?
 
-CTA (Call-to-Action) buttons are buttons inside the widget that visitors can click to take a specific action — such as "Book a Demo", "Start Free Trial", or "View Pricing". Unlike ice-breakers (which start a conversation), CTA buttons can link to external pages or trigger specific flows.
+The CTA (Call-to-Action) button is a single button inside the widget that visitors can click to take a specific action — such as "Book a Demo", "Start Free Trial", or "View Pricing". Unlike ice-breakers (which start a conversation), the CTA button links out to an external URL.
 
 **Example CTAs:**
 
 * "Book a Demo" → links to your booking page
 * "Start Free Trial" → links to your signup page
 * "View Pricing" → links to your pricing page
-* "Talk to Sales" → triggers a handoff to your WhatsApp
+
+<Info>
+The CTA button always links to a URL — it can't trigger a WhatsApp handoff directly. If your goal is to route visitors to WhatsApp, use **Handoff Configuration** instead (see [Website Analytics — Handoff to WhatsApp](/web-chat/website-analytics#handoff-to-whatsapp)), which is a separate, independent setting.
+</Info>
 
 ## How to Set Up Ice-breakers
 
@@ -62,24 +65,26 @@ CTA (Call-to-Action) buttons are buttons inside the widget that visitors can cli
 * **Keep them short** — 3–8 words max. Visitors scan, they don't read.
 * **Match your top use cases** — look at your inbox to see what visitors most often ask about.
 * **Use the visitor's language** — not product jargon. "How much does it cost?" not "What is your pricing tier structure?"
-* **Limit to 4–6 options** — too many options overwhelm visitors.
+* **You can add up to 3** — Gallabox caps ice-breakers at 3 per widget, so pick your highest-value questions.
 
-## How to Set Up CTA Buttons
+## How to Set Up the CTA Button
 
 1. Go to **AI Agents and Bots → \[Your Agent] → Settings → Web Widget Settings**.
-2. Scroll to **CTA Buttons**.
-3. Toggle **Show CTA buttons** to on.
-4. Click **Add CTA**.
-5. Fill in:
+2. Scroll to **CTA Button**.
+3. Toggle **Enable CTA Button** to on.
+4. Fill in:
    * **Button text** — e.g., "Book a Demo"
-   * **URL** — the page the button links to (or leave blank to trigger a handoff)
-   * **Icon** — choose from the icon library or upload a custom icon
-6. Add up to 4 CTA buttons.
-7. Click **Save**.
+   * **Redirect URL** — the page the button links to (required once the CTA is enabled)
+   * **Button colour** — optional, falls back to your brand colour
+5. Click **Save**.
+
+<Info>
+Gallabox supports one CTA button per widget — there's no way to add multiple.
+</Info>
 
 <Check>
 
-**Pro tip:** Use CTA buttons to drive visitors toward your highest-value actions. If your conversion goal is demo bookings, make "Book a Demo" the first CTA button. If it's signups, make "Start Free Trial" the first button. Track clicks in your website analytics to see which CTAs drive the most conversions.
+**Pro tip:** Use the CTA button to drive visitors toward your single highest-value action. If your conversion goal is demo bookings, make it "Book a Demo." If it's signups, make it "Start Free Trial." Track CTA clicks in your [Website Analytics](/web-chat/website-analytics) dashboard to see how it's performing.
 
 </Check>
 
@@ -105,10 +110,9 @@ Enable **Ice-breakers** and add:
 </Step>
 
 <Step>
-Enable **CTA Buttons** and add:
+Enable the **CTA Button** and set it to:
 
 * "Start Free Trial" → links to `https://yoursite.com/signup`
-* "Book a Demo" → links to `https://yoursite.com/demo`
 </Step>
 
 <Step>
@@ -128,11 +132,11 @@ Not natively — the same ice-breakers apply to all pages where the widget is em
 The ice-breaker sends the question as a message, just as if the visitor had typed it. If the Chat AI Agent isn't responding, check that: (1) the agent is active and published, (2) the agent is assigned to the conversation, (3) the AI credits balance is not exhausted.
 </Accordion>
 
-<Accordion title="Can I use CTAs to handoff to WhatsApp?">
-Yes. Leave the **URL** field blank and enable **Handoff to WhatsApp** in the CTA settings. When a visitor clicks the CTA, the conversation is escalated to your WhatsApp channel — useful for visitors who need immediate, human-level support.
+<Accordion title="Can the CTA button trigger a WhatsApp handoff?">
+No — the CTA button always links to a URL, and that URL is required once the CTA is enabled. To let visitors escalate to WhatsApp, configure **Handoff Configuration** separately (see [Website Analytics — Handoff to WhatsApp](/web-chat/website-analytics#handoff-to-whatsapp)) — it's independent of the CTA button and can run alongside it.
 </Accordion>
 
 <Accordion title="How many ice-breakers and CTAs can I add?">
-Keep the list short — 3–4 ice-breakers and a couple of CTA buttons work best. More options than this can overwhelm visitors and reduce engagement.
+Ice-breakers are capped at **3** per widget. The CTA button is a single button — there's no way to add more than one. Pick your highest-value options for each.
 </Accordion>
 </AccordionGroup>
