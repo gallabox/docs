@@ -411,12 +411,12 @@
             "group": "pricing-new",
             "icon": "triangle-exclamation",
             "pages": [
+              "pricing-new/untitled-page",
               "pricing-new/untitled-page-2",
-              "pricing-new/untitled-page-3",
               "pricing-new/untitled-page-4",
               "pricing-new/untitled-page-5",
               "pricing-new/untitled-page-8",
-              "pricing-new/untitled-page"
+              "pricing-new/untitled-page-3"
             ]
           }
         ]
