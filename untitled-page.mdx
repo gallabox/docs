@@ -1,0 +1,81 @@
+---
+title: "WhatsApp Website Widget"
+description: "Add a click-to-chat WhatsApp button to your website: configure it, generate the embed code, and install it — plus what to check if your site's CSP blocks it."
+---
+
+> **Who can use this?**
+>
+> - Available on all plans.
+> - Anyone with access to your WhatsApp channel settings can configure the widget and generate its code.
+
+<Info>
+  The WhatsApp Website Widget is a chat bubble you add to your own website. When a visitor clicks it, they're taken straight into a WhatsApp conversation with your business — pre-filled with a starting message you control. It doesn't run inside your page; it hands the visitor off to WhatsApp.
+</Info>
+
+## Step 1 — Business details
+
+Go to **Channels → WhatsApp → \[your channel\] → Widget** (or **Integrations → WhatsApp Widget**).
+
+- **Name of your business/brand** — shown in the widget header. Defaults to your account name.
+- **Availability tag** — sets visitor expectations for response time, e.g. _"Usually reply in 4 minutes."_
+
+## Step 2 — Choose a widget style
+
+- **Expanded** — opens with a short questionnaire: you set a **Question** (e.g. _"I am looking for"_) and a list of reply options visitors can pick from before being sent to WhatsApp. Their pick becomes part of the pre-filled message.
+- **Compact** — skips the questionnaire. You set a single **Customer Reply Text** (the message pre-filled when they click through) and a **CTA** button label (e.g. _"Chat Now"_), max 30 characters.
+
+## Step 3 — Position and appearance
+
+- **Widget Position** — Bottom Left or Bottom Right.
+- **Margin Bottom** / **Margin Left or Right** — offset in pixels from the edge of the screen (0–1000).
+- **Choose Avatar or Upload Business Logo** — pick from Gallabox's preset icon set, or upload your own logo (JPEG/PNG, up to a few MB).
+- **Welcome Text** — the greeting shown when the widget opens, e.g. _"Welcome to Gallabox!!!"_
+
+## Step 4 — Generate the code
+
+Click **Get Widget Code**. You can:
+
+- Copy it directly from the code box, or
+- Enter an email address and have it sent to your inbox instead.
+
+## Step 5 — Install it on your website
+
+Paste the generated `<script>` snippet just before the closing `</body>` tag, on every page where you want the widget to appear.
+
+<Info>
+  You'll need access to your website's code to do this. If someone else manages your site, send them the snippet. On a website builder or CMS (WordPress, Webflow, Shopify, etc.), look for a "custom code" or "tracking code" section in its settings — that's usually where third-party embeds like this go.
+</Info>
+
+### Content Security Policy (CSP)
+
+The widget snippet is an inline `<script>` block that then loads a second script from `waw.gallabox.com`. If your site's CSP doesn't allow inline scripts or restricts which domains can load scripts, the widget will be silently blocked. To fix it:
+
+- Allow `waw.gallabox.com` in your `script-src` directive.
+- Allow inline script execution for this snippet — either via `'unsafe-inline'`, or, if you're using nonces/hashes, a nonce/hash covering the embed's inline block.
+
+If you still see it blocked after that, check your browser console for a CSP violation and allowlist whichever additional directive (e.g. `connect-src`) it names.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why does clicking the widget open WhatsApp instead of a chat window on my site?">
+    That's expected — the widget is a click-to-chat launcher, not an embedded chat window. It hands the visitor to WhatsApp with your message pre-filled; the conversation itself happens in WhatsApp, and replies land in your Gallabox inbox like any other WhatsApp conversation.
+  </Accordion>
+
+  <Accordion title="I pasted the code but nothing shows up on my site.">
+    Confirm the snippet is before `</body>` on the actual page you're testing (not just saved in your CMS but unpublished), then check your browser console for a Content Security Policy error — see the CSP section above.
+  </Accordion>
+
+  <Accordion title="Can I use a different widget on different pages of my site?">
+    Each WhatsApp channel generates one widget configuration at a time. Regenerating the code updates every page using that snippet — you'd need a separate channel to run a distinct widget elsewhere.
+  </Accordion>
+
+  <Accordion title="Does adding this widget cost anything?">
+    No — the widget itself is free. Once a visitor messages you through it, standard WhatsApp messaging applies to the resulting conversation — see [How WhatsApp Message Pricing Works](/pricing-and-billing/whatsapp-message-pricing).
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Connect Your WhatsApp](/channels/whatsapp/connect-your-whatsapp) — set up the channel this widget sends messages to
+- [How WhatsApp Message Pricing Works](/pricing-and-billing/whatsapp-message-pricing) — what happens once a visitor starts chatting
