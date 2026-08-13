@@ -395,7 +395,8 @@
           "pricing-new/untitled-page-7",
           "pricing-new/untitled-page-8",
           "pricing-new/untitled-page"
-        ]
+        ],
+        "icon": "triangle-exclamation"
       }
     ],
     "global": {
