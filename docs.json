@@ -426,7 +426,7 @@
       {
         "tab": "API Reference",
         "icon": "rectangle-api",
-        "openapi": "devapi.openapi.json"
+        "openapi": "/assets/openapi.json"
       }
     ]
   },
@@ -630,8 +630,5 @@
       "linkedin": "https://www.linkedin.com/company/gallabox",
       "x": "https://x.com/gallabox"
     }
-  },
-  "api": {
-    "openapi": "devapi.openapi.json"
   }
 }
