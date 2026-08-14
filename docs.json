@@ -426,7 +426,7 @@
       {
         "tab": "API Reference",
         "icon": "rectangle-api",
-        "openapi": "https://app.mintlify.com/gallabox/gallabox/~/c2dff1b3-0ee5-4f8c-85a8-3b1393e5095b"
+        "openapi": "devapi.openapi.json"
       }
     ]
   },
