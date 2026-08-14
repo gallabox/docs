@@ -1,0 +1,84 @@
+---
+title: "Template Categorization"
+description: "How Meta decides a template's category, why it can change after approval, and what that means for your WhatsApp costs."
+---
+
+> **Who can use this?**
+>
+> - Gallabox users with **Broadcast access** who create or manage WhatsApp templates.
+> - Roles: Owners and Admins.
+
+<Info>
+  A template's category determines whether it's free or charged inside the 24-hour service window — see [WhatsApp Pricing](/pricing-and-billing/whatsapp-pricing). Getting the category right (and understanding when Meta can change it) avoids surprise charges and rejected templates.
+</Info>
+
+## How categories are decided
+
+You choose a category when creating a template, but Meta validates it against the actual content — your choice doesn't guarantee approval in that category.
+
+- **Marketing** — promotional content: offers, discounts, product announcements, re-engagement. Also covers templates with **mixed content** (part transactional, part promotional) and templates whose purpose **isn't clear** from the text — both default to Marketing.
+- **Utility** — must be **non-promotional**, and must also be either specific to a user's own order/account/transaction, or genuinely time-critical (like a safety alert). Both conditions have to be true, not just one.
+- **Authentication** — one-time passcodes and identity verification only. Requires using an authentication template with a configured OTP button (copy-code or one-tap), and the content can't include URLs, media, or emojis.
+
+<Warning>
+  If you submit a template as **Utility** but Meta determines it's actually promotional, **it's approved as Marketing instead** — not rejected. Review your utility templates for promotional language (upsells, offers, "don't miss out") before submitting, since this changes what you're charged for it.
+</Warning>
+
+## Category can change after approval
+
+Meta periodically re-checks already-approved templates against the guidelines, independent of your original submission:
+
+| Situation | What happens |
+| --- | --- |
+| Approved as Utility, but content reads as Marketing | Category is updated to Marketing. A short advance notice is given by email before the change (this notice is skipped for accounts already warned for repeated miscategorization — see below). The template keeps working, just at Marketing rates. |
+| Approved as Marketing or Utility, but content should be Authentication | The template is **rejected**, not recategorized — you'll need to create a proper authentication template instead. |
+
+You're notified by email whenever a template's category is scheduled to change or has changed.
+
+## Requesting a review
+
+You can request Meta review a template's category if it's:
+
+- Categorized **Utility** or **Marketing** and currently **Rejected**, or
+- Categorized **Marketing** and currently **Approved** (i.e. you believe it should actually be Utility)
+
+If the review is approved, the category reverts; if not, it stays as Meta assessed it. You have 60 days from the category change to request a review.
+
+## Repeated miscategorization has consequences
+
+If Meta detects a pattern of submitting promotional templates as Utility, enforcement escalates:
+
+| Level | What happens |
+| --- | --- |
+| **Warning** | Written notice to account admins. From here on, Utility → Marketing changes happen instantly, with no advance notice. |
+| **Rate limiting** | Utility message volume is capped for a period; messages over the cap are rejected. Marketing and Authentication are unaffected. |
+| **Utility restriction** | All approved Utility templates are recategorized to Marketing, and new Utility templates can't be created, for a set period. |
+| **Portfolio-wide restriction** | If it continues across multiple WhatsApp numbers under the same business, the same restriction applies everywhere, for longer. |
+
+Repeat violations after a restriction lifts can trigger longer or stricter enforcement.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="I submitted a template as Utility and it got approved as Marketing — why wasn't it just rejected?">
+    Meta approves templates in the category it determines is correct, rather than rejecting a mismatch outright, when the mismatch is Utility-vs-Marketing. You can use the template as-is (billed at Marketing rates), or edit the content to remove promotional language and resubmit for review.
+  </Accordion>
+
+  <Accordion title="My approved Utility template just changed to Marketing on its own — is that a bug?">
+    No — Meta periodically re-reviews approved templates. If a Utility template's content reads as promotional, its category is updated, and you're notified by email. Check the template's wording against the Utility guidelines above, or request a review if you disagree.
+  </Accordion>
+
+  <Accordion title="Can I get a template's category changed back after a review is denied?">
+    No — if Meta's review upholds the new category, it stays. You can edit the template's content to more clearly match your intended category and resubmit as a new review.
+  </Accordion>
+
+  <Accordion title="Why was my template rejected instead of recategorized?">
+    Rejection instead of recategorization only happens when a Marketing or Utility template should actually be Authentication — Meta doesn't auto-convert those, since Authentication templates have stricter content rules (no URLs, media, or emojis, and a required OTP button). Create a proper authentication template instead.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Templates Overview](/whatsapp/templates/overview) — creating and managing templates
+- [WhatsApp Pricing](/pricing-and-billing/whatsapp-pricing) — how category affects what you're charged
+- [Create a Template](/whatsapp/templates/create-template) — step-by-step template creation

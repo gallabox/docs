@@ -141,7 +141,8 @@
                 "group": "Templates",
                 "pages": [
                   "whatsapp/templates/overview",
-                  "whatsapp/templates/create-template"
+                  "whatsapp/templates/create-template",
+                  "whatsapp/templates/template-categorization"
                 ]
               },
               "whatsapp/flows",
@@ -404,6 +405,7 @@
               "pricing-and-billing/overview",
               "pricing-and-billing/billing-and-subscriptions",
               "pricing-and-billing/message-credits",
+              "pricing-and-billing/whatsapp-pricing",
               "pricing-and-billing/ai-wallet",
               "pricing-and-billing/faqs"
             ]
