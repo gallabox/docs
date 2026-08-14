@@ -1,0 +1,208 @@
+---
+title: "WhatsApp Pricing"
+description: "How Meta charges WhatsApp usage"
+---
+
+<Note>
+  This page covers messages sent **through Gallabox** (the WhatsApp Cloud API). If you have [WhatsApp Coexistence](/whatsapp/whatsapp-coexistence) enabled, messages sent directly from the **WhatsApp Business App** on your phone are free and don't follow the rules below.
+</Note>
+
+## The 24-hour service window
+
+Every WhatsApp conversation with a customer has a **24-hour window** that opens the moment they message you.
+
+- **Customer-initiated** (the customer messages you first) — you can reply for free within 24 hours, using supported message types (text, images, and so on).
+- **Business-initiated** (you message them first, or more than 24 hours have passed since their last message) — you can only reach them with a **template message**, which Meta must pre-approve. Every delivered template costs credits.
+
+<Info>
+  The 24-hour window resets each time the customer sends a new message. Replies remain free for as long as the conversation continues.
+</Info>
+
+| Message type | Category | Free inside the 24-hour window | Outside the window |
+| --- | --- | --- | --- |
+| Free-form message | — (not a template) | Free | Can't be sent |
+| Template | Marketing | Charged | Charged |
+| Template | Utility | Free | Charged |
+| Template | Authentication | Free | Charged |
+
+## Template categories
+
+Every template belongs to one of three categories, and Meta requires you to pick one when you create it:
+
+| Category | Description |
+| --- | --- |
+| **Utility** | Following up on something the customer already did — an order, a booking, an account |
+| **Authentication** | A one-time passcode or login verification code |
+| **Marketing** | Promotions, offers, announcements, "come back and buy" messages |
+
+<Warning>
+  You choose the category when you create the template, but Meta checks that the content actually matches. A "utility" template that reads like a promotion can get moved to Marketing automatically — see [Template Categorization](/whatsapp/templates/template-categorization) for what qualifies as each category and what happens if Meta disagrees with your choice.
+</Warning>
+
+## What it costs, by country
+
+Once a message is charged, the amount is determined by **the recipient's country**. Currency is based on your business's message credit currency.
+
+<Warning>
+  Example: an Indian business (billed in INR) sending a Marketing template to a customer with a UK number is charged the **UK rate**, not the India rate, read off the INR table below. Your country decides which currency column you read from; it never decides which row.
+</Warning>
+
+Rates below are effective from **July 1, 2026**. Use the tabs to switch currency, and search to find a market.
+
+<Tabs>
+  <Tab title="USD">
+    | Market | Marketing | Utility | Authentication |
+    | --- | --- | --- | --- |
+    | Argentina | 0.0711 | 0.0299 | 0.0299 |
+    | Brazil | 0.0719 | 0.0078 | 0.0078 |
+    | Chile | 0.1022 | 0.0230 | 0.0230 |
+    | Colombia | 0.0144 | 0.0009 | 0.0009 |
+    | Egypt | 0.0741 | 0.0041 | 0.0041 |
+    | France | 0.0988 | 0.0345 | 0.0345 |
+    | Germany | 0.1570 | 0.0633 | 0.0633 |
+    | Hong Kong | 0.0842 | 0.0299 | 0.0299 |
+    | Hungary | 0.0989 | 0.0403 | 0.0403 |
+    | India | 0.0136 | 0.0016 | 0.0016 |
+    | Indonesia | 0.0473 | 0.0287 | 0.0287 |
+    | Israel | 0.0406 | 0.0061 | 0.0061 |
+    | Italy | 0.0914 | 0.0345 | 0.0345 |
+    | Malaysia | 0.0989 | 0.0161 | 0.0161 |
+    | Mexico | 0.0351 | 0.0098 | 0.0098 |
+    | Netherlands | 0.1837 | 0.0575 | 0.0575 |
+    | Nigeria | 0.0593 | 0.0077 | 0.0077 |
+    | Pakistan | 0.0544 | 0.0115 | 0.0115 |
+    | Peru | 0.0808 | 0.0230 | 0.0230 |
+    | Poland | 0.0421 | 0.0140 | 0.0140 |
+    | Qatar | 0.0392 | 0.0138 | 0.0138 |
+    | Romania | 0.0989 | 0.0333 | 0.0333 |
+    | Russia | 0.0922 | 0.0460 | 0.0460 |
+    | Saudi Arabia | 0.0576 | 0.0123 | 0.0123 |
+    | Singapore | 0.0842 | 0.0184 | 0.0184 |
+    | South Africa | 0.0436 | 0.0087 | 0.0087 |
+    | Spain | 0.0813 | 0.0230 | 0.0230 |
+    | Turkey | 0.0125 | 0.0010 | 0.0010 |
+    | United Arab Emirates | 0.0574 | 0.0181 | 0.0181 |
+    | United Kingdom | 0.0730 | 0.0253 | 0.0253 |
+    | Canada | 0.0287 | 0.0039 | 0.0039 |
+    | United States | 0.0287 | 0.0039 | 0.0039 |
+    | Rest of Africa | 0.0259 | 0.0046 | 0.0046 |
+    | Rest of Asia Pacific | 0.0842 | 0.0130 | 0.0130 |
+    | Rest of Central & Eastern Europe | 0.0989 | 0.0244 | 0.0244 |
+    | Rest of Latin America | 0.0851 | 0.0130 | 0.0130 |
+    | Rest of Middle East | 0.0392 | 0.0105 | 0.0105 |
+    | Rest of Western Europe | 0.0681 | 0.0197 | 0.0197 |
+    | Other (any country not listed above) | 0.0695 | 0.0089 | 0.0089 |
+  </Tab>
+  <Tab title="INR">
+    | Market | Marketing | Utility | Authentication |
+    | --- | --- | --- | --- |
+    | Argentina | 5.2087 | 2.1921 | 2.1921 |
+    | Brazil | 5.2679 | 0.5732 | 0.5732 |
+    | Chile | 7.4905 | 1.6852 | 1.6852 |
+    | Colombia | 1.0535 | 0.0676 | 0.0676 |
+    | Egypt | 5.4270 | 0.3035 | 0.3035 |
+    | France | 7.2439 | 2.5293 | 2.5293 |
+    | Germany | 11.5084 | 4.6370 | 4.6370 |
+    | Hong Kong | 6.1714 | 2.1914 | 2.1914 |
+    | Hungary | 7.2447 | 2.9420 | 2.9420 |
+    | India | 0.9926 | 0.1323 | 0.1323 |
+    | Indonesia | 3.4628 | 2.1063 | 2.1063 |
+    | Israel | 2.9752 | 0.4468 | 0.4468 |
+    | Italy | 6.6937 | 2.5270 | 2.5270 |
+    | Malaysia | 7.2493 | 1.1801 | 1.1801 |
+    | Mexico | 2.5711 | 0.7160 | 0.7160 |
+    | Netherlands | 13.4640 | 4.2154 | 4.2154 |
+    | Nigeria | 4.3529 | 0.5652 | 0.5652 |
+    | Pakistan | 3.9885 | 0.8433 | 0.8433 |
+    | Peru | 5.9266 | 1.6861 | 1.6861 |
+    | Poland | 3.0767 | 1.0256 | 1.0256 |
+    | Qatar | 2.8742 | 1.0107 | 1.0107 |
+    | Romania | 7.2447 | 2.4377 | 2.4377 |
+    | Russia | 6.7582 | 3.3708 | 3.3708 |
+    | Saudi Arabia | 4.2114 | 0.9009 | 0.9009 |
+    | Singapore | 6.1714 | 1.3486 | 1.3486 |
+    | South Africa | 3.1994 | 0.6416 | 0.6416 |
+    | Spain | 5.9571 | 1.6845 | 1.6845 |
+    | Turkey | 0.9187 | 0.0759 | 0.0759 |
+    | United Arab Emirates | 4.2105 | 1.3235 | 1.3235 |
+    | United Kingdom | 5.3470 | 1.8540 | 1.8540 |
+    | Canada | 2.1060 | 0.2865 | 0.2865 |
+    | United States | 2.1060 | 0.2865 | 0.2865 |
+    | Rest of Africa | 1.8972 | 0.3369 | 0.3369 |
+    | Rest of Asia Pacific | 6.1714 | 0.9524 | 0.9524 |
+    | Rest of Central & Eastern Europe | 7.2447 | 1.7820 | 1.7820 |
+    | Rest of Latin America | 6.2338 | 0.9520 | 0.9520 |
+    | Rest of Middle East | 2.8742 | 0.7665 | 0.7665 |
+    | Rest of Western Europe | 4.9885 | 1.4393 | 1.4393 |
+    | Other (any country not listed above) | 5.0885 | 0.6487 | 0.6487 |
+  </Tab>
+</Tabs>
+
+### Countries not listed individually
+
+Countries without their own row are grouped into a regional rate. Find your customer's country below to identify the applicable row:
+
+<AccordionGroup>
+  <Accordion title="Rest of Africa">
+    Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Republic of the Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Eswatini (Swaziland), Tanzania, Togo, Tunisia, Uganda, Zambia, Zimbabwe.
+  </Accordion>
+
+  <Accordion title="Rest of Asia Pacific">
+    Afghanistan, Australia, Bangladesh, Cambodia, China, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Sri Lanka, Taiwan, Tajikistan, Thailand, Turkmenistan, Uzbekistan, Vietnam.
+  </Accordion>
+
+  <Accordion title="Rest of Central & Eastern Europe">
+    Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Latvia, Lithuania, Moldova, North Macedonia, Serbia, Slovakia, Slovenia, Ukraine.
+  </Accordion>
+
+  <Accordion title="Rest of Western Europe">
+    Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland.
+  </Accordion>
+
+  <Accordion title="Rest of Latin America">
+    Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela.
+  </Accordion>
+
+  <Accordion title="Rest of Middle East">
+    Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen.
+  </Accordion>
+
+  <Accordion title="Other">
+    Any country not listed in a specific row or one of the groups above.
+  </Accordion>
+</AccordionGroup>
+
+### Authentication pricing across borders
+
+The Authentication rates above apply when the passcode is sent to a number in the same country as your business. The following countries charge a **higher** rate when the passcode is sent to a number in a different country: Egypt, India, Indonesia, Malaysia, Nigeria, Pakistan, Saudi Arabia, South Africa, and the UAE. Contact support for the exact cross-border rate if this applies to you.
+
+## Ad Engagement Window
+
+If a customer starts chatting with you from a WhatsApp ad or a Facebook/Instagram Page button, they get a longer free window of 72 hours compared to standard 24 hours — see [Ad Engagement Window](/guide/ad-engagement-window).
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why was I charged for a Utility or Authentication template I expected to be free?">
+    These are only free when sent inside the customer's 24-hour window. Check the timestamp of the customer's last message — if more than 24 hours had passed, the send was business-initiated and charged.
+  </Accordion>
+
+  <Accordion title="I have WhatsApp Coexistence enabled — does this pricing apply to messages from my phone?">
+    No. Pricing on this page only applies to messages sent through Gallabox. Messages sent directly from the WhatsApp Business App on your phone are always free — see [WhatsApp Coexistence](/whatsapp/whatsapp-coexistence).
+  </Accordion>
+
+  <Accordion title="My template's category changed after it was approved — will I now be charged differently?">
+    Yes — Meta can recategorize an approved template if its content doesn't match the original category, most often Utility moving to Marketing. That changes what you're charged for it going forward. See [Template Categorization](/whatsapp/templates/template-categorization).
+  </Accordion>
+
+  <Accordion title="Why is my Authentication rate higher than what's shown in the table?">
+    The table reflects same-country Authentication pricing. A small set of countries charge a higher rate when the passcode is sent across borders — see [Authentication pricing across borders](#authentication-pricing-across-borders) above.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Message Credits](/pricing-and-billing/message-credits) — the wallet these charges are deducted from
+- [Reduce Your WhatsApp Message Costs](/guide/reduce-whatsapp-message-costs) — practical ways to spend less
+- [Ad Engagement Window](/guide/ad-engagement-window) — the free window for ad-originated conversations
+- [Template Categorization](/whatsapp/templates/template-categorization) — how Meta decides a template's category, and what happens if it disagrees with you
