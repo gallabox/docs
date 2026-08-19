@@ -1,0 +1,120 @@
+---
+title: "WhatsApp Customer Identity (BSUID)"
+description: "What happens when a customer messages you using their WhatsApp username instead of their phone number, how Gallabox identifies and merges these contacts, and what still needs a phone number."
+tags: ["contacts", "whatsapp", "bots", "ai-agent", "all-roles"]
+role: "All roles"
+---
+
+# WhatsApp Customer Identity (BSUID)
+
+> **Who can use this?**
+>
+> - All Gallabox users.
+> - Roles: Agents and Admins see BSUID contacts the same way in the Inbox. Requesting a phone number needs whichever permission lets you reply in the Inbox
+
+## Plan Availability
+
+Available on all Gallabox plans. Per Meta's latest username rollout, this is simply how Gallabox identifies a customer who messages you by username instead of phone number — not a feature anyone enables.
+
+## What is a BSUID?
+
+WhatsApp lets customers message businesses by **username** instead of phone number. When they do, Meta sends your business a **BSUID** (Business-Scoped User ID) in place of a phone number — a value like `US.13491208655302741918`. Gallabox receives it on your behalf and shows it wherever the contact's identity appears.
+
+A BSUID is unique per business: the same customer gets a different BSUID for every business they message. It's tied to their WhatsApp **phone number**, not their username — changing the username doesn't change the BSUID; changing phone numbers does.
+
+<Info>
+  Not the same as your business having a WhatsApp Business Username — that's customers finding _you_ by name. This doc covers _your customer_ choosing not to share their number.
+</Info>
+
+## What Changes for You
+
+- **Contacts can arrive with no phone number** — shown in Inbox and Contacts by BSUID (and username, if set) instead.
+- **Sending messages doesn't change** — templates, message types, and the 24-hour service window work the same; Gallabox uses the BSUID wherever a phone number would go.
+- **Numbers you already have stay usable** — from a past conversation, an order, or a CRM import, nothing is lost.
+
+## How It Works
+
+### Contacts and the Inbox
+
+A contact may carry a phone number, or a BSUID, or both. BSUID-only contacts show up in Contacts and Inbox like any other — only the identifier shown differs.
+
+If a BSUID-only contact's phone number becomes known later — you message a number that turns out to match, or the customer reveals it — Gallabox merges the two contacts and folds the conversation history together, so you never end up with duplicate threads. Check the contact's **Activity** tab for a **"\[Contact\] has been merged with Contact \[Name\]"** entry, tagged to whichever message revealed the match.
+
+**Export contacts** (Contacts → Export) includes a BSUID column, so BSUID-only contacts export the same as any other.
+
+### Requesting a Phone Number
+
+Click **Request Phone Number** in the contact panel to send WhatsApp's native "share your phone number" prompt. The customer taps **Share**, their number is added automatically. Only appears for a BSUID-only contact inside an active 24-hour window — outside it, send a template first to reopen the conversation.
+
+This is agent-triggered today. Requesting it by automation — a bot asking on its own — is **coming soon**.
+
+### Bots
+
+Rule-based Bot Flows and the AI Bot both already recognize BSUID contacts and run a full flow without a phone number on file.
+
+Any connected integration that treats phone number as required — CRM sync, order systems, and similar — won't work for a BSUID-only contact. All connected integrations now need to handle a contact that may have no phone number.
+
+### Billing and Reporting
+
+Message Credits usage and reports are unaffected — billed and reported correctly regardless of identifier.
+
+## Known Limitations
+
+<Info>
+  **Authentication (OTP) messages need a phone number.** WhatsApp won't deliver OTP/verification templates to a BSUID-only recipient. Request the phone number first — otherwise Gallabox blocks the send with a clear error .
+</Info>
+
+- Username changes after the fact aren't refreshed — Gallabox keeps the username it first captured for the contact.
+- **Coming soon:** BSUID isn't yet exposed through Gallabox's Developer API or outbound webhooks. It's used internally to route conversations only — external integrations should keep using phone number as the identifier for now.
+- **Coming soon:** creating a contact by BSUID, through the Contacts UI or the Developer API. Today a BSUID contact is only created automatically, the first time that customer messages you.
+
+## Example
+
+**Scenario:** Maya Cakes runs WhatsApp ads. A customer, Priya, taps the ad and sends a message.
+
+1. Priya's message arrives as a new Inbox conversation. The contact panel shows no phone number — just her BSUID and username, **@priya.whatsapp**.
+2. The bakery's AI Bot handles her questions about a custom cake order, then hands off to an agent to confirm delivery.
+3. The agent clicks **Request Phone Number**. Priya taps **Share**.
+4. Her number is added to the contact. If she'd messaged the bakery before from that number under a different conversation, Gallabox merges the two contacts automatically and the contact's Activity tab shows it.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why does this contact have no phone number at all?">
+    They messaged using their WhatsApp username instead of sharing their number, so Meta sent your business a BSUID instead. You can still message them normally — templates and the service window work the same. Need their number? Use **Request Phone Number** in the contact panel.
+  </Accordion>
+
+  <Accordion title="I sent an OTP template and it failed — why?">
+    WhatsApp doesn't deliver Authentication templates to a BSUID-only contact — it requires a phone number. Click **Request Phone Number**, then resend.
+  </Accordion>
+
+  <Accordion title="Two contacts just became one on their own — what happened?">
+    Gallabox merges a BSUID-only contact with a phone-identified contact the moment it learns they're the same person. Check the Contact's **Activity** tab for a "has been merged with Contact \[Name\]" entry showing which message triggered it.
+  </Accordion>
+
+  <Accordion title="Can my bot ask for the customer's phone number automatically?">
+    This is coming soon - for both Rule-based Bot Flows and the AI Bot. The bot can already run its full flow without a phone number; requesting one still needs an agent to click **Request Phone Number** in the Inbox.
+  </Accordion>
+
+  <Accordion title="Can I export or sync BSUID to my CRM through the API?">
+    You can export it from Gallabox today — **Contacts → Export** includes a BSUID column. Syncing it automatically through the Developer API or outbound webhooks isn't available yet; keep using phone number for API-based integrations until this ships.
+  </Accordion>
+
+  <Accordion title="Can I create a contact using just a BSUID, before they've messaged me?">
+    Not yet — contacts can only be created with a phone number and/or email today. A BSUID contact is created automatically on their first message to you; pre-creating one is coming soon.
+  </Accordion>
+
+  <Accordion title="My customer changed their WhatsApp username — why does Gallabox still show the old one?">
+    Gallabox captures the username the first time it sees the contact's BSUID and doesn't refresh it on later changes. The BSUID itself doesn't change with the username, so messaging and merging aren't affected — only the displayed username may be stale.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Connect Your WhatsApp](connect-your-whatsapp.md) — Set up your WhatsApp Cloud API channel in Gallabox
+- [Message Credits](../../pricing-and-billing-modules/billing-and-subscriptions.md) — How usage is billed regardless of identifier type
+
+## Next Steps
+
+- Check your Contacts list for BSUID-only entries and use **Request Phone Number** wherever you need one for orders, CRM, or OTPs
+- If you send Authentication (OTP) templates, make sure your bot flows or agents collect a phone number before attempting the send Jot something down
