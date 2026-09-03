@@ -7,17 +7,17 @@ Template Analytics shows you how your WhatsApp templates are performing — who 
 
 ## Plan Availability
 
-| Feature                      | Basic | Essential | Advanced |
-| ---------------------------- | :---: | :-------: | :------: |
-| Template Analytics dashboard |   —   |     ✓     |     ✓    |
+| Feature | Basic | Essential | Advanced |
+| --- | :-: | :-: | :-: |
+| Template Analytics dashboard | — | ✓ | ✓ |
 
 > **Note:** Viewing and exporting phone numbers requires the **Can Read PII** permission. Without it, phone numbers appear masked and the Export button is hidden — contact your Gallabox Admin to check your permissions.
 
 ## Before You Start
 
-* **Owner or Admin role in Gallabox (or a role with the relevant permissions)** — Dashboard access with Template Analytics requires these permissions.
-* **At least one template sent** — Analytics only shows data for templates that have been used. A newly created or pending template will not appear in the template filter.
-* **A WhatsApp channel selected** — the Channel filter is required. Analytics are per WhatsApp channel, not across all channels at once.
+- **Owner or Admin role in Gallabox (or a role with the relevant permissions)** — Dashboard access with Template Analytics requires these permissions.
+- **At least one template sent** — Analytics only shows data for templates that have been used. A newly created or pending template will not appear in the template filter.
+- **A WhatsApp channel selected** — the Channel filter is required. Analytics are per WhatsApp channel, not across all channels at once.
 
 ---
 
@@ -34,17 +34,17 @@ Template Analytics breaks down performance across every template message sent fr
 
 ### Recipient Metrics
 
-| Metric                   | What it means                                                                                                                      |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Total Recipients**     | Total number of contacts the template was sent to                                                                                  |
+| Metric | What it means |
+| --- | --- |
+| **Total Recipients** | Total number of contacts the template was sent to |
 | **Effective Recipients** | Contacts who could potentially receive the message — excludes "Not in WhatsApp" contacts from the base for percentage calculations |
-| **Sent**                 | Messages handed off to WhatsApp for delivery                                                                                       |
-| **Delivered**            | Messages confirmed received by the customer's device                                                                               |
-| **Read**                 | Messages opened by the customer                                                                                                    |
-| **Engaged**              | Customers who interacted — tapped a button, replied, or clicked a link                                                             |
-| **Failed**               | Messages that could not be sent (API errors, invalid numbers, etc.)                                                                |
-| **Frequency Limit**      | Messages blocked by Meta because the contact received too many template messages in a short window                                 |
-| **Not in WhatsApp**      | Contacts who do not have an active WhatsApp account on the number                                                                  |
+| **Sent** | Messages handed off to WhatsApp for delivery |
+| **Delivered** | Messages confirmed received by the customer's device |
+| **Read** | Messages opened by the customer |
+| **Engaged** | Customers who interacted — tapped a button, replied, or clicked a link |
+| **Failed** | Messages that could not be sent (API errors, invalid numbers, etc.) |
+| **Frequency Limit** | Messages blocked by Meta because the contact received too many template messages in a short window |
+| **Not in WhatsApp** | Contacts who do not have an active WhatsApp account on the number |
 
 Each metric shows a **count** and a **percentage** of effective recipients. "Not in WhatsApp" and "Frequency Limit" counts are shown separately and are excluded from the effective recipient base — the same calculation used in Broadcast Analytics.
 
@@ -52,9 +52,9 @@ Each metric shows a **count** and a **percentage** of effective recipients. "Not
 
 The trend chart plots **Delivered** and **Engaged** counts over the selected date range. Use this to:
 
-* Spot day-of-week delivery patterns
-* Identify drops in engagement after content changes
-* Compare performance across time periods by adjusting the date filter
+- Spot day-of-week delivery patterns
+- Identify drops in engagement after content changes
+- Compare performance across time periods by adjusting the date filter
 
 Hover over any point on the chart to see the exact count for that date.
 
@@ -62,15 +62,15 @@ Hover over any point on the chart to see the exact count for that date.
 
 Source distribution shows how your templates are being sent:
 
-| Source          | What it means                                |
-| --------------- | -------------------------------------------- |
-| **API**         | Sent via the Gallabox API (external systems) |
-| **Integration** | Sent via a connected integration             |
-| **Bot**         | Sent by a bot flow                           |
-| **Sequence**    | Sent via an automated Sequence               |
-| **Payment**     | Sent as part of a payment flow               |
-| **Broadcast**   | Sent via Gallabox Broadcast campaigns        |
-| **Inbox**       | Sent manually from a Gallabox conversation   |
+| Source | What it means |
+| --- | --- |
+| **API** | Sent via the Gallabox API (external systems) |
+| **Integration** | Sent via a connected integration |
+| **Bot** | Sent by a bot flow |
+| **Sequence** | Sent via an automated Sequence |
+| **Payment** | Sent as part of a payment flow |
+| **Broadcast** | Sent via Gallabox Broadcast campaigns |
+| **Inbox** | Sent manually from a Gallabox conversation |
 
 Each source shows a count and a percentage of total sends. Use this to understand whether your templates are being used primarily for bulk outreach (Broadcast), automation (Sequence/Flow), or ad hoc agent sends (Inbox).
 
@@ -78,12 +78,12 @@ Each source shows a count and a percentage of total sends. Use this to understan
 
 The non-delivery section breaks down why messages were not delivered:
 
-| Reason                   | What it means                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| **Not in WhatsApp**      | The recipient's number is not registered on WhatsApp                           |
-| **Frequency Limit**      | Meta's messaging frequency cap blocked the send                                |
-| **Others**               | Delivery failures due to other reasons (expired numbers, network errors, etc.) |
-| **Specific error codes** | Meta error codes are shown with counts where available                         |
+| Reason | What it means |
+| --- | --- |
+| **Not in WhatsApp** | The recipient's number is not registered on WhatsApp |
+| **Frequency Limit** | Meta's messaging frequency cap blocked the send |
+| **Others** | Delivery failures due to other reasons (expired numbers, network errors, etc.) |
+| **Specific error codes** | Meta error codes are shown with counts where available |
 
 Use this breakdown to identify data quality issues (high "Not in WhatsApp" counts) or contact fatigue problems (high "Frequency Limit" counts).
 
@@ -97,17 +97,17 @@ Use the WhatsApp channel selector, date range, and **Filter** modal (Template, C
 
 Select a preset or custom date range:
 
-| Option             | What it covers                    |
-| ------------------ | --------------------------------- |
-| **Today**          | Current calendar day              |
-| **Yesterday**      | Previous calendar day             |
-| **Past 7 Days**    | Last 7 days (default)             |
-| **Past 30 Days**   | Last 30 days                      |
-| **Past 90 Days**   | Last 90 days                      |
-| **This Week**      | Monday to today                   |
-| **Previous Week**  | Monday to Sunday of last week     |
-| **This Month**     | 1st of the current month to today |
-| **Previous Month** | Full previous calendar month      |
+| Option | What it covers |
+| --- | --- |
+| **Today** | Current calendar day |
+| **Yesterday** | Previous calendar day |
+| **Past 7 Days** | Last 7 days (default) |
+| **Past 30 Days** | Last 30 days |
+| **Past 90 Days** | Last 90 days |
+| **This Week** | Monday to today |
+| **Previous Week** | Monday to Sunday of last week |
+| **This Month** | 1st of the current month to today |
+| **Previous Month** | Full previous calendar month |
 
 The default view opens on **Past 7 Days**.
 
@@ -119,23 +119,23 @@ Multi-select, searchable dropdown. Select one or more templates to view analytic
 
 Filter by template category:
 
-* **All** (default)
-* **Marketing**
-* **Utility**
-* **Authentication**
+- **All** (default)
+- **Marketing**
+- **Utility**
+- **Authentication**
 
 ### By Source
 
 Filter by how the template was sent:
 
-* **All** (default)
-* **API**
-* **Integration**
-* **Bot**
-* **Sequence**
-* **Payment**
-* **Broadcast**
-* **Inbox**
+- **All** (default)
+- **API**
+- **Integration**
+- **Bot**
+- **Sequence**
+- **Payment**
+- **Broadcast**
+- **Inbox**
 
 ### Channel (Required)
 
@@ -148,9 +148,7 @@ Select the WhatsApp channel you want to view analytics for. This filter is requi
 You can download a CSV of template message logs for the current filter selection.
 
 <Warning>
-
-Export requires the **Can Read PII** permission on your Gallabox account. Without it, the **Export** button is hidden, the exports page shows Access Denied, and phone numbers appear masked. Contact your Gallabox Admin.
-
+  Export requires the **Can Read PII** permission on your Gallabox account. Without it, the **Export** button is hidden, the exports page shows Access Denied, and phone numbers appear masked. Contact your Gallabox Admin.
 </Warning>
 
 1. Apply your filters (date range, template, category, source, channel).
@@ -169,10 +167,10 @@ Download any export from this list within the 7-day window. After 7 days, export
 
 After applying filters, verify you're seeing the expected data:
 
-* The **Channel** filter shows the correct WhatsApp number.
-* **Total Recipients** matches approximately what you'd expect from recent broadcasts or API sends.
-* The **Trend Chart** shows activity on days you know templates were sent.
-* Source distribution reflects the send methods you've used (if you only send via Broadcast, the API slice should be near zero).
+- The **Channel** filter shows the correct WhatsApp number.
+- **Total Recipients** matches approximately what you'd expect from recent broadcasts or API sends.
+- The **Trend Chart** shows activity on days you know templates were sent.
+- Source distribution reflects the send methods you've used (if you only send via Broadcast, the API slice should be near zero).
 
 If counts appear as zero for a date range where you know templates were sent, check that the **Channel** filter is set correctly — it defaults to the first channel and does not aggregate across all channels.
 
@@ -180,51 +178,55 @@ If counts appear as zero for a date range where you know templates were sent, ch
 
 ## Common Issues
 
-| Symptom                                                       | Why it happens                                                                     | How to fix it                                                                                                                                 |
-| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **All metrics show zero**                                     | The Channel filter is set to the wrong WhatsApp number                             | Check the Channel dropdown and select the correct number                                                                                      |
-| **Export button is greyed out or missing**                    | Your account lacks the "Can Read PII" permission                                   | Ask your Gallabox Admin to grant this permission                                                                                              |
-| **"Not in WhatsApp" percentage is very high (30%+)**          | Your contact list contains many numbers without active WhatsApp accounts           | Clean your contact list — remove or segment out non-WhatsApp numbers before sending                                                           |
-| **"Frequency Limit" count is unexpectedly high**              | You're sending templates to the same contacts too frequently                       | Check your broadcast cadence and sequence timing. Meta limits how many marketing templates a contact can receive in a rolling 24-hour window. |
-| **A specific template doesn't appear in the template filter** | The template has never been sent, or was sent outside the current date range       | Widen the date range. If the template has never been sent, it won't appear in the filter until it has been used.                              |
-| **Trend chart shows no data for some days**                   | No templates were sent on those days, or the date range doesn't include those days | Verify your date range and check whether sends actually occurred                                                                              |
+| Symptom | Why it happens | How to fix it |
+| --- | --- | --- |
+| **All metrics show zero** | The Channel filter is set to the wrong WhatsApp number | Check the Channel dropdown and select the correct number |
+| **Export button is greyed out or missing** | Your account lacks the "Can Read PII" permission | Ask your Gallabox Admin to grant this permission |
+| **"Not in WhatsApp" percentage is very high (30%+)** | Your contact list contains many numbers without active WhatsApp accounts | Clean your contact list — remove or segment out non-WhatsApp numbers before sending |
+| **"Frequency Limit" count is unexpectedly high** | You're sending templates to the same contacts too frequently | Check your broadcast cadence and sequence timing. Meta limits how many marketing templates a contact can receive in a rolling 24-hour window. |
+| **A specific template doesn't appear in the template filter** | The template has never been sent, or was sent outside the current date range | Widen the date range. If the template has never been sent, it won't appear in the filter until it has been used. |
+| **Trend chart shows no data for some days** | No templates were sent on those days, or the date range doesn't include those days | Verify your date range and check whether sends actually occurred |
 
 ---
 
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="Why is my delivery rate only 60% — did something go wrong with my broadcast?">
-A 60% delivery rate is not unusual if your contact list includes numbers that are not on WhatsApp or are inactive. Check the **Not in WhatsApp** count in the non-delivery breakdown. If that count is high, the issue is list quality, not a platform problem. Filter your contacts by WhatsApp-verified numbers before your next broadcast to improve delivery rates.
-</Accordion>
+  <Accordion title="Why is my delivery rate only 60% — did something go wrong with my broadcast?">
+    A 60% delivery rate is not unusual if your contact list includes numbers that are not on WhatsApp or are inactive. Check the **Not in WhatsApp** count in the non-delivery breakdown. If that count is high, the issue is list quality, not a platform problem. Filter your contacts by WhatsApp-verified numbers before your next broadcast to improve delivery rates.
+  </Accordion>
 
-<Accordion title="What counts as 'Engaged'? I want to know if people actually clicked my link.">
-"Engaged" includes contacts who tapped a Quick Reply button, clicked a call-to-action button (like a website link), or replied to the template message. Link click tracking depends on whether WhatsApp reports the interaction back via the API — not all link taps are confirmed as engaged. Button taps on Quick Reply and CTA buttons are the most reliable engagement signal.
-</Accordion>
+  <Accordion title="What counts as 'Engaged'? I want to know if people actually clicked my link.">
+    "Engaged" includes contacts who tapped a Quick Reply button, clicked a call-to-action button (like a website link), or replied to the template message. Link click tracking depends on whether WhatsApp reports the interaction back via the API — not all link taps are confirmed as engaged. Button taps on Quick Reply and CTA buttons are the most reliable engagement signal.
+  </Accordion>
 
-<Accordion title="Why can't I select a date before 31 March 2026?">
-Template Analytics does not allow a date range that starts before **31 March 2026**. Select a supported date range from that date onward.
-</Accordion>
+  <Accordion title="Why can't I select a date before 31 March 2026?">
+    Template Analytics does not allow a date range that starts before **31 March 2026**. Select a supported date range from that date onward.
+  </Accordion>
 
-<Accordion title="Why is the 'Effective Recipients' number different from 'Total Recipients'?">
-Effective Recipients excludes contacts classified as "Not in WhatsApp" from the total. This gives you a more accurate percentage base — a 90% delivery rate calculated against effective recipients means 90% of people who actually have WhatsApp received your message, not 90% of everyone in your contact list (including inactive numbers). This matches the same calculation used in Broadcast Analytics.
-</Accordion>
+  <Accordion title="Why is the 'Effective Recipients' number different from 'Total Recipients'?">
+    Effective Recipients excludes contacts classified as "Not in WhatsApp" from the total. This gives you a more accurate percentage base — a 90% delivery rate calculated against effective recipients means 90% of people who actually have WhatsApp received your message, not 90% of everyone in your contact list (including inactive numbers). This matches the same calculation used in Broadcast Analytics.
+  </Accordion>
 
-<Accordion title="My export shows different numbers than the dashboard — which one is correct?">
-The CSV export includes raw log-level data that may not apply the same aggregation logic as the dashboard view. The dashboard shows de-duplicated recipient counts; the export includes every send event. If a template was sent twice to the same contact within the date range, the export shows both rows but the dashboard may count the contact once. For reporting, use the dashboard metrics. For debugging individual send events, use the export.
-</Accordion>
+  <Accordion title="My export shows different numbers than the dashboard — which one is correct?">
+    The CSV export includes raw log-level data that may not apply the same aggregation logic as the dashboard view. The dashboard shows de-duplicated recipient counts; the export includes every send event. If a template was sent twice to the same contact within the date range, the export shows both rows but the dashboard may count the contact once. For reporting, use the dashboard metrics. For debugging individual send events, use the export.
+  </Accordion>
+
+  <Accordion title="I sent a Template Message, it is not showing in Analytics page. Why?">
+    For data to reflect in Template analytics, it can take anywhere from 30 minutes to an hour at the minimum and 4 hours at the most. It is not instantaneous.
+  </Accordion>
 </AccordionGroup>
 
 ---
 
 ## Related Articles
 
-* [WhatsApp Templates — Overview](/whatsapp/templates/overview) — What templates are, categories, and approval process
-* [Create and Manage Templates](/whatsapp/templates/create-template) — Creating, cloning, and testing templates
-* [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) — Delivery and engagement metrics for broadcast campaigns
+- [WhatsApp Templates — Overview](/whatsapp/templates/overview) — What templates are, categories, and approval process
+- [Create and Manage Templates](/whatsapp/templates/create-template) — Creating, cloning, and testing templates
+- [Broadcast Analytics](/whatsapp/broadcasts/broadcast-analytics) — Delivery and engagement metrics for broadcast campaigns
 
 ## Next Steps
 
-* [Create a new template →](/whatsapp/templates/create-template)
-* [Send a broadcast using your best-performing templates →](/whatsapp/broadcasts/overview)
-* [Set up sequences to automate template sends →](/whatsapp/sequences/create-sequence)
+- [Create a new template →](/whatsapp/templates/create-template)
+- [Send a broadcast using your best-performing templates →](/whatsapp/broadcasts/overview)
+- [Set up sequences to automate template sends →](/whatsapp/sequences/create-sequence)
