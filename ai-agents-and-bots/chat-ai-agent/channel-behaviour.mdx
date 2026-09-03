@@ -4,30 +4,28 @@ title: "Channel Behaviour"
 
 > **Who can use this?**
 >
-> * All Gallabox users who want to understand how Chat AI Agents behave differently on each channel.
-> * Roles: Owners and Admins (and roles with AI agent permissions) for configuration; Agent role for understanding session behaviour.
+> - All Gallabox users who want to understand how Chat AI Agents behave differently on each channel.
+> - Roles: Owners and Admins (and roles with AI agent permissions) for configuration; Agent role for understanding session behaviour.
 
 <Info>
-
-A Chat AI Agent configured for multiple channels will behave slightly differently on each one. The agent's core logic (role, goal, instructions) is the same — but session management, message windows, and handoff styles differ by channel.
-
+  A Chat AI Agent configured for multiple channels will behave slightly differently on each one. The agent's core logic (role, goal, instructions) is the same — but session management, message windows, and handoff styles differ by channel.
 </Info>
 
 ## How Session Behaviour Differs by Channel
 
-| Setting                          |                WhatsApp               |            Instagram            |              Web Chat             |
-| -------------------------------- | :-----------------------------------: | :-----------------------------: | :-------------------------------: |
-| Session TTL (inactivity timeout) |    24 hours (configurable default)    | 24 hours (configurable default) |   1 hour (configurable default)   |
-| 24-hour messaging window         |                Applies                |             Applies             |           Does not apply          |
-| Handoff display styles           |          assignTo action only         |       assignTo action only      |       Header / Pill / Button      |
-| Max concurrent sessions          |           Per account limit           |        Per account limit        |         Per account limit         |
-| Message types the agent can send | Text, media, buttons and lists (beta) |          Text and media         | Text, media, interactive elements |
+| Setting | WhatsApp | Instagram | Web Chat |
+| --- | :-: | :-: | :-: |
+| Session TTL (inactivity timeout) | 24 hours (configurable default) | 24 hours (configurable default) | 1 hour (configurable default) |
+| 24-hour messaging window | Applies | Applies | Does not apply |
+| Handoff display styles | assignTo action only | assignTo action only | Header / Pill / Button |
+| Max concurrent sessions | Per account limit | Per account limit | Per account limit |
+| Message types the agent can send | Text, media, buttons and lists (beta) | Text and media | Text, media, interactive elements |
 
 ### Message Types by Channel
 
-* **WhatsApp** — the agent sends text, media, interactive buttons (up to 3 options), and lists (for 4–10 options). Buttons and lists require the beta **Multiple Message Type Support** setting to be enabled on the agent.
-* **Instagram** — the agent sends text and media only. When it needs to offer choices, it presents them as plain or numbered text.
-* **Web Chat** — the widget can render text, images, video, audio, documents, location, carousels, and interactive buttons.
+- **WhatsApp** — the agent sends text, media, interactive buttons (up to 3 options), and lists (for 4–10 options). Buttons and lists require the beta **Multiple Message Type Support** setting to be enabled on the agent.
+- **Instagram** — the agent sends text and media only. When it needs to offer choices, it presents them as plain or numbered text.
+- **Web Chat** — the widget can render text, images, video, audio, documents, location, carousels, and interactive buttons.
 
 ## Session Timeout (TTL)
 
@@ -60,17 +58,17 @@ Meta's business policy requires that businesses can only send free-form messages
 
 ### How It Affects the Agent
 
-| Channel   |     Within 24hr window     |          Outside 24hr window          |
-| --------- | :------------------------: | :-----------------------------------: |
-| WhatsApp  | Agent can send any message | Agent can only send template messages |
-| Instagram | Agent can send any message |       Agent cannot send messages      |
-| Web Chat  | Agent can send any message |       Agent can send any message      |
+| Channel | Within 24hr window | Outside 24hr window |
+| --- | :-: | :-: |
+| WhatsApp | Agent can send any message | Agent can only send template messages |
+| Instagram | Agent can send any message | Agent cannot send messages |
+| Web Chat | Agent can send any message | Agent can send any message |
 
 ### What the Agent Does Outside the Window
 
 If the agent tries to send a message outside the 24-hour window on WhatsApp or Instagram, Gallabox will block it. On WhatsApp, a template message can be used instead; on Instagram, no outbound message is possible until the customer replies. You can configure the agent's instructions to handle this gracefully:
 
-> _"If the 24-hour window has expired, tell the customer: 'I'd love to help with that! Our team will reach out to you shortly. In the meantime, you can reach us on WhatsApp at \[number].'"_
+> _"If the 24-hour window has expired, tell the customer: 'I'd love to help with that! Our team will reach out to you shortly. In the meantime, you can reach us on WhatsApp at [number].'"_
 
 ## Handoff to Human Agents
 
@@ -88,16 +86,16 @@ On WhatsApp and Instagram, handoff is done using the **@assignTo** system action
 
 On Web Chat, you can choose how the handoff option appears to the visitor:
 
-| Style                 | What the visitor sees                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------- |
+| Style | What the visitor sees |
+| --- | --- |
 | **Aggressive header** | A banner at the top of the chat: _"Need to talk to a human? Click here to chat on WhatsApp."_ |
-| **Floating pill**     | A small WhatsApp icon floats on the screen — always visible                                   |
-| **Action button**     | A _"Chat on WhatsApp"_ button appears in the conversation                                     |
+| **Floating pill** | A small WhatsApp icon floats on the screen — always visible |
+| **Action button** | A _"Chat on WhatsApp"_ button appears in the conversation |
 
 You can also configure a **pre-fill message** — text that is pre-filled in WhatsApp when the visitor clicks the handoff link. This saves the visitor from repeating themselves.
 
 <Info>
-This is the *only* way a Web Chat conversation reaches a human — there's no Inbox view for live Web Chat sessions, so an agent can't take one over directly. Once the visitor clicks through, it becomes a normal WhatsApp conversation in the [Omnichannel Inbox](/conversations/omnichannel-inbox).
+  This is the _only_ way a Web Chat conversation reaches a human — there's no Inbox view for live Web Chat sessions, so an agent can't take one over directly. Once the visitor clicks through, it becomes a normal WhatsApp conversation in the [Omnichannel Inbox](/conversations/omnichannel-inbox).
 </Info>
 
 ## Example
@@ -107,59 +105,49 @@ This is the *only* way a Web Chat conversation reaches a human — there's no In
 Here's how you'd set it up:
 
 <Steps>
-
-<Step title="Create the agent">
-Create a Chat AI Agent and select all three channels: WhatsApp, Instagram, and Web.
-</Step>
-
-<Step title="Set the role">
-Set the agent's **Role**: _"SaaS customer support specialist — friendly, knowledgeable, focused on solving problems quickly."_
-</Step>
-
-<Step title="Set the goal">
-Set the **Goal**: _"Answer product questions, help with account issues, and identify when to escalate to a human."_
-</Step>
-
-<Step title="Add WhatsApp/Instagram instructions">
-Add instructions for WhatsApp/Instagram: _"If the customer asks about billing, use @assignTo to assign to billing-team. If the 24-hour window has expired, say: 'Our team will follow up on WhatsApp. You can also reach us at \[number].'"_
-</Step>
-
-<Step title="Configure Web Chat handoff style">
-Set Web Chat handoff style to **Aggressive header** with text: _"Want to talk to a real person? Click here to continue on WhatsApp."_
-</Step>
-
-<Step title="Set the pre-fill message">
-Set the pre-fill message: _"Hi! I was chatting on your website about \[topic]. Here's my question:"_
-</Step>
-
-<Step title="Test the setup">
-Test on all three channels in the **Test Widget**.
-</Step>
-
+  <Step title="Create the agent">
+    Create a Chat AI Agent and select all three channels: WhatsApp, Instagram, and Web.
+  </Step>
+  <Step title="Set the role">
+    Set the agent's **Role**: _"SaaS customer support specialist — friendly, knowledgeable, focused on solving problems quickly."_
+  </Step>
+  <Step title="Set the goal">
+    Set the **Goal**: _"Answer product questions, help with account issues, and identify when to escalate to a human."_
+  </Step>
+  <Step title="Add WhatsApp/Instagram instructions">
+    Add instructions for WhatsApp/Instagram: _"If the customer asks about billing, use @assignTo to assign to billing-team. If the 24-hour window has expired, say: 'Our team will follow up on WhatsApp. You can also reach us at [number].'"_
+  </Step>
+  <Step title="Configure Web Chat handoff style">
+    Set Web Chat handoff style to **Aggressive header** with text: _"Want to talk to a real person? Click here to continue on WhatsApp."_
+  </Step>
+  <Step title="Set the pre-fill message">
+    Set the pre-fill message: _"Hi! I was chatting on your website about [topic]. Here's my question:"_
+  </Step>
+  <Step title="Test the setup">
+    Test on all three channels in the **Test Widget**.
+  </Step>
 </Steps>
 
 <Check>
-
-**Pro tip:** Configure different escalation triggers for different channels. On WhatsApp, where customers expect faster responses, escalate more aggressively (e.g., any billing question). On Web Chat, where visitors are more patient, you can let the agent handle more before escalating.
-
+  **Pro tip:** Configure different escalation triggers for different channels. On WhatsApp, where customers expect faster responses, escalate more aggressively (e.g., any billing question). On Web Chat, where visitors are more patient, you can let the agent handle more before escalating.
 </Check>
 
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="Why is the session timeout different on Web Chat vs WhatsApp?">
-Web Chat uses its own configurable inactivity setting (1 hour by default). WhatsApp and Instagram default to 24 hours. This Gallabox session timeout is separate from Meta's 24-hour messaging window — they happen to share the same default duration for WhatsApp/Instagram, but are configured independently.
-</Accordion>
+  <Accordion title="Why is the session timeout different on Web Chat vs WhatsApp?">
+    Web Chat uses its own configurable inactivity setting (1 hour by default). WhatsApp and Instagram default to 24 hours. This Gallabox session timeout is separate from Meta's 24-hour messaging window — they happen to share the same default duration for WhatsApp/Instagram, but are configured independently.
+  </Accordion>
 
-<Accordion title="Can I change the session timeout?">
-Yes. The inactivity timeout defaults to 24 hours for WhatsApp and Instagram (1 hour for Web Chat), and you can change it in the agent's drop-off settings. Web Chat conversations remain in the Web Agent's chat logs unless the visitor continues through a WhatsApp handoff.
-</Accordion>
+  <Accordion title="Can I change the session timeout?">
+    Yes. The inactivity timeout defaults to 24 hours for WhatsApp and Instagram (1 hour for Web Chat), and you can change it in the agent's drop-off settings. Web Chat conversations remain in the Web Agent's chat logs unless the visitor continues through a WhatsApp handoff.
+  </Accordion>
 
-<Accordion title="What happens if the 24-hour window closes while the agent is mid-conversation?">
-If the customer is actively messaging, the window stays open. It only closes after 24 hours of silence from the customer's side. If the window closes during an active conversation, the agent will be blocked from sending free-form messages. On WhatsApp, escalate to a human agent who can send a template message to reset the window. On Instagram, templates don't exist — no outbound message is possible until the customer replies.
-</Accordion>
+  <Accordion title="What happens if the 24-hour window closes while the agent is mid-conversation?">
+    If the customer is actively messaging, the window stays open. It only closes after 24 hours of silence from the customer's side. If the window closes during an active conversation, the agent will be blocked from sending free-form messages. On WhatsApp, escalate to a human agent who can send a template message to reset the window. On Instagram, templates don't exist — no outbound message is possible until the customer replies.
+  </Accordion>
 
-<Accordion title="Can the agent send images and videos on all channels?">
-Yes — the agent can send media on all three channels. On WhatsApp it can also send interactive buttons (up to 3) and lists (for 4–10 choices) if the beta **Multiple Message Type Support** setting is enabled. On Instagram, the agent is limited to text and media, so choices are presented as plain or numbered text. The Web Chat widget can render text, images, video, audio, documents, location, carousels, and interactive buttons.
-</Accordion>
+  <Accordion title="Can the agent send images and videos on all channels?">
+    Yes — the agent can send media on all three channels. On WhatsApp it can also send interactive buttons (up to 3) and lists (for 4–10 choices) if the beta **Multiple Message Type Support** setting is enabled. On Instagram, the agent is limited to text and media, so choices are presented as plain or numbered text. The Web Chat widget can render text, images, video, audio, documents, location, carousels, and interactive buttons.
+  </Accordion>
 </AccordionGroup>

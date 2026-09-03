@@ -4,209 +4,176 @@ title: "Chat AI Agent FAQs"
 
 > **Who can use this?**
 >
-> * Gallabox users with Chat AI Agents created or being considered.
-> * Roles: Owners and Admins (and roles with AI agent permissions) for configuration; Agent role for general usage questions.
+> - Gallabox users with Chat AI Agents created or being considered.
+> - Roles: Owners and Admins (and roles with AI agent permissions) for configuration; Agent role for general usage questions.
 
 ## Creating and Configuring Agents
 
 <AccordionGroup>
-<Accordion title="How do I create a Chat AI Agent?">
-<Steps>
+  <Accordion title="How do I create a Chat AI Agent?">
+    <Steps>
+      <Step title="Go to AI Agents and Bots">
+        Go to **AI Agents and Bots** in the left navigation of Gallabox.
+      </Step>
+      <Step title="Click Create New → Chat AI Agent">
+        Click **Create New → Chat AI Agent**.
+      </Step>
+      <Step title="Follow the 4-step wizard">
+        Follow the 4-step wizard:
 
-<Step title="Go to AI Agents and Bots">
-Go to **AI Agents and Bots** in the left navigation of Gallabox.
-</Step>
+        - **Step 1 — Industry:** Select your industry or type a custom one
+        - **Step 2 — Use Case:** Choose a use case (Lead Qualification, Sales, FAQ, etc.)
+        - **Step 3 — Channel:** Select WhatsApp, Instagram, and/or Web Chat
+        - **Step 4 — Business Details:** Provide a website URL or short description for the agent to learn from
+      </Step>
+      <Step title="Wait for the agent to be created">
+        Wait for the agent to be created — the system generates role, goal, and instructions automatically.
+      </Step>
+      <Step title="Review and edit the agent">
+        Review and edit the agent in the **Home** and **Settings** tabs.
+      </Step>
+      <Step title="Click Save to activate">
+        Click **Save** to activate.
+      </Step>
+    </Steps>
 
-<Step title="Click Create New → Chat AI Agent">
-Click **Create New → Chat AI Agent**.
-</Step>
+    For full details on editing and refining the agent after creation, see the [Chat AI Agent overview](/ai-agents-and-bots/chat-ai-agent/overview#editing-and-refining-your-agent).
+  </Accordion>
 
-<Step title="Follow the 4-step wizard">
-Follow the 4-step wizard:
+  <Accordion title="Why is my agent giving wrong or irrelevant answers?">
+    The agent's answers depend on its instructions and Knowledge Base. To fix wrong answers:
 
-* **Step 1 — Industry:** Select your industry or type a custom one
-* **Step 2 — Use Case:** Choose a use case (Lead Qualification, Sales, FAQ, etc.)
-* **Step 3 — Channel:** Select WhatsApp, Instagram, and/or Web Chat
-* **Step 4 — Business Details:** Provide a website URL or short description for the agent to learn from
-</Step>
-
-<Step title="Wait for the agent to be created">
-Wait for the agent to be created — the system generates role, goal, and instructions automatically.
-</Step>
-
-<Step title="Review and edit the agent">
-Review and edit the agent in the **Home** and **Settings** tabs.
-</Step>
-
-<Step title="Click Save to activate">
-Click **Save** to activate.
-</Step>
-
-</Steps>
-
-For full details on editing and refining the agent after creation, see the [Chat AI Agent overview](/ai-agents-and-bots/chat-ai-agent/overview#editing-and-refining-your-agent).
-</Accordion>
-
-<Accordion title="Why is my agent giving wrong or irrelevant answers?">
-The agent's answers depend on its instructions and Knowledge Base. To fix wrong answers:
-
-<Steps>
-
-<Step title="Review the agent setup">
-Go to **AI Agents and Bots → \[Your Agent] → Home**.
-</Step>
-
-<Step title="Check the Role, Goal, and Instructions">
-Review the **Role**, **Goal**, and **Instructions** fields — are they specific enough?
-</Step>
-
-<Step title="Check the Knowledge Base">
-Check the **Knowledge Base** — are the right documents uploaded and indexed?
-</Step>
-
-<Step title="Test the same question">
-Test in the **Test Widget** with the same question that gave the wrong answer.
-</Step>
-
-<Step title="Make the instructions more specific">
-Edit the instructions to be more specific about what the agent should and should not say.
-</Step>
-
-<Step title="Adjust chunking if needed">
-If the Knowledge Base is returning irrelevant chunks, try adjusting the chunk size and overlap in the Knowledge Base–level chunking settings — all documents in that knowledge base inherit them.
-</Step>
-
-</Steps>
-</Accordion>
+    <Steps>
+      <Step title="Review the agent setup">
+        Go to **AI Agents and Bots → [Your Agent] → Home**.
+      </Step>
+      <Step title="Check the Role, Goal, and Instructions">
+        Review the **Role**, **Goal**, and **Instructions** fields — are they specific enough?
+      </Step>
+      <Step title="Check the Knowledge Base">
+        Check the **Knowledge Base** — are the right documents uploaded and indexed?
+      </Step>
+      <Step title="Test the same question">
+        Test in the **Test Widget** with the same question that gave the wrong answer.
+      </Step>
+      <Step title="Make the instructions more specific">
+        Edit the instructions to be more specific about what the agent should and should not say.
+      </Step>
+      <Step title="Adjust chunking if needed">
+        If the Knowledge Base is returning irrelevant chunks, try adjusting the chunk size and overlap in the Knowledge Base–level chunking settings — all documents in that knowledge base inherit them.
+      </Step>
+    </Steps>
+  </Accordion>
 </AccordionGroup>
 
 ## Agent Not Responding
 
 <AccordionGroup>
-<Accordion title="My Chat AI Agent is not responding to messages">
-Check these in order:
+  <Accordion title="My Chat AI Agent is not responding to messages">
+    Check these in order:
 
-<Steps>
+    <Steps>
+      <Step title="Is the agent active?">
+        Go to **AI Agents and Bots** — the agent should show "Active" status.
+      </Step>
+      <Step title="Is the agent assigned to the conversation?">
+        The agent triggers when assigned to a conversation. Check your assignment rules or manually assign the conversation to the agent.
+      </Step>
+      <Step title="Check AI credits">
+        Check your [AI Wallet](/pricing-and-billing/ai-wallet) — if AI credits are exhausted, the agent won't respond.
+      </Step>
+      <Step title="Check session timeout">
+        If the session has timed out, the agent stops responding. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl).
+      </Step>
+    </Steps>
+  </Accordion>
 
-<Step title="Is the agent active?">
-Go to **AI Agents and Bots** — the agent should show "Active" status.
-</Step>
-
-<Step title="Is the agent assigned to the conversation?">
-The agent triggers when assigned to a conversation. Check your assignment rules or manually assign the conversation to the agent.
-</Step>
-
-<Step title="Check AI credits">
-Check your [AI Wallet](/pricing-and-billing/ai-wallet) — if AI credits are exhausted, the agent won't respond.
-</Step>
-
-<Step title="Check session timeout">
-If the session has timed out, the agent stops responding. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl).
-</Step>
-
-</Steps>
-</Accordion>
-
-<Accordion title="The agent responded once but then stopped">
-The session likely timed out. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl) for full session details.
-</Accordion>
+  <Accordion title="The agent responded once but then stopped">
+    The session likely timed out. WhatsApp and Instagram default to 24 hours (1 hour on Web Chat), and the timeout is configurable. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl) for full session details.
+  </Accordion>
 </AccordionGroup>
 
 ## Knowledge Base Issues
 
 <AccordionGroup>
-<Accordion title="The agent is not using my Knowledge Base">
-Check these in order:
+  <Accordion title="The agent is not using my Knowledge Base">
+    Check these in order:
 
-<Steps>
+    <Steps>
+      <Step title="Is the Knowledge Base connected?">
+        Go to **AI Agents and Bots → [Your Agent] → Settings → Knowledge Base** and verify at least one Knowledge Base is connected.
+      </Step>
+      <Step title="Are the documents indexed?">
+        Check the status column — documents should show **Completed**, not **Pending**, **Processing**, or **Failed**.
+      </Step>
+      <Step title="Does the question match the documents?">
+        The agent only retrieves chunks that match the query. Try rephrasing the question to match the language in your documents.
+      </Step>
+      <Step title="Are the right chunks being retrieved?">
+        Test in the **Test Widget** and check the agent's reasoning — it should show which Knowledge Base chunks it retrieved.
+      </Step>
+    </Steps>
+  </Accordion>
 
-<Step title="Is the Knowledge Base connected?">
-Go to **AI Agents and Bots → \[Your Agent] → Settings → Knowledge Base** and verify at least one Knowledge Base is connected.
-</Step>
-
-<Step title="Are the documents indexed?">
-Check the status column — documents should show **Completed**, not **Pending**, **Processing**, or **Failed**.
-</Step>
-
-<Step title="Does the question match the documents?">
-The agent only retrieves chunks that match the query. Try rephrasing the question to match the language in your documents.
-</Step>
-
-<Step title="Are the right chunks being retrieved?">
-Test in the **Test Widget** and check the agent's reasoning — it should show which Knowledge Base chunks it retrieved.
-</Step>
-
-</Steps>
-</Accordion>
-
-<Accordion title="My PDF uploaded but shows 'Failed' — what do I do?">
-The PDF is likely scanned (not text-based), password-protected, or corrupted — see the troubleshooting steps in [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources#faqs).
-</Accordion>
+  <Accordion title="My PDF uploaded but shows 'Failed' — what do I do?">
+    The PDF is likely scanned (not text-based), password-protected, or corrupted — see the troubleshooting steps in [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources#faqs).
+  </Accordion>
 </AccordionGroup>
 
 ## Session and Timeout Issues
 
 <Accordion title="The session ends too quickly — visitors are frustrated">
-Session timeout is a configurable default of 24 hours for WhatsApp/Instagram and 1 hour for Web Chat — see [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl). You can change it in the agent's drop-off settings — in minutes (up to 59) or hours (up to 24). You can also reduce the need for long sessions by:
+  Session timeout is a configurable default of 24 hours for WhatsApp/Instagram and 1 hour for Web Chat — see [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout-ttl). You can change it in the agent's drop-off settings — in minutes (up to 59) or hours (up to 24). You can also reduce the need for long sessions by:
 
-<Steps>
-
-<Step title="Make responses more concise">
-Configuring the agent to be more concise in its responses
-</Step>
-
-<Step title="Hand off to a human (WhatsApp/Instagram only)">
-Using @assignTo to hand off to a human before the session would naturally time out. This doesn't apply to Web Chat — see the next step for the Web Chat equivalent.
-</Step>
-
-<Step title="Continue on WhatsApp (Web Chat)">
-On Web Chat, enabling the handoff to WhatsApp so visitors can continue on WhatsApp (which resets the session when they reply) — this is the only way a Web Chat visitor reaches a human, since @assignTo doesn't work on Web Chat.
-</Step>
-
-</Steps>
+  <Steps>
+    <Step title="Make responses more concise">
+      Configuring the agent to be more concise in its responses
+    </Step>
+    <Step title="Hand off to a human (WhatsApp/Instagram only)">
+      Using @assignTo to hand off to a human before the session would naturally time out. This doesn't apply to Web Chat — see the next step for the Web Chat equivalent.
+    </Step>
+    <Step title="Continue on WhatsApp (Web Chat)">
+      On Web Chat, enabling the handoff to WhatsApp so visitors can continue on WhatsApp (which resets the session when they reply) — this is the only way a Web Chat visitor reaches a human, since @assignTo doesn't work on Web Chat.
+    </Step>
+  </Steps>
 </Accordion>
 
 ## Credits and Billing
 
 <Accordion title="AI credits are being consumed too fast — why?">
-AI credits are consumed each time the agent generates a response, and also by Knowledge Base indexing — see [AI Wallet](/pricing-and-billing/ai-wallet) for how credits are consumed and monitored.
+  AI credits are consumed each time the agent generates a response, and also by Knowledge Base indexing — see [AI Wallet](/pricing-and-billing/ai-wallet) for how credits are consumed and monitored.
 </Accordion>
 
 ## General
 
 <AccordionGroup>
-<Accordion title="Can I use the same agent on WhatsApp and Instagram?">
-Yes. When creating or editing a Chat AI Agent, you can select multiple channels. The agent will handle conversations on all selected channels. Note that the session timeout (configurable default of 24 hours) and the 24-hour window apply to both WhatsApp and Instagram.
-</Accordion>
+  <Accordion title="Can I use the same agent on WhatsApp and Instagram?">
+    Yes. When creating or editing a Chat AI Agent, you can select multiple channels. The agent will handle conversations on all selected channels. Note that the session timeout (configurable default of 24 hours) and the 24-hour window apply to both WhatsApp and Instagram.
+  </Accordion>
 
-<Accordion title="How do I test my agent before going live?">
-Use the **Test Widget** built into the agent editor:
+  <Accordion title="How do I test my agent before going live?">
+    Use the **Test Widget** built into the agent editor:
 
-<Steps>
-
-<Step title="Go to your agent">
-Go to **AI Agents and Bots → \[Your Agent]**.
-</Step>
-
-<Step title="Open the Test Widget">
-Click **Test Widget** in the top bar.
-</Step>
-
-<Step title="Send test messages">
-Type messages as a visitor would — the agent responds in real time.
-</Step>
-
-<Step title="Review the session log">
-Check the session log to see what the agent did, what Knowledge Base chunks it retrieved, and what credits were consumed.
-</Step>
-
-</Steps>
-</Accordion>
+    <Steps>
+      <Step title="Go to your agent">
+        Go to **AI Agents and Bots → [Your Agent]**.
+      </Step>
+      <Step title="Open the Test Widget">
+        Click **Test Widget** in the top bar.
+      </Step>
+      <Step title="Send test messages">
+        Type messages as a visitor would — the agent responds in real time.
+      </Step>
+      <Step title="Review the session log">
+        Check the session log to see what the agent did, what Knowledge Base chunks it retrieved, and what credits were consumed.
+      </Step>
+    </Steps>
+  </Accordion>
 </AccordionGroup>
 
 ## Related Articles
 
-* [Chat AI Agent Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — Setting up the Knowledge Base
-* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — Session and timeout behaviour
-* [AI Wallet](/pricing-and-billing/ai-wallet) — AI credits management
-* [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics) — Tracking agent performance
+- [Chat AI Agent Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — Setting up the Knowledge Base
+- [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — Session and timeout behaviour
+- [AI Wallet](/pricing-and-billing/ai-wallet) — AI credits management
+- [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics) — Tracking agent performance
