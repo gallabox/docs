@@ -169,7 +169,8 @@
                   "whatsapp/ad-campaigns/capi"
                 ]
               },
-              "whatsapp/website-widget"
+              "whatsapp/website-widget",
+              "whatsapp-groups"
             ]
           },
           {
@@ -378,7 +379,6 @@
               "reports-and-analytics/message-reports"
             ]
           },
-          "whatsapp-groups",
           {
             "group": "Settings",
             "icon": "gear",
