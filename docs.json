@@ -120,7 +120,7 @@
               "whatsapp/overview",
               "whatsapp/connect-your-whatsapp",
               "whatsapp/migrate-from-business-app",
-              "untitled-page-2",
+              "whatsapp/customer-identity-bsuid",
               "whatsapp/whatsapp-coexistence",
               {
                 "group": "Broadcasts",
@@ -142,7 +142,8 @@
                 "group": "Templates",
                 "pages": [
                   "whatsapp/templates/overview",
-                  "whatsapp/templates/create-template"
+                  "whatsapp/templates/create-template",
+                  "whatsapp/templates/carousel-templates"
                 ]
               },
               "whatsapp/flows",
@@ -157,6 +158,8 @@
                 ]
               },
               "whatsapp/shop",
+              "whatsapp/payments",
+              "whatsapp/unsupported-messages",
               {
                 "group": "Click-to-WhatsApp Ads (CTWA)",
                 "pages": [
@@ -166,7 +169,7 @@
                   "whatsapp/ad-campaigns/capi"
                 ]
               },
-              "untitled-page"
+              "whatsapp/website-widget"
             ]
           },
           {
@@ -380,6 +383,7 @@
             "icon": "gear",
             "pages": [
               "settings/overview",
+              "settings/users-teams-and-roles",
               "settings/tags",
               "settings/variables",
               "settings/webhooks",
@@ -407,7 +411,7 @@
               "pricing-and-billing/message-credits",
               "pricing-and-billing/ai-wallet",
               "pricing-and-billing/faqs",
-              "untitled-page-3"
+              "pricing-and-billing/whatsapp-message-pricing"
             ]
           }
         ]
@@ -619,6 +623,1370 @@
     {
       "source": "/privacy-and-security",
       "destination": "/privacy-and-security/overview"
+    },
+    {
+      "source": "/account-management",
+      "destination": "/settings/overview"
+    },
+    {
+      "source": "/account-management/account-details",
+      "destination": "/settings/security"
+    },
+    {
+      "source": "/account-management/account-essentials",
+      "destination": "/settings/security"
+    },
+    {
+      "source": "/account-management/user-and-roles",
+      "destination": "/settings/users-teams-and-roles"
+    },
+    {
+      "source": "/account-management/user-details",
+      "destination": "/settings/users-teams-and-roles"
+    },
+    {
+      "source": "/account-management/user-teams-and-roles",
+      "destination": "/settings/users-teams-and-roles"
+    },
+    {
+      "source": "/account-security-features",
+      "destination": "/settings/security"
+    },
+    {
+      "source": "/account-security-features/activity-log",
+      "destination": "/settings/activity-log"
+    },
+    {
+      "source": "/account-security-features/allowed-ips",
+      "destination": "/settings/security#allowed-ips"
+    },
+    {
+      "source": "/account-security-features/data-retention-and-privacy",
+      "destination": "/privacy-and-security/data-security"
+    },
+    {
+      "source": "/account-security-features/two-factor-authentication",
+      "destination": "/settings/two-factor-authentication"
+    },
+    {
+      "source": "/ad-campaigns",
+      "destination": "/whatsapp/ad-campaigns/overview"
+    },
+    {
+      "source": "/ad-campaigns/capi-integration",
+      "destination": "/whatsapp/ad-campaigns/capi"
+    },
+    {
+      "source": "/ad-campaigns/click-to-whatsapp-analytics",
+      "destination": "/whatsapp/ad-campaigns/ctwa-ads"
+    },
+    {
+      "source": "/ad-campaigns/ctwa-in-gallabox",
+      "destination": "/whatsapp/ad-campaigns/ctwa-ads"
+    },
+    {
+      "source": "/ad-campaigns/gallabox-ctwa-faqs",
+      "destination": "/whatsapp/ad-campaigns/ctwa-ads"
+    },
+    {
+      "source": "/basic-modules/canned-responses",
+      "destination": "/whatsapp/canned-responses"
+    },
+    {
+      "source": "/basic-modules/contact-fields",
+      "destination": "/settings/variables#contact-variables"
+    },
+    {
+      "source": "/basic-modules/conversation-fields",
+      "destination": "/settings/variables"
+    },
+    {
+      "source": "/basic-modules/field-collection",
+      "destination": "/settings/variables"
+    },
+    {
+      "source": "/basic-modules/message-tracker",
+      "destination": "/reports-and-analytics/message-reports"
+    },
+    {
+      "source": "/basic-modules/tags",
+      "destination": "/settings/tags"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines",
+      "destination": "/whatsapp/templates/overview"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/authentication-templates",
+      "destination": "/whatsapp/templates/overview#authentication-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/carousel-template",
+      "destination": "/whatsapp/templates/carousel-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/coupon-code-whatsapp-template",
+      "destination": "/whatsapp/templates/create-template#cloning-a-template"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/custom-marketing-and-utility-templates",
+      "destination": "/whatsapp/templates/create-template#smart-check-for-utility-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/faqs-whatsapp-template-messages",
+      "destination": "/whatsapp/templates/overview#what-are-template-messages"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/limited-time-offer-templates",
+      "destination": "/whatsapp/templates/create-template#filtering-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/order-details-template",
+      "destination": "/whatsapp/templates/create-template#creating-a-template"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/product-marketing-templates",
+      "destination": "/whatsapp/templates/overview#marketing-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/re-write-with-ai",
+      "destination": "/whatsapp/templates/create-template#rewriting-your-message-with-ai"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/template-creation-and-editing",
+      "destination": "/whatsapp/templates/overview#template-categories"
+    },
+    {
+      "source": "/basic-modules/whatsapp-template-guidelines/whatsapp-template-url-tracking",
+      "destination": "/whatsapp/templates/overview#template-limits"
+    },
+    {
+      "source": "/basic-modules/whatsapp-templates",
+      "destination": "/whatsapp/templates/overview"
+    },
+    {
+      "source": "/basic-modules/whatsapp-templates/carousal-template",
+      "destination": "/whatsapp/templates/carousel-templates"
+    },
+    {
+      "source": "/basic-modules/whatsapp-templates/re-write-with-ai",
+      "destination": "/whatsapp/templates/create-template#rewriting-your-message-with-ai"
+    },
+    {
+      "source": "/bots",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/ask-questions",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes"
+    },
+    {
+      "source": "/bots/ask-questions/ask-address",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-address"
+    },
+    {
+      "source": "/bots/ask-questions/ask-button-option",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-reply-buttons"
+    },
+    {
+      "source": "/bots/ask-questions/ask-collection-list",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-collections-list"
+    },
+    {
+      "source": "/bots/ask-questions/ask-date",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-date"
+    },
+    {
+      "source": "/bots/ask-questions/ask-email",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-email"
+    },
+    {
+      "source": "/bots/ask-questions/ask-file",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-file"
+    },
+    {
+      "source": "/bots/ask-questions/ask-form",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-form"
+    },
+    {
+      "source": "/bots/ask-questions/ask-keyword-option",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-keyword-options"
+    },
+    {
+      "source": "/bots/ask-questions/ask-list-option",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-list"
+    },
+    {
+      "source": "/bots/ask-questions/ask-location",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-location"
+    },
+    {
+      "source": "/bots/ask-questions/ask-number",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-number"
+    },
+    {
+      "source": "/bots/ask-questions/ask-payments",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-whatsapp-payment-essential"
+    },
+    {
+      "source": "/bots/ask-questions/ask-phone",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-phone"
+    },
+    {
+      "source": "/bots/ask-questions/ask-text",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-text"
+    },
+    {
+      "source": "/bots/ask-questions/ask-url",
+      "destination": "/ai-agents-and-bots/bots/nodes/ask-nodes#ask-url"
+    },
+    {
+      "source": "/bots/bot-actions",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes"
+    },
+    {
+      "source": "/bots/bot-actions/add-note-and-mention",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#add-note-mention-essential"
+    },
+    {
+      "source": "/bots/bot-actions/assign-conversation",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#assign-conversation"
+    },
+    {
+      "source": "/bots/bot-actions/conversion-events",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#conversation-management"
+    },
+    {
+      "source": "/bots/bot-actions/push-to-sequence",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#push-to-sequence"
+    },
+    {
+      "source": "/bots/bot-actions/resolve-conversations",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#resolve-conversation"
+    },
+    {
+      "source": "/bots/bot-actions/unassign-conversations",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#unassign-conversation"
+    },
+    {
+      "source": "/bots/bot-actions/update-company-fields",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#update-company-fields"
+    },
+    {
+      "source": "/bots/bot-actions/update-contact-fields",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#update-contact-fields"
+    },
+    {
+      "source": "/bots/bot-actions/update-conversation-fields",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#update-conversation-fields"
+    },
+    {
+      "source": "/bots/bot-actions/update-order-payment-status",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#update-order-payment-status"
+    },
+    {
+      "source": "/bots/bot-actions/update-order-status",
+      "destination": "/ai-agents-and-bots/bots/nodes/action-nodes#update-order-status"
+    },
+    {
+      "source": "/bots/bot-connectors",
+      "destination": "/ai-agents-and-bots/bots/connectors"
+    },
+    {
+      "source": "/bots/bot-connectors/api-call",
+      "destination": "/ai-agents-and-bots/bots/connectors#api-call"
+    },
+    {
+      "source": "/bots/bot-connectors/connect-chatgpt-with-whatsapp-in-gallabox-chatbot",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#gpt-dialog"
+    },
+    {
+      "source": "/bots/bot-connectors/connect-shopify-and-whatsapp-to-collect-orders-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#shopify"
+    },
+    {
+      "source": "/bots/bot-connectors/connect-whatsapp-and-google-sheets-to-collect-responses",
+      "destination": "/ai-agents-and-bots/bots/connectors#configure-the-google-sheets-connector"
+    },
+    {
+      "source": "/bots/bot-connectors/connect-your-system-with-the-whatsapp-chat-bot-using-api",
+      "destination": "/ai-agents-and-bots/bots/connectors#api-call"
+    },
+    {
+      "source": "/bots/bot-connectors/enhance-chatbot-with-elevenlabs-ai-voice-synthesis",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-voice-advanced-only"
+    },
+    {
+      "source": "/bots/bot-connectors/google-sheet",
+      "destination": "/ai-agents-and-bots/bots/connectors#google-sheets"
+    },
+    {
+      "source": "/bots/bot-connectors/google-sheets",
+      "destination": "/ai-agents-and-bots/bots/connectors#google-sheets"
+    },
+    {
+      "source": "/bots/bot-connectors/hubspot",
+      "destination": "/ai-agents-and-bots/bots/connectors#hubspot"
+    },
+    {
+      "source": "/bots/bot-connectors/leadsquared",
+      "destination": "/ai-agents-and-bots/bots/connectors#leadsquared"
+    },
+    {
+      "source": "/bots/bot-connectors/open-ai",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#gpt-dialog"
+    },
+    {
+      "source": "/bots/bot-connectors/phonepe",
+      "destination": "/ai-agents-and-bots/bots/connectors#phonepe"
+    },
+    {
+      "source": "/bots/bot-connectors/pipedrive",
+      "destination": "/ai-agents-and-bots/bots/connectors#pipedrive"
+    },
+    {
+      "source": "/bots/bot-connectors/razorpay",
+      "destination": "/ai-agents-and-bots/bots/connectors#razorpay"
+    },
+    {
+      "source": "/bots/bot-connectors/sangam-crm",
+      "destination": "/ai-agents-and-bots/bots/connectors#sangam-crm"
+    },
+    {
+      "source": "/bots/bot-connectors/send-payment-links-via-whatsapp-chatbot-using-phonepe",
+      "destination": "/ai-agents-and-bots/bots/connectors#phonepe"
+    },
+    {
+      "source": "/bots/bot-connectors/send-payment-links-via-whatsapp-chatbot-using-razorpay-integration",
+      "destination": "/ai-agents-and-bots/bots/connectors#razorpay"
+    },
+    {
+      "source": "/bots/bot-connectors/send-payment-links-via-whatsapp-chatbot-using-stripe",
+      "destination": "/ai-agents-and-bots/bots/connectors#stripe"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-hubspot-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#hubspot"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-leadsquared-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#leadsquared"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-petpooja-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-pipedrive-crm-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#pipedrive"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-sangam-crm-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#sangam-crm"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-woocommerce-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#woocommerce"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-zoho-bigin-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoho-bigin"
+    },
+    {
+      "source": "/bots/bot-connectors/send-your-whatsapp-data-to-zoho-crm-using-chatbot",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoho-crm"
+    },
+    {
+      "source": "/bots/bot-connectors/shopify",
+      "destination": "/ai-agents-and-bots/bots/connectors#shopify"
+    },
+    {
+      "source": "/bots/bot-connectors/stripe",
+      "destination": "/ai-agents-and-bots/bots/connectors#stripe"
+    },
+    {
+      "source": "/bots/bot-connectors/woocommerce",
+      "destination": "/ai-agents-and-bots/bots/connectors#woocommerce"
+    },
+    {
+      "source": "/bots/bot-connectors/zoho-bigin",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoho-bigin"
+    },
+    {
+      "source": "/bots/bot-connectors/zoho-crm",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoho-crm"
+    },
+    {
+      "source": "/bots/bot-connectors/zoom",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoom"
+    },
+    {
+      "source": "/bots/bot-connectors/zoom-whatsapp-integration-how-to-enable-webinar-registration-on-whatsapp",
+      "destination": "/ai-agents-and-bots/bots/connectors#zoom"
+    },
+    {
+      "source": "/bots/bot-essentials",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/bot-in-gallabox",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/bot-in-gallabox/create-a-bot-from-scratch",
+      "destination": "/ai-agents-and-bots/bots/flow-builder#creating-a-new-bot-flow"
+    },
+    {
+      "source": "/bots/bot-in-gallabox/create-a-bot-using-ai",
+      "destination": "/ai-agents-and-bots/bots/flow-builder#creating-a-new-bot-flow"
+    },
+    {
+      "source": "/bots/bot-in-gallabox/create-a-bot-using-bot-templates",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/bot-management",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/bot-utilities",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes"
+    },
+    {
+      "source": "/bots/bot-utilities/ai-node-gpt-dialog",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#gpt-dialog"
+    },
+    {
+      "source": "/bots/bot-utilities/ai-node-gpt-knowledge-base",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#gpt-knowledge-base"
+    },
+    {
+      "source": "/bots/bot-utilities/condition",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#condition"
+    },
+    {
+      "source": "/bots/bot-utilities/delay",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#delay"
+    },
+    {
+      "source": "/bots/bot-utilities/goal",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#goal"
+    },
+    {
+      "source": "/bots/bot-utilities/gpt-dialog",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#gpt-dialog"
+    },
+    {
+      "source": "/bots/bot-utilities/hint",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#hint"
+    },
+    {
+      "source": "/bots/bot-utilities/jump-to",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#jump-to-essential"
+    },
+    {
+      "source": "/bots/bot-utilities/office-hours",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#business-hours"
+    },
+    {
+      "source": "/bots/bot-utilities/send-button-option",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-reply-buttons"
+    },
+    {
+      "source": "/bots/bot-utilities/send-list-option",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-list"
+    },
+    {
+      "source": "/bots/bot-utilities/set-variable",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#set-variable"
+    },
+    {
+      "source": "/bots/bot-utilities/switch",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#switch"
+    },
+    {
+      "source": "/bots/bot-utilities/wait-for-order",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#wait-for-order"
+    },
+    {
+      "source": "/bots/bot-utilities/working-hours",
+      "destination": "/ai-agents-and-bots/bots/nodes/flow-control-nodes#business-hours"
+    },
+    {
+      "source": "/bots/flow-in-the-bot",
+      "destination": "/ai-agents-and-bots/bots/flow-builder"
+    },
+    {
+      "source": "/bots/flow-in-the-bot/ai-based-flow",
+      "destination": "/ai-agents-and-bots/bots/flow-builder#what-is-a-bot-flow"
+    },
+    {
+      "source": "/bots/flow-in-the-bot/ctwa-ad-based-flow",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/gallabox-bot-faqs",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/gallabox-bot-glossary",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/send-card",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes"
+    },
+    {
+      "source": "/bots/send-card/send-collection",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-collection"
+    },
+    {
+      "source": "/bots/send-card/send-form",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-form-essential"
+    },
+    {
+      "source": "/bots/send-card/send-location",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-location"
+    },
+    {
+      "source": "/bots/send-card/send-media",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-media"
+    },
+    {
+      "source": "/bots/send-card/send-payments",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-whatsapp-payment-essential"
+    },
+    {
+      "source": "/bots/send-card/send-products",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-products"
+    },
+    {
+      "source": "/bots/send-card/send-template",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-whatsapp-template"
+    },
+    {
+      "source": "/bots/send-card/send-text",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-text"
+    },
+    {
+      "source": "/bots/send-card/send-voice",
+      "destination": "/ai-agents-and-bots/bots/nodes/send-nodes#send-voice-advanced-only"
+    },
+    {
+      "source": "/bots/set-up-default-bot",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/bots/things-to-know-before-building-your-first-bot",
+      "destination": "/ai-agents-and-bots/bots/overview"
+    },
+    {
+      "source": "/broadcast",
+      "destination": "/whatsapp/broadcasts/overview"
+    },
+    {
+      "source": "/broadcast/broadcast-analytics-and-report",
+      "destination": "/whatsapp/broadcasts/broadcast-analytics"
+    },
+    {
+      "source": "/broadcast/broadcast-re-targeting",
+      "destination": "/whatsapp/broadcasts/overview#repeat-and-retarget"
+    },
+    {
+      "source": "/broadcast/gallabox-broadcast",
+      "destination": "/whatsapp/broadcasts/overview"
+    },
+    {
+      "source": "/broadcast/gallabox-broadcast-faqs",
+      "destination": "/whatsapp/broadcasts/overview#faqs"
+    },
+    {
+      "source": "/broadcast/repeat-and-retarget-broadcasts",
+      "destination": "/whatsapp/broadcasts/overview#repeat-and-retarget"
+    },
+    {
+      "source": "/broadcast/review-and-send-broadcast",
+      "destination": "/whatsapp/broadcasts/create-broadcast#step-7-send-or-schedule-the-broadcast"
+    },
+    {
+      "source": "/broadcast/select-audience",
+      "destination": "/whatsapp/broadcasts/create-broadcast#step-3-select-your-audience"
+    },
+    {
+      "source": "/broadcast/select-template",
+      "destination": "/whatsapp/broadcasts/overview"
+    },
+    {
+      "source": "/channels/whatsapp/profile-and-assignments",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/chat-ai-agent",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/overview"
+    },
+    {
+      "source": "/chat-ai-agent/chat-ai-agent-configuration",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/faqs"
+    },
+    {
+      "source": "/chat-ai-agent/choosing-an-ai-model-for-your-ai-agent",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/overview#choosing-the-ai-model"
+    },
+    {
+      "source": "/chat-ai-agent/creating-a-chat-ai-agent",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/overview#what-is-a-chat-ai-agent"
+    },
+    {
+      "source": "/chat-ai-agent/migrating-from-v1-agents-to-v2",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/migrating-from-v1-agents-to-v2"
+    },
+    {
+      "source": "/chat-ai-agent/overview",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/overview"
+    },
+    {
+      "source": "/communication-management/canned-responses",
+      "destination": "/whatsapp/canned-responses"
+    },
+    {
+      "source": "/communication-management/whatsapp-templates",
+      "destination": "/whatsapp/templates/overview"
+    },
+    {
+      "source": "/connect-whatsapp-channel",
+      "destination": "/whatsapp/connect-your-whatsapp"
+    },
+    {
+      "source": "/connect-whatsapp-channel/apply-for-whatsapp-blue-tick",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/connect-whatsapp-channel/connect-your-whatsapp",
+      "destination": "/whatsapp/connect-your-whatsapp"
+    },
+    {
+      "source": "/connect-whatsapp-channel/gallabox-account-setup-faqs",
+      "destination": "/whatsapp/connect-your-whatsapp#faqs"
+    },
+    {
+      "source": "/connect-whatsapp-channel/messaging-limits-and-quality-ratings",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/connect-whatsapp-channel/meta-business-verification",
+      "destination": "/whatsapp/connect-your-whatsapp#meta-business-verification"
+    },
+    {
+      "source": "/connect-whatsapp-channel/migrate-to-gallabox",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/connect-whatsapp-channel/whatsapp-business-username",
+      "destination": "/whatsapp/customer-identity-bsuid"
+    },
+    {
+      "source": "/connect-whatsapp-channel/whatsapp-coexistence",
+      "destination": "/whatsapp/whatsapp-coexistence"
+    },
+    {
+      "source": "/contacts/add-contact",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/contact-deletion",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/contact-management",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/contact-segments",
+      "destination": "/contacts/segments"
+    },
+    {
+      "source": "/contacts/contact-updation",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/export-contacts",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/gallabox-contact-glossary",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/marketing-opt-in",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/marketing-opt-in/marketing-opt-in-handling-methods",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/marketing-opt-in/marketing-opt-in-on-contact-creation",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/marketing-opt-in/marketing-opt-out-management",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/contacts/merging-of-contacts",
+      "destination": "/contacts/overview"
+    },
+    {
+      "source": "/conversations/compose-box",
+      "destination": "/conversations/optimize-inbox#compose-box-features"
+    },
+    {
+      "source": "/conversations/gallabox-conversations-faqs",
+      "destination": "/conversations/omnichannel-inbox#open-a-conversation"
+    },
+    {
+      "source": "/conversations/gallabox-conversations-glossary",
+      "destination": "/conversations/omnichannel-inbox#how-conversations-arrive-in-the-inbox"
+    },
+    {
+      "source": "/conversations/inboxes",
+      "destination": "/conversations/overview"
+    },
+    {
+      "source": "/conversations/initiate-a-new-chat",
+      "destination": "/conversations/overview"
+    },
+    {
+      "source": "/conversations/manage-inbox",
+      "destination": "/conversations/omnichannel-inbox"
+    },
+    {
+      "source": "/conversations/team-inbox",
+      "destination": "/conversations/omnichannel-inbox"
+    },
+    {
+      "source": "/conversations/views",
+      "destination": "/conversations/team-views"
+    },
+    {
+      "source": "/developer-resources/api-key-and-secret",
+      "destination": "https://api-docs.gallabox.com/"
+    },
+    {
+      "source": "/developer-resources/conversation-widget",
+      "destination": "https://api-docs.gallabox.com/"
+    },
+    {
+      "source": "/developer-resources/webhook",
+      "destination": "https://api-docs.gallabox.com/"
+    },
+    {
+      "source": "/extras",
+      "destination": "/guide/reduce-whatsapp-message-costs"
+    },
+    {
+      "source": "/extras/template-pricing-change-update",
+      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+    },
+    {
+      "source": "/extras/understanding-message-delivery-issues-on-whatsapp",
+      "destination": "/reports-and-analytics/whatsapp-failed-messages"
+    },
+    {
+      "source": "/extras/whatsapp-business-api-unsupported-messages",
+      "destination": "/whatsapp/unsupported-messages"
+    },
+    {
+      "source": "/extras/whatsapps-new-per-user-messaging-limits",
+      "destination": "/whatsapp/broadcasts/overview#understanding-your-messaging-limits"
+    },
+    {
+      "source": "/frequently-asked-questions",
+      "destination": "/"
+    },
+    {
+      "source": "/get-started",
+      "destination": "/"
+    },
+    {
+      "source": "/get-started/activate-free-trial",
+      "destination": "/"
+    },
+    {
+      "source": "/get-started/explore-demo-account",
+      "destination": "/whatsapp/ad-campaigns/ctwa-ads#multiple-ad-accounts"
+    },
+    {
+      "source": "/get-started/pre-requisites",
+      "destination": "/instagram/comment-automation#prerequisites"
+    },
+    {
+      "source": "/get-started/signup",
+      "destination": "/ai-agents-and-bots/chat-ai-agent/agent-actions#assignto"
+    },
+    {
+      "source": "/instagram-channel",
+      "destination": "/instagram/overview"
+    },
+    {
+      "source": "/instagram-channel/connect-instagram-channel",
+      "destination": "/instagram/connect-instagram-channel"
+    },
+    {
+      "source": "/instagram-channel/managing-instagram-comment-automation",
+      "destination": "/instagram/comment-automation#pausing-all-comment-automation"
+    },
+    {
+      "source": "/integration",
+      "destination": "/integrations/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems",
+      "destination": "/integrations/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/hubspot",
+      "destination": "/integrations/crm/hubspot/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/hubspot/workflows-for-hubspot",
+      "destination": "/integrations/crm/hubspot/workflows-for-hubspot"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/kylas",
+      "destination": "/integrations/crm/kylas/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/kylas/workflows-for-kylas",
+      "destination": "/integrations/crm/kylas/workflows-for-kylas"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/leadsquared",
+      "destination": "/integrations/crm/leadsquared/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/leadsquared/workflows-for-leadsquared",
+      "destination": "/integrations/crm/leadsquared/workflows-for-leadsquared"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/odoo",
+      "destination": "/integrations/crm/odoo"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/pipedrive",
+      "destination": "/integrations/crm/pipedrive"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/sangam",
+      "destination": "/integrations/crm/overview#sangam-crm"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/zoho",
+      "destination": "/integrations/crm/zoho-crm-and-signals/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/zoho-crm-and-signals",
+      "destination": "/integrations/crm/zoho-crm-and-signals/overview"
+    },
+    {
+      "source": "/integration/customer-relationship-management-crm-systems/zoho-crm-and-signals/workflows-for-zoho",
+      "destination": "/integrations/crm/zoho-crm-and-signals/workflows-for-zoho"
+    },
+    {
+      "source": "/integration/e-commerce-platforms",
+      "destination": "/integrations/payment-gateways/cashfree/overview#connect-the-platforms"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/cart-flow",
+      "destination": "/integrations/e-commerce/woocommerce-cart-abandonment-recovery"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/shopflo",
+      "destination": "/integrations/e-commerce/shopflo"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/shopify",
+      "destination": "/integrations/e-commerce/shopify/overview"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/shopify/shopify-template-variables-for-whatsapp-messages",
+      "destination": "/integrations/e-commerce/shopify/shopify-template-variables-for-whatsapp-messages"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/shopify/workflows-for-shopify",
+      "destination": "/integrations/e-commerce/shopify/workflows-for-shopify"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/woocommerce",
+      "destination": "/integrations/e-commerce/woocommerce/overview"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/woocommerce-cart-abandonment-recovery",
+      "destination": "/integrations/e-commerce/woocommerce-cart-abandonment-recovery"
+    },
+    {
+      "source": "/integration/e-commerce-platforms/woocommerce/workflows-for-woocommerce",
+      "destination": "/integrations/e-commerce/woocommerce/workflows-for-woocommerce"
+    },
+    {
+      "source": "/integration/gallabox-integration-faqs",
+      "destination": "/integrations/overview"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms",
+      "destination": "/integrations/marketing-platforms/overview"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/clevertap",
+      "destination": "/integrations/marketing-platforms/clevertap"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/facebook-leads",
+      "destination": "/integrations/marketing-platforms/facebook-leads/overview"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/facebook-leads/send-automated-messages-on-whatsapp-to-facebook-leads",
+      "destination": "/integrations/marketing-platforms/facebook-leads/send-automated-messages-on-whatsapp-to-facebook-leads"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/facebook-leads/send-sequence-of-messages-to-facebook-leads",
+      "destination": "/integrations/marketing-platforms/facebook-leads/send-sequence-of-messages-to-facebook-leads"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/fyno",
+      "destination": "/integrations/marketing-platforms/fyno"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/moengage",
+      "destination": "/integrations/marketing-platforms/moengage"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/webengage",
+      "destination": "/integrations/marketing-platforms/webengage/overview"
+    },
+    {
+      "source": "/integration/marketing-and-engagement-platforms/webengage/webengage-whatsapp-campaigns",
+      "destination": "/integrations/marketing-platforms/webengage/webengage-whatsapp-campaigns"
+    },
+    {
+      "source": "/integration/other-integrations",
+      "destination": "/integrations/other/overview"
+    },
+    {
+      "source": "/integration/other-integrations/calendly",
+      "destination": "/integrations/other/calendly/overview"
+    },
+    {
+      "source": "/integration/other-integrations/calendly/workflows-for-calendly",
+      "destination": "/integrations/other/calendly/workflows-for-calendly"
+    },
+    {
+      "source": "/integration/other-integrations/conversation-panels",
+      "destination": "/integrations/overview#common-integration-patterns"
+    },
+    {
+      "source": "/integration/other-integrations/generic-webhooks",
+      "destination": "/integrations/other/generic-webhooks"
+    },
+    {
+      "source": "/integration/other-integrations/google-sheets",
+      "destination": "/integrations/other/google-sheets"
+    },
+    {
+      "source": "/integration/other-integrations/miitel",
+      "destination": "/integrations/other/miitel"
+    },
+    {
+      "source": "/integration/other-integrations/pabbly",
+      "destination": "/integrations/other/pabbly"
+    },
+    {
+      "source": "/integration/other-integrations/zapier",
+      "destination": "/integrations/other/zapier"
+    },
+    {
+      "source": "/integration/other-integrations/zoho-books",
+      "destination": "/integrations/other/zoho-books/overview"
+    },
+    {
+      "source": "/integration/other-integrations/zoho-books/workflow-for-zoho-books",
+      "destination": "/integrations/other/zoho-books/workflow-for-zoho-books"
+    },
+    {
+      "source": "/integration/other-integrations/zoho-books/zoho-books-notifications",
+      "destination": "/integrations/other/zoho-books/zoho-books-notifications"
+    },
+    {
+      "source": "/integration/other-integrations/zoho-lead-panel",
+      "destination": "/integrations/other/zoho-lead-panel"
+    },
+    {
+      "source": "/integration/other-integrations/zoho-signals",
+      "destination": "/integrations/crm/zoho-crm-and-signals/overview"
+    },
+    {
+      "source": "/integration/payment-gateways",
+      "destination": "/integrations/payment-gateways/overview"
+    },
+    {
+      "source": "/integration/payment-gateways/cashfree",
+      "destination": "/integrations/payment-gateways/cashfree/overview"
+    },
+    {
+      "source": "/integration/payment-gateways/cashfree/workflows-for-cashfree",
+      "destination": "/integrations/payment-gateways/cashfree/workflows-for-cashfree"
+    },
+    {
+      "source": "/integration/payment-gateways/razorpay",
+      "destination": "/integrations/payment-gateways/razorpay/overview"
+    },
+    {
+      "source": "/integration/payment-gateways/razorpay/workflows-for-razorpay",
+      "destination": "/integrations/payment-gateways/razorpay/workflows-for-razorpay"
+    },
+    {
+      "source": "/integration/payment-gateways/stripe",
+      "destination": "/integrations/payment-gateways/stripe/overview"
+    },
+    {
+      "source": "/integration/payment-gateways/stripe/stripe-workflows",
+      "destination": "/integrations/payment-gateways/stripe/stripe-workflows"
+    },
+    {
+      "source": "/integration/shipping-and-logistics",
+      "destination": "/integrations/shipping-and-logistics/overview"
+    },
+    {
+      "source": "/integration/shipping-and-logistics/shiprocket",
+      "destination": "/integrations/shipping-and-logistics/shiprocket/overview"
+    },
+    {
+      "source": "/integration/shipping-and-logistics/shiprocket/workflows-for-shiprocket",
+      "destination": "/integrations/shipping-and-logistics/shiprocket/workflows-for-shiprocket"
+    },
+    {
+      "source": "/integration/shipping-and-logistics/shipway",
+      "destination": "/integrations/shipping-and-logistics/shipway/overview"
+    },
+    {
+      "source": "/integration/shipping-and-logistics/shipway/workflows-for-shipway",
+      "destination": "/integrations/shipping-and-logistics/shipway/workflows-for-shipway"
+    },
+    {
+      "source": "/integrations/moengage/how-to-connect-your-moengage-account-with-whatsapp-api",
+      "destination": "/integrations/marketing-platforms/moengage"
+    },
+    {
+      "source": "/integrations/shopify-integration",
+      "destination": "/integrations/e-commerce/shopify/overview"
+    },
+    {
+      "source": "/integrations/zoho-books",
+      "destination": "/integrations/other/zoho-books/overview"
+    },
+    {
+      "source": "/payments",
+      "destination": "/whatsapp/payments"
+    },
+    {
+      "source": "/payments/establish-connection",
+      "destination": "/whatsapp/payments#connect-a-payment-gateway"
+    },
+    {
+      "source": "/payments/gallabox-native-payment-faqs",
+      "destination": "/whatsapp/payments#faqs"
+    },
+    {
+      "source": "/payments/gallabox-native-payments-overview",
+      "destination": "/whatsapp/payments"
+    },
+    {
+      "source": "/payments/sending-payment-links",
+      "destination": "/whatsapp/payments#send-a-payment-request"
+    },
+    {
+      "source": "/payments/tracking-payments",
+      "destination": "/whatsapp/payments#track-payments"
+    },
+    {
+      "source": "/pricing-and-billing-modules",
+      "destination": "/pricing-and-billing/overview"
+    },
+    {
+      "source": "/pricing-and-billing-modules/ai-wallet",
+      "destination": "/pricing-and-billing/ai-wallet"
+    },
+    {
+      "source": "/pricing-and-billing-modules/billing-and-subscriptions",
+      "destination": "/pricing-and-billing/billing-and-subscriptions"
+    },
+    {
+      "source": "/pricing-and-billing-modules/conversation-pricing",
+      "destination": "/pricing-and-billing/faqs#whatsapp-message-pricing"
+    },
+    {
+      "source": "/pricing-and-billing-modules/faqs",
+      "destination": "/pricing-and-billing/faqs"
+    },
+    {
+      "source": "/pricing-and-billing-modules/message-credits",
+      "destination": "/pricing-and-billing/message-credits"
+    },
+    {
+      "source": "/pricing-and-billing-modules/new-per-message-pricing",
+      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+    },
+    {
+      "source": "/pricing-and-billing-modules/new-per-message-pricing-effective-july-1-2025",
+      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+    },
+    {
+      "source": "/pricing/message-credit-wallet-and-call-charges",
+      "destination": "/pricing-and-billing/message-credits"
+    },
+    {
+      "source": "/privacy-and-security/data-security-and-infra",
+      "destination": "/privacy-and-security/data-security"
+    },
+    {
+      "source": "/reports-and-analytics/dashboard",
+      "destination": "/reports-and-analytics/conversation-analytics#what-the-dashboard-shows"
+    },
+    {
+      "source": "/web-agent",
+      "destination": "/web-chat/overview"
+    },
+    {
+      "source": "/web-agent/web-agent",
+      "destination": "/web-chat/setup"
+    },
+    {
+      "source": "/web-agent/web-agent-configuration",
+      "destination": "/web-chat/faqs#widget-customisation"
+    },
+    {
+      "source": "/web-agent/whatsapp-handoff",
+      "destination": "/web-chat/website-analytics#handoff-to-whatsapp"
+    },
+    {
+      "source": "/web-chat-channel",
+      "destination": "/web-chat/overview"
+    },
+    {
+      "source": "/whatsapp-calling",
+      "destination": "/whatsapp/calling/overview"
+    },
+    {
+      "source": "/whatsapp-calling/pricing",
+      "destination": "/whatsapp/calling/pricing"
+    },
+    {
+      "source": "/whatsapp-calling/whatsapp-calling-incoming-call",
+      "destination": "/whatsapp/calling/incoming-calls"
+    },
+    {
+      "source": "/whatsapp-calling/whatsapp-calling-outgoing-calls",
+      "destination": "/whatsapp/calling/outgoing-calls"
+    },
+    {
+      "source": "/whatsapp-calling/whatsapp-calling-overview",
+      "destination": "/whatsapp/calling/overview"
+    },
+    {
+      "source": "/whatsapp-channel",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/account-profile-info",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/allowed-ips",
+      "destination": "/settings/security#allowed-ips"
+    },
+    {
+      "source": "/whatsapp-channel/assignments",
+      "destination": "/conversations/team-views#routing-rules-auto-assignment"
+    },
+    {
+      "source": "/whatsapp-channel/assignments-rules",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/block-list",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/channel-settings",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/compliance-info",
+      "destination": "/whatsapp/customer-identity-bsuid#contacts-and-the-inbox"
+    },
+    {
+      "source": "/whatsapp-channel/configuration-message-settings",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/manage-your-connections",
+      "destination": "/whatsapp/connect-your-whatsapp#what-happens-after-connection"
+    },
+    {
+      "source": "/whatsapp-channel/tech-partner/payment-setup",
+      "destination": "/whatsapp/payments"
+    },
+    {
+      "source": "/whatsapp-channel/user-mapping",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/whatsapp-business-api-errors",
+      "destination": "/whatsapp/connect-your-whatsapp#what-is-the-whatsapp-business-api"
+    },
+    {
+      "source": "/whatsapp-channel/whatsapp-channel-faqs",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/whatsapp-magic-link",
+      "destination": "/whatsapp/overview"
+    },
+    {
+      "source": "/whatsapp-channel/widget-for-your-website",
+      "destination": "/whatsapp/website-widget"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/basics-of-drip-campaign",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/campaign-management-options",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/create-new-drip-campaign",
+      "destination": "/whatsapp/sequences/create-sequence"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/drip-campaign-analytics",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/drip-campaign-message-management",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/drip-campaign-setup",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/gallabox-whatsapp-drip-marketing-faqs",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-drip-campaigns/understanding-drip-marketing",
+      "destination": "/whatsapp/sequences/overview"
+    },
+    {
+      "source": "/whatsapp-flows",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/best-practices-for-whatsapp-forms",
+      "destination": "/whatsapp/flows#best-practices"
+    },
+    {
+      "source": "/whatsapp-flows/create-whatsapp-forms",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-in-gallabox",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-using-json",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-with-template-builder",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/gallabox-whatsapp-flows-overview",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/gallabox-whatsapp-forms-faqs",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/overview",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/receiving-response-of-whatsapp-forms",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/sending-a-whatsapp-form",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/sending-a-whatsapp-form/send-whatsapp-form-in-a-bot",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-flows/sending-a-whatsapp-form/send-whatsapp-form-in-a-message-template",
+      "destination": "/whatsapp/flows"
+    },
+    {
+      "source": "/whatsapp-shop",
+      "destination": "/whatsapp/shop"
+    },
+    {
+      "source": "/whatsapp-shop/connect-catalog-with-gallabox",
+      "destination": "/whatsapp/shop#setting-up-whatsapp-shop"
+    },
+    {
+      "source": "/whatsapp-shop/connect-catalogue-to-gallabox",
+      "destination": "/whatsapp/shop"
+    },
+    {
+      "source": "/whatsapp-shop/connect-the-catalog-with-meta",
+      "destination": "/whatsapp/shop"
+    },
+    {
+      "source": "/whatsapp-shop/gallabox-whatsapp-shop-faqs",
+      "destination": "/whatsapp/shop#faqs"
+    },
+    {
+      "source": "/whatsapp-shop/gallabox-whatsapp-shop-overview",
+      "destination": "/whatsapp/shop"
+    },
+    {
+      "source": "/whatsapp-shop/overview",
+      "destination": "/whatsapp/shop"
+    },
+    {
+      "source": "/whatsapp-shop/whatsapp-order-summary",
+      "destination": "/whatsapp/shop#order-summaries"
+    },
+    {
+      "source": "/whatsapp/bsuid",
+      "destination": "/whatsapp/customer-identity-bsuid"
+    },
+    {
+      "source": "/pricing-and-billing/ad-engagement-window",
+      "destination": "/guide/ad-engagement-window"
+    },
+    {
+      "source": "/guide/how-whatsapp-message-pricing-works",
+      "destination": "/pricing-and-billing/whatsapp-message-pricing"
     }
   ],
   "footer": {
