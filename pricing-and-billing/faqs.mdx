@@ -4,63 +4,31 @@ description: "Common questions about Gallabox billing, subscriptions, Message Cr
 ---
 
 > **Who can use this?**
->
+
 > - Billing FAQs are available to all Gallabox users.
 > - Roles: Admin role for billing management questions
 
 <Info>
-  Common questions about billing, subscriptions, Message Credits, and AI Credits in Gallabox. This page links to the detailed guides — each linked page is the source of truth.
+  Common questions about billing, subscriptions, AI credits, and message pricing in Gallabox. This page links to the detailed guides — each linked page is the source of truth.
 </Info>
-
-## The Big Picture
-
-<AccordionGroup>
-  <Accordion title="What's the difference between my plan, Message Credits, and AI Credits?">
-    Your **plan** is a flat subscription fee that unlocks Gallabox features. **Message Credits** and **AI Credits** are separate usage-based add-ons layered on top of it — Message Credits pay for WhatsApp per-message charges, AI Credits pay for AI-powered feature usage. See the [Pricing & Billing Overview](/pricing-and-billing/overview).
-  </Accordion>
-
-  <Accordion title="Do I need Message Credits for Instagram or other channels?">
-    No — Message Credits currently apply to **WhatsApp only**. Other channels in Gallabox are covered by your subscription plan, with no separate per-message charge today.
-  </Accordion>
-
-  <Accordion title="Is my AI Wallet the same as my Message Credits balance?">
-    No — they're separate wallets. Message Credits pay for WhatsApp's per-message charges. AI Credits pay for AI-powered features like Chat AI Agent and GPT powered features. See [Message Credits](/pricing-and-billing/message-credits) and [AI Wallet](/pricing-and-billing/ai-wallet).
-  </Accordion>
-</AccordionGroup>
 
 ## Plan & Subscription
 
 <AccordionGroup>
   <Accordion title="How do I upgrade my plan?">
-    **Settings → Billing → Change Plan** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for upgrade steps and proration.
+    Go to **Settings → Billing → Change Plan** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for the full upgrade steps and proration details.
   </Accordion>
 
   <Accordion title="Can I downgrade my plan? What happens to my data?">
-    Yes — downgrades take effect at the end of your billing period and your data is preserved. See [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for what to check first.
+    Yes — downgrades take effect at the end of your billing period and your data is preserved. See [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for what to check before downgrading.
+  </Accordion>
+
+  <Accordion title="Can I switch from monthly to annual billing?">
+    Yes — via **Settings → Billing → Change Billing Cycle**. See [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for details.
   </Accordion>
 
   <Accordion title="Can I cancel my subscription? What happens to my data?">
-    Yes — you keep access until the end of your billing period, and data is retained for 30 days after. See [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
-  </Accordion>
-</AccordionGroup>
-
-## WhatsApp Message Pricing
-
-<AccordionGroup>
-  <Accordion title="Are my WhatsApp replies free?">
-    Replying to a customer inside the 24-hour service window is free — both plain text and Utility/Authentication templates. Marketing templates are charged regardless of timing. See [Message Credits](/pricing-and-billing/message-credits).
-  </Accordion>
-
-  <Accordion title="Why was I charged for a template I thought was free?">
-    Utility and Authentication templates are only free inside the customer's 24-hour service window. Sent outside that window, they're billed like any other business-initiated template. Check the send time against the customer's last message.
-  </Accordion>
-
-  <Accordion title="What's different about conversations that start from a WhatsApp ad?">
-    Conversations starting from a Click-to-WhatsApp ad or Page button get a longer free window — the [Ad Engagement Window](/guide/ad-engagement-window) — lasting up to 72 hours and not reset by further replies.
-  </Accordion>
-
-  <Accordion title="How do I reduce my WhatsApp costs?">
-    Time Utility/Authentication sends inside the service window, use the Ad Engagement Window for ad-driven conversations, and be deliberate with Marketing sends. See [Reduce Your WhatsApp Message Costs](/guide/reduce-whatsapp-message-costs).
+    Yes — you keep access until the end of your billing period, and data is retained for 30 days after. See [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for the cancellation steps.
   </Accordion>
 </AccordionGroup>
 
@@ -68,7 +36,11 @@ description: "Common questions about Gallabox billing, subscriptions, Message Cr
 
 <AccordionGroup>
   <Accordion title="What uses AI credits in Gallabox?">
-    Any AI-powered feature — Chat AI Agent, AI Reply, AI Rewrite, AI Translate, GPT nodes. See the [AI Wallet overview](/pricing-and-billing/ai-wallet) for per-feature costs.
+    Any AI-powered feature (Chat AI Agent, AI Reply, AI Rewrite, AI Translate, GPT nodes) — see the [AI Wallet overview](/pricing-and-billing/ai-wallet) for per-feature costs.
+  </Accordion>
+
+  <Accordion title="What happens to unused AI credits at the end of a billing cycle?">
+    Your plan's monthly allocation resets each billing cycle. Purchased top-up credits do not reset and remain in your wallet. See the [AI Wallet overview](/pricing-and-billing/ai-wallet).
   </Accordion>
 
   <Accordion title="What happens when my AI credits run out?">
@@ -76,7 +48,29 @@ description: "Common questions about Gallabox billing, subscriptions, Message Cr
   </Accordion>
 
   <Accordion title="Can I buy extra AI credits without upgrading my plan?">
-    Yes — **Settings → Billing → AI Wallet → Buy Top-Up**. See the [AI Wallet overview](/pricing-and-billing/ai-wallet).
+    Yes — via **Settings → Billing → AI Wallet → Buy Top-Up**. See the [AI Wallet overview](/pricing-and-billing/ai-wallet).
+  </Accordion>
+</AccordionGroup>
+
+## WhatsApp Message Pricing
+
+<AccordionGroup>
+  <Accordion title="Why am I being charged for WhatsApp messages?">
+    WhatsApp (owned by Meta) charges per message on the WhatsApp Business API. These charges are separate from your Gallabox subscription fee and are billed by Gallabox on Meta's behalf. Marketing, Utility, and Authentication templates have different per-message rates.
+
+    Check [Message Credits](/pricing-and-billing/message-credits) for full details.
+  </Accordion>
+
+  <Accordion title="How do template categories affect WhatsApp charges?">
+    Marketing, Utility, and Authentication templates are charged per message at their applicable category rate. See [Message Credits](/pricing-and-billing/message-credits) for details.
+  </Accordion>
+
+  <Accordion title="Do images and files cost more than text messages?">
+    No — media does not change a template's category rate. Charges apply per template message based on its Marketing, Utility, or Authentication category.
+  </Accordion>
+
+  <Accordion title="Can I reduce my WhatsApp message costs?">
+    Yes — choose the appropriate template category and review your templates. See the cost-reduction tips in [Message Credits](/pricing-and-billing/message-credits).
   </Accordion>
 </AccordionGroup>
 
@@ -84,15 +78,19 @@ description: "Common questions about Gallabox billing, subscriptions, Message Cr
 
 <AccordionGroup>
   <Accordion title="Where can I download my invoices?">
-    **Settings → Billing → Invoices** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
+    Go to **Settings → Billing → Invoices** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
   </Accordion>
 
   <Accordion title="How do I update my payment method?">
-    **Settings → Billing → Payment Method** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
+    Go to **Settings → Billing → Payment Method** — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
   </Accordion>
 
   <Accordion title="I was charged incorrectly — what do I do?">
-    Contact support with your invoice number — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for the refund process.
+    Contact Gallabox support with your invoice number — see [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) for the refund process.
+  </Accordion>
+
+  <Accordion title="Can I get a refund?">
+    It depends on your plan type — see the refund policy in [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions).
   </Accordion>
 </AccordionGroup>
 
@@ -100,21 +98,21 @@ description: "Common questions about Gallabox billing, subscriptions, Message Cr
 
 <AccordionGroup>
   <Accordion title="Do you offer discounts for nonprofits or startups?">
-    Contact Gallabox sales with details about your organization.
+    Contact Gallabox sales with details about your organization. We may have special pricing for nonprofits, startups, and educational institutions.
   </Accordion>
 
   <Accordion title="How is tax handled on my invoice?">
-    Tax is applied based on your billing address and itemized on each invoice.
+    Tax (GST or local tax) is applied based on your billing address and added to each invoice.
 
-    - **GST (India):** itemized on each invoice; contact support with the invoice number if a credit note isn't reflected in the GST portal.
-    - **TDS (India):** contact support with your TDS certificate for acknowledgment or a refund claim.
-    - **Tax exemption:** contact support to update your billing profile.
+    - **GST (India):** GST is itemized on each invoice. If an invoice or credit note isn't reflected in the GST portal, contact Gallabox support with the invoice number.
+    - **TDS (India):** if your business deducts TDS on payments to Gallabox, contact support to share the TDS certificate and request acknowledgment or a refund claim for the deducted amount.
+    - **Tax exemption:** if you have a tax exemption certificate, contact Gallabox support to update your billing profile.
   </Accordion>
 </AccordionGroup>
 
 ## Related Articles
 
-- [Pricing & Billing Overview](/pricing-and-billing/overview)
-- [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions)
-- [Message Credits](/pricing-and-billing/message-credits)
-- [AI Wallet](/pricing-and-billing/ai-wallet)
+- [Billing & Subscriptions](/pricing-and-billing/billing-and-subscriptions) — manage your plan and billing
+- [AI Wallet Overview](/pricing-and-billing/ai-wallet) — AI credits and usage
+- [Message Credits Overview](/pricing-and-billing/message-credits) — per-message pricing
+- [Account Security Overview](/settings/security) — secure your account
