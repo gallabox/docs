@@ -1,0 +1,96 @@
+---
+title: "Unsupported Messages"
+description: "Why a customer's message sometimes arrives empty or as \"unsupported\", which WhatsApp message types Gallabox does receive, and what to do when one doesn't come through."
+---
+
+> **Who can use this?**
+>
+> - Applies to every plan and every WhatsApp channel. Nothing to enable or configure.
+
+<Info>
+  Occasionally a customer sends you something and the Inbox shows **"You received a message, but WhatsApp Business API doesn't support it yet."** The message did arrive — but WhatsApp's Business API didn't pass along its content, so there's nothing for Gallabox to display.
+
+  This is a limitation of the WhatsApp Business API itself, not of Gallabox. The same message would be unreadable on any platform built on it.
+</Info>
+
+## Why this happens
+
+WhatsApp has two different products. The **consumer app** supports a wider set of message types than the **Business API** that platforms like Gallabox connect to. When a customer sends something from the consumer app that the Business API has no equivalent for, Meta forwards a placeholder marked `unsupported` instead of the content.
+
+Gallabox receives the notification that a message arrived, along with who sent it and when, but not what was in it.
+
+## What Gallabox does receive
+
+Everything in this list comes through normally:
+
+| Type | Notes |
+| --- | --- |
+| **Text** | Plain text messages |
+| **Image**, **Video**, **Audio**, **Voice note** | Delivered as media you can open and download |
+| **Document** | The file itself comes through |
+| **Sticker** | Rendered in the conversation |
+| **Location** | Shown as a static location |
+| **Contact card** | Shared contact details |
+| **Reaction** | Emoji reactions on your messages |
+| **Button and list replies** | Replies to interactive messages you sent |
+| **Order** | Cart submissions from your WhatsApp catalog |
+| **Payment** | Payment status updates |
+| **Call events** | WhatsApp Calling activity |
+
+If something in this list isn't appearing, that's a genuine problem rather than an API limitation — see [WhatsApp Failed Messages](/reports-and-analytics/whatsapp-failed-messages).
+
+## Known unsupported cases
+
+**A document sent with a caption.** When a customer attaches a file — PDF, PPT, DOC, CSV — *and* types a caption with it, the Business API doesn't deliver the pair. This is the case support sees most often.
+
+Beyond that, WhatsApp doesn't tell us what the original message was, so the placeholder can't be resolved into a specific type. In practice it covers message types the consumer app offers that the Business API has no representation for.
+
+<Note>
+  Meta expands Business API support over time, and types that are unsupported today may start arriving later without any change on your side.
+</Note>
+
+## What to do about it
+
+The message is unreadable, but the conversation isn't lost — you know who sent it and when.
+
+1. **Reply and ask.** The customer is in an open conversation, and the 24-hour service window is running, so a free-form reply costs nothing. "Sorry — that didn't come through on our end. Could you resend it?" works.
+2. **Ask for the specific thing you need.** If you can guess what they were sending, name it: "Could you send the file on its own, without a caption?" for the document case, or "Could you type the address as text?"
+3. **Don't ask them to resend the same way.** If the format isn't supported, sending it again produces the same placeholder.
+
+<Info>
+  A canned response is worth setting up for this if your team hits it regularly — see [Canned Responses](/whatsapp/canned-responses).
+</Info>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Did the customer's message actually reach us?">
+    It reached WhatsApp and Gallabox was notified, but the content wasn't included. Reply in the conversation and ask them to resend — they'll see your message normally.
+  </Accordion>
+
+  <Accordion title="Is this a Gallabox bug?">
+    No. WhatsApp's Business API sends a placeholder marked "unsupported" in place of the content, and Gallabox has nothing further to show. Any platform on the Business API behaves the same way.
+  </Accordion>
+
+  <Accordion title="Will it be fixed?">
+    That's Meta's to change, not ours. They add Business API support for new message types periodically, and when they do, those messages start arriving with no change needed on your side.
+  </Accordion>
+
+  <Accordion title="A customer says they sent a PDF and we see nothing.">
+    Most likely they attached it with a caption. Ask them to send the file on its own, then type any note as a separate message.
+  </Accordion>
+
+  <Accordion title="Does an unsupported message still open the 24-hour service window?">
+    Yes. It counts as an inbound customer message, so you can reply with free-form text at no charge.
+  </Accordion>
+
+  <Accordion title="Will my bot or AI agent handle these?">
+    No — there's no content for them to read. Design flows so an unrecognised input falls back to a human handoff or a clarifying question rather than a dead end. See [Add Fallback Handling](/ai-agents-and-bots/bots/flow-builder#add-fallback-handling).
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [WhatsApp Failed Messages](/reports-and-analytics/whatsapp-failed-messages) — for messages that fail to send, rather than fail to arrive
+- [Canned Responses](/whatsapp/canned-responses) — save a standard reply for asking customers to resend
+- [Omnichannel Inbox](/conversations/omnichannel-inbox) — how conversations arrive and how to work them

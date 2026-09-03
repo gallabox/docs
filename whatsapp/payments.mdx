@@ -1,0 +1,156 @@
+---
+title: "WhatsApp Payments"
+description: "Collect payments inside WhatsApp conversations — connect RazorPay, WhatsApp Pay, or Network International, send a payment request from the Inbox, and track its status."
+---
+
+> **Who can use this?**
+>
+> - Available on all plans. Gateway availability depends on your business's country.
+> - Connecting a gateway needs Admin access. Sending a payment request needs whichever permission lets you reply in the Inbox.
+
+<Info>
+  WhatsApp Payments lets you ask a customer to pay without taking them out of the chat. You connect a payment gateway once, then send a payment request from any WhatsApp conversation. The customer pays from within WhatsApp — or through a hosted checkout link — and the status comes back into Gallabox automatically.
+</Info>
+
+## Choose a payment gateway
+
+Gallabox supports three gateways, and you can connect more than one. Which you pick depends mostly on where your business operates.
+
+| Gateway | Available for | How the customer pays |
+| --- | --- | --- |
+| **RazorPay** | India | A RazorPay hosted checkout link sent in the chat |
+| **WhatsApp Pay** | India and Singapore, for customers in those countries | Natively inside WhatsApp, no link to open |
+| **Network International** | Middle East and Africa | A Network International hosted checkout link sent in the chat |
+
+<Note>
+  **WhatsApp Pay** is Meta's native in-chat payment. It needs a payment configuration set up on your WhatsApp Business Account in Meta Business Manager first — Gallabox then points at that configuration by name. **RazorPay** and **Network International** are connected entirely inside Gallabox and don't require anything in Meta Business Manager.
+</Note>
+
+## Connect a payment gateway
+
+Go to **Payments** under **Commerce**, then click **Start Configuration** (or **Configuration**, if you've already connected a gateway).
+
+Every gateway starts the same way:
+
+1. Choose the **WhatsApp channel** you want to collect payments on.
+2. Confirm the channel is **Enabled**, then click **Next**.
+3. Click **Connect** on the gateway you want, under **Available Payment Gateways**.
+
+What you enter next depends on the gateway.
+
+### RazorPay
+
+1. Select **RazorPay** and give the connection a name.
+2. Click **Connect**, then **Authorize** — you'll be taken to RazorPay to sign in and approve access.
+3. Click **Done**.
+
+That's the whole setup. Gallabox creates the webhook it needs to receive payment status updates, so you don't have to configure anything in the RazorPay dashboard.
+
+### WhatsApp Pay
+
+WhatsApp Pay is a two-part setup: once in Meta Business Manager, once in Gallabox.
+
+**First, in Meta Business Manager:**
+
+1. Go to the **Direct pay methods** page, under the **India** section.
+2. Fill in your payment gateway account details.
+3. On submitting, you're redirected to your payment gateway's site — sign in there to authenticate and finish linking.
+4. Note the **payment configuration name** you gave it. Gallabox needs this exact value.
+
+**Then, in Gallabox:**
+
+1. Click **Connect** on **WhatsApp Pay**.
+2. Select the **WhatsApp channel** — this must be the Indian phone number associated with Gallabox.
+3. Choose the **payment provider** you linked in Meta Business Manager: **UPI VA ID**, **RazorPay**, or **PayU**.
+4. Enter the **payment configuration name**, exactly as it appears in Meta Business Manager.
+5. Click **Save**.
+
+<Warning>
+  The payment configuration name must match Meta Business Manager character for character. A mismatch is the most common reason WhatsApp Pay requests fail to send, and the error it returns doesn't always make the cause obvious.
+</Warning>
+
+### Network International
+
+1. Click **Connect** on **Network Payment**.
+2. Enter the **API key** you generated in the Network International portal, and your **Outlet ID**.
+3. Set the **expiry duration** for the payment links you'll generate.
+4. Save the connection.
+
+## Send a payment request
+
+1. Go to **Conversations** and open the contact you want to charge.
+2. Click **Send payment request**.
+3. Fill in the request, then click **Send**.
+
+The fields differ slightly by gateway:
+
+<Tabs>
+  <Tab title="RazorPay">
+    - **Currency**
+    - **Amount**
+    - **Description** — the reason for the request, shown to the customer, e.g. _"professional charges for the current month"_
+  </Tab>
+  <Tab title="WhatsApp Pay">
+    - **Currency**
+    - **Amount**
+    - **Description** — the reason for the request
+
+    The customer completes payment natively in WhatsApp rather than opening a link.
+  </Tab>
+  <Tab title="Network International">
+    - **First name** and **Email ID** — pulled automatically from the contact
+    - **Last name** — enter manually
+    - **Currency**
+    - **Message** — the description shown to the customer
+    - **Send Email** — optionally email the payment link as well as sending it in chat
+    - **Line items** — a **Description**, **Quantity**, and **Price** per product. Add as many rows as you need; the total is calculated from them.
+  </Tab>
+</Tabs>
+
+The customer receives the request in their WhatsApp chat and pays from there.
+
+## Track payments
+
+Go to **Payments** under **Commerce** to see every payment request you've generated, with its current status.
+
+- Click anywhere on a row to open the full detail of that payment request.
+- Click **Go to this Conversation** to jump straight to the chat it was sent from.
+- Click the **⋯** menu at the end of a row to **cancel** the payment link, or **refresh** its status if you think it's out of date.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Which payment gateways can I use?">
+    RazorPay, WhatsApp Pay, and Network International. RazorPay and WhatsApp Pay serve India (WhatsApp Pay also covers Singapore); Network International serves the Middle East and Africa. You can connect more than one at a time.
+  </Accordion>
+
+  <Accordion title="What's the difference between RazorPay and WhatsApp Pay if I'm in India?">
+    With **WhatsApp Pay**, the customer pays natively inside WhatsApp — nothing to open, fewer steps, so fewer drop-offs. But it requires setup in Meta Business Manager first. With **RazorPay**, the customer taps a hosted checkout link; setup is a single OAuth connect inside Gallabox with nothing to configure in Meta. If you want the shortest path to collecting a payment today, start with RazorPay.
+  </Accordion>
+
+  <Accordion title="Can I use WhatsApp Pay for customers outside India and Singapore?">
+    No. WhatsApp Pay works only for businesses in India and Singapore, and only for customers in those countries. For other markets, use RazorPay (India) or Network International (Middle East and Africa).
+  </Accordion>
+
+  <Accordion title="My WhatsApp Pay request failed to send. What should I check first?">
+    Check that the **payment configuration name** in Gallabox matches the one in Meta Business Manager exactly — this is the most frequent cause. Then confirm the channel you selected is the Indian phone number linked to Gallabox, and that the linking flow in Meta Business Manager completed all the way through your payment gateway's authentication step.
+  </Accordion>
+
+  <Accordion title="Do I need to set up webhooks in my gateway dashboard?">
+    No. Gallabox creates the webhook it needs when you connect RazorPay, and receives status updates for Network International through the credentials you supply. If a status still looks stale, use **refresh** on that row in the Payments dashboard.
+  </Accordion>
+
+  <Accordion title="Can I cancel a payment link after sending it?">
+    Yes. In **Payments** under **Commerce**, open the **⋯** menu on that row and cancel the link. The customer can no longer pay through it.
+  </Accordion>
+
+  <Accordion title="Can a bot send a payment request instead of an agent?">
+    Yes — rule-based bots have payment nodes for this. See [Action Nodes](/ai-agents-and-bots/bots/nodes/action-nodes) for using them in a flow.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Razorpay Integration](/integrations/payment-gateways/razorpay/overview) — the broader RazorPay integration, beyond in-chat payment requests
+- [Connect Your WhatsApp](/whatsapp/connect-your-whatsapp) — set up the channel payments are collected on
+- [Message Credits](/pricing-and-billing/message-credits) — how the messages carrying a payment request are billed

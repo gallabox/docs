@@ -1,0 +1,115 @@
+---
+title: "Carousel Templates"
+description: "Send one message followed by up to 10 horizontally scrollable cards, each with its own image or video, body text, and buttons."
+---
+
+> **Who can use this?**
+>
+> - Requires a **Cloud API** WhatsApp channel. Carousel is unavailable on On-Premise channels.
+> - Needs permission to create WhatsApp templates.
+
+<Info>
+  A carousel template sends a single text message followed by up to **10 cards** the customer swipes through horizontally. Each card carries its own media, its own body text, and its own buttons — so one message can present ten products, ten properties, or ten packages, each separately actionable.
+</Info>
+
+Carousels render on mobile WhatsApp and on WhatsApp Web.
+
+## When a carousel is the right choice
+
+Reach for a carousel when you have several comparable things and want the customer to pick one. A product range, a set of appointment slots, several plan tiers.
+
+Don't reach for one when you have a single message to send, or when the options aren't comparable — a carousel where each card says something unrelated reads as clutter. Ten cards is a ceiling, not a target; three well-chosen cards usually outperform ten.
+
+## Constraints
+
+Meta enforces these, and a template that breaks them is rejected rather than trimmed:
+
+| | |
+| --- | --- |
+| Cards per template | Up to 10 |
+| Card structure | Every card needs a media header, body text, and at least one button |
+| Buttons per card | Up to 2 |
+| Card uniformity | Every card must have the same media type and the same button layout |
+| Image files | `.jpeg`, `.jpg`, `.png` — up to 5 MB |
+| Video files | `.mp4`, `.3gpp` — up to 10 MB |
+
+<Warning>
+  Cards must be structurally identical. If card 1 has an image header and two buttons — one Quick Reply, one URL — every other card needs an image header and the same two button types in the same order. You can change the text, the destination, and the media; you cannot change the shape.
+</Warning>
+
+## Creating a carousel template
+
+### Step 1: Choose the Carousel category
+
+Open **Create New Template** and select **Carousel** as the category. Carousel is a Marketing-category template, so it's billed as Marketing on every send — see [How WhatsApp Message Pricing Works](/pricing-and-billing/whatsapp-message-pricing).
+
+If Carousel is greyed out, your channel isn't on Cloud API.
+
+### Step 2: Write the opening message
+
+The body text you enter here is the single message that appears *above* the cards. Treat it as the framing line — what the set of cards is, and what you want the customer to do with them.
+
+### Step 3: Set the carousel format
+
+This is where you fix the shape every card will follow:
+
+- **Carousel type** — **Image Carousel** or **Video Carousel**. All cards use the type you pick here.
+- **Button types** — up to two per card. Button 1 defaults to **Quick Reply**; you can change it. Each button can be **Quick Reply**, **URL**, or **Phone Number**.
+
+### Step 4: Add the cards
+
+Click **+ Add Carousel Card** for each card. For every one, provide:
+
+- **Card header** — the image or video, within the size limits above.
+- **Card body** — the text for this card.
+- **Button text** — the label for each button you defined in Step 3, plus the URL or phone number where applicable.
+
+Repeat up to 10 times.
+
+<Note>
+  Every card needs body text. Submitting with an empty card body is the most common validation error — Gallabox flags the specific card rather than failing the whole form, so check for an inline error on each card if submission is blocked.
+</Note>
+
+### Step 5: Submit for approval
+
+Submit the template to Meta. Approval follows the same process and timelines as any other template — see [Create and Manage Templates](/whatsapp/templates/create-template#step-9-submit-for-review).
+
+## Sending a carousel
+
+Once approved, a carousel template sends like any other: from a broadcast, a sequence, a bot flow's Send WhatsApp Template node, the Inbox, or the API.
+
+Variables work per card, so a single carousel template can be personalised per recipient — each card's body text and button URL can carry its own placeholders. When you send it, you'll fill in card-level variables alongside the message-level ones.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Carousel isn't available when I create a template.">
+    Carousel templates require a Cloud API channel. If your WhatsApp channel is On-Premise, the category is disabled. Contact support about migrating to Cloud API.
+  </Accordion>
+
+  <Accordion title="Can I mix images and videos across cards?">
+    No. You choose Image Carousel or Video Carousel for the whole template, and every card follows it.
+  </Accordion>
+
+  <Accordion title="Can different cards have different button types?">
+    The button *types* and their order must be identical across cards. The button *text* and destination can differ — so card 1's URL button can point somewhere different from card 2's.
+  </Accordion>
+
+  <Accordion title="My carousel template was rejected. Why?">
+    Check card uniformity first — mismatched media types or button layouts across cards are the usual cause. After that, apply the normal Marketing-template rules: no misleading claims, no prohibited content, and media that matches what the text promises. See [Why Templates Get Rejected](/whatsapp/templates/overview#why-templates-get-rejected).
+  </Accordion>
+
+  <Accordion title="How is a carousel billed?">
+    As a single Marketing template message, not as ten. The cards are part of one message.
+  </Accordion>
+
+  <Accordion title="Do carousels work on WhatsApp Web?">
+    Yes. Customers see and scroll carousel messages on the WhatsApp Web client as well as on mobile.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Create and Manage Templates](/whatsapp/templates/create-template) — the full template editor, variables, and approval flow
+- [Templates](/whatsapp/templates/overview) — categories, approval criteria, and rejection reasons
+- [Catalog, Orders and Payments](/whatsapp/shop) — for sending an actual browsable product catalog rather than a fixed set of cards
