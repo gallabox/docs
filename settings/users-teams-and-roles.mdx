@@ -1,0 +1,172 @@
+---
+title: "Users, Teams and Roles"
+description: "Invite teammates, group them into teams that route conversations automatically, and control what each person can see and do with default or custom roles."
+---
+
+> **Who can use this?**
+>
+> - Available on all plans. Your plan sets how many users you can have — the **Users** tab shows your current count against the limit.
+> - Needs the **Users & Roles** permission. Owners have it by default.
+
+<Info>
+  Three things work together here. A **user** is a person with a login. A **role** decides what that person can see and do. A **team** is a group of users that conversations get routed to. You'll usually set up roles first, then teams, then invite people into both.
+</Info>
+
+## Where to find it
+
+Go to **Settings → Users & Roles**. You'll see three tabs:
+
+| Tab | What it holds |
+| --- | --- |
+| **Users** | Everyone in your account, split into **Active Users**, **Invites**, and **Deleted Users** |
+| **Teams** | Groups of users, each with its own conversation routing rule |
+| **Roles** | Default and custom permission sets |
+
+## Roles
+
+A role is a named set of permissions. Gallabox ships with default roles you can't edit, and lets you create custom ones.
+
+### Default roles
+
+| Role | Scope |
+| --- | --- |
+| **Owner** | Full access to everything, including account details and subscription. There's always at least one Owner. |
+| **Admin** | Nearly everything an Owner can do, minus account-level and billing controls. |
+| **Member** | Day-to-day work — conversations and contacts. No access to account settings. |
+| **Team Admin** | Admin-level abilities, but only for the teams they belong to. |
+| **Team Member** | Member-level abilities, but only for their own team's conversations. |
+
+The difference between **Admin** and **Team Admin** (and between Member and Team Member) is *scope*, not power. Each permission in Gallabox carries a boundary: **all**, **team**, or **own**. A Team Admin has the same kinds of permission as an Admin, bounded to their team's data.
+
+<Note>
+  Default roles are locked. If a default role is close to what you want but not exact, create a custom role rather than trying to edit it.
+</Note>
+
+### Creating a custom role
+
+1. Go to the **Roles** tab and click **+ Add Role**.
+2. Enter a **Role name**.
+3. Select the permissions this role should have. They're grouped by area — Conversations, Contacts, Broadcast, Channels, Commerce, Sequences, WhatsApp Templates, WhatsApp Flows, Users & Roles, Accounts & Settings, Developer modules, Security modules, and Agent.
+4. Click **Save Role**.
+
+The role is now available in the dropdown when you invite someone or change an existing user's role.
+
+<Info>
+  Grant the narrowest set that lets someone do their job. It's easier to add a permission when somebody asks than to work out later why a role has access it never needed.
+</Info>
+
+## Users
+
+### Inviting a user
+
+1. Go to the **Users** tab and click **+ Add User**.
+2. Fill in their **name** and **email address**.
+3. Assign a **role**.
+4. Add them to one or more **channels** — this controls which conversations they can reach.
+5. Add them to one or more **teams** (optional).
+6. Click **Invite**.
+
+They'll get an email invitation. Until they accept, they sit under the **Invites** tab.
+
+<Warning>
+  Channel access and role are separate controls. A user with a permissive role but no channel assigned still sees no conversations. If someone reports an empty inbox, check their channel assignment before changing their role.
+</Warning>
+
+### Managing invitations
+
+The **Invites** tab lists everyone who's been invited but hasn't signed in yet. From here you can **resend** an invitation if it never arrived, or **delete** it to withdraw access.
+
+### Removing and restoring a user
+
+Deleting a user moves them to the **Deleted Users** tab rather than erasing them. You can restore someone from there if you removed them by mistake, which keeps their history intact.
+
+## Teams
+
+A team is a group of users that conversations can be routed to as a unit — useful when you want "Sales" or "Support" to own a queue rather than assigning to individuals.
+
+### Creating a team
+
+1. Go to the **Teams** tab and click **+ Create Team**.
+2. Enter the **team name**.
+3. Select the **WhatsApp channel** this team handles.
+4. Choose an **assignment rule** (below).
+5. Save.
+
+### Assignment rules
+
+Every team has one rule that decides what happens to an incoming conversation:
+
+| Rule | Behaviour |
+| --- | --- |
+| **Round-robin** | Conversations are distributed evenly across all *active* team members. This is the default. |
+| **Unassign** | Conversations go to the **Unassigned** tab, and agents pick them up themselves. |
+
+Round-robin suits teams where any agent can handle any conversation and you want even load. Unassign suits teams where agents self-select — for example when conversations vary a lot in effort, or agents have different specialities.
+
+<Note>
+  Round-robin skips inactive members, so someone who is logged out or deactivated won't accumulate a silent backlog.
+</Note>
+
+### Adding members to a team
+
+After creating the team, click **Map Member to the Team**. A panel opens where you can search for users and add them. Only users who already have access to the team's channel can be added.
+
+### Deleting a team
+
+Deleting a team forces you to decide what happens to its conversations first. You'll be asked to either:
+
+- **Assign them to a user** — the list shows only users with access to the same channels as the team, or
+- **Resolve them all**.
+
+Anywhere the team's name was used for identification, it becomes **"deleted team"** rather than disappearing, so historical records still read correctly.
+
+## Example
+
+**Scenario:** A 12-person company wants Sales and Support handled separately, and wants interns to work conversations without seeing billing.
+
+1. Create a custom role, **Support Agent** — Conversations and Contacts permissions only, nothing under Accounts & Settings.
+2. Create a team, **Support**, on the main WhatsApp channel with **Round-robin** so tickets spread evenly.
+3. Create a team, **Sales**, on the same channel with **Unassign**, because reps pick the leads they want to work.
+4. Invite the four interns with the **Support Agent** role, the main channel, and the **Support** team.
+5. Invite the sales reps as **Members** on the **Sales** team.
+
+Support tickets now distribute automatically; sales leads wait in Unassigned for a rep to claim.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What's the difference between Admin and Team Admin?">
+    Scope. A Team Admin has the same sorts of permission as an Admin, but bounded to the teams they belong to — they administer their team's conversations and data rather than the whole account.
+  </Accordion>
+
+  <Accordion title="Can I edit a default role?">
+    No — Owner, Admin, Member, Team Admin, and Team Member are locked so their behaviour is predictable across accounts. Create a custom role with exactly the permissions you want instead.
+  </Accordion>
+
+  <Accordion title="I invited someone but they never got the email.">
+    Open the **Invites** tab and click resend. If it still doesn't arrive, check the address for typos, then ask them to look in spam — invitation emails are the most commonly filtered message Gallabox sends.
+  </Accordion>
+
+  <Accordion title="A team member says their inbox is empty.">
+    Check channel access first. Role and channel are separate controls, and a user with no channel assigned sees nothing regardless of role. Then check whether their team's assignment rule is **Unassign**, in which case conversations wait in the Unassigned tab rather than arriving directly.
+  </Accordion>
+
+  <Accordion title="I deleted a user by accident. Can I get them back?">
+    Yes. Deleted users move to the **Deleted Users** tab, and you can restore them from there.
+  </Accordion>
+
+  <Accordion title="What happens to open conversations when I delete a team?">
+    You choose before the deletion completes — either reassign them to a specific user with access to the same channels, or resolve all of them. Nothing is silently orphaned.
+  </Accordion>
+
+  <Accordion title="How many users can I have?">
+    It depends on your plan. The **Users** tab shows your current count against your limit. If you're at the limit, remove an inactive user or upgrade your plan.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Team Views](/conversations/team-views) — how routing rules and custom views shape what each person sees in the Inbox
+- [Account Security](/settings/security) — Allowed IPs, session management, and audit trails
+- [Two Factor Authentication](/settings/two-factor-authentication) — enabling and enforcing 2FA across your team
+- [Activity Log](/settings/activity-log) — who changed what, and when
