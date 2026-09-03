@@ -1,11 +1,16 @@
 ---
-title: "WhatsApp Customer Identity (BSUID)"
+title: "WhatsApp Username (BSUID) "
 description: "What happens when a customer messages you using their WhatsApp username instead of their phone number, how Gallabox identifies and merges these contacts, and what still needs a phone number."
-tags: ["contacts", "whatsapp", "bots", "ai-agent", "all-roles"]
+tags:
+  - "contacts"
+  - "whatsapp"
+  - "bots"
+  - "ai-agent"
+  - "all-roles"
 role: "All roles"
 ---
 
-# WhatsApp Customer Identity (BSUID)
+# WhatsApp Username (BSUID)
 
 > **Who can use this?**
 >
@@ -16,7 +21,7 @@ role: "All roles"
 
 Available on all Gallabox plans. Per Meta's latest username rollout, this is simply how Gallabox identifies a customer who messages you by username instead of phone number — not a feature anyone enables.
 
-## What is a BSUID?
+## What is a Username?
 
 WhatsApp lets customers message businesses by **username** instead of phone number. When they do, Meta sends your business a **BSUID** (Business-Scoped User ID) in place of a phone number — a value like `US.13491208655302741918`. Gallabox receives it on your behalf and shows it wherever the contact's identity appears.
 
@@ -38,7 +43,7 @@ A BSUID is unique per business: the same customer gets a different BSUID for eve
 
 A contact may carry a phone number, or a BSUID, or both. BSUID-only contacts show up in Contacts and Inbox like any other — only the identifier shown differs.
 
-If a BSUID-only contact's phone number becomes known later — you message a number that turns out to match, or the customer reveals it — Gallabox merges the two contacts and folds the conversation history together, so you never end up with duplicate threads. Check the contact's **Activity** tab for a **"\[Contact\] has been merged with Contact \[Name\]"** entry, tagged to whichever message revealed the match.
+If a BSUID-only contact's phone number becomes known later — you message a number that turns out to match, or the customer reveals it — Gallabox merges the two contacts and folds the conversation history together, so you never end up with duplicate threads. Check the contact's **Activity** tab for a **"[Contact] has been merged with Contact [Name]"** entry, tagged to whichever message revealed the match.
 
 **Export contacts** (Contacts → Export) includes a BSUID column, so BSUID-only contacts export the same as any other.
 
@@ -54,25 +59,18 @@ Rule-based Bot Flows and the AI Bot both already recognize BSUID contacts and ru
 
 Any connected integration that treats phone number as required — CRM sync, order systems, and similar — won't work for a BSUID-only contact. All connected integrations now need to handle a contact that may have no phone number.
 
-### Billing and Reporting
-
-Message Credits usage and reports are unaffected — billed and reported correctly regardless of identifier.
-
 ## Known Limitations
 
-<Info>
-  **Authentication (OTP) messages need a phone number.** WhatsApp won't deliver OTP/verification templates to a BSUID-only recipient. Request the phone number first — otherwise Gallabox blocks the send with a clear error .
-</Info>
+**Authentication (OTP) messages need a phone number.** WhatsApp won't deliver OTP/verification templates to a username-only recipient. Request the phone number first — otherwise Gallabox blocks the send with a clear error .
 
 - Username changes after the fact aren't refreshed — Gallabox keeps the username it first captured for the contact.
-- **Coming soon:** BSUID isn't yet exposed through Gallabox's Developer API or outbound webhooks. It's used internally to route conversations only — external integrations should keep using phone number as the identifier for now.
-- **Coming soon:** creating a contact by BSUID, through the Contacts UI or the Developer API. Today a BSUID contact is only created automatically, the first time that customer messages you.
+- **Coming soon:** Username isn't yet exposed through Gallabox's Developer API or outbound webhooks. It's used internally to route conversations only — external integrations should keep using phone number as the identifier for now.
 
 ## Example
 
 **Scenario:** Maya Cakes runs WhatsApp ads. A customer, Priya, taps the ad and sends a message.
 
-1. Priya's message arrives as a new Inbox conversation. The contact panel shows no phone number — just her BSUID and username, **@priya.whatsapp**.
+1. Priya's message arrives as a new Inbox conversation. The contact panel shows no phone number — just her username, **@priya.whatsapp**.
 2. The bakery's AI Bot handles her questions about a custom cake order, then hands off to an agent to confirm delivery.
 3. The agent clicks **Request Phone Number**. Priya taps **Share**.
 4. Her number is added to the contact. If she'd messaged the bakery before from that number under a different conversation, Gallabox merges the two contacts automatically and the contact's Activity tab shows it.
@@ -89,7 +87,7 @@ Message Credits usage and reports are unaffected — billed and reported correct
   </Accordion>
 
   <Accordion title="Two contacts just became one on their own — what happened?">
-    Gallabox merges a BSUID-only contact with a phone-identified contact the moment it learns they're the same person. Check the Contact's **Activity** tab for a "has been merged with Contact \[Name\]" entry showing which message triggered it.
+    Gallabox merges a BSUID-only contact with a phone-identified contact the moment it learns they're the same person. Check the Contact's **Activity** tab for a "has been merged with Contact [Name]" entry showing which message triggered it.
   </Accordion>
 
   <Accordion title="Can my bot ask for the customer's phone number automatically?">
