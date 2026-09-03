@@ -1,42 +1,67 @@
 ---
 title: "WhatsApp Pricing"
-description: "Meta bills Whatsapp usage"
+description: "How Meta charges for WhatsApp messaging, and what that means inside Gallabox"
 ---
 
 <Info>
-  WhatsApp charges **per template**, based on the message's category and the recipient's country. Whether a template is free or charged also depends on whether it's sent inside or outside the customer's conversation service window.
+  This page covers messages sent **through Gallabox** . If you have WhatsApp Coexistence enabled, messages sent directly from the **WhatsApp Business App** on your phone are free and don't follow the rules below.
 </Info>
+
+WhatsApp pricing depends on the conversation window, type of message and category, and your customer's country.
 
 ## The 24-hour service window
 
-When a customer messages your business, it opens a **24-hour service window**. The window resets every time the customer sends you a new message — it's a rolling window, not a fixed one.
+Every conversation has a rolling **24-hour window** that opens the moment a customer messages you, and resets each time they message you again.
 
-Inside this window, you're talking to someone who just reached out to you. That's reflected in what's free:
+While the window is open, you can reply with a **service message** — a free-form message like text, an image, a video, or a quick-reply button, sent without waiting for Meta's approval (see [Service Messages](/pricing-and-billing/service-messages) for the full list). Once the window closes, you can only reach that customer with a pre-approved **template message**.
 
-| Message type | Inside the 24-hour window | Outside the window (business-initiated) |
-| --- | --- | --- |
-| Free-form text (normal replies) | **Free** | Can't be sent — a template is required to re-open conversation |
-| Utility template | **Free** | Charged |
-| Authentication template | **Free** | Charged |
-| Marketing template | Charged | Charged |
+**What's charged, by message type:**
 
-**The takeaway:** if you're replying to a customer who messaged you in the last 24 hours, Utility and Authentication templates cost nothing — same as a plain text reply. You only pay for them once you're the one re-opening the conversation after the window has closed. Marketing templates are billed every time, since they're inherently promotional rather than a reply to the customer.
+| Message type | Category | Charge status | Free in the 72-hour ad window | Free in the 24-hour service window |
+| --- | --- | --- | --- | --- |
+| Template | Marketing | Live | Yes | No |
+| Template | Utility | Live | Yes | Free until October 1, 2026 |
+| Template | Authentication | Live | Yes | No |
+| Service message | — (not a template) | Live from October 1, 2026 | Yes | Free until October 1, 2026 |
+
+<Check>
+  Every business phone number also gets **1,000 free service messages a month** from October 1, 2026 — Meta only starts charging from the 1,001st. This resets each calendar month and doesn't carry over.
+</Check>
 
 ## Template categories
 
-- **Marketing** — promotional content, offers, product announcements, re-engagement campaigns. Always charged.
-- **Utility** — transactional updates tied to an existing transaction: order confirmations, shipping updates, appointment reminders, account alerts. Free inside the service window, charged outside it.
-- **Authentication** — one-time passcodes and identity verification codes. Free inside the service window, charged outside it.
+Every template belongs to one of three categories, chosen when you create it:
 
-## Rates by market
+| Category | What it's for |
+| --- | --- |
+| **Utility** | Following up on something the customer already did — an order, a booking, an account |
+| **Authentication** | A one-time passcode or login verification code |
+| **Marketing** | Promotions, offers, announcements, "come back and buy" messages |
 
-Gallabox's WhatsApp messaging rates vary by category and by the recipient's country. Use the tabs below to switch currency, and search to filter by market.
+You choose the category, but Meta checks that the content actually matches it — a "Utility" template that reads like a promotion can get recategorized to Marketing automatically, which changes what it costs going forward.
+
+## What it costs, by country
+
+Once a message is charged, the rate depends on the **recipient's country**, read from the currency tab matching your account's billing currency.
+
+<Info>
+  Example: a business billed in INR sending a Marketing template to a UK number is charged the **UK row**, read from the **INR tab**. Your billing currency picks the tab; the recipient's country picks the row — never the other way around.
+</Info>
+
+Rates below are effective **October 1, 2026**.
+
+Service messages bill at the same rate as Utility — use the Utility column for those too.
+
+<Warning>
+  **Bold** rows changed from the previous rate card. A **\*** after a country name means it's newly added as its own market — it used to fall under a "Rest of" row.
+</Warning>
 
 <Tabs>
   <Tab title="USD">
-    | **Country** | **Marketing** | **Utility** | **Authentication** |
-    | :-- | --- | --- | --- |
+    | Market | Marketing | Utility | Authentication |
+    | --- | --- | --- | --- |
     | Argentina | 0.0711 | 0.0299 | 0.0299 |
+    | **Bangladesh\*** | **0.0842** | **0.0043** | **0.0043** |
     | Brazil | 0.0719 | 0.0078 | 0.0078 |
     | Chile | 0.1022 | 0.0230 | 0.0230 |
     | Colombia | 0.0144 | 0.0009 | 0.0009 |
@@ -46,39 +71,49 @@ Gallabox's WhatsApp messaging rates vary by category and by the recipient's coun
     | Hong Kong | 0.0842 | 0.0299 | 0.0299 |
     | Hungary | 0.0989 | 0.0403 | 0.0403 |
     | India | 0.0136 | 0.0016 | 0.0016 |
-    | Indonesia | 0.0473 | 0.0288 | 0.0288 |
+    | Indonesia | 0.0473 | 0.0287 | 0.0287 |
+    | **Iraq\*** | **0.0392** | **0.0091** | **0.0091** |
     | Israel | 0.0406 | 0.0061 | 0.0061 |
     | Italy | 0.0914 | 0.0345 | 0.0345 |
+    | **Kazakhstan\*** | **0.0695** | **0.0207** | **0.0207** |
+    | **Kuwait\*** | **0.0911** | **0.0506** | **0.0506** |
     | Malaysia | 0.0989 | 0.0161 | 0.0161 |
-    | Mexico | 0.0351 | 0.0098 | 0.0098 |
+    | **Mexico** | **0.0457** | 0.0098 | 0.0098 |
+    | **Morocco\*** | **0.0476** | **0.0264** | **0.0264** |
+    | **Nepal\*** | **0.0842** | **0.0039** | **0.0039** |
     | Netherlands | 0.1837 | 0.0575 | 0.0575 |
     | Nigeria | 0.0593 | 0.0077 | 0.0077 |
-    | Pakistan | 0.0544 | 0.0115 | 0.0115 |
-    | Peru | 0.0808 | 0.0230 | 0.0230 |
+    | **Oman\*** | **0.0392** | **0.0284** | **0.0284** |
+    | Pakistan | 0.0544 | **0.0172** | **0.0172** |
+    | Peru | 0.0808 | **0.0345** | **0.0345** |
     | Poland | 0.0421 | 0.0140 | 0.0140 |
     | Qatar | 0.0392 | 0.0138 | 0.0138 |
-    | Romania | 0.0989 | 0.0334 | 0.0334 |
+    | Romania | 0.0989 | 0.0333 | 0.0333 |
     | Russia | 0.0922 | 0.0460 | 0.0460 |
-    | Saudi Arabia | 0.0576 | 0.0123 | 0.0123 |
+    | **Saudi Arabia** | **0.0662** | 0.0123 | 0.0123 |
     | Singapore | 0.0842 | 0.0184 | 0.0184 |
-    | South Africa | 0.0436 | 0.0087 | 0.0087 |
+    | **South Africa** | 0.0436 | **0.0109** | **0.0109** |
     | Spain | 0.0813 | 0.0230 | 0.0230 |
+    | **Sri Lanka\*** | **0.0842** | **0.0023** | **0.0023** |
     | Turkey | 0.0125 | 0.0010 | 0.0010 |
-    | United Arab Emirates | 0.0574 | 0.0181 | 0.0181 |
+    | **Ukraine\*** | **0.0989** | **0.0343** | **0.0343** |
+    | **United Arab Emirates** | **0.0662** | 0.0181 | 0.0181 |
     | United Kingdom | 0.0730 | 0.0253 | 0.0253 |
-    | North America | 0.0288 | 0.0039 | 0.0039 |
+    | Canada | 0.0287 | 0.0039 | 0.0039 |
+    | United States | 0.0287 | 0.0039 | 0.0039 |
     | Rest of Africa | 0.0259 | 0.0046 | 0.0046 |
-    | Rest of Asia Pacific | 0.0842 | 0.0130 | 0.0130 |
+    | **Rest of Asia Pacific** | **0.0968** | 0.0130 | 0.0130 |
     | Rest of Central & Eastern Europe | 0.0989 | 0.0244 | 0.0244 |
     | Rest of Latin America | 0.0851 | 0.0130 | 0.0130 |
-    | Rest of Middle East | 0.0392 | 0.0105 | 0.0105 |
+    | **Rest of Middle East** | **0.0451** | 0.0105 | 0.0105 |
     | Rest of Western Europe | 0.0681 | 0.0197 | 0.0197 |
-    | Other | 0.0695 | 0.0089 | 0.0089 |
+    | Other (any country not listed above) | 0.0695 | 0.0089 | 0.0089 |
   </Tab>
   <Tab title="INR">
-    | **Country** | **Marketing** | **Utility** | **Authentication** |
-    | :-- | --- | --- | --- |
+    | Market | Marketing | Utility | Authentication |
+    | --- | --- | --- | --- |
     | Argentina | 5.2087 | 2.1921 | 2.1921 |
+    | **Bangladesh\*** | **6.1714** | **0.3119** | **0.3119** |
     | Brazil | 5.2679 | 0.5732 | 0.5732 |
     | Chile | 7.4905 | 1.6852 | 1.6852 |
     | Colombia | 1.0535 | 0.0676 | 0.0676 |
@@ -86,48 +121,103 @@ Gallabox's WhatsApp messaging rates vary by category and by the recipient's coun
     | France | 7.2439 | 2.5293 | 2.5293 |
     | Germany | 11.5084 | 4.6370 | 4.6370 |
     | Hong Kong | 6.1714 | 2.1914 | 2.1914 |
-    | Hungary | 7.2447 | 2.9410 | 2.9410 |
+    | Hungary | 7.2447 | 2.9420 | 2.9420 |
     | India | 0.9926 | 0.1323 | 0.1323 |
     | Indonesia | 3.4628 | 2.1063 | 2.1063 |
+    | **Iraq\*** | **2.8742** | **0.6654** | **0.6654** |
     | Israel | 2.9752 | 0.4468 | 0.4468 |
     | Italy | 6.6937 | 2.5270 | 2.5270 |
+    | **Kazakhstan\*** | **5.0885** | **1.5165** | **1.5165** |
+    | **Kuwait\*** | **6.6768** | **3.7060** | **3.7060** |
     | Malaysia | 7.2493 | 1.1801 | 1.1801 |
-    | Mexico | 2.5711 | 0.7160 | 0.7160 |
+    | **Mexico** | **3.3424** | 0.7160 | 0.7160 |
+    | **Morocco\*** | **3.4907** | **1.9375** | **1.9375** |
+    | **Nepal\*** | **6.1714** | **0.2866** | **0.2866** |
     | Netherlands | 13.4640 | 4.2154 | 4.2154 |
     | Nigeria | 4.3529 | 0.5652 | 0.5652 |
-    | Pakistan | 3.9885 | 0.8433 | 0.8433 |
-    | Peru | 5.9266 | 1.6861 | 1.6861 |
+    | **Oman\*** | **2.8742** | **2.0805** | **2.0805** |
+    | Pakistan | 3.9885 | **1.2650** | **1.2650** |
+    | Peru | 5.9266 | **2.5292** | **2.5292** |
     | Poland | 3.0767 | 1.0256 | 1.0256 |
     | Qatar | 2.8742 | 1.0107 | 1.0107 |
     | Romania | 7.2447 | 2.4377 | 2.4377 |
     | Russia | 6.7582 | 3.3708 | 3.3708 |
-    | Saudi Arabia | 4.2114 | 0.9009 | 0.9009 |
+    | **Saudi Arabia** | **4.8431** | 0.9009 | 0.9009 |
     | Singapore | 6.1714 | 1.3486 | 1.3486 |
-    | South Africa | 3.1994 | 0.6416 | 0.6416 |
+    | **South Africa** | 3.1994 | **0.8020** | **0.8020** |
     | Spain | 5.9571 | 1.6845 | 1.6845 |
+    | **Sri Lanka\*** | **6.1714** | **0.1686** | **0.1686** |
     | Turkey | 0.9187 | 0.0759 | 0.0759 |
-    | United Arab Emirates | 4.2105 | 1.3235 | 1.3235 |
+    | **Ukraine\*** | **7.2447** | **2.5049** | **2.5049** |
+    | **United Arab Emirates** | **4.8431** | 1.3235 | 1.3235 |
     | United Kingdom | 5.3470 | 1.8540 | 1.8540 |
-    | North America | 2.1060 | 0.2865 | 0.2865 |
-    | Rest of Africa | 1.8972 | 0.3370 | 0.3370 |
-    | Rest of Asia Pacific | 6.1714 | 0.9524 | 0.9524 |
+    | Canada | 2.1060 | 0.2865 | 0.2865 |
+    | United States | 2.1060 | 0.2865 | 0.2865 |
+    | Rest of Africa | 1.8972 | 0.3369 | 0.3369 |
+    | **Rest of Asia Pacific** | **7.0971** | 0.9524 | 0.9524 |
     | Rest of Central & Eastern Europe | 7.2447 | 1.7820 | 1.7820 |
     | Rest of Latin America | 6.2338 | 0.9520 | 0.9520 |
-    | Rest of Middle East | 2.8742 | 0.7665 | 0.7665 |
+    | **Rest of Middle East** | **3.3053** | 0.7665 | 0.7665 |
     | Rest of Western Europe | 4.9885 | 1.4393 | 1.4393 |
-    | Other | 5.0885 | 0.6487 | 0.6487 |
+    | Other (any country not listed above) | 5.0885 | 0.6487 | 0.6487 |
   </Tab>
 </Tabs>
 
-<Note>
-  Rates shown are Gallabox's WhatsApp messaging rates for each category and market — the amount deducted from your [Message Credits](/pricing-and-billing/message-credits) wallet per message sent. Meta revises these rates periodically; this table reflects rates effective July 1, 2026 and will be updated when Meta issues a new rate card.
-</Note>
+### Authentication pricing across borders
 
-## Ad-originated conversations
+<Warning>
+  The Authentication rates above apply when the passcode is sent to a number in the **same country** as your business. A handful of countries charge a **higher** rate once you're sending enough OTPs there from a business based elsewhere:
+</Warning>
 
-If a customer starts messaging you from a WhatsApp ad or a Facebook/Instagram Page button, a different — and longer — free window applies. See [Ad Engagement Window](https://app.mintlify.com/gallabox/gallabox/~/f6dcc80e-1fe4-4b5c-a6cc-336ed2295d52) for how that works and how it differs from the standard 24-hour window above.
+| Market | USD | INR |
+| --- | --- | --- |
+| **Bangladesh\*** | **0.1104** | **8.0914** |
+| Egypt | 0.0747 | 5.4818 |
+| India | 0.0350 | 2.8717 |
+| Indonesia | 0.1564 | 11.4584 |
+| **Iraq\*** | **0.1472** | **10.7811** |
+| **Kazakhstan\*** | **0.1840** | **13.4798** |
+| **Kuwait\*** | **0.1380** | **10.1073** |
+| Malaysia | 0.0481 | 3.5235 |
+| **Morocco\*** | **0.0933** | **6.8317** |
+| **Nepal\*** | **0.1288** | **9.4400** |
+| Nigeria | 0.0862 | 6.3290 |
+| **Oman\*** | **0.0690** | **5.0537** |
+| Pakistan | 0.0862 | 6.3290 |
+| Saudi Arabia | 0.0688 | 5.0452 |
+| South Africa | 0.0230 | 1.6883 |
+| **Sri Lanka\*** | **0.1656** | **12.1372** |
+| **Ukraine\*** | **0.0858** | **6.2707** |
+| United Arab Emirates | 0.0586 | 4.2943 |
 
-## Related Articles
+## Ad Engagement Window
 
-- [Message Credits](/pricing-and-billing/message-credits) — the wallet these charges are deducted from
-- [AI Wallet](/pricing-and-billing/ai-wallet) How AI credits are consumed
+If a customer starts chatting with you from a WhatsApp ad or a Facebook/Instagram Page button, you get a longer free window — **72 hours** instead of the usual 24.
+
+<Check>
+  Every message you send in that window is free, including templates, and that doesn't change on October 1, 2026.
+</Check>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What's changing on October 1, 2026?">
+    Service messages and Utility templates sent inside the window start billing per message, at the market's Utility rate. Each business phone number also gets 1,000 free service messages a month before charges kick in.
+  </Accordion>
+
+  <Accordion title="Am I billed for messages that failed to deliver?">
+    Meta charges only for messages that have been successfully delivered, irrespective of conversation window, message type, etc.
+  </Accordion>
+
+  <Accordion title="I have WhatsApp Coexistence enabled — does this pricing apply to messages from my phone?">
+    No. This page covers messages sent through Gallabox. Messages sent directly from the WhatsApp Business App on your phone are always free.
+  </Accordion>
+
+  <Accordion title="My template's category changed after approval — will I be charged differently now?">
+    Yes. Meta can recategorize an approved template if its content doesn't match the category it was created under — most often, Utility moving to Marketing. That changes what it costs going forward.
+  </Accordion>
+
+  <Accordion title="Do images or attachments cost more than plain text?">
+    No. Media doesn't change a template's rate — you're charged per message, based on category, not content type.
+  </Accordion>
+</AccordionGroup>
