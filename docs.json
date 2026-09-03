@@ -35,7 +35,7 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "groups": [
+        "pages": [
           {
             "group": "Getting Started",
             "icon": "rocket",
@@ -378,6 +378,7 @@
               "reports-and-analytics/message-reports"
             ]
           },
+          "untitled-page",
           {
             "group": "Settings",
             "icon": "gear",
