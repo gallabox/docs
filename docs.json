@@ -166,6 +166,7 @@
                   "whatsapp/ad-campaigns/overview",
                   "whatsapp/ad-campaigns/ctwa-ads",
                   "whatsapp/ad-campaigns/ctwa-leads",
+                  "guide/ad-engagement-window",
                   "whatsapp/ad-campaigns/capi"
                 ]
               },
@@ -424,8 +425,7 @@
             "group": "How-to Guides",
             "icon": "book-open",
             "pages": [
-              "guide/reduce-whatsapp-message-costs",
-              "guide/ad-engagement-window"
+              "guide/reduce-whatsapp-message-costs"
             ]
           }
         ]
