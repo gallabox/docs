@@ -412,7 +412,13 @@
               "pricing-and-billing/message-credits",
               "pricing-and-billing/ai-wallet",
               "pricing-and-billing/faqs",
-              "pricing-and-billing/whatsapp-message-pricing"
+              {
+                "group": "WhatsApp Pricing",
+                "pages": [
+                  "pricing-and-billing/whatsapp-pricing/overview",
+                  "pricing-and-billing/whatsapp-pricing/rate-card"
+                ]
+              }
             ]
           }
         ]
@@ -1387,7 +1393,7 @@
     },
     {
       "source": "/extras/template-pricing-change-update",
-      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
     },
     {
       "source": "/extras/understanding-message-delivery-issues-on-whatsapp",
@@ -1735,11 +1741,11 @@
     },
     {
       "source": "/pricing-and-billing-modules/new-per-message-pricing",
-      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
     },
     {
       "source": "/pricing-and-billing-modules/new-per-message-pricing-effective-july-1-2025",
-      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
     },
     {
       "source": "/pricing/message-credit-wallet-and-call-charges",
@@ -1987,7 +1993,11 @@
     },
     {
       "source": "/guide/how-whatsapp-message-pricing-works",
-      "destination": "/pricing-and-billing/whatsapp-message-pricing"
+      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
+    },
+    {
+      "source": "/pricing-and-billing/whatsapp-message-pricing",
+      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
     }
   ],
   "footer": {
