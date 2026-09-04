@@ -416,6 +416,19 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Guide",
+        "groups": [
+          {
+            "group": "How-to Guides",
+            "icon": "book-open",
+            "pages": [
+              "guide/reduce-whatsapp-message-costs",
+              "guide/ad-engagement-window"
+            ]
+          }
+        ]
       }
     ]
   },
