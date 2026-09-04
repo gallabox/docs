@@ -1,0 +1,86 @@
+---
+title: "Concepts"
+sidebarTitle: "Concepts"
+---
+
+Gallabox is built around a small set of objects. Understanding how they relate makes the rest of the product straightforward.
+
+---
+
+## Account, channels, and contacts
+
+**Account**\
+Your account is the top-level container for everything in Gallabox — channels, contacts, conversations, team members, and settings. One company has one account.
+
+**Channel**\
+A channel is a connected messaging endpoint. Gallabox supports WhatsApp numbers, Instagram accounts, and web chat widgets. One account can have multiple channels. Every contact and every conversation belongs to a specific channel.
+
+**Contact**\
+A contact is a person. It persists across conversations — the same contact can have many conversations over time. A contact stores identity (phone, email, Instagram handle), custom field values, tags, and an optional company association. Contacts are created when someone messages you for the first time, when you import them, or when you add them manually.
+
+---
+
+## Conversations
+
+**Conversation**\
+A conversation is the thread between you and a contact on a specific channel. It has a status — open or closed — and an assignee, which can be a user, a team, or a bot. A conversation with no assignee is unassigned; unassigned is an assignment state, not a status. A conversation belongs to exactly one channel and one contact. Resolving a conversation closes it; it can be reopened at any time.
+
+**Message**\
+A message is a single send or receive inside a conversation. Every message belongs to a conversation and is delivered through the channel that conversation sits on.
+
+---
+
+## Your team
+
+**User**\
+A user is a team member with access to Gallabox. Each user has a role that controls what they can see and do. Conversations can be assigned to individual users.
+
+**Team**\
+A team is a named group of users. A conversation assigned to a team is visible to all members of that team. Teams are useful for routing conversations to the right group — support, sales, billing — without naming a specific person.
+
+**Inbox**\
+The inbox is where users see and work on conversations. What appears depends on your assignment filter: conversations assigned to you, to your team, unassigned, or all open conversations. The inbox is not a separate object — it is a filtered view of conversations.
+
+**View**\
+A view is a saved conversation filter with a name. Each custom View requires a channel plus a contact-field, conversation-tag, or segment condition. Views let teams create persistent workspaces for specific workflows. A conversation can appear in multiple views at once.
+
+---
+
+## Messaging
+
+**Template**\
+A template is a pre-approved WhatsApp message format. WhatsApp requires a template for any message you send to a contact outside their active 24-hour reply window. Templates are created in Gallabox and submitted to Meta for approval before they can be used. Approved templates can be used in broadcasts, sequences, and manual outbound messages.
+
+**Broadcast**\
+A broadcast is a one-time bulk send to a list of contacts using a template. You target contacts by selecting one or more segments or by uploading a list. Broadcasts can be sent immediately or scheduled. Once sent, a broadcast creates individual conversations with each recipient.
+
+**Sequence**\
+A sequence is an automated series of template messages sent to a contact over time. Each step has a configurable delay. A sequence is triggered by an event or condition — such as a contact being added to a segment, a form submission, or a webhook. Sequences are used for drip nurture, post-purchase follow-ups, and onboarding flows.
+
+---
+
+## Automation
+
+**Bot**\
+A bot is an automated conversation handler. It can be assigned to a conversation the same way a user can. Bots come in two types:
+
+* **Rule-based** — decision-tree flows that route conversations, ask questions, collect information, and take actions based on fixed logic.
+* **AI** — a large language model that answers questions in natural language, performs actions, and decides when to escalate to a human. AI bots use a knowledge base as their data source.
+
+A bot can hand off a conversation to a user or team when it has finished or when escalation is needed.
+
+**Knowledge base**\
+A knowledge base is the data an AI bot draws from when answering questions. It is built from documents, URLs, or text you provide. One knowledge base powers one AI bot.
+
+---
+
+## Organizing and labeling
+
+**Tag**\
+A tag is a label. Tags can be applied to contacts and to conversations independently. They are used for filtering conversations in views, targeting contacts in broadcasts, and reporting.
+
+**Segment**\
+A segment is a saved, dynamic filter on contacts. Any contact that matches the filter conditions is automatically included. Segments update in real time as contact data changes. They are the primary targeting mechanism for broadcasts and sequences.
+
+**Variable**\
+A variable is a custom data field. Contact variables store information about a person — plan type, city, customer ID. Conversation variables store information about an interaction — order number, issue category. Variables can be set manually by an agent, collected by a bot during a conversation, or synced from an integration.

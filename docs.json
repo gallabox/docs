@@ -40,15 +40,15 @@
             "group": "Getting Started",
             "icon": "rocket",
             "pages": [
-              "index"
+              "index",
+              "concepts"
             ]
           },
+          "concepts/channels",
           {
             "group": "Concepts",
             "icon": "lightbulb",
-            "pages": [
-              "concepts/channels"
-            ]
+            "pages": []
           },
           {
             "group": "Inbox",
