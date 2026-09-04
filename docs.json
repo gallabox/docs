@@ -47,7 +47,6 @@
             "group": "Concepts",
             "icon": "lightbulb",
             "pages": [
-              "concepts/overview",
               "concepts/channels"
             ]
           },
