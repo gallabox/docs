@@ -148,6 +148,7 @@
               },
               "whatsapp/flows",
               "whatsapp/canned-responses",
+              "whatsapp/whatsapp-groups",
               {
                 "group": "WhatsApp Calling",
                 "pages": [
