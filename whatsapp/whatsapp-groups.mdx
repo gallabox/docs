@@ -1,6 +1,8 @@
 ---
 title: "WhatsApp Groups"
 description: "Create and run small WhatsApp Groups from Gallabox — invite customers, approve join requests, and message everyone from your Inbox."
+tags: ["whatsapp", "groups", "inbox", "templates", "admin"]
+role: "Owners, Admins, and users who can manage channels"
 ---
 
 > **Who can use this?**
@@ -8,38 +10,118 @@ description: "Create and run small WhatsApp Groups from Gallabox — invite cust
 > - Accounts with **Groups** enabled. It's currently in **Alpha** — if you don't see it, talk to your Gallabox account manager or support to have it turned on.
 > - Roles: anyone who can **manage WhatsApp, Instagram and Web channels** (Owners and Admins by default) can create and manage groups. Agents can read and reply in the group conversation from the Inbox.
 
-## Plan Availability
-
-Groups is an **Alpha** feature and is enabled per account. Once it's on, you'll find it in the left navigation under **Assets → Groups (Alpha)**.
-
 ## What Is a WhatsApp Group in Gallabox?
 
-A WhatsApp Group in Gallabox is a **small, business-owned group chat** that you create from your WhatsApp Business number — not from a phone.
+A WhatsApp Group in Gallabox is a **small, business-owned group chat** created from your WhatsApp Business number — not from a phone.
 
-Your business number is the group **Admin**, and up to **8 customers** can join. Everything that happens in the group — messages, joins, exits, join requests — lands in a single group conversation in your Inbox, so your team replies to the whole group in one place.
+Your business number is the group **Admin**, and up to **8 customers** can join. Everything that happens in the group — messages, joins, exits, join requests — lands in a single conversation in your Inbox, so your team replies to the whole group in one place.
 
-This is very different from a Broadcast. A Broadcast sends the same message to many people in **separate, private** conversations. A Group puts everyone in **one shared** conversation where members can see and reply to each other.
+### How it differs from a normal conversation
 
-|  | Broadcast | Group |
+A group behaves like a regular WhatsApp conversation in most ways, with a few important differences:
+
+| | 1:1 conversation | Group |
 | --- | --- | --- |
-| Audience size | Thousands | Up to 8 customers |
-| Who sees replies | Only your team | Everyone in the group |
-| Conversation | One per contact | One shared thread |
-| Best for | Announcements, campaigns | Small cohorts — VIP customers, a batch of students, a project team, a dealer circle |
+| Who's in it | You and one customer | You and up to 8 customers |
+| Who sees your reply | Only that customer | Everyone in the group |
+| Who sees each other | Nobody else involved | Members see each other's messages and numbers |
+| In your Inbox | One conversation per contact | One shared conversation |
+| 24-hour service window | Reopens when that customer messages | Reopens when **any** member messages |
+| Cost of one message you send | 1 charge | 1 charge per member — 8 members means 8 charges |
+| Message types you can send | The full range, including buttons and lists | Text, media, and text or media templates only |
+| Bots, AI Agents, Broadcasts, Sequences | Supported | Not supported today |
+| Best for | Everyday support and sales | Small cohorts — VIP customers, a class batch, a project team, a dealer circle |
+
+## Plan Availability
+
+Groups is an **Alpha** feature, enabled per account. Once it's on, you'll find it under **Assets → Groups (Alpha)**.
+
+There's no separate subscription for Groups, and no add-on to buy. You pay only for the messages you send.
+
+## What a Group Costs
+
+Group messaging is billed exactly like a 1:1 conversation — **per delivered message, per recipient**. There's no group rate and no group discount.
+
+The difference is the multiplier: one message to a group of 8 members is **8 charges**, not one.
+
+| What you send | Members | Charges |
+| --- | --- | --- |
+| One template | 8 | 8 |
+| One reply inside the service window | 8 | 8 (free until October 1, 2026) |
+| One invite template to 8 contacts | — | 8 |
+
+Rates depend on the message category and each member's country, the same as any other WhatsApp message — see [WhatsApp Pricing](/pricing-and-billing/whatsapp-pricing/overview).
+
+<Warning>
+  As of today, Gallabox doesn't show a per-group cost breakdown. Group spend appears inside your regular WhatsApp usage.
+</Warning>
+
+## Limits at a Glance
+
+As of today, these are the limits that apply to Groups. They come from WhatsApp, not Gallabox, and can change.
+
+| Limit | Value |
+| --- | --- |
+| Customers per group | **8** (plus your business number as Admin) |
+| Groups per WhatsApp number | Up to **10,000** |
+| Businesses per group | **1** — a group can't be shared across tools or providers |
+| Group name | 128 characters |
+| Group description | 2,048 characters |
+| Group photo | Square JPEG, minimum 192 × 192 px, maximum 5 MB |
+| Contacts per invite send | 8 |
+| Pinned messages | 3 at a time (1, 7, or 30 days each) |
+| Message types allowed | Text, media, and text or media templates |
+| Channels supported | WhatsApp only |
+| Account requirement | Verified WhatsApp Business account |
+
+## What You Can't Do Today
+
+Groups is in Alpha, and WhatsApp's group rules are strict. As of today, here's what isn't possible.
+
+### WhatsApp platform limits
+
+These apply no matter which tool you use:
+
+* **8 customers per group** — far smaller than a personal WhatsApp group.
+* **No adding people directly.** Members have to join themselves through the invite link.
+* **Approval mode is locked** once the group is created.
+* **Group creation is rate-limited.** WhatsApp caps how many groups a number can create, and may pause creation for a number that creates too many too quickly.
+* **Only one business per group.** A group belongs to a single WhatsApp Business number and can't be shared with another provider or tool.
+* **No interactive messages.** Buttons, lists, and interactive flows can't be delivered to a group.
+* **No one-time passcode templates.** Authentication templates aren't supported in groups.
+* **No catalogues or commerce messages.**
+* **No calling** inside a group.
+* **No disappearing or view-once messages.**
+* **No editing or deleting a sent message**, for you or for members.
+* **No hiding the member list.** Everyone in the group can see who else is in it.
+* **Group photos must be square** and at least 192 × 192 pixels.
+* **A suspended group can't be messaged** until WhatsApp clears the suspension.
+
+### Use cases not covered yet
+
+Groups doesn't support these today:
+
+* **Groups on other channels.** Groups are WhatsApp only — Instagram and Web Chat aren't supported.
+* **Automated group replies.** Bots, AI Agents, Broadcasts, and Sequences don't run on group conversations. Group replies are handled by your team in the Inbox.
+* **Inviting people who aren't in your contacts.** Members are invited from your existing Gallabox contacts, or by sharing the invite link manually.
+* **Creating groups or importing invites in bulk.**
+* **Tracking spend per group.** Group message spend appears inside your regular WhatsApp usage.
 
 ## Before You Start
 
-**1. A connected and Verified WhatsApp channel.** Groups are created on a specific WhatsApp number. If you have several, you'll pick one when you create the group.
+**1. A verified WhatsApp Business account.** Groups only work on a verified WhatsApp Business account. If your number isn't verified yet, complete verification first — an unverified number can't create groups.
 
-**2. Groups enabled on your account.** It's Alpha — support switches it on.
+**2. A connected WhatsApp channel.** Groups are created on a specific WhatsApp number. If you have several, you'll pick one when you create the group.
 
-**3. The right permission.** You need the channel management permission to create groups, change settings, remove members, or delete a group.
+**3. Groups enabled on your account.** It's Alpha — support switches it on.
 
-**4. An approved template for invites.** To invite a contact from Gallabox you send them a WhatsApp template containing the group's invite link. Have one approved in **Assets → Templates** before you start — a template with at least one body variable works best, because Gallabox drops the invite link straight into it.
+**4. The right permission.** You need the channel management permission to create groups, change settings, remove members, or delete a group.
 
-<Info>
-  Your business number can only start a limited number of groups, and WhatsApp may pause group creation for a number that creates too many too quickly. If group creation fails, wait a while and try again.
-</Info>
+**5. An approved template for invites.** To invite a contact from Gallabox you send them a WhatsApp template containing the group's invite link. Have one approved in **Assets → Templates** before you start — a template with at least one body variable works best, because Gallabox drops the invite link straight into it.
+
+<Warning>
+  Use a **text or media** template for invites. Templates with buttons, lists, or other interactive elements can't be delivered to a group.
+</Warning>
 
 ## Create a Group
 
@@ -47,8 +129,8 @@ This is very different from a Broadcast. A Broadcast sends the same message to m
 2. Pick the **WhatsApp Channel** the group should belong to.
 3. Enter a **Group Name** — up to 128 characters. This is what members see at the top of the chat.
 4. Choose **Approval Required**:
-   - **Permission** — an admin has to approve every person who tries to join through the invite link.
-   - **Auto** — anyone with the invite link joins instantly, no approval needed.
+   * **Permission** — an admin has to approve every person who tries to join through the invite link.
+   * **Auto** — anyone with the invite link joins instantly, no approval needed.
 5. Click **Create Group**.
 
 Gallabox asks WhatsApp to create the group and waits for confirmation, which usually takes a few seconds. When it's done you'll see **Group created successfully** along with the group's **Invite Link**, ready to copy.
@@ -58,6 +140,10 @@ From there you can **Send Invite** straight away, or **Go to Group** to open the
 <Warning>
   **Approval mode is fixed at creation.** You can rename a group, change its description and photo, and reset its invite link at any time — but you can't switch a group between Permission and Auto afterwards. Choose carefully. If you need the other mode, create a new group.
 </Warning>
+
+<Info>
+  Your business number can only start a limited number of groups, and WhatsApp may pause group creation for a number that creates too many too quickly. If group creation fails, wait a while and try again.
+</Info>
 
 ## Invite People to the Group
 
@@ -88,8 +174,8 @@ This applies to groups created with **Permission** approval.
 
 When someone taps your invite link, they appear as a **pending join request**. You'll see them in two places:
 
-- At the top of the group conversation in the **Inbox**, as a **Pending Join Requests** card with **Approve** and **Decline** buttons.
-- In the **contact panel** on the right of the group conversation, with a **Review** button that takes you to the group.
+* At the top of the group conversation in the **Inbox**, as a **Pending Join Requests** card with **Approve** and **Decline** buttons.
+* In the **contact panel** on the right of the group conversation, with a **Review** button that takes you to the group.
 
 Approve, and they join and appear under Active Members. Decline, and the request is dismissed — they can request again later with the same link.
 
@@ -117,13 +203,15 @@ Every group has one conversation in your **Inbox** — open it from the group's 
 
 **Replies work as usual.** Type in the composer and send. Everyone in the group receives the message, and every member's reply appears in the same thread, labelled with who sent it.
 
+**Text, media, and templates only.** You can send text, images, video, documents, and text or media templates. Buttons, lists, interactive flows, catalogues, and one-time passcode templates can't be delivered to a group.
+
 **Delivery status is aggregated.** Because a group message goes to several people, the tick beside your message reflects the whole group — it moves to delivered once it's delivered, and to read once it's been read, across recipients.
 
 **Mentions.** When a member mentions someone with `@`, Gallabox shows the mention with the contact's name where it can resolve it.
 
 **Pin important messages.** Hover any message in a group conversation and click the pin icon, then choose how long the pin should last — **1 day**, **7 days**, or **30 days**. You can pin up to **3 messages** at a time; unpin one to make room. Pinned messages are visible to everyone in the group.
 
-**The 24-hour window applies here too.** Like any WhatsApp conversation, a group has a service window that reopens each time a member sends a message. Outside it, send an approved template to start the conversation again.
+**The 24-hour window applies here too.** A group has a service window that reopens each time *any* member sends a message. Outside it, send an approved template to start the conversation again.
 
 ## Group Settings
 
@@ -140,6 +228,16 @@ Open a group and go to the **Settings** tab.
 
 Changes are sent to WhatsApp and confirmed in the background, so a rename may take a few seconds to appear for members.
 
+## Example
+
+**Scenario:** Nova Interiors runs a premium design service and wants a shared chat for each project.
+
+1. The project lead goes to **Assets → Groups (Alpha)** → **Create Group**, picks the studio's WhatsApp number, names it **Sharma Residence — Living Room**, and chooses **Permission** so nobody wanders in from a forwarded link.
+2. The group is created and the invite link appears. The lead clicks **Send Invite**, selects the three people on the client's side, picks the approved `project_group_invite` template, and sends. The invite link is filled in automatically.
+3. Two clients tap the link. They show up as **Pending Join Requests** at the top of the group conversation in the Inbox. The lead clicks **Approve** for both.
+4. The designer shares mood boards in the group. She pins the final approved layout for **30 days** so nobody scrolls back looking for it.
+5. When the project wraps, the lead opens **Settings → Delete group**.
+
 ## Group Statuses
 
 You'll see a status against each group in the list.
@@ -154,60 +252,15 @@ You'll see a status against each group in the list.
 
 Use the **status filter** and **search** at the top of the Groups page to find what you need, and the channel selector to switch between WhatsApp numbers.
 
-## What a Group Costs
-
-Group messaging is billed the same way as any other WhatsApp conversation — **per delivered message, per recipient**.
-
-That means sending one template to a group of 8 members counts as **8 charges**, not one. A group of 8 is roughly 8× the cost of the same message to a single contact, so groups are for small, high-value cohorts rather than reach.
-
-Invite templates are billed the same way — one charge per contact you invite.
-
-## Limits at a Glance
-
-| Limit | Value |
-| --- | --- |
-| Members per group | Your business number (Admin) + up to **8** customers |
-| Group name | 128 characters |
-| Group description | 2,048 characters |
-| Group photo | Square JPEG, minimum 192 × 192 px, maximum 5 MB |
-| Contacts per invite send | 8 |
-| Pinned messages | 3 at a time (1, 7, or 30 days each) |
-| Channels supported | WhatsApp only |
-
-## What You Can't Do (Yet)
-
-**Meta limitations** — platform rules that apply no matter what Gallabox does:
-
-- A group holds a maximum of 8 customers. This is far smaller than a personal WhatsApp group.
-- You can't add someone directly — they have to join via the invite link themselves.
-- Approval mode can't be changed after the group is created.
-- WhatsApp limits how many groups a number can create, and may temporarily disable group creation for a number that creates too many.
-- Group photos must be square and at least 192 × 192 pixels.
-- A suspended group can't be messaged until WhatsApp clears the suspension.
-
-**Gallabox limitations** — product gaps we're working on:
-
-- Groups are **WhatsApp only**. Instagram and Web Chat aren't supported.
-- Bots, AI Agents, Broadcasts, and Sequences don't run on group conversations — group replies are handled by your team in the Inbox.
-- Members can only be invited from your existing Gallabox contacts, or by sharing the invite link manually.
-- There's no bulk group creation or bulk invite import.
-- A per-group cost breakdown isn't surfaced in the app yet — group message spend appears in your regular WhatsApp usage.
-
-## Example
-
-**Scenario:** Nova Interiors runs a premium design service and wants a shared chat for each project.
-
-1. The project lead goes to **Assets → Groups (Alpha)** → **Create Group**, picks the studio's WhatsApp number, names it **Sharma Residence — Living Room**, and chooses **Permission** so nobody wanders in from a forwarded link.
-2. The group is created and the invite link appears. The lead clicks **Send Invite**, selects the three people on the client's side, picks the approved `project_group_invite` template, and sends. The invite link is filled in automatically.
-3. Two clients tap the link. They show up as **Pending Join Requests** at the top of the group conversation in the Inbox. The lead clicks **Approve** for both.
-4. The designer shares mood boards in the group. She pins the final approved layout for **30 days** so nobody scrolls back looking for it.
-5. When the project wraps, the lead opens **Settings → Delete group**.
-
 ## FAQs
 
 <AccordionGroup>
   <Accordion title="Why can I only add 8 people?">
-    That's WhatsApp's limit for groups created through the Business Platform, not a Gallabox restriction. Groups are designed for small cohorts — for larger audiences use a [Broadcast](/whatsapp/broadcasts/overview).
+    That's WhatsApp's limit for groups created through the Business Platform, not a Gallabox restriction. Groups are built for small cohorts — to reach a large audience, use a [Broadcast](/whatsapp/broadcasts/overview) instead.
+  </Accordion>
+
+  <Accordion title="Do I need a verified WhatsApp Business account?">
+    Yes. Groups only work on a verified account. If your number isn't verified, complete verification before you try to create a group.
   </Accordion>
 
   <Accordion title="Can I just add a customer's number to the group?">
@@ -222,6 +275,10 @@ Invite templates are billed the same way — one charge per contact you invite.
     Open the group → **Settings** → **Reset link**. The old link stops working immediately. Current members stay in; anyone new will need the fresh link.
   </Accordion>
 
+  <Accordion title="Why won't my template send to the group?">
+    Groups accept text and media templates only. If your template has buttons, a list, or an interactive flow, it can't be delivered — use a plain text or media template instead. One-time passcode (authentication) templates aren't supported either.
+  </Accordion>
+
   <Accordion title="Why won't my group photo upload?">
     WhatsApp only accepts a **square JPEG** of at least **192 × 192 pixels** and under **5 MB**. If the image is rectangular, crop it to a square and try again — Gallabox tells you the dimensions it found.
   </Accordion>
@@ -234,16 +291,20 @@ Invite templates are billed the same way — one charge per contact you invite.
     Not today. Group conversations are handled by your team in the Inbox. Bots, AI Agents, Broadcasts, and Sequences run on one-to-one conversations only.
   </Accordion>
 
+  <Accordion title="Can I delete a message I sent to the group?">
+    No. WhatsApp doesn't support editing or deleting messages in groups created through the Business Platform — for you or for members.
+  </Accordion>
+
   <Accordion title="A group shows as Suspended. What happened?">
     WhatsApp suspended it, usually after a policy report or violation. You can't message the group while it's suspended. Review WhatsApp's Business Messaging Policy, and contact support if you believe it's a mistake.
   </Accordion>
 
   <Accordion title="My group creation failed. Why?">
-    The most common reasons are that your number has hit its group creation limit, that group creation has been temporarily paused for the number, or that the number isn't eligible for Groups yet. Wait and retry — if it keeps failing, contact support with the group name and the WhatsApp number.
+    The most common reasons are that your account isn't verified, that your number has hit its group creation limit, that creation has been temporarily paused for the number, or that the number isn't eligible for Groups yet. Wait and retry — if it keeps failing, contact support with the group name and the WhatsApp number.
   </Accordion>
 
   <Accordion title="Do I need a template to reply in a group?">
-    Only if the 24-hour window has closed. Each time a member messages the group, the window reopens and your team can reply freely. Outside it, send an approved template first.
+    Only if the 24-hour window has closed. Each time any member messages the group, the window reopens and your team can reply freely. Outside it, send an approved template first.
   </Accordion>
 
   <Accordion title="What happens when I delete a group?">
@@ -251,8 +312,8 @@ Invite templates are billed the same way — one charge per contact you invite.
   </Accordion>
 </AccordionGroup>
 
-## Note
+## Next Steps
 
-- Ask support to enable **Groups (Alpha)** if you don't see it under **Assets**.
-
-- Start with one small pilot group — a VIP cohort or a live project — before rolling groups out across your team.
+* Ask support to enable **Groups (Alpha)** if you don't see it under **Assets**.
+* Get a text or media invite template approved in **Assets → Templates** with a body variable for the invite link, so inviting is a two-click job.
+* Start with one small pilot group — a VIP cohort or a live project — before rolling groups out across your team.
