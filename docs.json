@@ -1741,7 +1741,7 @@
     },
     {
       "source": "/pricing-and-billing-modules/new-per-message-pricing",
-      "destination": "/pricing-and-billing/whatsapp-pricing/overview"
+      "destination": "/pricing-and-billing/whatsapp-pricing/rate-card"
     },
     {
       "source": "/pricing-and-billing-modules/new-per-message-pricing-effective-july-1-2025",
@@ -1998,6 +1998,10 @@
     {
       "source": "/pricing-and-billing/whatsapp-message-pricing",
       "destination": "/pricing-and-billing/whatsapp-pricing/overview"
+    },
+    {
+      "source": "/pricing-and-billing/whatsapp-rate-card",
+      "destination": "/pricing-and-billing/whatsapp-pricing/rate-card"
     }
   ],
   "footer": {
