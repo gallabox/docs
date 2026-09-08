@@ -90,7 +90,7 @@ Here's how you'd set it up:
 <Steps>
 
 <Step>
-Go to **AI Agents and Bots → Create New → Chat AI Agent**, select **Web** as the channel, and configure the widget in **Settings → Web Widget Settings**. Set the welcome message to: _"Hi! Interested in our fitness classes? Chat with us or leave your number and we'll call you back."_
+Go to **AI Agents and Bots → Create New → Chat AI Agent**, select **Web** as the channel, and configure the widget on the **Web Widget** tab. Set the welcome message to: _"Hi! Interested in our fitness classes? Chat with us or leave your number and we'll call you back."_
 </Step>
 
 <Step>
@@ -102,7 +102,7 @@ Go to **Channels → Instagram** and connect your Instagram Professional account
 </Step>
 
 <Step>
-Create a Chat AI Agent and select all three channels. Set its goal to qualify leads and hand off high-intent contacts to your sales team on WhatsApp.
+Create one Chat AI Agent per channel (Web Chat, WhatsApp, Instagram). Copy the same goal: qualify leads and hand high-intent contacts to sales on WhatsApp.
 </Step>
 
 <Step>
@@ -119,7 +119,7 @@ Yes. You can connect up to your plan's channel limit. Each WhatsApp number appea
 </Accordion>
 
 <Accordion title="Can one Chat AI Agent handle all three channels?">
-Yes. When creating a Chat AI Agent, you can select multiple channels. The agent will handle conversations on all selected channels. Note that the agent's behaviour differs per channel — see [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+No. Each Chat AI Agent is created for one channel. Create a separate agent for WhatsApp, Instagram, and Web Chat. Copy Role, Goal, and Instructions so they behave the same. Session timeout and handoff still differ by channel. See [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
 </Accordion>
 
 <Accordion title="What's the 24-hour messaging window?">
@@ -127,7 +127,7 @@ A Meta policy limiting free-form messages to within 24 hours of the user's last 
 </Accordion>
 
 <Accordion title="Can customers switch between channels mid-conversation?">
-Not automatically. Each conversation is tied to one channel. However, you can handoff a Web Chat conversation to WhatsApp using the handoff feature in the Chat AI Agent settings — useful when a website visitor wants to continue the conversation on WhatsApp.
+Not automatically. Each conversation is tied to one channel. You can send a Web Chat visitor to WhatsApp with the handoff on the agent's **Web Widget** tab.
 </Accordion>
 
 <Accordion title="My WhatsApp connection is stuck at 'Pending verification' — what do I do?">

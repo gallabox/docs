@@ -1,121 +1,113 @@
 ---
 title: "AI Agent Analytics"
-description: "Track how your Chat AI Agent is performing — total sessions, sessions that ended normally, sessions that were dropped, and successful outcomes. The analytics live inside the agent's flow builder."
+description: "Track how many conversations your Chat AI Agent handled, how many ended, how many dropped, and (on Advanced) how many succeeded. Open this from the agent's Analyze tab."
 ---
 
 > **Who can use this?**
 >
-> * Gallabox users with **Bot Builder access** (Owners and Admins).
+> * Owners and Admins, and roles that can update AI agents.
 
-Use AI Agent analytics when you want to understand how many conversations your Chat AI Agent handled, how many completed normally, and how many were abandoned before finishing.
+Use analytics when you want to know how many chats the agent handled, how many finished, and how many went silent.
 
-The analytics screen is inside the agent's flow builder, not under the primary Analytics section. To reach it: **AI Agents and Bots → \[your agent] → \[your flow] → Analysis tab**.
+This lives on the agent, not under the main Analytics section. Path: **AI Agents and Bots → [your agent] → Analyze**.
 
 ## Plan Availability
 
 | Feature                                             | Basic | Essential | Advanced |
 | --------------------------------------------------- | :---: | :-------: | :------: |
-| AI Agent analytics (Total, Ended, Dropped sessions) |   ✓   |     ✓     |     ✓    |
-| Successful sessions metric                          |   —   |     —     |     ✓    |
+| Total, Ended, and Dropped sessions                    |  Yes  |    Yes    |   Yes    |
+| Successful sessions                                  |  No   |    No     |   Yes    |
 
-## What AI Agent Analytics Shows
+## What you see
 
-The Analysis tab shows four session metrics:
+| Metric                  | Meaning |
+| ----------------------- | ------- |
+| **Total sessions**      | How many sessions the agent handled in the date range |
+| **Ended sessions**      | Sessions that reached a normal end |
+| **Dropped sessions**   | Sessions where the customer stopped before the chat finished |
+| **Successful sessions** | Sessions that met the success criteria you set (Advanced only) |
 
-| Metric                  | What it means                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------- |
-| **Total sessions**      | Total number of sessions the agent handled in the selected period                   |
-| **Ended sessions**      | Sessions that reached a normal end state                                            |
-| **Dropped sessions**    | Sessions abandoned before completing — customer stopped responding or left mid-flow |
-| **Successful sessions** | Sessions the agent completed with a successful outcome (Advanced plan only)         |
+Below the cards is a sessions table. Click a row for the contact, status (including drop reason), channel, session ID, credits used, and model. **Jump to conversation** is there for WhatsApp and Instagram, not Web Chat.
 
-Below the metric cards is a sessions table — a list of individual sessions you can review.
+The drawer has **Chat Log** and **Analyze**. Analyze shows an AI summary of the outcome. Outcome scoring depends on your plan.
 
-<Info>
+## How to open it
 
-Each row in the sessions table is one conversation. Click a row to open the session detail drawer, which shows the contact name, session status (with the drop reason for dropped sessions), a **Jump to conversation** link (not available for Web Chat), channel, phone number, session ID, created date, AI credits used, and the model used. The drawer has **Chat Log** and **Analyze** tabs. Analyze shows an AI summary with goal outcome, outcome evaluations, and data extractions. Outcome evaluations depend on plan availability.
+1. Go to **AI Agents and Bots**.
+2. Open the agent.
+3. Click **Analyze**.
 
-</Info>
+## How to use the numbers
 
-## How to Access AI Agent Analytics
+### Dropped sessions
 
-1. Go to **AI Agents and Bots** in the left navigation.
-2. Click on the **agent** you want to review.
-3. Click on the **flow** you want to analyse.
-4. Click the **Analysis** tab at the top of the flow builder.
+A high dropped count means people left mid-chat. Typical causes:
 
-## How to Use the Data
+* The first reply is off-topic
+* The agent asks too much before it helps
+* The answer is not in the Knowledge Base
 
-### Understanding Dropped Sessions
+Open a few dropped sessions and find the last message before silence. That is the spot to fix.
 
-A high dropped session count means customers are abandoning mid-conversation. Common causes:
+### Successful sessions (Advanced)
 
-* The agent's first response is confusing or off-topic
-* The flow asks too many questions before delivering value
-* The customer's question isn't covered in the Knowledge Base
+This measures whether the agent actually did the job, not just whether the chat ended. If Ended is high and Successful is low, the agent is closing chats without resolving them.
 
-To diagnose: open a few dropped sessions in the table and read the conversation. Look for the point where the customer went silent — that's where the flow is losing them.
-
-### Using Successful Sessions (Advanced)
-
-Successful sessions measure whether the agent achieved its intended outcome. If this number is significantly lower than your Ended sessions count, the agent may be ending conversations without actually resolving the customer's issue.
-
-To improve: review ended-but-unsuccessful sessions and look for patterns in what the agent said right before the conversation ended.
+Review ended-but-unsuccessful sessions and look for a pattern in the last few replies.
 
 <Check>
 
-**Pro tip:** Track your Ended and Dropped counts week over week, not just in isolation. If Dropped sessions increase after a Knowledge Base update, the new content may be confusing the agent. Roll it back and review the KB articles that changed.
+Track Ended and Dropped week over week. If Dropped jumps after a Knowledge Base update, the new files may be confusing the agent. Roll that content back and check what changed.
 
 </Check>
 
 ## Example
 
-**Scenario:** You manage a SaaS support team and have a Chat AI Agent handling Web Chat. You want to understand why sessions are being dropped.
+You have a Web Chat support agent. Dropped sessions look high.
 
-1. Go to **AI Agents and Bots → Support Agent → Support Flow → Analysis tab**.
-2. Set the **date range** to Last 30 days.
-3. Note the counts: 420 Total, 280 Ended, 140 Dropped — 33% of sessions are being abandoned.
-4. Click into several **Dropped sessions** in the table.
-5. You notice customers are dropping out right after the agent asks for their email address.
-6. Go to the flow builder and find the "Ask Email" node — it has no context message explaining why you need the email.
-7. Add a Send Text node before it: _"To look up your account, I'll need your email address."_
-8. Re-publish the flow and monitor the Dropped count over the next two weeks.
+1. Go to **AI Agents and Bots → Support Agent → Analyze**.
+2. Set the date range to Last 30 days.
+3. You see 420 Total, 280 Ended, 140 Dropped. About a third of people left.
+4. Open several **Dropped** rows.
+5. People go silent right after the agent asks for an email with no reason.
+6. On **Home**, update Instructions: _"Before you ask for email, say you need it to look up their account."_
+7. Publish, then watch Dropped for two weeks.
 
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="Where do I find AI Agent Analytics? I can't find it under Analytics.">
-AI Agent Analytics are in the **Analysis** tab inside the flow builder, not under the primary Analytics section.
+<Accordion title="Where is AI Agent Analytics? I don't see it under Analytics.">
+It is the **Analyze** tab on the agent, not the main Analytics section.
 
-1. Go to **AI Agents and Bots** in the left navigation.
-2. Click your agent, then click your flow.
-3. Click the **Analysis** tab at the top.
+1. Go to **AI Agents and Bots**.
+2. Open your agent.
+3. Click **Analyze**.
 </Accordion>
 
-<Accordion title="What's the difference between an Ended session and a Dropped session?">
-An **Ended session** completed its flow path — the conversation reached a normal conclusion, whether or not the customer's issue was fully resolved.
+<Accordion title="What's the difference between Ended and Dropped?">
+**Ended** reached a normal finish, even if the issue was not fully solved.
 
-A **Dropped session** was abandoned mid-flow — the customer stopped responding before the conversation reached an end state.
+**Dropped** means the customer stopped before that.
 
-High Dropped counts usually indicate a friction point in the flow: the agent asked something confusing, or the customer couldn't find what they were looking for.
+High Dropped usually means a friction point: a confusing question, or an answer the Knowledge Base cannot support.
 </Accordion>
 
-<Accordion title="Why is Successful sessions locked for me?">
-The Successful sessions metric requires the Advanced plan. On Basic and Essential plans, this card shows as locked. [Upgrade your plan](/pricing-and-billing/billing-and-subscriptions) to unlock it.
+<Accordion title="Why is Successful sessions locked?">
+It needs the Advanced plan. On Basic and Essential the card is locked. [Upgrade](/pricing-and-billing/billing-and-subscriptions) to unlock it.
 </Accordion>
 
-<Accordion title="Can I export the session data?">
-Yes — click the **Export** menu button in the header of the Agent sessions table (next to the search box) on the Analysis screen. Choose **Export as Excel** to download the session data, or **History** to see your past exports.
+<Accordion title="Can I export session data?">
+Yes. On Analyze, open **Export** next to the search box. Choose **Export as Excel**, or **History** for past exports.
 </Accordion>
 </AccordionGroup>
 
 ## Related Articles
 
-* [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview) — how the Chat AI Agent works and how to configure it
-* [Knowledge Base Overview](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — improving agent accuracy with your KB
-* [Bot Analytics Overview](/reports-and-analytics/bot-analytics) — analytics for rule-based bot flows (separate from AI agent analytics)
+* [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview)
+* [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview)
+* [Bot Analytics](/reports-and-analytics/bot-analytics). Separate analytics for rule-based bots.
 
 ## Next Steps
 
-* [Review your Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) — add content to reduce dropped sessions caused by unanswered questions
-* [Configure agent instructions](/ai-agents-and-bots/chat-ai-agent/overview) — update what the agent does and doesn't handle
+* [Update instructions](/ai-agents-and-bots/chat-ai-agent/overview#review-and-go-live) if dropped chats stall on the same question.
+* [Review your Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) if people leave because the agent cannot answer.
