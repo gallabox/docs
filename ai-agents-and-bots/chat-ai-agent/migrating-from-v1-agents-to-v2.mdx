@@ -1,60 +1,71 @@
 ---
 title: "Migrating from v1 Agents to v2"
 sidebarTitle: "Migrating from v1 to v2"
-description: "Migrate all your v1 Chat AI Agent flows to v2 with a one-click migration before v1 is deprecated on August 26, 2026."
+description: "Migrate all v1 Chat AI Agent flows to v2 with one click before v1 stops on August 26, 2026."
 ---
 
-Gallabox is deprecating v1 of the Chat AI Agent on **August 26, 2026**. This guide walks you through migrating your existing v1 agent flows to v2 using the one-click migration built into **AI Agents & Bots**, no manual rebuilding required.
+Gallabox is turning off v1 Chat AI Agents on **August 26, 2026**. Use the one-click migration in **AI Agents & Bots**. You do not rebuild the agents by hand.
 
 > **Who can use this?**
 >
-> - Gallabox admins managing **AI Agents & Bots**.
-> - Roles: Admin role
-> - Plans: Available on all plans that support Chat AI Agents.
+> * Owners and Admins, and roles that can update AI agents.
+> * Available on plans that support Chat AI Agents.
 
 <Warning>
-  This is a high-stakes, high-support-volume topic. Migration is **irreversible** once confirmed, and it migrates **every v1 flow on the account in a single action**. You cannot select individual flows or migrate one at a time. Read this guide fully before clicking Confirm.
+  Migration is **irreversible** once you confirm. It migrates **every v1 flow on the account in one action**. You cannot pick individual flows. Read this page before you click Confirm.
 </Warning>
 
 ## Plan Availability
 
-Available on all Gallabox plans that support Chat AI Agents. See [Chat AI Agent](/ai-agents-and-bots/chat-ai-agent/overview#plan-availability) for the channel-level plan breakdown.
+Available on all plans that support Chat AI Agents. See [Chat AI Agent](/ai-agents-and-bots/chat-ai-agent/overview#plan-availability).
 
-## Before You Start
+## Before you start
 
-Make sure you have the following before beginning:
-
-- **Admin access to AI Agents & Bots**, since only admins can trigger migration for the account.
-- **A few minutes to review your existing v1 flows**. The copy step is automatic, but you should know what each flow currently does so you can verify it carried over correctly.
-- **Time to test and publish each migrated flow afterward**. Migrated flows land in Draft and won't go live until you publish them individually.
+- You can update AI Agents & Bots.
+- You know what each v1 flow does today, so you can check the copy after.
+- You have time to test and **publish** each migrated agent. Migrated flows land in **Draft**. They do not go live until you publish them.
 
 <Warning>
-  **Deadline: August 26, 2026.** After this date, any v1 flow that hasn't been migrated (and republished as v2) will stop working, and your AI Agent will stop responding to customers. There is no extension or fallback.
+  **Deadline: August 26, 2026.** After that date, any v1 flow that is not migrated and republished as v2 stops. The agent will not reply. There is no extension.
 </Warning>
+
+## What carries over
+
+These stay on the migrated flow:
+
+- **Role**, **Goal**, and **Instructions**
+- Custom actions on that flow
+- Supported Knowledge Base files, moved into a new library named `{flow name} - Migrated Knowledge Base`
+
+Check these after migration:
+
+- **Settings** (model, temperature, drop-off)
+- Files that did not migrate (unsupported types are skipped)
+- Channel assignment, then a real test before you publish
 
 ## Steps
 
 <Steps>
   <Step title="Open the migration prompt">
-    1. Go to **AI Agents & Bots** in the left navigation of Gallabox.
-    2. At the top of the list, you'll see a banner: \_"Your Old AI agent flows will stop working after 26 August 2026. Migrate to the new AI agent flow." \_
-    3. Click **Migrate to New AI Agent** in the banner.
+    1. Go to **AI Agents & Bots**.
+    2. At the top of the list you will see: _"Your Old AI agent flows will stop working after 26 August 2026. Migrate to the new AI agent flow."_
+    3. Click **Migrate to New AI Agent**.
 
     <Frame>
       ![AI Agents & Bots page showing the migration banner and the Migrate to New AI Agent dialog](/images/migrate-v1-to-v2-banner.png)
     </Frame>
   </Step>
   <Step title="Review what changes">
-    1. A dialog opens showing **Old Agent & Flows → New Agent & Flows**.
-    2. Read the three points under **What changes?**:
-       - Your existing flow will be migrated to the latest AI Agent flows.
-       - Your new AI agent flows will remain in **Draft** until you publish them.
-       - Review and test the flow before publishing.
-    3. Click **Migrate to New AI Agent** to proceed, or **Know more** to read further documentation first.
+    1. A dialog shows **Old Agent & Flows → New Agent & Flows**.
+    2. Read **What changes?**:
+       - Existing flows migrate to the latest AI Agent flows.
+       - New flows stay in **Draft** until you publish them.
+       - Review and test before you publish.
+    3. Click **Migrate to New AI Agent**, or **Know more** to read this guide.
   </Step>
   <Step title="Confirm the migration">
-    1. A confirmation dialog opens: **Confirm New AI agent flows migration**.
-    2. Read the notice carefully. This action **can't be undone** once confirmed.
+    1. A dialog opens: **Confirm New AI agent flows migration**.
+    2. This cannot be undone once confirmed.
     3. Click **Confirm & Migrate Now**.
 
     <Frame>
@@ -62,32 +73,29 @@ Make sure you have the following before beginning:
     </Frame>
 
     <Warning>
-      There is no "select which agents to migrate" step. Confirming here queues **all** v1 flows on the account for migration at once.
+      There is no "select which agents" step. Confirming queues **all** v1 flows on the account.
     </Warning>
   </Step>
   <Step title="Wait for migration to complete">
-    1. A **Migration queued** notification appears: _"All V1 AI flows on this account are being migrated to V2."_
-    2. Migration runs in the background. You can keep using Gallabox while it completes.
-    3. Refresh the **AI Agents & Bots** page after a few minutes to see your migrated flows.
+    1. You will see **Migration queued**: _"All V1 AI flows on this account are being migrated to V2."_
+    2. It runs in the background. You can keep using Gallabox.
+    3. Refresh **AI Agents & Bots** after a few minutes.
   </Step>
   <Step title="Review, test, and publish each flow">
-    1. Open each migrated agent. It will be in **Draft** status.
-    2. Review the **Role**, **Goal**, and **Instructions** fields to confirm they carried over as expected.
-    3. Test the agent in the **Test Widget** using real questions your customers ask.
-    4. Once you're satisfied, publish the agent to make the v2 flow live.
+    1. Open each migrated agent. It is in **Draft**.
+    2. Check **Role**, **Goal**, and **Instructions**.
+    3. Confirm the migrated Knowledge Base is attached on the **Knowledge** tab.
+    4. Test. WhatsApp and Instagram: **Test Widget**. Web Chat: **Web Widget** preview.
+    5. Publish when you are satisfied.
 
     <Info>
-      Publishing is manual and per-agent. Your v1 flow keeps running exactly as before until you publish its v2 replacement, but v1 stops working entirely after August 26, 2026, regardless of whether you've published the v2 version by then. Don't leave publishing until the last day.
+      Publishing is manual, per agent. Your v1 flow keeps running until you publish its v2 replacement. v1 still stops on August 26, 2026, even if you never published v2. Do not leave this until the last day.
     </Info>
   </Step>
 </Steps>
 
-<Info>
-  \[VERIFY: which fields and configuration migrate automatically (Role/Goal/Instructions, custom actions, Knowledge Base attachments, AI model settings) and which need to be manually re-checked after migration. Confirm with Engineering/Product before publishing this guide so Step 5 tells admins exactly what to double-check.\]
-</Info>
-
 ## Related Articles
 
-- [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview), for agent setup, model settings, and provider versions
-- [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour), for how the agent behaves per channel
-- [Chat AI Agent FAQs](/ai-agents-and-bots/chat-ai-agent/faqs), for common questions
+- [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview)
+- [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour)
+- [Chat AI Agent FAQs](/ai-agents-and-bots/chat-ai-agent/faqs)
