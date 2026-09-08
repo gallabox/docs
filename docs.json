@@ -410,15 +410,15 @@
               "pricing-and-billing/overview",
               "pricing-and-billing/billing-and-subscriptions",
               "pricing-and-billing/message-credits",
-              "pricing-and-billing/ai-wallet",
-              "pricing-and-billing/faqs",
               {
                 "group": "WhatsApp Pricing",
                 "pages": [
                   "pricing-and-billing/whatsapp-pricing/overview",
                   "pricing-and-billing/whatsapp-pricing/rate-card"
                 ]
-              }
+              },
+              "pricing-and-billing/ai-wallet",
+              "pricing-and-billing/faqs"
             ]
           }
         ]
