@@ -414,7 +414,8 @@
                 "group": "WhatsApp Pricing",
                 "pages": [
                   "pricing-and-billing/whatsapp-pricing/overview",
-                  "pricing-and-billing/whatsapp-pricing/rate-card"
+                  "pricing-and-billing/whatsapp-pricing/rate-card",
+                  "pricing-and-billing/whatsapp-pricing/country-calling-codes"
                 ]
               },
               "pricing-and-billing/ai-wallet",
