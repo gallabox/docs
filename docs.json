@@ -357,6 +357,7 @@
                   "integrations/other/pabbly",
                   "integrations/other/zapier",
                   "integrations/other/generic-webhooks",
+                  "integrations/other/conversation-widget",
                   "integrations/other/zoho-lead-app",
                   "integrations/other/zoho-lead-panel",
                   "integrations/other/zoho-signals"
@@ -1382,7 +1383,7 @@
     },
     {
       "source": "/developer-resources/conversation-widget",
-      "destination": "https://api-docs.gallabox.com/"
+      "destination": "/integrations/other/conversation-widget"
     },
     {
       "source": "/developer-resources/webhook",

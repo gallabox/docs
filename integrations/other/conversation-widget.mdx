@@ -1,0 +1,117 @@
+---
+title: "Conversation Widget"
+description: "Embed a Gallabox WhatsApp conversation inside your own CRM or internal portal using an iFrame, with optional auto-login for a specific member."
+---
+
+> **Who can use this?**
+>
+> - Available on the Advanced plan.
+> - Roles: Owners and Admins to get the channel ID; any member can open the embedded conversation once they are logged in.
+> - Someone who can edit your CRM or portal needs to add the iFrame.
+
+<Info>
+  The Conversation Widget lets you open a Gallabox WhatsApp conversation inside your own CRM or internal portal, so your team can chat with a contact without switching to Gallabox. You embed it as an iFrame and pass the contact's phone number in the URL.
+</Info>
+
+<Info>
+  This page is more technical than most — you'll likely want a developer to add the iFrame to your CRM or portal.
+</Info>
+
+## Before You Start
+
+- Decide which page in your CRM or portal will host the widget, for example the lead or contact detail page.
+- Have the contact's phone number available on that page, with the country code and no `+`.
+- If your account has more than one WhatsApp channel, get the channel ID from **Settings → WhatsApp Channel → Channel Id**.
+
+## Embed the widget in an iFrame
+
+Point the iFrame at this URL:
+
+```
+https://conversation-widget.gallabox.com/conversations/phone/{{ContactPhoneNumberwithCountryCode}}?name={{ContactName}}&channelId={{GallaboxChannelId}}
+```
+
+| Parameter | What to pass |
+| --- | --- |
+| `ContactPhoneNumberwithCountryCode` | The contact's WhatsApp number with country code and without `+`, for example `919900000001`. |
+| `name` | The contact's name. |
+| `channelId` | Your WhatsApp channel ID. Required when your account has more than one WhatsApp channel. |
+
+Example:
+
+```
+https://conversation-widget.gallabox.com/conversations/phone/919900000001?name=Lakshmanan&channelId=647062b51e3c77d2741188cb
+```
+
+<Info>
+  The team member viewing the page must already be logged in to Gallabox in the same browser. If they aren't, the widget shows the Gallabox login screen. To skip that, use auto-login below.
+</Info>
+
+## Auto-login with a specific member
+
+Use this when you want the widget to open as one particular Gallabox member, without asking them to log in first.
+
+<Steps>
+  <Step title="Get an authentication token">
+    Call the login endpoint from your server with that member's Gallabox email and password:
+
+    ```bash
+    curl --location 'https://server.gallabox.com/auth/v2/login' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "email": "you@example.com",
+      "password": "your_password"
+    }'
+    ```
+
+    The response contains the member's authentication token.
+  </Step>
+
+  <Step title="Load the iFrame with the auth URL">
+    Pass the token and the widget URL you want to land on:
+
+    ```
+    https://conversation-widget.gallabox.com/auth?token={{AuthToken}}&redirectUrl={{ConversationWidgetUrl}}
+    ```
+
+    `redirectUrl` is the conversation URL from the section above, URL-encoded. For example:
+
+    ```
+    https://conversation-widget.gallabox.com/auth?token=your_token&redirectUrl=https%3A%2F%2Fconversation-widget.gallabox.com%2Fconversations%2Fphone%2F919900000001%3Fname%3DLakshmanan%26channelId%3D647062b51e3c77d2741188cb
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+  Make the login call from your server, never from the browser — the request carries a member's Gallabox password, and the token it returns grants access to that member's account. Use a dedicated member account for this rather than a person's own login.
+</Warning>
+
+<Info>
+  If that member has [two-factor authentication](/settings/two-factor-authentication) enabled, or logs in from a new IP address, the widget shows an OTP screen. After they verify, it continues to the redirect URL.
+</Info>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="The widget shows a login screen instead of the conversation.">
+    The member viewing your CRM page isn't logged in to Gallabox in that browser. Ask them to log in to Gallabox in another tab and reload the page, or set up auto-login as described above.
+  </Accordion>
+
+  <Accordion title="Do I need the channelId?">
+    Only if your account has more than one WhatsApp channel. With a single channel you can leave it out. Find it in **Settings → WhatsApp Channel → Channel Id**.
+  </Accordion>
+
+  <Accordion title="What happens if the phone number has no conversation yet?">
+    The widget opens a conversation for that number on the selected channel. Standard WhatsApp rules still apply — outside the 24-hour window you can only start with an approved template. See [Message Credits](/pricing-and-billing/message-credits).
+  </Accordion>
+
+  <Accordion title="Can I use this to embed the whole Gallabox inbox?">
+    No — the widget is scoped to one contact's conversation at a time. For the full inbox, your team uses the Gallabox app.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Zoho Lead Panel](/integrations/other/zoho-lead-panel) — view Zoho CRM lead details inside Gallabox conversations
+- [Generic Webhooks](/integrations/other/generic-webhooks) — send data into Gallabox from any system
+- [Two-Factor Authentication](/settings/two-factor-authentication) — how 2FA affects member logins
