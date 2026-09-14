@@ -65,11 +65,13 @@ Switch views with the **List** and **Grid** buttons at the top left of the templ
 
 ### Syncing Templates from Meta
 
-If a template shows "Approved" in Meta's WhatsApp Manager but has not appeared in Gallabox yet, click the **refresh** icon at the top of the Templates page. Gallabox pulls the latest template status from Meta for the selected channel and shows a confirmation when the sync finishes.
+Meta notifies Gallabox whenever a template's status changes, so approvals and rejections normally appear on their own within minutes — you don't have to sync.
+
+If a template shows "Approved" in Meta's WhatsApp Manager but is missing or still shows an older status in Gallabox, click the **refresh** icon at the top of the Templates page. Gallabox pulls the current list of templates from Meta for the channel selected in the picker and shows a confirmation when the sync finishes.
 
 <Info>
 
-Template sync can take a few hours after Meta processes approval. If the template still doesn't appear after syncing, wait and sync again.
+Sync is per channel. If a template is still missing after a sync, check that the right channel is selected and that no filter is hiding it. If it's still missing, contact Gallabox support with the template name.
 
 </Info>
 
@@ -169,7 +171,7 @@ Click **Add a button** to add buttons to the template. See [Button Types](/whats
 
 Click **Submit for approval**. Gallabox sends the template to Meta for review, and the template appears in your list with status **Pending**.
 
-Approval typically takes 24–48 hours. New WABA accounts may take longer.
+Meta usually returns a decision within 24 hours. If a template stays Pending for longer than that, raise a support ticket with Gallabox.
 
 <Info>
 
@@ -317,6 +319,8 @@ Check the receiving device to verify formatting, variable substitution, and butt
 
 Clearing the assignment and saving removes the configuration. On approved templates, the same **Configurations** dialog also holds the message tracker settings for that template.
 
+Reply settings are available on all Gallabox plans.
+
 <Info>
 
 Configurations only apply to replies to that specific template message. Replies to other messages in the same conversation follow your standard inbox routing rules.
@@ -330,12 +334,13 @@ Configurations only apply to replies to that specific template message. Replies 
 | Error or symptom                                                 | Why it happens                                                                                       | How to fix it                                                                                                                |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | **"Variable in wrong position"** rejection                       | A variable appears at the very start of the body text                                                | Add at least one word before the first variable, e.g. "Hi \{\{name\}\},"                                                      |
-| **Template stuck in Pending**                                    | New WABA accounts have longer initial review queues                                                  | Meta's review usually takes 24–48 hours. If a template is still Pending after 10 days, contact Gallabox support.             |
+| **Template stuck in Pending**                                    | Meta's review queue is slower than usual                                                             | Meta usually decides within 24 hours. If a template is Pending for longer, raise a support ticket with Gallabox.             |
 | **Smart check shows Low confidence but the template is Utility** | The body contains offer language ("save", "discount", "exclusive") without a clear transaction context | Run the suggested rewrite or remove promotional language — tie the message to a specific transaction                          |
-| **Duplicate template name error**                                | A template with the same name already exists in your WABA                                            | Choose a new name that is unique and descriptive, e.g. `order_confirm_v2_en`                                                  |
+| **Duplicate template name error**                                | A template with that name already exists in your WABA — or you deleted an approved template with that name in the last 30 days | Choose a unique, descriptive name, e.g. `order_confirm_v2_en`, or wait out the 30-day window                                 |
 | **Message fails right after approval**                           | The approval has not propagated to Meta's servers yet                                                 | Wait about 15 minutes after approval before sending with a new template                                                      |
 | **Test message not received**                                    | Phone number format error or message filtered by the receiving device                                | Confirm the country code is included. Test with a different phone.                                                            |
-| **Approved in Meta but missing in Gallabox**                     | The template list has not been synced for that channel                                               | Select the right channel, click the refresh icon, and sync again. If still missing, contact Gallabox support with the name.   |
+| **Approved in Meta but missing in Gallabox**                     | The status update hasn't arrived, or you're looking at a different channel                           | Select the right channel, clear filters, and click the refresh icon. If still missing, contact Gallabox support with the name. |
+| **Template can't be deleted**                                    | Meta does not allow deleting a template that it has disabled                                         | Leave the disabled template in place and create a replacement under a new name                                                |
 
 ---
 
@@ -360,6 +365,12 @@ The template itself is correct — the issue is in how variable values are passe
 
 <Accordion title="Why does Smart check say Low confidence on my Utility template? It's definitely transactional.">
 Smart check looks for language patterns Meta uses to classify templates. Words like "offer", "exclusive", "limited time", or "discount" trigger Marketing classification even in transactional contexts. Look at the reasoning Smart check returns — it identifies the specific phrases causing the low score. Replace those phrases or remove them entirely.
+</Accordion>
+
+<Accordion title="I deleted a template — can I reuse its name?">
+Not immediately, if it was approved. Meta blocks the name of a deleted **approved** template for 30 days. Rejected and errored templates don't hold their names. If you don't want to wait, create the new template with a variation on the name, such as `order_confirm_v2_en`.
+
+Two other Meta rules are worth knowing: a template you delete while a message using it is still undelivered goes to **Pending deletion** while WhatsApp keeps trying to deliver it for 30 days, and templates Meta has **disabled** cannot be deleted at all.
 </Accordion>
 
 <Accordion title="A template I created is missing from the list.">
