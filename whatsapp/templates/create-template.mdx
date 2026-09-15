@@ -96,7 +96,7 @@ Select one option from the **Category** dropdown. The options are grouped by cat
 | **Marketing template** | Limited Time Offer | A code with a countdown. See [Limited Time Offer](/whatsapp/templates/limited-time-offer) |
 | **Utility template** | Custom utility | Order updates and reminders tied to something the customer already did |
 | **Utility template** | Payment utility | A payment request. Needs a gateway. See [WhatsApp Payments](/whatsapp/payments) |
-| **Other template** | Authentication | OTPs and verification codes |
+| **Other template** | Authentication template | OTPs and verification codes. The body text is fixed by WhatsApp. |
 
 This page is the editor for **Custom marketing**, **Custom utility**, and **Authentication**. The other types have their own screens and their own docs.
 
@@ -165,7 +165,7 @@ The **Message header** appears above the body text. Choose one type:
 
 The **Footer** appears below the body text. Maximum 60 characters. No variables.
 
-When you pick **Custom marketing**, Gallabox pre-fills: *Reply with 'STOP' to unsubscribe from marketing messages.* You can change the wording. Keep a STOP line. Meta rejects marketing templates with no way to opt out.
+When you pick **Custom marketing** or **Product marketing**, Gallabox pre-fills: *Reply with 'STOP' to unsubscribe from marketing messages.* You can change the wording. Keep a STOP line. Meta rejects marketing templates with no way to opt out.
 
 Carousel and Limited Time Offer have no footer field. That is a Meta rule, not a Gallabox setting.
 
@@ -206,8 +206,7 @@ Add **Coupon code** when the customer should copy a promo code. You get one per 
 
 * The button label is **Copy code**. You cannot change it.
 * **Sample code** is what Meta reviews. Maximum 15 characters. Example: `GET50OFF`.
-* Fill the live code when you send the template (broadcast, sequence, inbox, or API).
-* Copy code does not work on WhatsApp Web or desktop. The customer needs the phone app.
+* Fill the live code when you send the template (broadcast, sequence, inbox, or bot).
 
 A coupon on a Custom marketing template is not the same as a [Limited Time Offer](/whatsapp/templates/limited-time-offer). Use Limited Time Offer when you also need a countdown.
 
@@ -215,11 +214,13 @@ A coupon on a Custom marketing template is not the same as a [Limited Time Offer
 
 **Form** opens a WhatsApp form (a Flow) inside the chat. You can add one.
 
-The form must already be published under [Forms](/whatsapp/flows). Pick it in **Select form**, set the button text, and optionally pick an icon: Default, Document, Promotion, or Review.
+Pick the form in **Select form**. The list includes published forms and drafts. A draft can only be used for testing. Publish it under [Forms](/whatsapp/flows) before you send the template to customers.
+
+Set the button text, then optionally pick an icon: Default, Document, Promotion, or Review.
 
 ### Track link clicks
 
-On URL buttons, turn on **Track link clicks** to record taps in broadcast analytics and message trackers. The customer still lands on your URL. Gallabox wraps it so the tap is counted.
+On URL buttons, turn on **Track link clicks** to see URL click insights in broadcast analytics and message trackers.
 
 ---
 

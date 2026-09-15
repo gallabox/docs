@@ -41,7 +41,7 @@ Button labels are locked. You cannot rename **View catalog** or **View items**.
 2. Use a Cloud API channel. Coexistence setups can also block **Connect catalogue** from the template screen.
 3. Make sure the products you want are in that catalogue, with names and images.
 
-Sending one product from the inbox is a Shop action. It does not replace this template, and it does not work outside the 24-hour window.
+Sending a product from the inbox is a Shop action in an open chat. It is not this template.
 
 ## Create a catalogue message
 
@@ -50,7 +50,7 @@ Sending one product from the inbox is a Shop action. It does not replace this te
 3. Name it, then choose the **Channel** and **Language**. Gallabox shows the catalogue connected to that number.
 4. Keep **Catalogue message** selected.
 5. Write the **Message body**. Add variables and sample values.
-6. Optionally **Select product for thumbnail**. If you skip it, Meta uses your first catalogue product's image.
+6. Optionally **Select product for thumbnail**. If you skip it, WhatsApp uses your first catalogue product's image.
 7. Confirm the button reads **View catalog**, then click **Submit for approval**.
 
 ## Create a multi-product message
@@ -77,15 +77,17 @@ The button is **View items**. You cannot change it.
 
 ## Send it
 
-After Meta approves the template, send it from a broadcast, sequence, inbox, bot, or the API. Wait about 15 minutes after approval.
+After Meta approves the template, send it from a broadcast, sequence, inbox, or a bot. Wait about 15 minutes after approval.
 
-The products are the ones you attached to the template. To change the set, duplicate the template and pick different products. Do not expect an approved multi-product template to update itself when Commerce Manager changes.
+**Catalogue message** opens the live catalogue connected to that number. Products you add or remove in Commerce Manager show up there.
+
+**Multi-product message** stores the product IDs you picked. WhatsApp loads the current name, image, and price from the catalogue when the customer opens it. To change which products are in the message, duplicate the template and pick a new set.
 
 ## FAQs
 
 <AccordionGroup>
-<Accordion title="Product marketing is greyed out or shows 'not supported for this channel'.">
-The number is not on Cloud API. Carousel has the same gate. Contact support about migrating the channel.
+<Accordion title="I see 'Product Marketing template is not supported for this channel'.">
+The number you picked is not on Cloud API. The form is locked until you switch that channel. Carousel shows the same warning. Use **Raise a ticket** under the warning, or talk to support about moving the number to Cloud API.
 </Accordion>
 <Accordion title="It says no catalogue found for this channel.">
 The WhatsApp number has no catalogue linked. Open [Catalog, Orders and Payments](/whatsapp/shop) and connect one, then come back to Templates.

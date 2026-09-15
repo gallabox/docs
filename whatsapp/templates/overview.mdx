@@ -57,24 +57,22 @@ Marketing templates need an opt-out. Gallabox pre-fills the footer with *Reply w
 | Type in Gallabox | When to use | Where to set it up |
 | --- | --- | --- |
 | **Custom utility** | Order updates, appointment reminders, delivery notices. Tied to something the customer already did. | [Create a template](/whatsapp/templates/create-template) |
-| **Payment utility** | Ask the customer to pay in WhatsApp. Needs a payment gateway on that channel. | Create it here, then send it from [WhatsApp Payments](/whatsapp/payments) |
-| **Authentication** | OTPs and verification codes. No offers, no extra copy. | [Create a template](/whatsapp/templates/create-template). **Copy code** is the option most teams use. |
+| **Payment utility** | Ask the customer to pay in WhatsApp. Needs a payment gateway on that channel. | Create it here. Send the request from a chat after you connect a gateway. See [WhatsApp Payments](/whatsapp/payments) |
+| **Authentication template** | OTPs and verification codes. The message body is fixed by WhatsApp. | [Create a template](/whatsapp/templates/create-template) |
 
 Do not put a discount in a Utility template. Meta will reject it, or recategorise it as Marketing and bill it that way. For Utility drafts, run [Smart check](/whatsapp/templates/create-template#smart-check-for-utility-templates) before you submit.
 
 ### Authentication templates
 
-Authentication is only for codes. Pick **Authentication template** in the Category dropdown. **Copy code** works on phone and WhatsApp Web. **One-tap Autofill** and **Zero-tap Autofill** need an Android app and extra setup. Do not add offers or extra marketing copy. Meta will reject it.
+Authentication is only for codes. Pick **Authentication template** in the Category dropdown. Gallabox defaults to **Zero-tap Autofill** (Android app required). **Copy code** works on phone and WhatsApp Web. **One-tap Autofill** also needs an Android app. You can add a security recommendation and a code expiry. You cannot write your own body text.
 
 ## How Meta treats marketing templates
 
 Approval is not the finish line.
 
-**Quality rating** shows on the template as High, Medium, or Low. Low quality can pause the template, disable it, or make later sends fail. If Gallabox warns that a template is Low quality, stop using it and submit a clearer version.
+**Quality rating** shows on the template as High, Medium, Low, or Pending. Gallabox warns you when you send a Low quality template. Low quality can cause send failures, or Meta can pause or disable the template.
 
-**Volume.** Meta can limit how many marketing messages one person receives. If a broadcast delivers to some contacts and fails for others, check quality first, then whether those people already got a lot of marketing messages from you.
-
-**Paused** and **Disabled** are Meta decisions. You cannot turn those back on from Gallabox. Duplicate the template, fix the copy, and submit a new one.
+**Paused** templates cannot be sent until Meta re-approves them. Gallabox shows **How to Unpause?**, which opens Meta's help. You do not unpause from Gallabox. **Disabled** is also a Meta decision. Duplicate the template, fix the copy, and submit a new one.
 
 ## The approval process
 
@@ -115,7 +113,6 @@ Approvals usually land in Gallabox on their own. If Meta shows Approved and Gall
 
 | Limit | Value |
 | --- | --- |
-| Active templates | Based on your WhatsApp quality rating |
 | Template name | 60 characters, lowercase letters, numbers, and underscores |
 | Message body | 1,024 characters |
 | Header / footer | 60 characters each (Limited Time Offer's offer line is 16) |
@@ -133,7 +130,7 @@ Go to **WhatsApp → Templates**.
 Click **Create New Template**.
 </Step>
 <Step title="Pick the type">
-Use **Category**. Match the job: Custom marketing, Carousel, Limited Time Offer, Product marketing, Custom utility, Payment utility, or Authentication.
+Use **Category**. Match the job: Custom marketing, Carousel, Limited Time Offer, Product marketing, Custom utility, Payment utility, or Authentication template.
 </Step>
 <Step title="Fill the editor">
 Follow the page for that type. Custom marketing and Custom utility stay on [Create and manage templates](/whatsapp/templates/create-template).
