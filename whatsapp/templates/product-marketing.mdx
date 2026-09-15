@@ -1,0 +1,107 @@
+---
+title: "Product marketing templates"
+description: "Send your WhatsApp catalogue, or a curated set of products, as an approved marketing template."
+---
+
+> **Who can use this?**
+>
+> * Needs a **Cloud API** WhatsApp channel. On-Premise channels cannot use this type.
+> * The channel must have a [product catalogue](/whatsapp/shop) connected.
+> * Needs permission to create WhatsApp templates.
+
+Product marketing lets a customer browse real catalogue items inside WhatsApp. It is not a photo carousel that leaves WhatsApp. It is not a product card you drop into an open inbox chat.
+
+Create New Template → **Product marketing**, then pick one format:
+
+* **Catalogue message:** one **View catalog** button. The customer opens your full catalogue in WhatsApp.
+* **Multi-product message:** a curated list. The customer taps **View items** and sees the products you picked.
+
+Both are Marketing templates. Meta bills every send as Marketing.
+
+<Warning>
+
+If **Product marketing** is blocked, the channel is not on Cloud API, or no catalogue is connected. Connect the catalogue under [Catalog, Orders and Payments](/whatsapp/shop), or talk to support about moving the number to Cloud API.
+
+</Warning>
+
+## Catalogue message vs multi-product message
+
+| | Catalogue message | Multi-product message |
+| --- | --- | --- |
+| Best for | "Shop everything we sell" | A new drop, a category, or "in your size" |
+| What the customer taps | **View catalog** | **View items** |
+| What you pick in Gallabox | An optional thumbnail product | Sections and products from the catalogue |
+| Header | No text header | A text header |
+
+Button labels are locked. You cannot rename **View catalog** or **View items**.
+
+## Before you start
+
+1. Connect a Facebook product catalogue to the WhatsApp number. Products live in Meta Commerce Manager. Gallabox does not store the inventory.
+2. Use a Cloud API channel. Coexistence setups can also block **Connect catalogue** from the template screen.
+3. Make sure the products you want are in that catalogue, with names and images.
+
+Sending a product from the inbox is a Shop action in an open chat. It is not this template.
+
+## Create a catalogue message
+
+1. Go to **WhatsApp → Templates** and click **Create New Template**.
+2. In **Category**, pick **Product marketing**.
+3. Name it, then choose the **Channel** and **Language**. Gallabox shows the catalogue connected to that number.
+4. Keep **Catalogue message** selected.
+5. Write the **Message body**. Add variables and sample values.
+6. Optionally **Select product for thumbnail**. If you skip it, WhatsApp uses your first catalogue product's image.
+7. Confirm the button reads **View catalog**, then click **Submit for approval**.
+
+## Create a multi-product message
+
+Use this when you want a short list, not the whole shop.
+
+1. Follow the same steps, then select **Multi-product message**.
+2. Add a **text** header. This format needs one.
+3. Write the **Message body**.
+4. Add at least one section, then add products to it.
+
+Limits Gallabox enforces:
+
+| Limit | Value |
+| --- | --- |
+| Sections | Up to 10 |
+| Products per section | Up to 10 |
+| Products in the whole template | Up to 30 |
+| Empty sections | Not allowed. Every section needs at least one product |
+
+Section names are for you and for how WhatsApp groups the items. Keep them short, like `New arrivals` or `Size M`.
+
+The button is **View items**. You cannot change it.
+
+## Send it
+
+After Meta approves the template, send it from a broadcast, sequence, inbox, or a bot. Wait about 15 minutes after approval.
+
+**Catalogue message** opens the live catalogue connected to that number. Products you add or remove in Commerce Manager show up there.
+
+**Multi-product message** stores the product IDs you picked. WhatsApp loads the current name, image, and price from the catalogue when the customer opens it. To change which products are in the message, duplicate the template and pick a new set.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I see 'Product Marketing template is not supported for this channel'.">
+The number you picked is not on Cloud API. The form is locked until you switch that channel. Carousel shows the same warning. Use **Raise a ticket** under the warning, or talk to support about moving the number to Cloud API.
+</Accordion>
+<Accordion title="It says no catalogue found for this channel.">
+The WhatsApp number has no catalogue linked. Open [Catalog, Orders and Payments](/whatsapp/shop) and connect one, then come back to Templates.
+</Accordion>
+<Accordion title="Can I mix this with a carousel of images?">
+No. Carousel cards are images or videos you upload. Product marketing pulls items from the catalogue. Pick one type.
+</Accordion>
+<Accordion title="How is this billed?">
+As one Marketing template message, not one charge per product. See [Message Credits](/pricing-and-billing/message-credits).
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Carousel templates](/whatsapp/templates/carousel-templates)
+* [Catalog, Orders and Payments](/whatsapp/shop)
