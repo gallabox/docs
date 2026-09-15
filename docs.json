@@ -143,7 +143,9 @@
                 "pages": [
                   "whatsapp/templates/overview",
                   "whatsapp/templates/create-template",
-                  "whatsapp/templates/carousel-templates"
+                  "whatsapp/templates/carousel-templates",
+                  "whatsapp/templates/limited-time-offer",
+                  "whatsapp/templates/product-marketing"
                 ]
               },
               "whatsapp/flows",
@@ -735,11 +737,11 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/coupon-code-whatsapp-template",
-      "destination": "/whatsapp/templates/create-template#cloning-a-template"
+      "destination": "/whatsapp/templates/create-template#coupon-code"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/custom-marketing-and-utility-templates",
-      "destination": "/whatsapp/templates/create-template#smart-check-for-utility-templates"
+      "destination": "/whatsapp/templates/create-template"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/faqs-whatsapp-template-messages",
@@ -747,15 +749,15 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/limited-time-offer-templates",
-      "destination": "/whatsapp/templates/create-template#filtering-templates"
+      "destination": "/whatsapp/templates/limited-time-offer"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/order-details-template",
-      "destination": "/whatsapp/templates/create-template#creating-a-template"
+      "destination": "/whatsapp/payments"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/product-marketing-templates",
-      "destination": "/whatsapp/templates/overview#marketing-templates"
+      "destination": "/whatsapp/templates/product-marketing"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/re-write-with-ai",
@@ -763,11 +765,11 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/template-creation-and-editing",
-      "destination": "/whatsapp/templates/overview#template-categories"
+      "destination": "/whatsapp/templates/overview#pick-a-type"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/whatsapp-template-url-tracking",
-      "destination": "/whatsapp/templates/overview#template-limits"
+      "destination": "/whatsapp/templates/create-template#track-link-clicks"
     },
     {
       "source": "/basic-modules/whatsapp-templates",

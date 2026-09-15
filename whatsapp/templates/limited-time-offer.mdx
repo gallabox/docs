@@ -1,0 +1,97 @@
+---
+title: "Limited Time Offer templates"
+description: "Send a WhatsApp offer with a countdown and a copyable code. Built for flash sales, not evergreen discounts."
+---
+
+> **Who can use this?**
+>
+> * Needs permission to create WhatsApp templates.
+> * Available on all Gallabox plans. Billed as a Marketing template on every send.
+
+A Limited Time Offer is a marketing template with a short offer line, an optional countdown, and a **Copy offer code** button. The customer sees the timer on their phone. You set the real expiry and the real code when you send, not when you create the template.
+
+Use Custom marketing if the discount does not expire. Use this type when the clock is the point.
+
+<Warning>
+
+Customers on WhatsApp Web or the desktop app do not see the offer card. They get a notice that the limited-time offer is not supported. Send this when most of your audience reads WhatsApp on a phone.
+
+</Warning>
+
+## When to use it
+
+A weekend flash sale. A code that dies at midnight. A launch-day coupon.
+
+Skip it for a standing 10% off, a catalogue browse, or a carousel of products. Those are [Custom marketing](/whatsapp/templates/create-template), [Product marketing](/whatsapp/templates/product-marketing), or [Carousel](/whatsapp/templates/carousel-templates).
+
+## What the customer sees
+
+On the phone:
+
+* Your image or video, if you added one
+* A 16-character offer line (for example, `Expiring offer!`)
+* The countdown, if you turned **Expiration Date** on
+* Your body text
+* **Copy offer code**, then your website button
+
+There is no footer. Meta does not allow one on this type, so Gallabox hides it.
+
+If the offer has less than an hour left when they open the chat, WhatsApp turns the timer red.
+
+## Create the template
+
+1. Go to **WhatsApp → Templates** and click **Create New Template**.
+2. In **Category**, pick **Limited Time Offer**.
+3. Name it, then choose the **Channel** and **Language**.
+4. **Message header:** **None**, **Image**, or **Video**. Text, document, and location are not available on this type.
+5. Write the **Message body**. Add variables and sample values the same way as any other template.
+6. In the **Limited Time Offer** card, fill **Header**. Maximum 16 characters. This is the offer line on the card, not the message header above.
+7. Turn **Expiration Date** on if the customer should see a countdown. Leave it off if you only want the copy-code button.
+8. Fill the buttons, then click **Submit for approval**.
+
+### Buttons
+
+Meta is strict here.
+
+* A **URL** button is always required. Set the button text and the link.
+* If **Expiration Date** is on, **Copy Code** is required and you cannot turn it off.
+* If **Expiration Date** is off, you can still add **Copy Code**. It stays the first button.
+* The copy-code label is **Copy offer code**. You cannot change it.
+* **Enter Code** is the sample Meta reviews. Maximum 15 characters. Example: `WELCOME20`. The live code is filled when you send.
+
+Turn on **Track link clicks** if you want URL tap counts in broadcast analytics and message trackers.
+
+## Send it
+
+Once the template is **Approved**, send it from a broadcast, a sequence, the inbox, a bot, or the API. Wait about 15 minutes after approval.
+
+When you send, Gallabox asks for:
+
+1. Values for any variables in the body.
+2. The real offer code (if the template has Copy Code).
+3. The **Expiration Date**, if you enabled it. For today, pick a time at least 15 minutes from now.
+
+The countdown the customer sees is this send-time date, not a date you typed in the body.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I add a STOP footer?">
+No. This type cannot have a footer. Put opt-out wording in the body if you need it, and do not treat this like a weekly newsletter. Use Custom marketing for recurring campaigns that need the STOP footer.
+</Accordion>
+<Accordion title="The offer looks fine in Gallabox preview but a teammate on WhatsApp Web cannot see it.">
+That is expected. The offer card is for the phone app. Preview in Gallabox is not the same as WhatsApp Web.
+</Accordion>
+<Accordion title="Do I put the expiry in the message body?">
+You can mention it in the copy. The countdown only appears if **Expiration Date** is on, and only from the date you pick at send time.
+</Accordion>
+<Accordion title="How is this billed?">
+As one Marketing template message, same as Custom marketing. See [Message Credits](/pricing-and-billing/message-credits).
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Create and manage templates](/whatsapp/templates/create-template)
+* [Carousel templates](/whatsapp/templates/carousel-templates)

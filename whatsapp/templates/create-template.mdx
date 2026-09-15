@@ -27,7 +27,7 @@ Available on all Gallabox plans.
 
 * **Owner or Admin role in Gallabox (or a role with template management permissions)** — template creation and management require these permissions.
 * **An approved WhatsApp Business Account (WABA) connected to Gallabox** — templates are submitted to Meta through your connected WABA. If your channel is not connected yet, see [Connect your WhatsApp channel](/whatsapp/connect-your-whatsapp).
-* **A clear message purpose** — Meta checks whether your template category matches the content. Decide whether your message is Marketing, Utility, or Authentication before you start writing.
+* **A clear message purpose.** Meta checks that the type matches the copy. Pick the type first: Custom marketing, Carousel, Limited Time Offer, Product marketing, Custom utility, Payment utility, or Authentication.
 
 ---
 
@@ -88,19 +88,21 @@ Sync is per channel. If a template is still missing after a sync, check that the
 
 Select one option from the **Category** dropdown. The options are grouped by category:
 
-| Group                 | Option                 | When to use                                             |
-| --------------------- | ---------------------- | ------------------------------------------------------- |
-| **Marketing template** | Custom marketing      | Promotional messages with media and buttons             |
-| **Marketing template** | Product marketing     | Promotions that send catalogue products                 |
-| **Marketing template** | Carousel              | Up to 10 media cards in a single message                |
-| **Marketing template** | Limited Time Offer    | Offer codes with an expiry date                         |
-| **Utility template**   | Custom utility        | Transactional updates tied to a customer action         |
-| **Utility template**   | Payment utility       | Payment request messages                                |
-| **Other template**     | Authentication        | OTPs, PINs, and verification codes                      |
+| Group | Option | When to use |
+| --- | --- | --- |
+| **Marketing template** | Custom marketing | Offers and announcements with media and buttons |
+| **Marketing template** | Product marketing | Catalogue or a curated product set. See [Product marketing](/whatsapp/templates/product-marketing) |
+| **Marketing template** | Carousel | Up to 10 image or video cards. See [Carousel](/whatsapp/templates/carousel-templates) |
+| **Marketing template** | Limited Time Offer | A code with a countdown. See [Limited Time Offer](/whatsapp/templates/limited-time-offer) |
+| **Utility template** | Custom utility | Order updates and reminders tied to something the customer already did |
+| **Utility template** | Payment utility | A payment request. Needs a gateway. See [WhatsApp Payments](/whatsapp/payments) |
+| **Other template** | Authentication | OTPs and verification codes |
 
-Some options depend on your channel — Product marketing needs a connected catalogue, and Payment utility needs payments configured on that channel.
+This page is the editor for **Custom marketing**, **Custom utility**, and **Authentication**. The other types have their own screens and their own docs.
 
-For a full explanation of template categories, guidelines, and the approval process, see the [Templates overview](/whatsapp/templates/overview).
+Product marketing needs a connected catalogue on a Cloud API channel. Payment utility needs payments set up on that channel.
+
+For which type to pick, and how Meta reviews marketing templates, see the [Templates overview](/whatsapp/templates/overview).
 
 <Warning>
 
@@ -161,7 +163,11 @@ The **Message header** appears above the body text. Choose one type:
 
 ### Step 7: Add a footer (optional)
 
-The **Footer** appears below the body text. Maximum 60 characters. No variables. When you pick a Marketing category, Gallabox pre-fills the footer with an opt-out line — edit it if you want different wording, but keep an opt-out.
+The **Footer** appears below the body text. Maximum 60 characters. No variables.
+
+When you pick **Custom marketing**, Gallabox pre-fills: *Reply with 'STOP' to unsubscribe from marketing messages.* You can change the wording. Keep a STOP line. Meta rejects marketing templates with no way to opt out.
+
+Carousel and Limited Time Offer have no footer field. That is a Meta rule, not a Gallabox setting.
 
 ### Step 8: Add buttons (optional)
 
@@ -193,6 +199,27 @@ After a template is approved, wait about 15 minutes before using it. Meta needs 
 | **Call on WhatsApp**    | Starts a WhatsApp call to your business                      | 1                | Channels with WhatsApp calling enabled         |
 
 **Button limit:** Up to 10 buttons per template in any combination. Button text is limited to 25 characters. If you add more than three buttons, WhatsApp shows them in a list instead of as separate buttons.
+
+### Coupon code
+
+Add **Coupon code** when the customer should copy a promo code. You get one per template.
+
+* The button label is **Copy code**. You cannot change it.
+* **Sample code** is what Meta reviews. Maximum 15 characters. Example: `GET50OFF`.
+* Fill the live code when you send the template (broadcast, sequence, inbox, or API).
+* Copy code does not work on WhatsApp Web or desktop. The customer needs the phone app.
+
+A coupon on a Custom marketing template is not the same as a [Limited Time Offer](/whatsapp/templates/limited-time-offer). Use Limited Time Offer when you also need a countdown.
+
+### Form
+
+**Form** opens a WhatsApp form (a Flow) inside the chat. You can add one.
+
+The form must already be published under [Forms](/whatsapp/flows). Pick it in **Select form**, set the button text, and optionally pick an icon: Default, Document, Promotion, or Review.
+
+### Track link clicks
+
+On URL buttons, turn on **Track link clicks** to record taps in broadcast analytics and message trackers. The customer still lands on your URL. Gallabox wraps it so the tap is counted.
 
 ---
 
@@ -382,10 +409,11 @@ Templates are listed per channel. Switch the WhatsApp channel in the picker at t
 
 ## Related Articles
 
-* [WhatsApp Templates — Overview](/whatsapp/templates/overview) — What templates are, categories, and approval process
-* [Template Analytics](/reports-and-analytics/template-analytics) — How to track template performance, delivery, and engagement
-* [Broadcast Overview](/whatsapp/broadcasts/overview) — Sending templates to contact lists at scale
-* [Variables](/settings/variables) — Full list of system variables
+* [Templates overview](/whatsapp/templates/overview)
+* [Carousel templates](/whatsapp/templates/carousel-templates)
+* [Limited Time Offer](/whatsapp/templates/limited-time-offer)
+* [Product marketing](/whatsapp/templates/product-marketing)
+* [Template analytics](/reports-and-analytics/template-analytics)
 
 ## Next Steps
 
