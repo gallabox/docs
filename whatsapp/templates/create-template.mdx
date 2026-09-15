@@ -96,9 +96,11 @@ Select one option from the **Category** dropdown. The options are grouped by cat
 | **Marketing template** | Limited Time Offer | A code with a countdown. See [Limited Time Offer](/whatsapp/templates/limited-time-offer) |
 | **Utility template** | Custom utility | Order updates and reminders tied to something the customer already did |
 | **Utility template** | Payment utility | A payment request. Needs a gateway. See [WhatsApp Payments](/whatsapp/payments) |
-| **Other template** | Authentication template | OTPs and verification codes. The body text is fixed by WhatsApp. |
+| **Other template** | Authentication template | OTPs and verification codes. See [Authentication templates](/whatsapp/templates/authentication) |
 
-This page is the editor for **Custom marketing**, **Custom utility**, and **Authentication**. The other types have their own screens and their own docs.
+This page is the editor for **Custom marketing** and **Custom utility**. The other types have their own screens and their own docs.
+
+If you picked **Authentication template**, name it, pick the channel and language, then follow [Authentication templates](/whatsapp/templates/authentication). The body, header, footer, and buttons on this page are hidden. WhatsApp writes that copy.
 
 Call permission is not in this list. Gallabox creates that template when Calling is on. See [Outgoing calls](/whatsapp/calling/outgoing-calls).
 
@@ -161,7 +163,22 @@ The **Message header** appears above the body text. Choose one type:
 * **Image** — upload a sample image
 * **Video** — upload a sample video
 * **Document** — upload a sample document
-* **Location** — the message carries a location, filled in when you send
+* **Location** — a map pin you set now. Every send of this template uses that pin.
+
+Location is only on **Custom marketing** and **Custom utility**. It is hidden on Carousel, Limited Time Offer, Product marketing, Payment utility, and Authentication.
+
+#### Location header
+
+Pick **Location** in **Message header**, then fill the pin before you submit.
+
+1. **Name** (required, maximum 100 characters). Example: `Central Park`.
+2. **Address** (required, maximum 500 characters).
+3. **Location:** **Search Location** to look up a place, or **Latitude & Longitude** to type coordinates.
+4. Optionally click **View in Map** to check the pin.
+
+Gallabox stores that pin on the template. The send form does not ask for a new location. If you need a different address, duplicate the template and change the pin.
+
+WhatsApp only supports a static pin, not a live location. That is a Meta rule.
 
 ### Step 7: Add a footer (optional)
 
@@ -211,6 +228,8 @@ Add **Coupon code** when the customer should copy a promo code. You get one per 
 * Fill the live code when you send the template (broadcast, sequence, inbox, or bot).
 
 A coupon on a Custom marketing template is not the same as a [Limited Time Offer](/whatsapp/templates/limited-time-offer). Use Limited Time Offer when you also need a countdown.
+
+It is also not **Copy Code** on an [Authentication template](/whatsapp/templates/authentication). Coupon copies a promo code. Authentication Copy Code copies an OTP.
 
 ### Form
 
@@ -406,6 +425,10 @@ Two other Meta rules are worth knowing: a template you delete while a message us
 <Accordion title="A template I created is missing from the list.">
 Templates are listed per channel. Switch the WhatsApp channel in the picker at the top right of the Templates page, clear any active filters, and click the refresh icon to sync the latest status from Meta.
 </Accordion>
+
+<Accordion title="Can I pick a new location each time I send?">
+No. A **Location** header stores the pin on the template. Every send uses that pin. Duplicate the template if you need a different address. See [Location header](/whatsapp/templates/create-template#location-header).
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -413,6 +436,7 @@ Templates are listed per channel. Switch the WhatsApp channel in the picker at t
 ## Related Articles
 
 * [Templates overview](/whatsapp/templates/overview)
+* [Authentication templates](/whatsapp/templates/authentication)
 * [Carousel templates](/whatsapp/templates/carousel-templates)
 * [Limited Time Offer](/whatsapp/templates/limited-time-offer)
 * [Product marketing](/whatsapp/templates/product-marketing)

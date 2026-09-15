@@ -37,7 +37,7 @@ Use these when you are promoting something. Meta bills them as Marketing.
 
 <Columns cols="2">
   <Card title="Custom marketing" href="/whatsapp/templates/create-template">
-    Offers, announcements, and re-engagement. Add media, a coupon, a website button, or a form.
+    Offers, announcements, and re-engagement. Add media, a location pin, a coupon, a website button, or a form.
   </Card>
   <Card title="Carousel" href="/whatsapp/templates/carousel-templates">
     One message, then up to 10 image or video cards the customer swipes through.
@@ -56,15 +56,23 @@ Marketing templates need an opt-out. Gallabox pre-fills the footer with *Reply w
 
 | Type in Gallabox | When to use | Where to set it up |
 | --- | --- | --- |
-| **Custom utility** | Order updates, appointment reminders, delivery notices. Tied to something the customer already did. | [Create a template](/whatsapp/templates/create-template) |
+| **Custom utility** | Order updates, appointment reminders, delivery notices. Tied to something the customer already did. Can include a [location header](/whatsapp/templates/create-template#location-header). | [Create a template](/whatsapp/templates/create-template) |
 | **Payment utility** | Ask the customer to pay in WhatsApp. Needs a payment gateway on that channel. | Create it here. Send the request from a chat after you connect a gateway. See [WhatsApp Payments](/whatsapp/payments) |
-| **Authentication template** | OTPs and verification codes. The message body is fixed by WhatsApp. | [Create a template](/whatsapp/templates/create-template) |
+| **Authentication template** | OTPs and verification codes. The message body is fixed by WhatsApp. | [Authentication templates](/whatsapp/templates/authentication) |
 
 Do not put a discount in a Utility template. Meta will reject it, or recategorise it as Marketing and bill it that way. For Utility drafts, run [Smart check](/whatsapp/templates/create-template#smart-check-for-utility-templates) before you submit.
 
 ### Authentication templates
 
-Authentication is only for codes. Pick **Authentication template** in the Category dropdown. Gallabox defaults to **Zero-tap Autofill** (Android app required). **Copy code** works on phone and WhatsApp Web. **One-tap Autofill** also needs an Android app. You can add a security recommendation and a code expiry. You cannot write your own body text.
+Authentication is only for codes. Pick **Authentication template** in **Category**. WhatsApp writes the body. You pick how the customer gets the code under **Code Delivery Setup**.
+
+| Option | When to use it |
+| --- | --- |
+| **Zero-tap Autofill** (default) | You have an Android app. The code can land in the app with no tap. |
+| **One-tap Autofill** | You have an Android app. The customer taps **Autofill**. |
+| **Copy Code** | Phone and WhatsApp Web. No app setup. The customer copies and pastes. |
+
+You can add a security line and a 1 to 90 minute expiry. Full steps, App Setup, and button labels are on [Authentication templates](/whatsapp/templates/authentication).
 
 ### Call permission
 
@@ -126,7 +134,7 @@ Approvals usually land in Gallabox on their own. If Meta shows Approved and Gall
 | Header / footer | 60 characters each (Limited Time Offer's offer line is 16) |
 | Buttons | Up to 10. Button text up to 25 characters |
 
-Carousel, Limited Time Offer, and Product marketing have extra rules on their own pages.
+Carousel, Limited Time Offer, Product marketing, and Authentication have extra rules on their own pages.
 
 ## How to create a template
 
@@ -141,7 +149,7 @@ Click **Create New Template**.
 Use **Category**. Match the job: Custom marketing, Carousel, Limited Time Offer, Product marketing, Custom utility, Payment utility, or Authentication template.
 </Step>
 <Step title="Fill the editor">
-Follow the page for that type. Custom marketing and Custom utility stay on [Create and manage templates](/whatsapp/templates/create-template).
+Follow the page for that type. Custom marketing and Custom utility stay on [Create and manage templates](/whatsapp/templates/create-template). Authentication is on [Authentication templates](/whatsapp/templates/authentication).
 </Step>
 <Step title="Submit for approval">
 Click **Submit for approval**, then wait for **Approved**.

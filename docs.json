@@ -143,6 +143,7 @@
                 "pages": [
                   "whatsapp/templates/overview",
                   "whatsapp/templates/create-template",
+                  "whatsapp/templates/authentication",
                   "whatsapp/templates/carousel-templates",
                   "whatsapp/templates/limited-time-offer",
                   "whatsapp/templates/product-marketing"
@@ -729,7 +730,7 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/authentication-templates",
-      "destination": "/whatsapp/templates/overview#authentication-templates"
+      "destination": "/whatsapp/templates/authentication"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/carousel-template",
