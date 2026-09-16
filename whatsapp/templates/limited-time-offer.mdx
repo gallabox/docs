@@ -1,0 +1,86 @@
+---
+title: "Limited Time Offer"
+description: "Create a Limited Time Offer WhatsApp template in Gallabox: a short offer line, an optional countdown, and a copyable code."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles with WhatsApp Templates access.
+> * A connected WhatsApp channel is required.
+
+Use **Limited Time Offer** when the clock is the point: a weekend flash sale, a code that dies at midnight, a launch-day coupon.
+
+Use [Custom marketing](/whatsapp/templates/custom-marketing) if the discount does not expire.
+
+You set the real expiry and the real code when you send, not when you create the template.
+
+<Warning>
+
+Customers on WhatsApp Web or the desktop app do not see the offer card. They get a notice that the limited-time offer is not supported. Send this when most of your audience reads WhatsApp on a phone.
+
+</Warning>
+
+## Plan Availability
+
+Available on all Gallabox plans. Billed as a Marketing template on every send. See [Message Credits](/pricing-and-billing/message-credits).
+
+## Create the template
+
+Go to **WhatsApp → Templates**, click **Create New Template**, and pick **Limited Time Offer**. Name it, pick the **Channel** and **Language**, then fill the header, offer card, and buttons. Click **Submit for approval**.
+
+**Message header** is **None**, **Image**, or **Video**. Text, document, and location are not available on this type.
+
+To duplicate, test, or send after approval, see [Manage templates](/whatsapp/templates/manage-templates#after-approval).
+
+### Offer card
+
+In the **Limited Time Offer** card, fill **Header**. Maximum 16 characters. Example: `Expiring offer!`. This is the offer line on the customer's phone, not the message header above.
+
+Turn **Expiration Date** on if the customer should see a countdown. Leave it off if you only want the copy-code button.
+
+There is no footer. Meta does not allow one on this type, so Gallabox hides it.
+
+### Buttons
+
+* A **URL** button is always required. Set the button text and the link.
+* If **Expiration Date** is on, **Copy Code** is required and you cannot turn it off.
+* If **Expiration Date** is off, you can still add **Copy Code**. It stays the first button.
+* The copy-code label is **Copy offer code**. You cannot change it.
+* **Enter Code** is the sample Meta reviews. Maximum 15 characters. Example: `WELCOME20`. Fill the live code when you send.
+
+Turn on **Track link clicks** if you want URL tap counts in broadcast analytics and message trackers.
+
+## Send it
+
+After **Approved**, send it from a broadcast, a sequence, the inbox, or a bot. See [After approval](/whatsapp/templates/manage-templates#after-approval).
+
+When you send, Gallabox asks for:
+
+1. Values for any variables in the body.
+2. The real offer code, if the template has Copy Code.
+3. The **Expiration Date**, if you enabled it. You can pick today or a later day. If you pick today, the time must be at least 15 minutes from now.
+
+The countdown the customer sees is this send-time date, not a date you typed in the body.
+
+If the offer has less than an hour left when they open the chat, WhatsApp turns the timer red.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I add a STOP footer?">
+No. This type cannot have a footer. Put opt-out wording in the body if you need it. Use Custom marketing for recurring campaigns that need the STOP footer.
+</Accordion>
+<Accordion title="The offer looks fine in Gallabox preview but a teammate on WhatsApp Web cannot see it.">
+That is expected. The offer card is for the phone app. Preview in Gallabox is not the same as WhatsApp Web.
+</Accordion>
+<Accordion title="Do I put the expiry in the message body?">
+You can mention it in the copy. The countdown only appears if **Expiration Date** is on, and only from the date you pick at send time.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Custom marketing](/whatsapp/templates/custom-marketing)
+* [Carousel](/whatsapp/templates/carousel-templates)
+* [Manage templates](/whatsapp/templates/manage-templates)

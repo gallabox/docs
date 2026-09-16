@@ -1,0 +1,135 @@
+---
+title: "Custom marketing"
+description: "Create a Custom marketing WhatsApp template in Gallabox: body, header, STOP footer, coupon, and buttons."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles with WhatsApp Templates access.
+> * A connected WhatsApp channel is required.
+
+Use **Custom marketing** for offers, announcements, and re-engagement. That is a different option from Carousel, Limited Time Offer, and Product marketing.
+
+The editor is the same screen as [Custom utility](/whatsapp/templates/custom-utility). The Category you pick is what Meta reviews and bills. A discount in Utility will be rejected or recategorised.
+
+## Plan Availability
+
+Available on all Gallabox plans. Billed as a Marketing template on every send. See [Message Credits](/pricing-and-billing/message-credits).
+
+## Create the template
+
+Go to **WhatsApp → Templates**, click **Create New Template**, and pick **Custom marketing**. Name it, pick the **Channel** and **Language**, then fill the body, header, STOP footer, and buttons. Click **Submit for approval**.
+
+**Template name** is lowercased. Spaces become underscores. Maximum 60 characters. You cannot change it after you submit. Example: `weekend_offer_en`.
+
+To duplicate, test, or send after approval, see [Manage templates](/whatsapp/templates/manage-templates#after-approval).
+
+### Message body
+
+Maximum 1,024 characters.
+
+Click **Add variables** for `{{name}}`, `{{email}}`, or `{{phone}}`, or **Add Custom** for your own placeholder. Every variable needs a sample. Put text before the first variable.
+
+See [Variables](/whatsapp/templates/custom-marketing#variables).
+
+### Rewrite with AI
+
+Click **AI Rewrite** above the body if you want a suggestion. Compare **Your content** and **AI content**, then **Apply AI content**, **Rewrite again**, or **Apply original**. Nothing changes until you apply.
+
+This uses AI credits. See [AI Wallet](/pricing-and-billing/ai-wallet). AI Rewrite does not check Meta policy. Keep the message as marketing, and keep STOP.
+
+## Header
+
+Optional. Appears above the body.
+
+* **None**
+* **Text** (up to 60 characters, one variable allowed)
+* **Image**, **Video**, or **Document** (upload a sample)
+* **Location** (a map pin you set now)
+
+### Location header
+
+Pick **Location**, then fill the pin before you submit.
+
+1. **Name** (required, maximum 100 characters). Example: `Central Park`.
+2. **Address** (required, maximum 500 characters).
+3. **Location:** **Search Location**, or **Latitude & Longitude**.
+4. Optionally click **View in Map**.
+
+Gallabox stores that pin on the template. Every send uses it. Duplicate the template if you need a different address. WhatsApp only supports a static pin, not a live location.
+
+Location is also available on [Custom utility](/whatsapp/templates/custom-utility). It is hidden on Carousel, Limited Time Offer, Product marketing, Payment, and Authentication.
+
+## Footer
+
+Maximum 60 characters. No variables.
+
+Gallabox pre-fills: *Reply with 'STOP' to unsubscribe from marketing messages.* You can change the wording. Keep a STOP line. Meta rejects marketing templates with no way to opt out.
+
+Carousel and Limited Time Offer have no footer. That is a Meta rule.
+
+## Buttons
+
+Click **Add a button**. Up to 10 buttons. Button text up to 25 characters. More than three buttons show as a list in WhatsApp.
+
+| Button | What it does | Max |
+| --- | --- | --- |
+| **Quick reply** | Sends a preset reply | 10 |
+| **URL** | Opens a link | 2 |
+| **Call phone number** | Opens the dialler | 1 |
+| **Coupon code** | Copies a promo code | 1 |
+| **Form** | Opens a WhatsApp form | 1 |
+| **Call on WhatsApp** | Starts a WhatsApp call | 1 |
+
+### Coupon code
+
+One per template. The label is **Copy code**. You cannot change it.
+
+**Sample code** is what Meta reviews. Maximum 15 characters. Example: `GET50OFF`. Fill the live code when you send.
+
+This is not a [Limited Time Offer](/whatsapp/templates/limited-time-offer). Use that type when you need a countdown.
+
+For one-time passwords, use [Authentication](/whatsapp/templates/authentication), not this button.
+
+### Form
+
+One per template. Pick the form in **Select form**. Drafts are for testing. Publish under [Forms](/whatsapp/flows) before you send to customers.
+
+Set the button text. Optional icon: Default, Document, Promotion, or Review.
+
+### Track link clicks
+
+On URL buttons, turn on **Track link clicks** to see tap counts in broadcast analytics and message trackers.
+
+## Variables
+
+Gallabox uses **named** variables.
+
+| Variable | What it inserts |
+| --- | --- |
+| `{{name}}` | Contact's name |
+| `{{email}}` | Contact's email |
+| `{{phone}}` | Contact's phone |
+
+Email and phone are hidden from roles that cannot view personal information.
+
+**Add Custom** inserts `{{variable_1}}`. Rename it. You supply the value when you send. Variable names: 50 characters max. A variable at the very start of the body is a common rejection.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I pick a new location each time I send?">
+No. The pin is saved on the template. Duplicate it to change the address.
+</Accordion>
+<Accordion title="Can I edit an approved template?">
+No. Duplicate it under a new name. See [Manage templates](/whatsapp/templates/manage-templates#duplicate-a-template).
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Custom utility](/whatsapp/templates/custom-utility)
+* [Manage templates](/whatsapp/templates/manage-templates)
+* [Limited Time Offer](/whatsapp/templates/limited-time-offer)
+* [Authentication template](/whatsapp/templates/authentication)

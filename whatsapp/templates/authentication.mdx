@@ -1,0 +1,120 @@
+---
+title: "Authentication template"
+description: "Send OTPs with Zero-tap Autofill, One-tap Autofill, or Copy Code. WhatsApp writes the body. You pick how the customer gets the code."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles with WhatsApp Templates access.
+> * A connected WhatsApp channel is required.
+
+Authentication templates are only for one-time passwords and verification codes. WhatsApp writes the body. You cannot add a header, media, a coupon, or your own copy.
+
+What you choose is **Code Delivery Setup**: how the customer gets the code from WhatsApp into your app.
+
+<Info>
+
+Gallabox defaults to **Zero-tap Autofill**. Change it if your customers are not on Android, or you do not have an Android app.
+
+</Info>
+
+## Plan Availability
+
+Available on all Gallabox plans. Billed as an Authentication template on every send. See [Message Credits](/pricing-and-billing/message-credits).
+
+## The three options
+
+These are not separate Category types. They are radios on the same Authentication template.
+
+| Option in Gallabox | What the customer does | Needs your Android app |
+| --- | --- | --- |
+| **Zero-tap Autofill** (default) | The code can land in the app with no tap | Yes. Chip: **Only supported on Android** |
+| **One-tap Autofill** | Taps **Autofill**. WhatsApp opens the app and fills the code | Yes. Chip: **Only supported on Android** |
+| **Copy Code** | Taps **Copy code**, then pastes it | No. Chip: **Both Mobile and Web Users** |
+
+If Zero-tap or One-tap cannot run (iPhone, WhatsApp Web, or the app is missing), WhatsApp falls back to copy code.
+
+**Copy Code** here is not the [Coupon code](/whatsapp/templates/custom-marketing#coupon-code) button on Custom marketing. Coupon copies a promo code. This copies an OTP.
+
+## What WhatsApp writes
+
+You cannot edit this.
+
+* Body: *123456 is your verification code.* WhatsApp swaps in the OTP you send.
+* Optional: *For your security, do not share this code.*
+* Optional footer: *This code expires in X minutes.*
+
+No URLs, media, or emoji. Meta rejects them on this type, so Gallabox hides those cards.
+
+## Create the template
+
+Go to **WhatsApp → Templates**, click **Create New Template**, and pick **Authentication template**. Name it, pick the **Channel** and **Language**.
+
+Under **Code Delivery Setup**, pick **Zero-tap Autofill**, **One-tap Autofill**, or **Copy Code**. Fill **App Setup** if you picked Zero-tap or One-tap. Optionally add the security line and a code expiry. Set the button labels, then click **Submit for approval**.
+
+To duplicate, test, or send after approval, see [Manage templates](/whatsapp/templates/manage-templates#after-approval).
+
+### App Setup
+
+Shows only for **Zero-tap Autofill** and **One-tap Autofill**. Skip this for **Copy Code**.
+
+Ask whoever built your Android app for:
+
+* **Package Name** (maximum 224 characters). Example: `com.yourcompany.app`
+* **App Signature Hash** (exactly 11 characters)
+
+You can add up to 5 apps. Use the add icon for another row. You need at least one.
+
+Without these values, Meta cannot drop the code into the app. Autofill will not work.
+
+### Content
+
+The **Content** card is optional. The body stays locked either way.
+
+* **Add security recommendation** adds *For your security, do not share this code.*
+* **Add expiration time for the code** adds the expiry footer. After that many minutes, WhatsApp disables the Autofill button.
+* **Expires in** must be 1 to 90 minutes. Default is 10.
+
+### Buttons
+
+You can rename the labels. Maximum 16 characters each. Defaults are **Autofill** and **Copy code**.
+
+* Zero-tap and One-tap show both fields. Copy code is the backup if Autofill cannot run.
+* **Copy Code** shows only the **Copy code** label.
+
+Even on Zero-tap, keep both labels. WhatsApp still needs a backup button.
+
+## Send it
+
+Once the template is **Approved**, send it from a broadcast, a sequence, the inbox, a bot, or a test send. See [After approval](/whatsapp/templates/manage-templates#after-approval).
+
+When you send, Gallabox asks for the OTP (`otp`). That value is what WhatsApp puts in the message and on the button. Maximum 15 characters.
+
+You do not re-enter package name or hash at send time. Those were saved on the template.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do I need an Android app?">
+Only for **Zero-tap Autofill** and **One-tap Autofill**. If your customers mostly use iPhone or WhatsApp Web, pick **Copy Code**. You can still send a Zero-tap or One-tap template to those people. They get the copy-code fallback.
+</Accordion>
+
+<Accordion title="Can I write my own OTP message?">
+No. WhatsApp locks the body on Authentication templates. If you need a custom message, that is a different category, and Meta will not treat it as Authentication.
+</Accordion>
+
+<Accordion title="Where do I get the signature hash?">
+From the team that signed your Android app. It is 11 characters. Gallabox does not generate it. If Autofill fails after approval, the hash or package name is usually wrong.
+</Accordion>
+
+<Accordion title="What happens if Zero-tap fails?">
+The customer still gets a message. WhatsApp shows Autofill or Copy code instead of dropping the code in silently. That is why the button labels stay on the template.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Custom marketing](/whatsapp/templates/custom-marketing)
+* [Manage templates](/whatsapp/templates/manage-templates)
+* [Message Credits](/pricing-and-billing/message-credits)

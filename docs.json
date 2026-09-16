@@ -142,8 +142,13 @@
                 "group": "Templates",
                 "pages": [
                   "whatsapp/templates/overview",
-                  "whatsapp/templates/create-template",
-                  "whatsapp/templates/carousel-templates"
+                  "whatsapp/templates/manage-templates",
+                  "whatsapp/templates/custom-marketing",
+                  "whatsapp/templates/custom-utility",
+                  "whatsapp/templates/carousel-templates",
+                  "whatsapp/templates/limited-time-offer",
+                  "whatsapp/templates/product-marketing",
+                  "whatsapp/templates/authentication"
                 ]
               },
               "whatsapp/flows",
@@ -514,6 +519,46 @@
       "destination": "/whatsapp/templates/overview"
     },
     {
+      "source": "/whatsapp/templates/create-template",
+      "destination": "/whatsapp/templates/custom-marketing"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#coupon-code",
+      "destination": "/whatsapp/templates/custom-marketing#coupon-code"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#smart-check-for-utility-templates",
+      "destination": "/whatsapp/templates/custom-utility#smart-check"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#cloning-a-template",
+      "destination": "/whatsapp/templates/manage-templates#duplicate-a-template"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#testing-a-template",
+      "destination": "/whatsapp/templates/manage-templates#test-a-template"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#reply-configuration",
+      "destination": "/whatsapp/templates/manage-templates#configurations"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#variables",
+      "destination": "/whatsapp/templates/custom-marketing#variables"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#location-header",
+      "destination": "/whatsapp/templates/custom-marketing#location-header"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#rewriting-your-message-with-ai",
+      "destination": "/whatsapp/templates/custom-marketing#rewrite-with-ai"
+    },
+    {
+      "source": "/whatsapp/templates/create-template#track-link-clicks",
+      "destination": "/whatsapp/templates/custom-marketing#track-link-clicks"
+    },
+    {
       "source": "/whatsapp/calling",
       "destination": "/whatsapp/calling/overview"
     },
@@ -727,7 +772,7 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/authentication-templates",
-      "destination": "/whatsapp/templates/overview#authentication-templates"
+      "destination": "/whatsapp/templates/authentication"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/carousel-template",
@@ -735,11 +780,11 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/coupon-code-whatsapp-template",
-      "destination": "/whatsapp/templates/create-template#cloning-a-template"
+      "destination": "/whatsapp/templates/custom-marketing#coupon-code"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/custom-marketing-and-utility-templates",
-      "destination": "/whatsapp/templates/create-template#smart-check-for-utility-templates"
+      "destination": "/whatsapp/templates/overview"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/faqs-whatsapp-template-messages",
@@ -747,27 +792,39 @@
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/limited-time-offer-templates",
-      "destination": "/whatsapp/templates/create-template#filtering-templates"
+      "destination": "/whatsapp/templates/limited-time-offer"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/order-details-template",
-      "destination": "/whatsapp/templates/create-template#creating-a-template"
+      "destination": "/whatsapp/payments"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/product-marketing-templates",
-      "destination": "/whatsapp/templates/overview#marketing-templates"
+      "destination": "/whatsapp/templates/product-marketing"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/re-write-with-ai",
-      "destination": "/whatsapp/templates/create-template#rewriting-your-message-with-ai"
+      "destination": "/whatsapp/templates/custom-marketing#rewrite-with-ai"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/template-creation-and-editing",
-      "destination": "/whatsapp/templates/overview#template-categories"
+      "destination": "/whatsapp/templates/overview#pick-a-type"
+    },
+    {
+      "source": "/whatsapp/templates/overview#why-templates-get-rejected",
+      "destination": "/whatsapp/templates/manage-templates#why-was-my-template-rejected"
+    },
+    {
+      "source": "/whatsapp/templates/overview#faqs",
+      "destination": "/whatsapp/templates/manage-templates#why-was-my-template-rejected"
+    },
+    {
+      "source": "/whatsapp/templates/overview#after-you-create-one",
+      "destination": "/whatsapp/templates/manage-templates#after-approval"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/whatsapp-template-url-tracking",
-      "destination": "/whatsapp/templates/overview#template-limits"
+      "destination": "/whatsapp/templates/custom-marketing#track-link-clicks"
     },
     {
       "source": "/basic-modules/whatsapp-templates",
@@ -779,7 +836,7 @@
     },
     {
       "source": "/basic-modules/whatsapp-templates/re-write-with-ai",
-      "destination": "/whatsapp/templates/create-template#rewriting-your-message-with-ai"
+      "destination": "/whatsapp/templates/custom-marketing#rewrite-with-ai"
     },
     {
       "source": "/bots",
