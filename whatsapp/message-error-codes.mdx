@@ -1,0 +1,220 @@
+---
+title: "Message Error Codes"
+description: "What each WhatsApp message failure code means, and what to do about it."
+---
+
+>
+> * Anyone who sees a failed message in the Inbox, a broadcast, or a sequence.
+> * Roles: All roles that can view conversations.
+
+<Info>
+
+When a WhatsApp message fails, Meta returns a numbered error code. Gallabox shows that code — along with what it means and what to try — on the message itself. This page is the full reference for those codes.
+
+</Info>
+
+## Find the error on a message
+
+<Steps>
+
+<Step title="Open the conversation">
+In the **Inbox**, open the conversation containing the failed message. Failed messages are marked with an error indicator.
+</Step>
+
+<Step title="Open the message info">
+Open the message's info view. Gallabox shows the error code, a plain-language **description**, and **possible solutions**.
+</Step>
+
+<Step title="Check where the error came from">
+Errors that came from Meta are labelled **Error Message From Meta**. Those are Meta's decision, not Gallabox's — the fix is usually on the WhatsApp Business Account side.
+</Step>
+
+</Steps>
+
+<Note>
+
+If you see **"Unique Error Encountered"** instead of a description, the code is one Gallabox has not catalogued yet. Contact support with the message details and they will investigate.
+
+</Note>
+
+## The five errors you will actually hit
+
+These account for the large majority of failures. Start here before scanning the full reference.
+
+<AccordionGroup>
+
+<Accordion title="131047 — The 24-hour window has closed">
+**What happened:** More than 24 hours have passed since the customer last replied to this number, so a free-form message cannot be sent.
+
+**What to do:** Send an approved [template](/whatsapp/templates/overview) instead. A template is the only way to reopen a conversation after the window closes. Once the customer replies, the 24-hour window opens again and you can send normal messages.
+
+This is the single most common failure, and it is working as designed — WhatsApp requires it.
+</Accordion>
+
+<Accordion title="131048 — Your number is under spam review">
+**What happened:** Meta has limited how many messages your number can send, usually because too many earlier messages were blocked or marked as spam.
+
+**What to do:**
+
+1. Check your daily broadcast limit on the WhatsApp channel.
+2. If you are under the limit, check your number's quality rating in WhatsApp Manager.
+
+Fix the underlying cause: clean up your audience list, confirm opt-ins, and reduce message frequency. Quality recovers over time if the behaviour changes.
+</Accordion>
+
+<Accordion title="132001 — Template does not exist or is not approved">
+**What happened:** The template you tried to send does not exist in that language, or it has not been approved.
+
+**What to do:** Open **My Templates** and confirm the template's status is **Active**, and that the language matches what you are sending. See [Manage templates](/whatsapp/templates/manage-templates).
+</Accordion>
+
+<Accordion title="132015 and 132016 — Template paused or disabled">
+**What happened:** Meta paused the template because of low quality (`132015`), or permanently disabled it after repeated pauses (`132016`).
+
+**What to do:**
+
+* For `132015` — edit the template to improve its content and resubmit. Check that your audience has genuinely opted in; recipients marking messages as spam is what drives quality down.
+* For `132016` — the template cannot be recovered. Create a new template with different content.
+
+</Accordion>
+
+<Accordion title="131042 — Billing problem on the WhatsApp Business Account">
+**What happened:** Meta could not charge for the message. Common causes: no payment method linked to the WhatsApp Business Account, a credit limit reached, an inactive credit line, or a missing timezone or currency setting.
+
+**What to do:** Check that all dues are cleared on your Gallabox billing. If billing is up to date and the error continues, contact support.
+</Accordion>
+
+</AccordionGroup>
+
+## Full reference
+
+### Delivery failures
+
+| Code | What it means | What to do |
+| :-- | :-- | :-- |
+| `131047` | The 24-hour window has closed — the customer last replied more than 24 hours ago. | Send an approved template instead. |
+| `131026` | The message could not be delivered. The recipient may be on an old version of WhatsApp, may not have accepted WhatsApp's latest terms, or is in India where authentication templates cannot be delivered. | Contact the customer another way and ask them to update WhatsApp and accept the latest terms. |
+| `130472` | The recipient is in a Meta test group that does not receive marketing messages without an existing conversation. You are not charged. | Ask the customer to message you first, then reply within the window. |
+| `131049` | Meta withheld the message to protect healthy engagement on WhatsApp. | Do not retry immediately. Retry at increasing intervals. |
+| `131056` | Too many messages sent from your number to the same recipient in a short period. | Wait before messaging that person again. Other recipients are unaffected. |
+| `131048` | Your number is under spam review and has send limits applied. | Check your broadcast limit and quality rating. See the accordion above. |
+| `131021` | The sender and recipient phone numbers are the same. | Send to a different number — a channel cannot message itself. |
+| `131051` | The message type is not supported on WhatsApp. | See [Unsupported messages](/whatsapp/unsupported-messages). |
+| `131052` | Gallabox could not download the media the customer sent. | Ask the customer to resend the file. |
+| `131053` | The media could not be uploaded. Each media type has its own size and format limits. | Check the file type and size, then resend. |
+| `131000` | An unknown error at Meta's end. | Retry. If it persists, contact support. |
+| `135000` | A generic failure caused by the request Gallabox sent. | Contact support with the message details. |
+
+### Template problems
+
+| Code | What it means | What to do |
+| :-- | :-- | :-- |
+| `132000` | The number of variables sent does not match the number defined in the template. | Check that every variable in the template has a value. |
+| `132001` | The template does not exist in that language, or is not approved. | Confirm the template is **Active** and the language is correct. |
+| `132005` | The translated text is too long. | Shorten the template content and resubmit. |
+| `132007` | The template content violates a WhatsApp policy. | Rewrite the content to meet Meta's template guidelines. |
+| `132012` | Variable values are formatted incorrectly. | Check the format of each variable value. |
+| `132015` | The template is paused by Meta due to low quality. | Improve the content and resubmit. |
+| `132016` | The template is permanently disabled after repeated pauses. | Create a new template with different content. |
+
+### Account, billing and policy
+
+| Code | What it means | What to do |
+| :-- | :-- | :-- |
+| `368` | The WhatsApp Business Account is restricted or disabled for policy violations. | Review Meta's policy enforcement notice in WhatsApp Manager. |
+| `131031` | The WhatsApp Business Account is locked — a policy violation, or bad request details such as an incorrect two-step PIN. | Check Meta's policy enforcement guidance, then contact support. |
+| `131042` | A payment or eligibility problem on the WhatsApp Business Account. | Clear any dues, then contact support if it continues. |
+| `131045` | The number failed to register correctly with Meta. | Contact support — this needs a re-registration. |
+| `133000` | A previous deregistration attempt failed. | Contact support. |
+| `133004` | Meta's server is temporarily unavailable. | Wait and retry. |
+| `133005` | The two-step verification PIN did not match. | Re-enter the correct PIN. |
+| `133006` | The phone number needs verification before it can be registered. | Complete number verification. |
+| `133008` | Too many two-step PIN attempts for this number. | Wait before trying again. |
+| `133009` | The two-step PIN was entered too quickly. | Wait a moment and re-enter it. |
+| `133010` | The number is not registered on the WhatsApp Business Platform. | Complete channel setup — see [Connect your WhatsApp](/whatsapp/connect-your-whatsapp). |
+| `133015` | The number was recently deleted and is in a cooldown period. | Wait for the cooldown to finish before re-registering. |
+| `138009` | The limit for call permission requests to this customer has been reached. | See [WhatsApp Calling](/whatsapp/calling/overview). |
+
+### Rate limits
+
+| Code | What it means | What to do |
+| :-- | :-- | :-- |
+| `4` | The app has hit Meta's API call rate limit. | Wait and retry. Reduce how often you call the API. |
+| `80007` | The WhatsApp Business Account has hit its maximum message or report volume. | Wait and retry later. |
+| `130429` | Cloud API message throughput has been reached. | Wait and retry. Reducing message volume also helps delivery and number health. |
+
+### Connection and permissions
+
+These usually need Gallabox support or a change in Meta Business Manager — they are rarely something you can fix from the Inbox.
+
+| Code | What it means | What to do |
+| :-- | :-- | :-- |
+| `0` | Gallabox could not authenticate with Meta. The access token has expired or been invalidated. | Contact support to refresh the connection. |
+| `1` | An invalid request, or a Meta outage. | Retry. If it persists, contact support. |
+| `2` | Meta's API is down or overloaded. | Wait and retry. |
+| `3` | A capability or permissions issue with Meta's API. | Contact support. |
+| `10` | Permission was not granted, or was removed, in Meta Business Manager. | Re-check the permissions granted to Gallabox. |
+| `33` | The business phone number has been deleted. | Contact support to reconnect the channel. |
+| `100` | The request included an unsupported or misspelled parameter. | Contact support with the message details. |
+| `190` | The Meta access token has expired. | Contact support to refresh the connection. |
+| `200` | API permissions changed or were removed in Meta Business Manager. | Restore the permissions granted to Gallabox. |
+| `131005` | Access denied — permission not granted or removed in Meta Business Manager. | Restore the permissions granted to Gallabox. |
+| `131008` | A required parameter was missing from the request. | Contact support with the message details. |
+| `131009` | One or more parameter values are invalid. | Contact support with the message details. |
+| `131016` | A Meta service is temporarily unavailable. | Wait and retry. |
+
+## Reduce failures before they happen
+
+<Check>Reply within the 24-hour window, and use templates to reopen conversations.</Check>
+<Check>Keep your contact list clean — sending to invalid or uninterested numbers damages your quality rating.</Check>
+<Check>Confirm opt-in before sending marketing messages, and honour opt-outs.</Check>
+<Check>Watch your number's quality rating and daily broadcast limit.</Check>
+<Check>Check [broadcast analytics](/whatsapp/broadcasts/broadcast-analytics) after each send to catch problems early.</Check>
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Do failed messages cost anything?">
+Messages that fail to deliver are not charged. For messages held back by Meta's marketing experiment (`130472`), Meta states explicitly that you are not charged.
+</Accordion>
+
+<Accordion title="Can I retry a failed message?">
+It depends on the code. Temporary problems — rate limits, Meta service outages — are worth retrying. Structural ones, such as a closed 24-hour window or a disabled template, will fail again until you fix the cause.
+</Accordion>
+
+<Accordion title="Where do I see failures across a whole broadcast?">
+See [Broadcast analytics](/whatsapp/broadcasts/broadcast-analytics) for delivery outcomes across a send, and [Template analytics](/reports-and-analytics/template-analytics) for non-delivery reasons by template.
+</Accordion>
+
+<Accordion title="I want an email when messages fail. Is that possible?">
+Yes. Turn on **Failed Message Email Alert** in your channel's configuration — see [Channel configuration](/whatsapp/channel-configuration).
+</Accordion>
+
+<Accordion title="The error says it came from Meta. Can Gallabox fix it?">
+Not directly. Errors labelled **Error Message From Meta** are Meta's decision about your WhatsApp Business Account — quality ratings, policy enforcement, billing. Gallabox support can help you interpret them and confirm what to change, but the resolution happens on the Meta side.
+</Accordion>
+
+</AccordionGroup>
+
+## Related
+
+<Columns cols="2">
+
+<Card title="Unsupported messages" href="/whatsapp/unsupported-messages">
+Message types WhatsApp does not support.
+</Card>
+
+<Card title="Broadcast analytics" href="/whatsapp/broadcasts/broadcast-analytics">
+See delivery outcomes across a whole broadcast.
+</Card>
+
+<Card title="Manage templates" href="/whatsapp/templates/manage-templates">
+Check template status and fix rejections.
+</Card>
+
+<Card title="Channel configuration" href="/whatsapp/channel-configuration">
+Turn on email alerts for failed messages.
+</Card>
+
+</Columns>

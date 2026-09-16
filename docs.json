@@ -167,6 +167,7 @@
               "whatsapp/shop",
               "whatsapp/payments",
               "whatsapp/unsupported-messages",
+                  "whatsapp/message-error-codes",
               {
                 "group": "Click-to-WhatsApp Ads (CTWA)",
                 "pages": [
