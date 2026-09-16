@@ -394,6 +394,7 @@
               "settings/tags",
               "settings/variables",
               "settings/webhooks",
+                  "settings/api-keys",
               "settings/security",
               "settings/two-factor-authentication",
               "settings/activity-log"
