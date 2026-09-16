@@ -1,0 +1,118 @@
+---
+title: "Manage templates"
+description: "Find, sync, duplicate, test, and route replies for WhatsApp templates you already have in Gallabox."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles with WhatsApp Templates access.
+
+This page is the list of templates, not the editor. To write a new one, pick a type from the [Templates overview](/whatsapp/templates/overview).
+
+Templates live under **WhatsApp → Templates**. Broadcasts and sequences only pick from templates Meta has already approved here.
+
+## Plan Availability
+
+Available on all Gallabox plans.
+
+## My Templates and Library
+
+The page opens on **My Templates** for the WhatsApp channel in the picker at the top right.
+
+* **My Templates** is what you created or synced from Meta.
+* **Library** is ready-made copy you can open and submit as your own.
+
+Templates belong to a channel. If one is missing, switch the channel before assuming it was never created.
+
+### Filter and search
+
+Click **Filter** to narrow by:
+
+* **Status:** Approved, Pending, Rejected, Error
+* **Category:** Marketing, Utility, Authentication
+* **WABA presence:** Present in WABA, Not present in WABA
+
+You can combine filters. **Reset** clears them. Search is by template name.
+
+### List and Grid
+
+* **Grid** shows a preview of the body. Use it to spot formatting issues.
+* **List** is a table: name, message, language, created on, type, and status.
+
+## Sync from Meta
+
+Approvals and rejections usually land in Gallabox on their own within minutes.
+
+If Meta's WhatsApp Manager shows **Approved** and Gallabox does not, click the **refresh** icon. Sync is per channel. If it is still missing, clear filters, check the channel, then contact support with the template name.
+
+## Duplicate a template
+
+Approved templates open as **View Only**. Duplicate to change the copy, add a language, or fix a rejection.
+
+**From the list:** three-dot menu → **Duplicate template**. On a rejected or errored template, the same action reads **Edit template**.
+
+**From the template:** **Duplicate this template** (or **Edit template**).
+
+Change the **Template name**. Names must be unique. Submit the copy. The original stays usable.
+
+Meta blocks the name of a deleted **approved** template for 30 days. Disabled templates cannot be deleted. Leave them and create a replacement.
+
+## Test a template
+
+**Test template** is only on **Approved** templates. The test is a real WhatsApp message. It uses message credits.
+
+1. Open the template or its three-dot menu.
+2. Click **Test template**.
+3. Enter a phone number with country code.
+4. Fill every variable.
+5. Click **Test**.
+
+Check the phone. From the confirmation you can **Go to conversation** or **Test with another number**.
+
+If nothing arrives, confirm the country code and try another number.
+
+Wait about 15 minutes after a new approval before you test or send. Earlier sends can fail while Meta finishes propagating.
+
+## Configurations
+
+Once a template is approved, **Configurations** sets what happens when a customer replies to **that** template (a **Quick reply** tap or a free-text reply).
+
+1. Three-dot menu → **Configurations**.
+2. Under **Reply Settings → Assign to**, pick a **team**, **user**, or **AI agent or bot**.
+3. Optionally tick **Override the current assignments?**
+4. Save.
+
+Clear the assignment and save to remove it. The same dialog also holds message tracker settings for that template.
+
+Other messages in the conversation still follow your usual inbox routing.
+
+## Common problems
+
+| What you see | What to do |
+| --- | --- |
+| Stuck in **Pending** | Meta often decides within 24 hours. If it is still Pending after that, raise a Gallabox ticket with the name. |
+| **Approved** in Meta, missing here | Right channel, clear filters, click refresh. |
+| Duplicate name error | The name exists, or you deleted an approved template with that name in the last 30 days. Use a new name such as `order_confirm_v2_en`. |
+| Cannot delete | Meta does not allow deleting a **Disabled** template. Create a replacement. |
+| Test not received | Country code missing, or the phone filtered it. Try another number. |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Where do I create a new template?">
+**WhatsApp → Templates** → **Create New Template**. Then pick **Category**. The how-to is on that type's page, not here. Start from the [Templates overview](/whatsapp/templates/overview).
+</Accordion>
+<Accordion title="Can I edit an approved template?">
+Not in place. **Duplicate this template**, edit the copy, submit it under a new name.
+</Accordion>
+<Accordion title="A template I created is missing from the list.">
+Switch the channel in the picker, clear filters, and click refresh.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Custom marketing](/whatsapp/templates/custom-marketing)
+* [Custom utility](/whatsapp/templates/custom-utility)
+* [Template analytics](/reports-and-analytics/template-analytics)

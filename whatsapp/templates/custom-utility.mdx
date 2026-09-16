@@ -1,0 +1,76 @@
+---
+title: "Custom utility"
+description: "Create a Custom utility WhatsApp template in Gallabox for order updates and reminders, then run Smart check before you submit."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles with WhatsApp Templates access.
+> * A connected WhatsApp channel is required.
+
+Use **Custom utility** when the message is tied to something the customer already did: an order, an appointment, a delivery.
+
+In **Category**, pick **Custom utility**. Do not put a discount, a sale, or "limited time" copy here. Meta will reject it, or recategorise it as Marketing and bill it that way.
+
+The editor screen is the same as [Custom marketing](/whatsapp/templates/custom-marketing). Header (including location), buttons, and variables work the same way. Skip **Coupon code**. You do not need a STOP footer.
+
+## Plan Availability
+
+Available on all Gallabox plans. Utility is free inside the customer's 24-hour window and charged outside it. See [Message Credits](/pricing-and-billing/message-credits).
+
+## Create the template
+
+1. Go to **WhatsApp → Templates** and click **Create New Template**.
+2. In **Category**, pick **Custom utility**.
+3. Enter a **Template name**. Gallabox lowercases letters and turns anything else into an underscore. Maximum 60 characters. Example: `order_confirmation_en`. You cannot change the name after you submit.
+4. Choose the **Channel** and **Language**.
+5. Write the **Message body**. Add a header or buttons if you need them. Run **Smart check**. Then click **Submit for approval**.
+
+Body: maximum 1,024 characters. Add variables and samples the same way as Custom marketing. See [Variables](/whatsapp/templates/custom-marketing#variables). Put text before the first variable.
+
+Optional header: **None**, **Text**, **Image**, **Video**, **Document**, or **Location**. For the location pin, follow [Location header](/whatsapp/templates/custom-marketing#location-header). The pin is saved on the template. Every send uses that pin.
+
+Footer is optional. Maximum 60 characters. Gallabox does not pre-fill STOP on Utility.
+
+After **Approved**, wait about 15 minutes before you send. To duplicate or test, see [Manage templates](/whatsapp/templates/manage-templates).
+
+Need to take payment in WhatsApp instead? That is **Payment utility**. See [WhatsApp Payments](/whatsapp/payments).
+
+## Smart check
+
+**Smart check** is only on Utility. It sits at the top of the editor. It tells you how likely Meta is to keep this as Utility, before you submit.
+
+1. Write the body.
+2. Click **Smart check**.
+3. Read the confidence score.
+
+| Confidence | Score | What to do |
+| --- | --- | --- |
+| **High** | Above 80 | Safe to submit |
+| **Medium** | 26 to 80 | Read the reasoning. Use the suggested rewrite if it still sounds transactional |
+| **Low** | 25 or below | Remove offer language, or switch Category to Custom marketing |
+
+Smart check is a guide, not a guarantee. Meta still reviews the template.
+
+If you used **AI Rewrite**, run Smart check after, not before. A rewrite can drift into promotional language.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why does Smart check say Low when this is clearly transactional?">
+Words like "offer", "exclusive", "limited time", or "discount" look like Marketing to Meta. Use the reasoning Smart check returns. Replace those phrases or remove them.
+</Accordion>
+<Accordion title="Can I add a coupon?">
+Not on Custom utility. A promo code belongs on [Custom marketing](/whatsapp/templates/custom-marketing#coupon-code) or a [Limited Time Offer](/whatsapp/templates/limited-time-offer).
+</Accordion>
+<Accordion title="Can I pick a new location each time I send?">
+No. Duplicate the template and change the pin. See [Location header](/whatsapp/templates/custom-marketing#location-header).
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Templates overview](/whatsapp/templates/overview)
+* [Custom marketing](/whatsapp/templates/custom-marketing)
+* [Manage templates](/whatsapp/templates/manage-templates)
+* [WhatsApp Payments](/whatsapp/payments)

@@ -1,6 +1,6 @@
 ---
 title: "Templates"
-description: "Pick the WhatsApp template type that matches the job, then submit it to Meta from Gallabox."
+description: "Pick the WhatsApp template type that matches the Category dropdown in Gallabox."
 sidebarTitle: "Overview"
 ---
 
@@ -11,15 +11,13 @@ sidebarTitle: "Overview"
 
 ## What are template messages
 
-You cannot start a WhatsApp conversation with a free-typed message. Meta only lets you reach out with a template it has already approved. Gallabox submits that template for you. Meta reviews it.
+You cannot start a WhatsApp conversation with a free-typed message. Meta only lets you reach out with a template it has already approved. Gallabox submits that template for you.
 
-Gallabox does not have one "marketing template." **Create New Template** shows four marketing types, plus utility and authentication. Pick the type that matches the job, not the category name on Meta's website.
+Pick the type that matches **Category** in **Create New Template**. Each name below is that dropdown option.
 
 <Info>
 
-Template messages are charged per send by category. See [Message Credits](/pricing-and-billing/message-credits).
-
-Replies inside the 24-hour window are free-form. Those do not use templates.
+Template messages are charged per send by category. See [Message Credits](/pricing-and-billing/message-credits). Replies inside the 24-hour window are free-form. Those do not use templates.
 
 </Info>
 
@@ -29,152 +27,61 @@ Available on all Gallabox plans.
 
 ## Pick a type
 
-Go to **WhatsApp → Templates**, then click **Create New Template**. The **Category** dropdown is grouped the same way as the table below.
+Go to **WhatsApp → Templates**, then click **Create New Template**.
 
 ### Marketing
 
-Use these when you are promoting something. Meta bills them as Marketing.
+Meta bills these as Marketing. Keep a STOP line on Custom marketing. Carousel and Limited Time Offer have no footer.
 
 <Columns cols="2">
-  <Card title="Custom marketing" href="/whatsapp/templates/create-template">
-    Offers, announcements, and re-engagement. Add media, a location pin, a coupon, a website button, or a form.
+  <Card title="Custom marketing" href="/whatsapp/templates/custom-marketing">
+    Offers and announcements. Media, a location pin, a coupon button, a website button, or a form.
   </Card>
   <Card title="Carousel" href="/whatsapp/templates/carousel-templates">
-    One message, then up to 10 image or video cards the customer swipes through.
+    One message, then up to 10 image or video cards.
   </Card>
   <Card title="Limited Time Offer" href="/whatsapp/templates/limited-time-offer">
-    A code with a countdown on the customer's phone. Built for flash sales.
+    A code with a countdown on the customer's phone.
   </Card>
   <Card title="Product marketing" href="/whatsapp/templates/product-marketing">
-    Open your full catalogue, or send a curated set of products from Commerce Manager.
+    Your catalogue, or a curated set of products.
   </Card>
 </Columns>
 
-Marketing templates need an opt-out. Gallabox pre-fills the footer with *Reply with 'STOP' to unsubscribe from marketing messages.* Keep that line, or write your own STOP wording. Carousel and Limited Time Offer do not have a footer. Meta still expects the message itself to be honest marketing, not spam.
+### Utility
 
-### Utility and authentication
+Do not put a discount in Utility. Meta will reject it, or recategorise it as Marketing.
 
-| Type in Gallabox | When to use | Where to set it up |
-| --- | --- | --- |
-| **Custom utility** | Order updates, appointment reminders, delivery notices. Tied to something the customer already did. Can include a [location header](/whatsapp/templates/create-template#location-header). | [Create a template](/whatsapp/templates/create-template) |
-| **Payment utility** | Ask the customer to pay in WhatsApp. Needs a payment gateway on that channel. | Create it here. Send the request from a chat after you connect a gateway. See [WhatsApp Payments](/whatsapp/payments) |
-| **Authentication template** | OTPs and verification codes. The message body is fixed by WhatsApp. | [Authentication templates](/whatsapp/templates/authentication) |
+<Columns cols="2">
+  <Card title="Custom utility" href="/whatsapp/templates/custom-utility">
+    Order updates, appointments, delivery notices. Tied to something the customer already did. Run Smart check before you submit.
+  </Card>
+  <Card title="Payment utility" href="/whatsapp/payments">
+    Ask the customer to pay in WhatsApp. Needs a payment gateway on that channel. Create it here. Send it from a chat.
+  </Card>
+</Columns>
 
-Do not put a discount in a Utility template. Meta will reject it, or recategorise it as Marketing and bill it that way. For Utility drafts, run [Smart check](/whatsapp/templates/create-template#smart-check-for-utility-templates) before you submit.
+### Authentication
 
-### Authentication templates
+<Card title="Authentication template" href="/whatsapp/templates/authentication">
+  OTPs and verification codes. WhatsApp writes the body. You pick Zero-tap Autofill, One-tap Autofill, or Copy Code.
+</Card>
 
-Authentication is only for codes. Pick **Authentication template** in **Category**. WhatsApp writes the body. You pick how the customer gets the code under **Code Delivery Setup**.
+## Not in Category
 
-| Option | When to use it |
-| --- | --- |
-| **Zero-tap Autofill** (default) | You have an Android app. The code can land in the app with no tap. |
-| **One-tap Autofill** | You have an Android app. The customer taps **Autofill**. |
-| **Copy Code** | Phone and WhatsApp Web. No app setup. The customer copies and pastes. |
+These are easy to mix up with Meta's specialty list. They are not extra dropdown types.
 
-You can add a security line and a 1 to 90 minute expiry. Full steps, App Setup, and button labels are on [Authentication templates](/whatsapp/templates/authentication).
+* **Coupon** is a button on [Custom marketing](/whatsapp/templates/custom-marketing#coupon-code), not its own type.
+* **Location** is a header on [Custom marketing](/whatsapp/templates/custom-marketing#location-header) and [Custom utility](/whatsapp/templates/custom-utility). You set the pin when you create the template.
+* **Call permission** is created for you when [WhatsApp Calling](/whatsapp/calling/overview) is on. Send it from a chat. See [Outgoing calls](/whatsapp/calling/outgoing-calls).
 
-### Call permission
+## After you create one
 
-You will not find this in **Category**. Meta lists a call permission request under marketing templates. In Gallabox it is a Utility template the product creates for you when [WhatsApp Calling](/whatsapp/calling/overview) is on.
+Click **Submit for approval**. Status **Approved** is not enough to send immediately. Wait about 15 minutes.
 
-Use it from a conversation: **Send a call permission template**. That asks the customer if your business may call them, including outside the 24-hour window. You do not write this template in **Create New Template**.
+Low quality, Paused, and Disabled are Meta decisions. Duplicate, fix, and submit a new template. You do not unpause from Gallabox.
 
-The full permission flow, limits, and billing are in [Outgoing calls](/whatsapp/calling/outgoing-calls).
-
-## How Meta treats marketing templates
-
-Approval is not the finish line.
-
-**Quality rating** shows on the template as High, Medium, Low, or Pending. Gallabox warns you when you send a Low quality template. Low quality can cause send failures, or Meta can pause or disable the template.
-
-**Paused** templates cannot be sent until Meta re-approves them. Gallabox shows **How to Unpause?**, which opens Meta's help. You do not unpause from Gallabox. **Disabled** is also a Meta decision. Duplicate the template, fix the copy, and submit a new one.
-
-## The approval process
-
-<Steps>
-<Step title="Create the template">
-Go to **WhatsApp → Templates** and click **Create New Template**. Pick a type, write the message, add sample values for every variable.
-</Step>
-<Step title="Submit to Meta">
-Click **Submit for approval**. Gallabox sends it to Meta.
-</Step>
-<Step title="Wait for a decision">
-A decision usually comes within 24 hours. If it takes longer, raise a support ticket with Gallabox.
-</Step>
-<Step title="Check the status in Gallabox">
-* **Pending:** Meta is reviewing it
-* **Approved:** wait about 15 minutes, then you can send it
-* **Rejected:** Meta gives a reason. Duplicate, fix, resubmit
-* **Error:** it never reached Meta. The template shows why
-* **Paused** or **Disabled:** Meta stopped it after people marked it as spam or low quality
-</Step>
-</Steps>
-
-<Info>
-
-Approvals usually land in Gallabox on their own. If Meta shows Approved and Gallabox does not, pick the right channel on the Templates page and click the refresh icon.
-
-</Info>
-
-### Why templates get rejected
-
-* **Wrong category.** An offer submitted as Utility is the most common miss.
-* **Missing opt-out.** Custom marketing with no STOP line in the footer.
-* **Vague copy.** The message does not say what it is for. Meta cannot guess from the template name.
-* **Missing samples.** Every variable needs an example value.
-* **Brand mismatch.** The copy does not match your verified WhatsApp business name.
-
-## Template limits
-
-| Limit | Value |
-| --- | --- |
-| Template name | 60 characters, lowercase letters, numbers, and underscores |
-| Message body | 1,024 characters |
-| Header / footer | 60 characters each (Limited Time Offer's offer line is 16) |
-| Buttons | Up to 10. Button text up to 25 characters |
-
-Carousel, Limited Time Offer, Product marketing, and Authentication have extra rules on their own pages.
-
-## How to create a template
-
-<Steps>
-<Step title="Open Templates">
-Go to **WhatsApp → Templates**.
-</Step>
-<Step title="Create New Template">
-Click **Create New Template**.
-</Step>
-<Step title="Pick the type">
-Use **Category**. Match the job: Custom marketing, Carousel, Limited Time Offer, Product marketing, Custom utility, Payment utility, or Authentication template.
-</Step>
-<Step title="Fill the editor">
-Follow the page for that type. Custom marketing and Custom utility stay on [Create and manage templates](/whatsapp/templates/create-template). Authentication is on [Authentication templates](/whatsapp/templates/authentication).
-</Step>
-<Step title="Submit for approval">
-Click **Submit for approval**, then wait for **Approved**.
-</Step>
-</Steps>
-
-<Check>
-
-Start with Custom utility for real orders and appointments. Those approve faster. Add marketing types once the utility library works.
-
-</Check>
-
-## Example
-
-You run a restaurant. You need three jobs, so you create three templates.
-
-1. **Custom utility, order confirmation**
-   > Hi \{\{name\}\}! We have received your order \{\{order_id\}\}. Estimated delivery: \{\{delivery_time\}\}.
-2. **Custom utility, out for delivery**
-   > Your order \{\{order_id\}\} is on the way. Your rider is \{\{partner_name\}\}.
-3. **Custom marketing, weekly offer**
-   > Hi \{\{name\}\}! This week: \{\{discount\}\}% off \{\{product\}\}. Use code \{\{code\}\} at checkout.
-   Keep the STOP footer Gallabox adds.
-
-A flash sale with a countdown is a [Limited Time Offer](/whatsapp/templates/limited-time-offer), not Custom marketing with a date in the body.
+To list, sync, duplicate, or test templates you already have, use [Manage templates](/whatsapp/templates/manage-templates).
 
 ## FAQs
 
@@ -182,18 +89,12 @@ A flash sale with a countdown is a [Limited Time Offer](/whatsapp/templates/limi
 <Accordion title="Why was my template rejected?">
 Open the template. Meta's reason is in the details.
 
-* **"Too promotional":** move it to a Marketing type, or strip offer language if it is meant to be Utility.
+* **"Too promotional":** use a Marketing type, or strip offer language if it is meant to be Utility.
 * **"Missing opt-out":** keep a STOP line in the footer on Custom marketing.
-* **"Vague purpose":** say what the message is in the body. Do not hide it in the name.
+* **"Vague purpose":** say what the message is in the body.
 * **Variables:** add a sample for each one, and put text before the first variable.
-</Accordion>
-<Accordion title="Can I edit an approved template?">
-Not in place. Approved templates open as **View Only**. Click **Duplicate this template**, edit the copy, and submit it under a new name. The original stays usable while Meta reviews the copy.
 </Accordion>
 <Accordion title="What's the difference between a template and a free-form message?">
 A free-form message is anything you type in the inbox. You can only send it within 24 hours of the customer's last message. A template is pre-approved, so you can send it any time, including in broadcasts and sequences.
-</Accordion>
-<Accordion title="How do I use variables?">
-In the editor, click **Add variables**. Contact fields such as `{{name}}` fill from the contact. Custom ones such as `{{order_id}}` are filled when you send. Give every variable a sample before you submit. See [Create and manage templates](/whatsapp/templates/create-template#variables).
 </Accordion>
 </AccordionGroup>
