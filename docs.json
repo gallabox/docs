@@ -122,6 +122,7 @@
               "whatsapp/migrate-from-business-app",
               "whatsapp/customer-identity-bsuid",
               "whatsapp/whatsapp-coexistence",
+                  "whatsapp/channel-configuration",
               {
                 "group": "Broadcasts",
                 "pages": [

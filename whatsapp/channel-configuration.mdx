@@ -1,0 +1,226 @@
+---
+title: "Channel Configuration"
+description: "Every automation setting on a WhatsApp channel — business hours, welcome and away messages, auto reply, agent fallback and more."
+---
+
+> **Who can use this?**
+>
+> * Anyone setting up how a WhatsApp channel behaves when customers message you.
+> * Roles: Owners and Admins, and custom roles with permission to manage channels.
+> * Plans: Most configurations require the Essential or Advanced plan. Settings you do not have access to appear locked.
+
+<Info>
+
+Channel configuration is where you decide what happens automatically on a WhatsApp number — when you are open, what customers hear first, what happens when nobody replies, and when a chat closes itself. Each setting is a card you switch on and configure independently.
+
+</Info>
+
+## Before you start
+
+* Connect the WhatsApp channel first — see [Connect your WhatsApp](/whatsapp/connect-your-whatsapp).
+* Create the [canned responses](/whatsapp/canned-responses) you want to send automatically. Welcome, away, auto reply and re-engagement messages all pick from canned responses rather than free text.
+* Settings apply to **one channel**. If you run several WhatsApp numbers, configure each one.
+
+## Where to find it
+
+Go to **WhatsApp Channel → \[your channel]** in the left navigation, then open the **Configuration** tab.
+
+<Warning>
+
+**If your channel is in coexistence mode** — running the WhatsApp Business App alongside Gallabox — turn the equivalent setting **off in the WhatsApp app first**. Business hours, welcome messages and away messages exist in both places, and leaving both on sends the customer two messages. See [WhatsApp coexistence](/whatsapp/whatsapp-coexistence).
+
+</Warning>
+
+## The settings
+
+### Business hours
+
+Tells customers when you are available, and drives when away messages are sent.
+
+You can set:
+
+* **Working hours** for each day of the week, or **Open 24/7**.
+* **Special days** — different hours for a specific date or a date range, such as a late opening or a half day.
+* **Closed days** — dates you are shut, such as public holidays.
+
+### Away message
+
+Sends an automatic reply when a customer messages outside your business hours, so nobody is left without an answer overnight.
+
+Pick the canned response to send. Away messages depend on **Business hours** being configured — without hours, Gallabox does not know when you are away.
+
+### Welcome message
+
+Greets a customer with an automatic message the first time they reach you.
+
+Pick the canned response to send. You can preview it before saving, and create a new canned response without leaving the page.
+
+### Auto reply
+
+Sends a holding message when a customer has been waiting without a reply — "thanks, someone will be with you shortly."
+
+You configure:
+
+* **Canned response** — the message to send.
+* **Minutes** — how long to wait before sending it.
+* **Preference** — which conversations it applies to: **Unassigned conversations**, **Assigned conversations**, or **For all conversations**.
+
+<Tip>
+
+Set the wait time slightly above your realistic first-response time. Too short and every customer gets a robotic message before a human would have replied anyway.
+
+</Tip>
+
+### Agent fallback management
+
+Handles conversations that stall because an agent is slow or has gone offline. Two independent rules:
+
+* **Handover fallback rule** — triggers when a conversation is handed over from one agent, bot or team to another and no reply is sent in time.
+* **Inactive agent fallback rule** — triggers when an agent becomes inactive during a conversation.
+
+For each rule you set:
+
+* **Trigger after (minutes)** — how long to wait.
+* **Trigger action** — **Assign to Team**, **Assign to User**, **Assign to same team**, or **Assign to Chat Agent**.
+* **Send a canned response** — an optional message to the customer when the rule fires.
+
+### Re-engagement message
+
+Sends a follow-up when a customer has gone quiet mid-conversation.
+
+Set the **canned response** and the **minutes** to wait before sending it.
+
+<Note>
+
+If the customer's last reply was more than 24 hours ago, WhatsApp requires a template rather than a normal message. See error code [`131047`](/whatsapp/message-error-codes).
+
+</Note>
+
+### Auto resolve chat
+
+Closes a conversation automatically when the customer has not interacted for a set number of **minutes**, so your open queue reflects work that is genuinely active.
+
+### Failed message email alert
+
+Sends an email to an address you choose whenever a message fails on this channel. Useful for catching billing problems, quality restrictions and template pauses early rather than discovering them in a report.
+
+See [Message error codes](/whatsapp/message-error-codes) for what the failures mean.
+
+### Marketing opt-out messages
+
+Handles customers who want to stop receiving marketing messages, and lets them subscribe back.
+
+You configure:
+
+* **Primary keyword** — the word that triggers opt-out.
+* **Additional keywords** — other words that should also trigger it, such as `Unsubscribe`.
+* **Opt-out confirmation message** — what the customer receives when they opt out.
+* **Button text to subscribe back** — the label on the re-subscribe button.
+* **Re-subscription confirmation** — what the customer receives when they opt back in.
+
+### Image visibility
+
+Controls how incoming images appear in conversations. Turn on **Hide all images** to hide images by default; agents can then unhide individual images as needed.
+
+Useful where agents handle sensitive or unsolicited media, or where screens are visible to others.
+
+### AI reply
+
+Drafts suggested replies for agents using AI, based on knowledge sources you choose.
+
+You configure:
+
+* **Reply generation instruction** — how the AI should write, such as tone and length.
+* **Knowledge base** — the sources the AI refers to when drafting replies in this channel.
+
+AI reply requires the Advanced plan capability. Drafts are suggestions — an agent still reviews and sends them.
+
+### Business app message settings
+
+Appears only on channels in [coexistence mode](/whatsapp/whatsapp-coexistence). Controls how messages that arrive through the WhatsApp Business App are assigned in Gallabox.
+
+### Conversation initiation template
+
+Available on some accounts. Sets the template used when an agent starts a brand-new conversation with a customer, along with the **button CTA** text.
+
+## Suggested setup order
+
+<Steps>
+
+<Step title="Set business hours">
+Everything time-based depends on this. Do it first.
+</Step>
+
+<Step title="Add welcome and away messages">
+These cover the two moments a customer is most likely to be left waiting — their first message, and anything sent after hours.
+</Step>
+
+<Step title="Add auto reply and agent fallback">
+Now handle the in-between case: a customer who reached you during working hours but is not getting a reply.
+</Step>
+
+<Step title="Turn on failed message alerts">
+So you hear about delivery problems by email rather than finding them later.
+</Step>
+
+<Step title="Set marketing opt-out handling">
+Required if you send marketing broadcasts, and it protects your number's quality rating.
+</Step>
+
+<Step title="Add auto resolve last">
+Once the rest is working, close stale conversations automatically to keep the queue honest.
+</Step>
+
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Do these settings apply to all my WhatsApp numbers?">
+No. Configuration is per channel. Set it up separately for each WhatsApp number.
+</Accordion>
+
+<Accordion title="Why is a setting greyed out or locked?">
+That setting is not included in your plan. Contact your account manager to find out what is available on a higher plan.
+</Accordion>
+
+<Accordion title="My customers are getting two welcome messages. Why?">
+Your channel is almost certainly in coexistence mode with the setting turned on in both places. Turn the greeting message off in the WhatsApp Business App and keep it only in Gallabox.
+</Accordion>
+
+<Accordion title="What is the difference between auto reply and re-engagement message?">
+**Auto reply** covers a customer waiting on you — they messaged and nobody has replied yet. **Re-engagement** covers the opposite — you replied and the customer went quiet.
+</Accordion>
+
+<Accordion title="Do automatic messages cost anything?">
+Messages sent inside the 24-hour customer service window follow normal WhatsApp conversation pricing. See [WhatsApp pricing](/pricing-and-billing/overview).
+</Accordion>
+
+<Accordion title="Where do I configure WhatsApp calling?">
+Calling is on its own **Calls** tab on the channel, not in Configuration. See [WhatsApp Calling](/whatsapp/calling/overview).
+</Accordion>
+
+</AccordionGroup>
+
+## Related
+
+<Columns cols="2">
+
+<Card title="Connect your WhatsApp" href="/whatsapp/connect-your-whatsapp">
+Set the channel up before configuring it.
+</Card>
+
+<Card title="Canned responses" href="/whatsapp/canned-responses">
+Create the messages these settings send.
+</Card>
+
+<Card title="WhatsApp coexistence" href="/whatsapp/whatsapp-coexistence">
+Avoid duplicate automatic messages.
+</Card>
+
+<Card title="Message error codes" href="/whatsapp/message-error-codes">
+Understand the failures you get alerted about.
+</Card>
+
+</Columns>
