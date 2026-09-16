@@ -812,7 +812,15 @@
     },
     {
       "source": "/whatsapp/templates/overview#why-templates-get-rejected",
-      "destination": "/whatsapp/templates/overview#faqs"
+      "destination": "/whatsapp/templates/manage-templates#why-was-my-template-rejected"
+    },
+    {
+      "source": "/whatsapp/templates/overview#faqs",
+      "destination": "/whatsapp/templates/manage-templates#why-was-my-template-rejected"
+    },
+    {
+      "source": "/whatsapp/templates/overview#after-you-create-one",
+      "destination": "/whatsapp/templates/manage-templates#after-approval"
     },
     {
       "source": "/basic-modules/whatsapp-template-guidelines/whatsapp-template-url-tracking",

@@ -59,7 +59,7 @@ Meta blocks the name of a deleted **approved** template for 30 days. Disabled te
 
 ## After approval
 
-Status **Approved** means Meta accepted the template. You can then send it from a broadcast, a sequence, the inbox, a bot, or **Test template**.
+You submit from the type page with **Submit for approval**. Status starts as **Pending**. When it becomes **Approved**, send from a broadcast, a sequence, the inbox, a bot, or **Test template**.
 
 If you send in the first minutes, Gallabox warns that the message can fail while Meta finishes propagating. Wait about 15 minutes to skip that warning. You can still proceed.
 
@@ -95,7 +95,9 @@ Other messages in the conversation still follow your usual inbox routing.
 | What you see | What to do |
 | --- | --- |
 | Stuck in **Pending** | Meta often decides within 24 hours. If it is still Pending after that, raise a Gallabox ticket with the name. |
+| **Rejected** | Open the template. Meta's reason is in the details. Duplicate, fix, and submit a new one. See [Why was my template rejected?](#why-was-my-template-rejected). |
 | **Approved** in Meta, missing here | Right channel, clear filters, click refresh. |
+| **Paused**, **Disabled**, or low quality | Those are Meta decisions. Duplicate, fix, and submit a new template. You do not unpause from Gallabox. |
 | Duplicate name error | The name exists, or you deleted an approved template with that name in the last 30 days. Use a new name such as `order_confirm_v2_en`. |
 | Cannot delete | Meta does not allow deleting a **Disabled** template. Create a replacement. |
 | Test not received | Country code missing, or the phone filtered it. Try another number. |
@@ -105,6 +107,14 @@ Other messages in the conversation still follow your usual inbox routing.
 <AccordionGroup>
 <Accordion title="Where do I create a new template?">
 **WhatsApp → Templates** → **Create New Template**. Then pick **Category**. The how-to is on that type's page, not here. Start from the [Templates overview](/whatsapp/templates/overview).
+</Accordion>
+<Accordion title="Why was my template rejected?">
+Open the template. Meta's reason is in the details.
+
+* **"Too promotional":** use a Marketing type, or strip offer language if it is meant to be Utility.
+* **"Missing opt-out":** keep a STOP line in the footer on Custom marketing.
+* **"Vague purpose":** say what the message is in the body.
+* **Variables:** add a sample for each one, and put text before the first variable.
 </Accordion>
 <Accordion title="Can I edit an approved template?">
 Not in place. **Duplicate this template**, edit the copy, submit it under a new name.
