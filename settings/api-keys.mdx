@@ -1,0 +1,194 @@
+---
+title: "API Keys"
+description: "Create, manage, and delete the API keys that let external systems connect to your Gallabox account."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users who need to connect Gallabox to an external system, or to a developer who is building one.
+> * Roles: Owners and Admins. Custom Roles with the "Can view and manage webhooks, API keys" permission (Developer modules) can also create and manage API keys.
+> * Two-factor authentication is required every time you create a key, even if you have already verified in this session.
+
+<Info>
+
+An API key is a username-and-password pair for software instead of people. It lets another system — your own app, a developer's script, or a tool that has no ready-made Gallabox integration — read from and act on your Gallabox account without anyone logging in.
+
+This page covers creating and managing keys inside Gallabox. For the list of endpoints and request formats, see the [Developer API reference](https://api-docs.gallabox.com).
+
+</Info>
+
+## When you need an API key
+
+You need a key when an outside system has to **ask Gallabox for something** or **tell Gallabox to do something** — send a message, create a contact, start a broadcast.
+
+This is the opposite direction from a [webhook](/settings/webhooks), where Gallabox notifies the outside system that something happened. Many setups use both: a webhook tells your CRM that a contact was created, and an API key lets your CRM write that contact's details back into Gallabox.
+
+If the tool you want to connect already appears under [Integrations](/integrations/overview), use that integration instead — it is set up for you and needs no key.
+
+## Where to find API keys
+
+Go to **Settings** → **Developer** → **API Keys**.
+
+<Note>
+
+The API Keys page is hidden on accounts that have only Instagram channels connected.
+
+</Note>
+
+The list shows every key on the account:
+
+| Column         | What it shows                                                        |
+| -------------- | -------------------------------------------------------------------- |
+| **Name**       | The label you gave the key                                            |
+| **API Key**    | The key's public identifier — hover to copy it                       |
+| **Created by** | The Gallabox user who created the key                                 |
+| **Created At** | Date and time the key was created                                     |
+| **Action**     | **Edit** the key's name and permissions, or **Delete** it             |
+
+## Before you start
+
+* Decide **what the key needs to do**. A key that only reads contacts should not be able to delete broadcasts.
+* Have your **two-factor authentication method ready**. Gallabox asks you to verify your identity every time you create a key.
+* Have somewhere **safe to store the secret key** — a password manager or your developer's secrets store. Not a spreadsheet, not a chat message.
+
+## Create an API key
+
+<Steps>
+
+<Step title="Open the API Keys page">
+Go to **Settings** → **Developer** → **API Keys** and click **Add new**.
+</Step>
+
+<Step title="Verify your identity">
+Gallabox asks you to complete two-factor verification before the form opens. This happens every time, because a new key grants standing access to your account.
+</Step>
+
+<Step title="Name the key">
+Enter a **Name** that says where the key will be used — for example, `Website order sync` or `Acme CRM`. The name is required.
+
+Name keys after the system that uses them. When you later need to revoke access for one system, the name is how you find the right key.
+</Step>
+
+<Step title="Choose the permission scope">
+Pick one of three tabs:
+
+* **All** — the key can read and change everything the account has.
+* **Read only** — the key can read, list, export and view, but cannot create, update, delete or import anything.
+* **Restricted** — you tick the exact permissions the key gets, one by one.
+
+</Step>
+
+<Step title="Add the key">
+Click **Add API Key**.
+</Step>
+
+<Step title="Copy the secret key">
+Gallabox shows the **API key** and the **Secret key**.
+
+Copy both now and store them safely, then tick the confirmation box and click **Dismiss**.
+</Step>
+
+</Steps>
+
+<Warning>
+
+**The secret key is shown once and never again.** If you lose it, there is no way to see it later — you have to delete the key and create a new one, then update every system that was using the old key.
+
+</Warning>
+
+## Permission scopes explained
+
+The scope decides how much of your account the key can touch. **Restricted** is the right default for anything you did not build yourself.
+
+| Scope          | What the key can do                                                                            | Use it when                                                              |
+| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **All**        | Every action on every part of the account, including creating and deleting                     | You are connecting a system you own and fully trust                      |
+| **Read only**  | Read, list, export and view only — no changes of any kind                                      | A dashboard, a reporting tool, or a data warehouse that only pulls data  |
+| **Restricted** | Only the exact actions you tick                                                                | Everything else — especially third-party tools and contractors           |
+
+Under **Restricted**, permissions are listed as an action paired with an area of the product, such as contacts, conversations, messages, broadcasts, templates, webhooks, and analytics. Tick only what the connected system actually needs.
+
+<Tip>
+
+If a developer asks you for "full access" to save time, ask them which endpoints they are calling. Restricted keys limit the damage if a key is ever leaked, and they make it obvious which system broke when something stops working.
+
+</Tip>
+
+## Edit or delete a key
+
+From the **Action** menu on any row:
+
+* **Edit** — change the key's name or its permissions. The API key and secret stay the same, so connected systems keep working.
+* **Delete** — permanently revoke the key.
+
+<Warning>
+
+Deleting a key takes effect immediately. Any system still using it stops getting responses from Gallabox. Check what the key is connected to before you delete it.
+
+</Warning>
+
+## Keep your keys safe
+
+<Check>Give each connected system its own key, so you can revoke one without breaking the others.</Check>
+<Check>Use **Restricted** or **Read only** scope unless the system genuinely needs to change everything.</Check>
+<Check>Store the secret key in a password manager or a secrets store, never in a shared document or chat.</Check>
+<Check>Delete keys for tools you no longer use.</Check>
+<Check>If a secret key is ever exposed, delete that key straight away and create a replacement.</Check>
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="What is the difference between the API key and the secret key?">
+The **API key** is the public identifier — it says which key is being used, and you can look it up again on the API Keys page at any time. The **secret key** is the password that proves the request is genuinely yours. Gallabox shows the secret once, at creation, and never again.
+</Accordion>
+
+<Accordion title="I lost the secret key. Can I see it again?">
+No. Delete the key, create a new one, and update every system that used the old key. This is deliberate — a secret that can be looked up later is a secret that can be stolen later.
+</Accordion>
+
+<Accordion title="Why does Gallabox ask for two-factor verification every time?">
+Creating an API key grants standing access to your account that does not expire on its own. Gallabox always asks you to verify, even if you verified earlier in the same session.
+</Accordion>
+
+<Accordion title="Does deleting the user who created a key break the key?">
+Yes. An API key runs with the access of the user who created it. If that person is removed from the account, requests using their key stop working.
+
+Create keys under an account that will outlast any one team member — and when someone leaves, check whether any keys were created by them before you remove their access.
+</Accordion>
+
+<Accordion title="Do API keys expire?">
+No. A key stays valid until you delete it. That is why it is worth reviewing the list periodically and removing keys for tools you no longer use.
+</Accordion>
+
+<Accordion title="Can I see what a key has been doing?">
+The API Keys page shows who created each key and when. For a record of actions taken on the account, see the [Activity Log](/settings/activity-log).
+</Accordion>
+
+<Accordion title="How many API keys can I create?">
+There is no fixed limit. Create a separate key for each system you connect — it makes revoking access far simpler than sharing one key everywhere.
+</Accordion>
+
+</AccordionGroup>
+
+## Related
+
+<Columns cols="2">
+
+<Card title="Webhooks" href="/settings/webhooks">
+Have Gallabox notify your systems when something happens.
+</Card>
+
+<Card title="Integrations" href="/integrations/overview">
+Ready-made connections that need no API key.
+</Card>
+
+<Card title="Users, Teams and Roles" href="/settings/users-teams-and-roles">
+Control which roles can manage API keys.
+</Card>
+
+<Card title="Two-Factor Authentication" href="/settings/two-factor-authentication">
+Set up the verification step required to create a key.
+</Card>
+
+</Columns>
