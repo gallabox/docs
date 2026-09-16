@@ -1,12 +1,12 @@
 ---
-title: "Authentication templates"
+title: "Authentication template"
 description: "Send OTPs with Zero-tap Autofill, One-tap Autofill, or Copy Code. WhatsApp writes the body. You pick how the customer gets the code."
 ---
 
 > **Who can use this?**
 >
 > * Owners, Admins, and roles with WhatsApp Templates access.
-> * Available on all Gallabox plans. Billed as an Authentication template on every send.
+> * A connected WhatsApp channel is required.
 
 Authentication templates are only for one-time passwords and verification codes. Pick **Authentication template** in **Category**. WhatsApp writes the body. You cannot add a header, media, a coupon, or your own copy.
 
@@ -20,7 +20,7 @@ Gallabox defaults to **Zero-tap Autofill**. Change it if your customers are not 
 
 ## Plan Availability
 
-Available on all Gallabox plans.
+Available on all Gallabox plans. Billed as an Authentication template on every send. See [Message Credits](/pricing-and-billing/message-credits).
 
 ## The three options
 
@@ -86,7 +86,7 @@ Even on Zero-tap, keep both labels. WhatsApp still needs a backup button.
 
 ## Send it
 
-Once the template is **Approved**, wait about 15 minutes, then send it from a broadcast, a sequence, the inbox, a bot, or a test send.
+Once the template is **Approved**, send it from a broadcast, a sequence, the inbox, a bot, or a test send. See [After approval](/whatsapp/templates/manage-templates#after-approval).
 
 When you send, Gallabox asks for the OTP (`otp`). That value is what WhatsApp puts in the message and on the button. Maximum 15 characters.
 
@@ -101,10 +101,6 @@ Only for **Zero-tap Autofill** and **One-tap Autofill**. If your customers mostl
 
 <Accordion title="Can I write my own OTP message?">
 No. WhatsApp locks the body on Authentication templates. If you need a custom message, that is a different category, and Meta will not treat it as Authentication.
-</Accordion>
-
-<Accordion title="Is this the same as Coupon code?">
-No. **Coupon code** on Custom marketing copies a promo code such as `GET50OFF`. **Copy Code** on an Authentication template copies the one-time password you pass in at send time.
 </Accordion>
 
 <Accordion title="Where do I get the signature hash?">
