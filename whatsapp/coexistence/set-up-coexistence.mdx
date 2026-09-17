@@ -1,0 +1,82 @@
+---
+title: "Set Up Coexistence"
+description: "Requirements and the step-by-step flow to connect your WhatsApp Business App number to Gallabox."
+---
+
+> **Who can use this?**
+>
+> - Gallabox users with **channel management permissions**.
+> - Roles: Owners and Admins
+> - Plans: Available on all Gallabox plans.
+
+<Warning>
+  Coexistence is **not enabled by default**. Contact Gallabox support before starting — the feature must be activated on your workspace first. Do not start the standard connection flow if you want Coexistence.
+</Warning>
+
+## Before You Start
+
+Make sure you have:
+
+1. **WhatsApp Business App** version **2.24.17 or higher** installed on your phone
+2. A phone number that is **active on the WhatsApp Business App** — new or barely used numbers can fail Meta's eligibility check
+3. The number **not already connected to another WhatsApp API provider**. If it is, disconnect that provider first and wait **15 minutes** before retrying
+4. **Gallabox Coexistence enabled** for your workspace (contact support)
+
+<Info>
+  Coexistence is available for most countries, including India, the United Kingdom, the EEA, Australia, Japan, the Philippines, South Korea, Turkey, Nigeria, and South Africa. A small number of regions remain unsupported — if your number is rejected with a region error, contact [Gallabox support](mailto:support@gallabox.com).
+</Info>
+
+## Steps
+
+Coexistence is set up in four stages. Make sure support has enabled Coexistence for your workspace before starting.
+
+<Steps>
+  <Step title="Contact Gallabox support">
+    Email [support@gallabox.com](mailto:support@gallabox.com) with:
+
+    - Your WhatsApp Business App phone number
+    - A note that you want to enable Coexistence
+
+    Gallabox will verify your eligibility and activate the feature on your workspace.
+  </Step>
+  <Step title="Eligibility check">
+    The Gallabox team will confirm:
+
+    - Your number is on the WhatsApp Business App (not already on Cloud API)
+    - Your country is supported
+    - No existing credit-line or partner conflicts on your number
+  </Step>
+  <Step title="Connect through Gallabox">
+    Once eligible, complete the onboarding through Gallabox:
+
+    1. Start the connection flow in Gallabox and enter your WhatsApp Business App number. Meta recognises that the number is already on the app and switches to the Coexistence flow automatically. On some accounts you may instead be asked to choose the option to connect your existing WhatsApp Business App account — pick that.
+    2. A **verification code** will appear on screen — copy it.
+    3. On your phone, open the **WhatsApp Business App**. You'll receive a message from **Facebook Business Account** with a prompt to connect.
+    4. If you don't see the message, go to **Menu (or Settings) → Account → Connect to Business Platform**.
+    5. Choose whether to share up to **180 days** of chat history with Gallabox.
+
+    <Warning>
+      This decision **cannot be changed later**. If you want to change it, you must disconnect and reconnect — and history sharing will not be available again on reconnect.
+    </Warning>
+
+    6. Enter the verification code and tap **Connect to the Business Platform**.
+  </Step>
+  <Step title="Keep the app open while your data syncs">
+    Chat and contact sync starts immediately after you connect, and can take several minutes depending on how much history you have and your internet speed. See [what syncs](/whatsapp/coexistence/what-changes#what-syncs-from-your-whatsapp-business-app) for exactly what is imported.
+
+    <Warning>
+      **Keep the WhatsApp Business App open and connected until the sync finishes.** Syncing can only be run once, and must complete within 24 hours of connecting. If it fails, the only way to retry is to disconnect and go through the whole flow again.
+    </Warning>
+  </Step>
+</Steps>
+
+## After Setup
+
+Your companion devices are unlinked during onboarding and need re-linking — see [Linked Devices](/whatsapp/coexistence/what-changes#linked-devices).
+
+If a step failed with an error message, see [Troubleshooting](/whatsapp/coexistence/troubleshooting).
+
+## Related Articles
+
+- [What Changes on Your Number](/whatsapp/coexistence/what-changes) — feature changes, sync, and sending limits
+- [Manage Your Connection](/whatsapp/coexistence/manage-your-connection) — keep the connection active

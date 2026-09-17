@@ -121,7 +121,16 @@
               "whatsapp/connect-your-whatsapp",
               "whatsapp/migrate-from-business-app",
               "whatsapp/customer-identity-bsuid",
-              "whatsapp/whatsapp-coexistence",
+              {
+                "group": "Coexistence",
+                "pages": [
+                  "whatsapp/coexistence/overview",
+                  "whatsapp/coexistence/what-changes",
+                  "whatsapp/coexistence/set-up-coexistence",
+                  "whatsapp/coexistence/manage-your-connection",
+                  "whatsapp/coexistence/troubleshooting"
+                ]
+              },
               {
                 "group": "Broadcasts",
                 "pages": [
@@ -516,6 +525,14 @@
     {
       "source": "/whatsapp/calling",
       "destination": "/whatsapp/calling/overview"
+    },
+    {
+      "source": "/whatsapp/coexistence",
+      "destination": "/whatsapp/coexistence/overview"
+    },
+    {
+      "source": "/whatsapp/whatsapp-coexistence",
+      "destination": "/whatsapp/coexistence/overview"
     },
     {
       "source": "/whatsapp/ad-campaigns",
@@ -1295,7 +1312,7 @@
     },
     {
       "source": "/connect-whatsapp-channel/whatsapp-coexistence",
-      "destination": "/whatsapp/whatsapp-coexistence"
+      "destination": "/whatsapp/coexistence/overview"
     },
     {
       "source": "/contacts/add-contact",
