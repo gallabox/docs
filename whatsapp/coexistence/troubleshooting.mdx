@@ -1,0 +1,127 @@
+---
+title: "Troubleshooting and FAQs"
+description: "Fix Coexistence setup errors and answer the questions customers ask most often."
+---
+
+> **Who can use this?**
+>
+> - Gallabox users with **channel management permissions**.
+> - Roles: Owners and Admins
+> - Plans: Available on all Gallabox plans.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Your phone number isn't eligible to connect to the WhatsApp Business Platform">
+    Meta decides eligibility partly from how actively the number is used on the WhatsApp Business App, and from its messaging quality history. Numbers that are brand new, barely used, or previously disabled are commonly rejected.
+
+    Use the number normally on the app for a while and retry, use a different number, or connect through the standard [Cloud API flow](/whatsapp/connect-your-whatsapp) instead.
+  </Accordion>
+
+  <Accordion title="The business is already sharing this WhatsApp Business account with a partner">
+    Your number is still connected to another provider. You cannot switch partners from inside the Coexistence flow.
+
+    On your phone, go to **Settings → Account → Business Platform**, select the connected platform, and tap **Disconnect**. **Wait 15 minutes**, then start the Gallabox flow again.
+  </Accordion>
+
+  <Accordion title="This phone number is already registered with the product">
+    Same fix as above — disconnect the existing business platform from the WhatsApp Business App and wait 15 minutes before retrying. Retrying sooner will fail again.
+  </Accordion>
+
+  <Accordion title="WABA already has an existing payment method, or a credit line error">
+    If you worked with another provider in the past and still share their credit line, Meta may block the switch. [Contact Gallabox support](mailto:support@gallabox.com) — this has to be resolved on Meta's side and support will raise it for you.
+  </Accordion>
+
+  <Accordion title="The phone number is not associated with the business you selected">
+    The number is linked to a different Meta business portfolio, or to a Facebook Page. Either select the business that owns the number, or unlink it: go to **Meta Business Suite → Settings → Accounts → WhatsApp Accounts → Remove Account**, or remove the linked Page under **Settings → Accounts → Pages**.
+  </Accordion>
+
+  <Accordion title="Update your WhatsApp Business App to the latest version">
+    Coexistence needs version **2.24.17 or higher**. Update from the App Store or Play Store and restart the flow.
+  </Accordion>
+
+  <Accordion title="This feature is not available for accounts using marketing messages">
+    WhatsApp Business accounts enrolled in Meta's marketing messages product cannot use Coexistence. Select a different WhatsApp Business account, or [contact support](mailto:support@gallabox.com).
+  </Accordion>
+
+  <Accordion title="You keep seeing 'unsupported message' in the inbox">
+    This is expected in a few cases and usually isn't a fault:
+
+    - **A customer messages you for the first time**, especially from a click-to-WhatsApp ad. It normally clears within a few seconds.
+    - **The customer is using an unsupported companion device**, such as WhatsApp for Windows.
+    - **The message type isn't supported** on the Cloud API.
+
+    Open the WhatsApp Business App to read the message. There is no workaround — this is enforced by Meta.
+  </Accordion>
+
+  <Accordion title="Messages sent from WhatsApp Web or desktop aren't appearing in Gallabox">
+    Check which app was used. **WhatsApp for Windows and WearOS are not supported** and their messages never reach Gallabox. Use WhatsApp Web in a browser instead.
+
+    If it was a supported device, confirm Gallabox is still listed under **Settings → Account → Business Platform** on your phone, then [contact support](mailto:support@gallabox.com).
+  </Accordion>
+
+  <Accordion title="Gallabox can't send a message to a customer who just messaged you">
+    If the customer's message arrived just before onboarding completed, no 24-hour window was opened for that conversation. Send a [template message](/whatsapp/templates/overview) instead. Once the customer replies, you can send free-form messages as normal.
+  </Accordion>
+</AccordionGroup>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Will I lose my existing WhatsApp chats?">
+    No. If you approved history sharing during onboarding, chats from the 180 days before onboarding are synced into Gallabox. Older chats are not synced, but they stay in the WhatsApp Business App on your phone. If you did not approve history sharing, no chats are imported and nothing is deleted.
+  </Accordion>
+
+  <Accordion title="Why are some old photos and files missing from imported chats?">
+    Only media from the 14 days before onboarding is imported. Older media messages appear as a placeholder in the conversation — the message is there, but the file isn't. The original files remain in the WhatsApp Business App on your phone.
+  </Accordion>
+
+  <Accordion title="Can I still reply from my phone?">
+    Yes. The WhatsApp Business App continues to work normally for 1:1 conversations. You can reply from the app or from Gallabox — both are synced, and replies from the app appear in your team's shared inbox.
+  </Accordion>
+
+  <Accordion title="Do replies I send from the app trigger my bots or count against the 24-hour window?">
+    Replies sent from the WhatsApp Business App appear in Gallabox and are treated like any other outgoing message, so your automation runs as normal. They do not open or extend the WhatsApp 24-hour customer service window, and Meta does not charge for them.
+  </Accordion>
+
+  <Accordion title="Can I edit or delete a message and have it update in Gallabox?">
+    Yes. Messages you edit or delete in the WhatsApp Business App are mirrored to Gallabox.
+  </Accordion>
+
+  <Accordion title="Are group chats available in Gallabox?">
+    No. Group chats remain only in the WhatsApp Business App and are never synced to Gallabox, during history import or afterwards.
+  </Accordion>
+
+  <Accordion title="Can I make or receive calls from Gallabox?">
+    No. Voice and video calls keep working normally in the WhatsApp Business App, but calling is not available on Coexistence numbers from Gallabox.
+  </Accordion>
+
+  <Accordion title="Is the WhatsApp Business App removed?">
+    No. It continues to work alongside Gallabox. You have both — the app on your phone and the shared inbox in Gallabox.
+  </Accordion>
+
+  <Accordion title="Are messages free?">
+    Messages sent from the **WhatsApp Business App** are free. Messages sent through **Gallabox** follow WhatsApp Cloud API per-message pricing. See [message credits](/pricing-and-billing/message-credits) for rates.
+  </Accordion>
+
+  <Accordion title="How fast can I send a broadcast on a Coexistence number?">
+    Coexistence numbers are capped by Meta at 20 messages per second, and the cap cannot be raised. Broadcasts still send in full, they just take longer to clear the queue. If you need higher throughput, use a Cloud API number instead.
+  </Accordion>
+
+  <Accordion title="What if my number was previously connected to another API provider?">
+    Disconnect the existing provider from **Settings → Account → Business Platform** in the WhatsApp Business App, wait 15 minutes, then start the Gallabox flow. If you shared a credit line with that provider, Gallabox support will help resolve it during the eligibility check.
+  </Accordion>
+
+  <Accordion title="Why are my linked devices disconnected?">
+    Meta automatically unlinks companion devices (WhatsApp Web, tablet, and so on) during onboarding and offboarding, for security and compatibility. Re-link them after setup is complete. WhatsApp for Windows and WearOS cannot be used with a Coexistence number at all.
+  </Accordion>
+
+  <Accordion title="What happens if I get a new phone?">
+    Re-register your number on the new device as usual. During registration, leave the pre-checked opt-in for connected business platforms checked, and Gallabox reconnects automatically within a few minutes. You will need to re-link WhatsApp Web and other companion devices yourself.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Set Up Coexistence](/whatsapp/coexistence/set-up-coexistence) — requirements and the connection flow
+- [Manage Your Connection](/whatsapp/coexistence/manage-your-connection) — avoid unexpected disconnections

@@ -121,8 +121,17 @@
               "whatsapp/connect-your-whatsapp",
               "whatsapp/migrate-from-business-app",
               "whatsapp/customer-identity-bsuid",
-              "whatsapp/whatsapp-coexistence",
-                  "whatsapp/channel-configuration",
+              {
+                "group": "Coexistence",
+                "pages": [
+                  "whatsapp/coexistence/overview",
+                  "whatsapp/coexistence/what-changes",
+                  "whatsapp/coexistence/set-up-coexistence",
+                  "whatsapp/coexistence/manage-your-connection",
+                  "whatsapp/coexistence/troubleshooting"
+                ]
+              },
+              "whatsapp/channel-configuration",
               {
                 "group": "Broadcasts",
                 "pages": [
@@ -167,7 +176,7 @@
               "whatsapp/shop",
               "whatsapp/payments",
               "whatsapp/unsupported-messages",
-                  "whatsapp/message-error-codes",
+              "whatsapp/message-error-codes",
               {
                 "group": "Click-to-WhatsApp Ads (CTWA)",
                 "pages": [
@@ -396,7 +405,7 @@
               "settings/tags",
               "settings/variables",
               "settings/webhooks",
-                  "settings/api-keys",
+              "settings/api-keys",
               "settings/security",
               "settings/two-factor-authentication",
               "settings/activity-log"
@@ -564,6 +573,14 @@
     {
       "source": "/whatsapp/calling",
       "destination": "/whatsapp/calling/overview"
+    },
+    {
+      "source": "/whatsapp/coexistence",
+      "destination": "/whatsapp/coexistence/overview"
+    },
+    {
+      "source": "/whatsapp/whatsapp-coexistence",
+      "destination": "/whatsapp/coexistence/overview"
     },
     {
       "source": "/whatsapp/ad-campaigns",
@@ -1355,7 +1372,7 @@
     },
     {
       "source": "/connect-whatsapp-channel/whatsapp-coexistence",
-      "destination": "/whatsapp/whatsapp-coexistence"
+      "destination": "/whatsapp/coexistence/overview"
     },
     {
       "source": "/contacts/add-contact",

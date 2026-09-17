@@ -1,0 +1,90 @@
+---
+title: "What Changes on Your Number"
+description: "What the WhatsApp Business App can still do after Coexistence, what syncs into Gallabox, and the sending limits that apply."
+---
+
+> **Who can use this?**
+>
+> - Gallabox users with **channel management permissions**.
+> - Roles: Owners and Admins
+> - Plans: Available on all Gallabox plans.
+
+<Info>
+  Coexistence changes a handful of WhatsApp Business App features and adds two Meta limits that affect how you send. Read this before you plan your first broadcast.
+</Info>
+
+## What Changes on the WhatsApp Business App
+
+| Feature | What happens after Coexistence |
+| --- | --- |
+| Individual (1:1) chats | No change. Messages are mirrored to Gallabox, including edits and deletes |
+| Contacts | No change. Your WhatsApp contacts sync into Gallabox |
+| Disappearing messages | Automatically turned off for all 1:1 chats |
+| View once media | Disabled for all 1:1 chats |
+| Live location sharing | Disabled for all 1:1 chats |
+| Broadcast lists | Cannot create new lists; existing lists become read-only. Use Gallabox broadcasts instead |
+| Group chats | No change in the app, but group chats are never synced to Gallabox |
+| Voice and video calls | No change. Calls keep working in the app, but cannot be made or received from Gallabox |
+| Catalog, orders, Status, quick replies, labels, business profile | No change. These stay in the app and are not available in Gallabox |
+
+## What You Can Do in Gallabox
+
+|  | From Gallabox |
+| --- | --- |
+| Shared inbox | All team members see conversations |
+| Automation | Bot flows, AI agents, sequences, broadcasts |
+| Routing | Auto-assign conversations to teams or agents |
+| Campaigns | Send broadcast campaigns (WhatsApp API pricing applies) |
+| Analytics | Full conversation and campaign reporting |
+
+## What Syncs From Your WhatsApp Business App
+
+If you approved history sharing during setup, Gallabox imports:
+
+| What | Details |
+| --- | --- |
+| 1:1 chat history | All messages sent or received in the **180 days before onboarding** |
+| Media in recent chats | Photos, documents, and other files from the **14 days before onboarding** |
+| Older media | Shown as a placeholder in the conversation — the file itself is not imported |
+| Contacts | Every contact in your phone's address book that has a WhatsApp number |
+| Group chats | Not imported. Group chats stay on your phone only |
+
+After setup, contacts you add, edit, or remove on your phone keep syncing to Gallabox automatically.
+
+If you declined history sharing, no past chats are imported and your Gallabox inbox starts from your next incoming message.
+
+## Sending Limits and the 24-Hour Window
+
+Two Meta rules apply to Coexistence numbers specifically. Both surprise people.
+
+### Your number is capped at 20 messages per second
+
+To stay compatible with the WhatsApp Business App, Coexistence numbers have a **fixed throughput of 20 messages per second**. This cap is set by Meta and cannot be raised while the number is on Coexistence.
+
+Large broadcasts still send — they just take longer. A broadcast to 50,000 contacts takes roughly 45 minutes to leave the queue at this rate. If you need faster throughput, you need a Cloud API number rather than a Coexistence number.
+
+### Messages sent from the app do not open a 24-hour window
+
+Gallabox can only send a free-form (non-template) message inside the **24-hour customer service window**, which opens when a customer messages you. For Coexistence numbers:
+
+- Replies you send from the **WhatsApp Business App** do not open, extend, or affect the 24-hour window, and are not charged
+- Only messages a customer sends **after** your number is onboarded open a window
+
+<Warning>
+  If a customer messaged you shortly **before** onboarding finished, no 24-hour window exists for that conversation. Your first reply from Gallabox must be a [template message](/whatsapp/templates/overview) until that customer messages you again.
+</Warning>
+
+## Linked Devices
+
+You can link up to four companion devices (WhatsApp Web, WhatsApp on a tablet, and so on) to your WhatsApp Business App.
+
+When you onboard to Coexistence, **all companion devices are unlinked automatically**. This is a Meta security requirement. You can re-link supported devices once setup is complete — if a device won't re-link straight away, wait up to 24 hours and try again.
+
+<Warning>
+  **WhatsApp for Windows and WhatsApp for WearOS are not supported on Coexistence numbers.** Messages sent or received on those apps never reach Gallabox, and your team will not see them in the shared inbox. Messages your team sends from Gallabox appear on those devices as placeholder text telling the reader to open their primary device. Use WhatsApp Web instead of the Windows desktop app.
+</Warning>
+
+## Related Articles
+
+- [Set Up Coexistence](/whatsapp/coexistence/set-up-coexistence) — requirements and the connection flow
+- [Manage Your Connection](/whatsapp/coexistence/manage-your-connection) — keep the connection active
