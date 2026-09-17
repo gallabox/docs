@@ -60,7 +60,7 @@ Media: all assets live flat in `/images/` (no subfolders) and are referenced as 
 </Frame>
 ```
 
-Links between pages are always root-relative and extensionless (`/whatsapp/templates/create-template`), never relative paths or `.mdx`.
+Links between pages are always root-relative and extensionless (`/whatsapp/templates/custom-marketing`), never relative paths or `.mdx`.
 
 ## Writing
 
