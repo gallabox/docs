@@ -174,7 +174,7 @@
               {
                 "group": "Features",
                 "pages": [
-                  "whatsapp/flows",
+                  "whatsapp/forms",
                   "whatsapp/whatsapp-groups",
                   {
                     "group": "Calling",
@@ -594,6 +594,10 @@
     {
       "source": "/whatsapp/templates/create-template#track-link-clicks",
       "destination": "/whatsapp/templates/custom-marketing#track-link-clicks"
+    },
+    {
+      "source": "/whatsapp/flows",
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp/calling",
@@ -2005,55 +2009,55 @@
     },
     {
       "source": "/whatsapp-flows",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/best-practices-for-whatsapp-forms",
-      "destination": "/whatsapp/flows#best-practices"
+      "destination": "/whatsapp/forms#best-practices"
     },
     {
       "source": "/whatsapp-flows/create-whatsapp-forms",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-in-gallabox",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-using-json",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/create-whatsapp-forms/create-whatsapp-forms-with-template-builder",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/gallabox-whatsapp-flows-overview",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/gallabox-whatsapp-forms-faqs",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/overview",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/receiving-response-of-whatsapp-forms",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/sending-a-whatsapp-form",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/sending-a-whatsapp-form/send-whatsapp-form-in-a-bot",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-flows/sending-a-whatsapp-form/send-whatsapp-form-in-a-message-template",
-      "destination": "/whatsapp/flows"
+      "destination": "/whatsapp/forms"
     },
     {
       "source": "/whatsapp-shop",
