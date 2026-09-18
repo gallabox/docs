@@ -22,8 +22,21 @@ description: "Fix Coexistence setup errors and answer the questions customers as
     Same fix as above — disconnect the existing business platform from the WhatsApp Business App and wait 15 minutes before retrying. Retrying sooner will fail again.
   </Accordion>
 
-  <Accordion title="WABA already has an existing payment method, or a credit line error">
-    If you worked with another provider in the past and still share their credit line, Meta may block the switch. [Contact Gallabox support](mailto:support@gallabox.com) — this has to be resolved on Meta's side and support will raise it for you.
+  <Accordion title="Credit line error, or 'WABA already has an existing payment method'">
+    This happens when you worked with another provider in the past and your WhatsApp Business Account still shares their credit line. Meta blocks the switch until that link is cleared.
+
+    Meta's fix is to disconnect and reconnect the number in the app before onboarding again:
+
+    1. **Back up your chats** on the phone — see [Back Up Your Chats First](/whatsapp/coexistence/set-up-coexistence#back-up-your-chats-first). Do this before anything else.
+    2. In the **WhatsApp Business App**, go to **Settings → Account → Business Platform** and **disconnect** the current platform.
+    3. **Reconnect** in the WhatsApp Business App.
+    4. Start the Gallabox connection flow again. Wait **15 minutes** after disconnecting before you retry, or it will fail the same way.
+
+    <Warning>
+      Do all of this from the **WhatsApp Business App**. Do not register the number on the personal WhatsApp app to force a disconnect — that removes your Coexistence connection in a way you cannot undo from Gallabox, and risks losing chats.
+    </Warning>
+
+    Tell [Gallabox support](mailto:support@gallabox.com) before you start so they can watch the reconnection, and contact them if the error persists after step 4 — some credit line conflicts can only be cleared by Meta.
   </Accordion>
 
   <Accordion title="The phone number is not associated with the business you selected">
