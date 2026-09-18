@@ -41,8 +41,8 @@
             "icon": "rocket",
             "pages": [
               "index",
-              "concepts/overview",
-              "concepts/channels"
+              "concepts",
+              "channels"
             ]
           },
           {
@@ -502,8 +502,12 @@
   },
   "redirects": [
     {
-      "source": "/concepts",
-      "destination": "/concepts/overview"
+      "source": "/concepts/overview",
+      "destination": "/concepts"
+    },
+    {
+      "source": "/concepts/channels",
+      "destination": "/channels"
     },
     {
       "source": "/conversations",
