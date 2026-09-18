@@ -118,75 +118,100 @@
             "icon": "whatsapp",
             "pages": [
               "whatsapp/overview",
-              "whatsapp/connect-your-whatsapp",
-              "whatsapp/migrate-from-business-app",
-              "whatsapp/customer-identity-bsuid",
               {
-                "group": "Coexistence",
+                "group": "Connect Your Number",
                 "pages": [
-                  "whatsapp/coexistence/overview",
-                  "whatsapp/coexistence/what-changes",
-                  "whatsapp/coexistence/set-up-coexistence",
-                  "whatsapp/coexistence/manage-your-connection",
-                  "whatsapp/coexistence/troubleshooting"
+                  "whatsapp/connect-your-whatsapp",
+                  "whatsapp/migrate-from-business-app",
+                  {
+                    "group": "Coexistence",
+                    "pages": [
+                      "whatsapp/coexistence/overview",
+                      "whatsapp/coexistence/what-changes",
+                      "whatsapp/coexistence/set-up-coexistence",
+                      "whatsapp/coexistence/manage-your-connection",
+                      "whatsapp/coexistence/troubleshooting"
+                    ]
+                  }
                 ]
               },
               "whatsapp/channel-configuration",
               {
-                "group": "Broadcasts",
+                "group": "Messaging",
                 "pages": [
-                  "whatsapp/broadcasts/overview",
-                  "whatsapp/broadcasts/create-broadcast",
-                  "whatsapp/broadcasts/broadcast-analytics"
+                  {
+                    "group": "Templates",
+                    "pages": [
+                      "whatsapp/templates/overview",
+                      "whatsapp/templates/manage-templates",
+                      "whatsapp/templates/custom-marketing",
+                      "whatsapp/templates/custom-utility",
+                      "whatsapp/templates/carousel-templates",
+                      "whatsapp/templates/limited-time-offer",
+                      "whatsapp/templates/product-marketing",
+                      "whatsapp/templates/authentication"
+                    ]
+                  },
+                  {
+                    "group": "Broadcasts",
+                    "pages": [
+                      "whatsapp/broadcasts/overview",
+                      "whatsapp/broadcasts/create-broadcast",
+                      "whatsapp/broadcasts/broadcast-analytics"
+                    ]
+                  },
+                  {
+                    "group": "Sequences",
+                    "pages": [
+                      "whatsapp/sequences/overview",
+                      "whatsapp/sequences/create-sequence",
+                      "whatsapp/sequences/sequence-analytics"
+                    ]
+                  },
+                  "whatsapp/canned-responses"
                 ]
               },
               {
-                "group": "Sequences",
+                "group": "Features",
                 "pages": [
-                  "whatsapp/sequences/overview",
-                  "whatsapp/sequences/create-sequence",
-                  "whatsapp/sequences/sequence-analytics"
+                  "whatsapp/flows",
+                  "whatsapp/whatsapp-groups",
+                  {
+                    "group": "Calling",
+                    "pages": [
+                      "whatsapp/calling/overview",
+                      "whatsapp/calling/incoming-calls",
+                      "whatsapp/calling/outgoing-calls",
+                      "whatsapp/calling/pricing"
+                    ]
+                  },
+                  "whatsapp/shop",
+                  "whatsapp/payments"
                 ]
               },
               {
-                "group": "Templates",
+                "group": "Ads & Website",
                 "pages": [
-                  "whatsapp/templates/overview",
-                  "whatsapp/templates/manage-templates",
-                  "whatsapp/templates/custom-marketing",
-                  "whatsapp/templates/custom-utility",
-                  "whatsapp/templates/carousel-templates",
-                  "whatsapp/templates/limited-time-offer",
-                  "whatsapp/templates/product-marketing",
-                  "whatsapp/templates/authentication"
+                  {
+                    "group": "Click-to-WhatsApp Ads (CTWA)",
+                    "pages": [
+                      "whatsapp/ad-campaigns/overview",
+                      "whatsapp/ad-campaigns/ctwa-ads",
+                      "whatsapp/ad-campaigns/ctwa-leads",
+                      "whatsapp/ad-campaigns/capi"
+                    ]
+                  },
+                  "whatsapp/website-widget"
                 ]
               },
-              "whatsapp/flows",
-              "whatsapp/canned-responses",
-              "whatsapp/whatsapp-groups",
               {
-                "group": "WhatsApp Calling",
+                "group": "Reference",
                 "pages": [
-                  "whatsapp/calling/overview",
-                  "whatsapp/calling/incoming-calls",
-                  "whatsapp/calling/outgoing-calls",
-                  "whatsapp/calling/pricing"
+                  "whatsapp/unsupported-messages",
+                  "whatsapp/message-error-codes",
+                  "whatsapp/customer-identity-bsuid"
                 ]
-              },
-              "whatsapp/shop",
-              "whatsapp/payments",
-              "whatsapp/unsupported-messages",
-              "whatsapp/message-error-codes",
-              {
-                "group": "Click-to-WhatsApp Ads (CTWA)",
-                "pages": [
-                  "whatsapp/ad-campaigns/overview",
-                  "whatsapp/ad-campaigns/ctwa-ads",
-                  "whatsapp/ad-campaigns/ctwa-leads",
-                  "whatsapp/ad-campaigns/capi"
-                ]
-              },
-              "whatsapp/website-widget"
+              }
             ]
           },
           {
