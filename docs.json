@@ -37,16 +37,10 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting Started",
+            "group": "Intro",
             "icon": "rocket",
             "pages": [
-              "index"
-            ]
-          },
-          {
-            "group": "Concepts",
-            "icon": "lightbulb",
-            "pages": [
+              "index",
               "concepts/overview",
               "concepts/channels"
             ]
