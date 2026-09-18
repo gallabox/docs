@@ -1,0 +1,96 @@
+---
+title: "Channels"
+description: "What channels are in Gallabox, which ones are supported, and how conversations from each one reach your team."
+---
+
+> **Who can use this?**
+>
+> * All Gallabox users.
+> * Roles: Owners, Admins, and roles with channel-management permission can connect and configure channels. Agents can use connected channels in conversations.
+
+<Info>
+
+A channel is a connected messaging endpoint — the way a customer reaches you. Gallabox supports WhatsApp, Instagram, and Web Chat. Every contact, conversation, and message belongs to one channel.
+
+</Info>
+
+## Plan Availability
+
+| Feature                    | Basic | Essential | Advanced |
+| -------------------------- | :---: | :-------: | :------: |
+| WhatsApp channel           |   ✓   |     ✓     |     ✓    |
+| Instagram channel          |   ✓   |     ✓     |     ✓    |
+| Web Chat widget            |   ✓   |     ✓     |     ✓    |
+| Chat AI Agent on WhatsApp  |   —   |     ✓     |     ✓    |
+| Chat AI Agent on Instagram |   —   |     ✓     |     ✓    |
+| Chat AI Agent on Web Chat  |   ✓   |     ✓     |     ✓    |
+
+## The three channels
+
+| Channel       | What it is                             | Best for                                          |
+| ------------- | -------------------------------------- | ------------------------------------------------- |
+| **WhatsApp**  | Full WhatsApp Business API integration | Sales, support, transactions, broadcasts          |
+| **Instagram** | Instagram DM and comment automation    | Social-first brands, influencer marketing         |
+| **Web Chat**  | Embedded chat widget for your website  | Website visitors, lead capture, real-time support |
+
+You can connect more than one channel, and more than one WhatsApp number. Each connection is a separate channel with its own settings.
+
+## Where conversations land
+
+WhatsApp and Instagram conversations arrive in the shared [Inbox](/conversations/overview), tagged with a channel indicator so you can filter by channel.
+
+Web Chat works differently. Those conversations stay in the Web Agent's chat logs, and appear in the Inbox only after the visitor continues through a WhatsApp handoff.
+
+## What differs between channels
+
+Most of the product works the same everywhere: a Chat AI Agent can serve any channel, contacts are captured on all three, and conversations are assigned and resolved the same way. The differences that matter when you're choosing a channel:
+
+| Capability                              | WhatsApp | Instagram | Web Chat |
+| --------------------------------------- | :------: | :-------: | :------: |
+| You can message first, without a reply  |     ✓    |     —     |     —    |
+| Broadcasts and template messages        |     ✓    |     —     |     —    |
+| Comment automation                      |     —    |     ✓     |     —    |
+| Payments, catalog, and bot flows        |     ✓    |     —     |     —    |
+| 24-hour messaging window applies        |     ✓    |     ✓     |     —    |
+
+The 24-hour messaging window is a Meta policy: free-form replies are allowed only within 24 hours of the customer's last message. On WhatsApp you can still send an approved template after that; on Instagram you cannot.
+
+## Connect a channel
+
+<Columns cols="2">
+
+<Card title="WhatsApp" href="/whatsapp/overview">
+Connect your number, migrate from the Business App, and set up templates, broadcasts, and payments.
+</Card>
+
+<Card title="Instagram" href="/instagram/overview">
+Connect a professional account to handle DMs and automate comment replies.
+</Card>
+
+<Card title="Web Chat" href="/web-chat/overview">
+Embed a chat widget on your website and hand visitors off to WhatsApp.
+</Card>
+
+</Columns>
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I connect multiple WhatsApp numbers?">
+Yes, up to your plan's channel limit. Each number appears as a separate connection in the Channels section. Additional channels can be added as add-ons on Essential and Advanced plans.
+</Accordion>
+
+<Accordion title="Can one Chat AI Agent handle all three channels?">
+No. Each Chat AI Agent is created for one channel, so you need a separate agent for WhatsApp, Instagram, and Web Chat. Copy the Role, Goal, and Instructions so they behave the same. Session timeout and handoff still differ by channel — see [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour).
+</Accordion>
+
+<Accordion title="Can customers switch between channels mid-conversation?">
+Not automatically. Each conversation is tied to one channel. You can send a Web Chat visitor to WhatsApp using the handoff on the agent's **Web Widget** tab.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Concepts](/concepts) — how channels relate to contacts, conversations, and teams
+* [Omnichannel Inbox](/conversations/omnichannel-inbox) — managing all channels from one inbox
+* [Chat AI Agent Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour) — how agents behave differently per channel
