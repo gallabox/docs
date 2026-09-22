@@ -49,52 +49,46 @@ In the rapidly evolving digital landscape, data security remains a paramount con
 
 ### Data Security Controls
 
-Gallabox follows industry-standard security practices to ensure the protection of customer data. We have implemented multi-layered security controls across four key areas:
+Gallabox operates a multi-layered set of security controls. All of the controls below were tested by an independent auditor as part of our [SOC 2 Type II](/privacy-and-security/compliance) audit for the period January 16, 2025 to January 15, 2026, with no exceptions noted.
 
-#### Predict (Proactive Risk Assessment & Monitoring) 
+#### Predict — proactive risk assessment and monitoring
 
-✅ Penetration Testing – Periodic tests to identify vulnerabilities in applications & infrastructure \
-✅ Security Audits – Annual audits for compliance, we are in-process of getting SOC 2 and GDPR compliant
-
-**In-Progress:**
-
-✅ Risk Assessments – Regular security risk assessments & threat modeling
+* **Penetration testing** — a third party performs vulnerability assessments and penetration tests at least annually, and identified vulnerabilities are remediated and re-verified
+* **Independent audit** — an annual SOC 2 Type II examination covering the Security, Availability, and Confidentiality criteria
+* **Risk assessments** — formal risk assessments are performed annually, producing a risk register and a tracked treatment plan
+* **Internal audit** — an internal assurance function reviews our governance, risk management, and control processes each year
 
 ---
 
-#### Prevent (Prevention of Security Incidents) 
+#### Prevent — prevention of security incidents
 
-✅ Access Control – Role-Based Access Control (RBAC) & Least Privilege Principle \
-✅ Multi-Factor Authentication (MFA) – Enforced for all user accounts  \
-✅ Data Encryption – AES-256 encryption for data at rest, TLS 1.2/1.3 for data in transit  \
-✅ Firewall & Network Security – Cloud-based Web Application Firewall (WAF) and VPN restrictions  \
-✅ Secure Software Development (DevSecOps) – Code security reviews, secure API practices, and CI/CD security integration
-
----
-
-#### Detect (Real-Time Threat Monitoring & Logging) 
-
-✅ Security Information and Event Management (SIEM) – Logs all security events for anomaly detection  \
-✅ Endpoint Detection & Response (EDR) – Protects against malware & insider threats
-
-In-process
-
-✅ Intrusion Detection System (IDS) – Monitors network traffic for suspicious activity  \
-✅ Cloud Security Monitoring – Continuous monitoring of cloud workloads for unauthorized access  \
-✅ Automated Log Analysis – Real-time alerts for potential data breaches or security violations
+* **Access control** — role-based access control with least privilege; access is approved in writing before credentials are issued and reviewed at defined intervals
+* **Multi-factor authentication** — enforced for user accounts and for administrative access to our cloud consoles
+* **Data encryption** — AES-256 at rest, TLS 1.2/1.3 in transit, governed by a documented cryptography standard that also covers key rotation
+* **Network security** — production systems run inside a VPC protected by security group rules; database access is limited to approved IPs
+* **System hardening** — production systems are hardened against CIS benchmarks
+* **Secure development** — documented SDLC with peer code review, segregated environments, and security checks in CI/CD
+* **Personnel controls** — background checks, signed NDAs and acceptable-use policies, and security awareness training on hire and annually thereafter
 
 ---
 
-#### Correct (Incident Response & Recovery Mechanisms) 
+#### Detect — threat monitoring and logging
 
-✅ Incident Response Plan (IRP) – 24/7 security team for rapid incident response  \
-✅ Data Backup & Disaster Recovery – Regular backups with geo-redundant storage for data integrity\
-✅ Forensic Investigations – Root cause analysis for security incidents, followed by corrective action
+* **Security monitoring** — logging and monitoring systems watch in-scope systems for possible or actual security breaches and generate alerts
+* **Endpoint protection** — antivirus and anti-malware on end-user devices with automatic definition updates; network traffic is inspected for malware, vulnerabilities, and insider threats
+* **Infrastructure monitoring** — cloud workloads are monitored continuously for non-compliance with our configuration standards, with alerts on abnormal conditions
+* **Audit trail** — detailed logs of data access and modification, available to you in the [Activity Log](/settings/activity-log)
 
-In-progress:
+---
 
-✅ Automated Threat Mitigation – AI-driven security response to mitigate risks in real-time  \
-✅ Breach Notification Policy – Any security breach is reported within 48 hours per GDPR guidelines
+#### Correct — incident response and recovery
+
+* **Incident response plan** — a documented plan assigns roles and response steps, and is communicated to both employees and customers
+* **Backups** — incremental and full backups of production databases run daily, with continuous backup and one-click restoration
+* **High availability** — the platform runs across multiple redundant availability zones with load balancing and auto-scaling
+* **Recovery testing** — the business continuity and disaster recovery plan, including backup restoration, is tested at least annually
+* **Breach notification** — we notify affected customers of a personal data breach without undue delay, as set out in our [DPA](/privacy-and-security/dpa)
+* **Forensic investigation** — root cause analysis after security incidents, followed by corrective action
 
 ---
 
