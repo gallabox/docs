@@ -435,6 +435,7 @@
             "icon": "shield-halved",
             "pages": [
               "privacy-and-security/overview",
+              "privacy-and-security/compliance",
               "privacy-and-security/data-security",
               "privacy-and-security/dpa",
               "privacy-and-security/subprocessors"
