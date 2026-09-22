@@ -45,9 +45,11 @@ Outgoing calls carry a charge, deducted from your Gallabox message credits. Keep
 
 > **Region availability:**
 >
-> * **Fully unavailable:** WhatsApp Business Calling is not yet available for numbers in GCC regions like **Saudi Arabia, the UAE, Kuwait, Qatar, Bahrain, and Oman**.\
+> * **Fully unavailable:** WhatsApp Business Calling is not yet available for numbers in GCC regions like **Saudi Arabia, the UAE, Qatar, and Oman**.\
 >   These numbers can neither make nor receive calls for now.
 > * **Outgoing restricted:** Meta currently restricts _outgoing (business-initiated)_ calls for numbers in the **USA, Canada, Egypt, Vietnam, and Nigeria**. These numbers can still receive incoming calls.
+
+If any of these prerequisites isn't met, the Calling page shows a message telling you which one — see [Calling Setup Restrictions](#calling-setup-restrictions) for what each message means and what you can do about it.
 
 ---
 
@@ -72,6 +74,37 @@ Once enabled, **Human Agent** configuration lets your team receive incoming call
 
 ---
 
+### Calling Setup Restrictions
+
+When you open the Calling page, Gallabox checks your plan, your permission, and your WhatsApp number against Meta's rules. If a check doesn't pass, you'll see a message explaining why instead of the setup form. The checks run in a fixed order and only the first failing one is shown — so clearing one restriction can reveal another behind it.
+
+Each check applies to a single WhatsApp number, not to your whole account. If you have more than one number connected, use the channel selector at the top of the Calling page to switch between them.
+
+| #   | What you see on the Calling page                                                                     | What it means                                                                                                                                                                         | What you can do                                                                                                                                                                                                    |
+| --- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **Access Denied!** — _"You don't have permission to enable calling."_                                | Your user doesn't have the **Can manage WhatsApp, Instagram and Web channel** permission. This depends on your role in Gallabox, not on your number.                                  | Ask an Owner or Admin to give you this permission, or to set calling up for you. Owners and Admins have it by default.                                                                                             |
+| 2   | **WhatsApp business calling is unavailable in this number's region**                                 | Meta hasn't released WhatsApp Business Calling for your number's country — currently **Saudi Arabia, the UAE, Qatar, and Oman**. These numbers can neither make nor receive calls.    | Nothing can be changed in Gallabox. We'll notify you as soon as calling becomes available for your number's region. If you have a number from a supported country, set calling up on that one instead.             |
+| 3   | **Calling is unavailable for this number** — _"This number uses WhatsApp Business App Coexistence."_ | Your number is connected in Coexistence mode, where you keep using the WhatsApp Business App alongside Gallabox. Meta restricts calling through a partner platform for these numbers. | You can still make and receive calls from the WhatsApp Business App as before. To use calling inside Gallabox, the number has to move to a standard connection — contact support to check whether that's possible. |
+| 4   | **Calling is not supported by your provider**                                                        | Your number is connected through a provider that doesn't support calling.                                                                                                             | Contact support. We can help you to move to a provider that supports calling.                                                                                                                                      |
+| 5   | **Answer customer calls right on WhatsApp**, with an **Upgrade** button                              | Calling isn't included in your current Gallabox plan.                                                                                                                                 | Upgrade to an eligible plan. The **Upgrade** button takes you to the plans page.                                                                                                                                   |
+| 6   | **Your daily recipient limit is _[>2k]_. Calling needs more than 2,000 to activate.**                | Your number hasn't reached Meta's daily limit of 2,000 unique recipients yet, so the Calling configurations can't be set up.                                                          | Meta raises this limit as you message more customers — see **Raising Your Messaging Limit** below. Once you cross it, calling becomes available automatically.                                                     |
+
+If none of these apply, the Calling page opens on the **Enable Calling** screen and you can follow the steps above.
+
+#### Raising Your Messaging Limit
+
+The messaging limit is the one prerequisite you can influence. Meta raises it on its own — there's no request to make in Gallabox — based on how your number is used:
+
+* **Message more unique customers.** Meta looks at how many different customers your number messages in a rolling 24-hour window.
+* **Keep your quality rating healthy.** A Low quality rating holds the limit back and can bring it down. Keep your templates relevant and give customers an easy way to opt out.
+* **Complete Business Verification** with Meta. Unverified numbers stay on the lower limits.
+
+Your current limit is shown in the message on the Calling page, and Gallabox re-checks it every time you open the page.
+
+> **Outgoing calls restricted:** Numbers in the **USA, Canada, Egypt, Vietnam, and Nigeria** can be set up for calling, but Meta restricts _outgoing (business-initiated)_ calls for them. Calling still turns on and incoming calls work as usual — you'll see a note on the Calling page, and the call button won't appear in conversations.
+
+---
+
 ### Quick Reference <a href="#id-9857eac0-7c0a-4b70-8ad9-139e09e84e77" id="id-9857eac0-7c0a-4b70-8ad9-139e09e84e77"></a>
 
 | Topic                  | Summary                                                                                |
@@ -80,11 +113,14 @@ Once enabled, **Human Agent** configuration lets your team receive incoming call
 | Who handles calls      | A Human Agent (your team) or a Voice AI Agent (automated, 24/7)                        |
 | Incoming calls         | Free; routed by your assignment rules; busy message if no one's free                   |
 | Outgoing calls         | Require customer permission; charged to message credits                                |
-| Plan                   | Available on eligible plans                                                            |
+| Plan                   | Available on Essential and Advanced plans and few legacy plans                         |
 | Who can set it up      | Users with _Can manage WhatsApp, Instagram and Web channel_ (Owners/Admins by default) |
 | Messaging prerequisite | 2,000 daily unique recipients before calling activates                                 |
-| Fully unavailable in   | Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman                                        |
+| Fully unavailable in   | Saudi Arabia, UAE, Qatar, Oman                                                         |
 | Outgoing restricted in | USA, Canada, Egypt, Vietnam, Nigeria (incoming still works)                            |
+| Coexistence numbers    | Calling can't be used in Gallabox; use the WhatsApp Business App instead               |
+| Provider support       | Your number's WhatsApp provider (BSP) must support calling                             |
+| Setup restrictions     | See [Calling Setup Restrictions](#calling-setup-restrictions)                          |
 
 ---
 
