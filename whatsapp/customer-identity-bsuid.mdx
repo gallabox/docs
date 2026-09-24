@@ -51,11 +51,11 @@ If a BSUID-only contact's phone number becomes known later — you message a num
 
 Click **Request Phone Number** in the contact panel to send WhatsApp's native "share your phone number" prompt. The customer taps **Share**, their number is added automatically. Only appears for a BSUID-only contact inside an active 24-hour window — outside it, send a template first to reopen the conversation.
 
-This is agent-triggered today. Requesting it by automation — a bot asking on its own — is **coming soon**.
+A bot can also ask on its own. Add the **Request Phone Number** node to a Rule-Based Bot Flow and the bot sends the same prompt without an agent — see [Ask nodes](/ai-agents-and-bots/bots/nodes/ask-nodes#request-phone-number).
 
 ### Bots
 
-Rule-based Bot Flows and the AI Bot both already recognize BSUID contacts and run a full flow without a phone number on file.
+Rule-based Bot Flows and the AI Bot both already recognize BSUID contacts and run a full flow without a phone number on file. Rule-Based Bot Flows can also request the number themselves with the [Request Phone Number node](/ai-agents-and-bots/bots/nodes/ask-nodes#request-phone-number).
 
 Any connected integration that treats phone number as required — CRM sync, order systems, and similar — won't work for a BSUID-only contact. All connected integrations now need to handle a contact that may have no phone number.
 
@@ -91,7 +91,9 @@ Any connected integration that treats phone number as required — CRM sync, ord
   </Accordion>
 
   <Accordion title="Can my bot ask for the customer's phone number automatically?">
-    This is coming soon - for both Rule-based Bot Flows and the AI Bot. The bot can already run its full flow without a phone number; requesting one still needs an agent to click **Request Phone Number** in the Inbox.
+    Yes, in Rule-Based Bot Flows. Add the [Request Phone Number node](/ai-agents-and-bots/bots/nodes/ask-nodes#request-phone-number) and the bot sends WhatsApp's share-phone prompt itself. If the contact's number is already on file, the node skips itself and the flow carries on.
+
+    An agent can still trigger it manually from the Inbox with **Request Phone Number** in the contact panel.
   </Accordion>
 
   <Accordion title="Can I export or sync BSUID to my CRM through the API?">
