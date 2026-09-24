@@ -24,6 +24,7 @@ Ask nodes pause the bot flow and wait for the customer to reply with a specific 
 | Ask Email            |   ✓   |     ✓     |     ✓    |
 | Ask Number           |   ✓   |     ✓     |     ✓    |
 | Ask Phone            |   ✓   |     ✓     |     ✓    |
+| Request Phone Number |   ✓   |     ✓     |     ✓    |
 | Ask Date             |   ✓   |     ✓     |     ✓    |
 | Ask URL              |   ✓   |     ✓     |     ✓    |
 | Ask Reply Buttons    |   ✓   |     ✓     |     ✓    |
@@ -67,6 +68,28 @@ Validates that the input is a properly formatted email address (must contain `@`
 Validates a phone number format. Supports international formats.
 
 **Example:** Question: _"What's the best number to reach you?"_ → stored in `{{customer_phone}}`
+
+#### Request Phone Number
+
+Sends WhatsApp's native **share your phone number** prompt instead of asking the customer to type it. The customer taps **Share** and their number is captured automatically.
+
+Use this for contacts who reached you without a phone number — someone who messaged from a Click-to-WhatsApp ad or is identified only by their WhatsApp username. See [Customer identity and BSUID](/whatsapp/customer-identity-bsuid).
+
+**Example:** Question: _"Please share your phone number"_ → stored in `{{customer_phone}}`
+
+**How it behaves:**
+
+* The default question text is _"Please share your phone number"_. Edit it like any other Ask node.
+* **If Gallabox already has the contact's number, the node skips itself** — it stores the number on file in your variable and moves straight to the next node without messaging the customer. You can safely put it in a flow that serves both kinds of contact.
+* Only a number shared through the prompt is accepted. If the customer forwards someone else's contact card instead, the bot ignores it and retries.
+* The number is stored with its country code, for example `+919876543210`.
+* This node sends an interactive WhatsApp message, so it has no voice version — the **Ask Option** setting does not apply.
+
+<Tip>
+
+Pair it with a Condition node. If the variable is empty after the node runs, the customer declined to share — route them down a path that does not need a phone number rather than asking again.
+
+</Tip>
 
 #### Ask Number
 
