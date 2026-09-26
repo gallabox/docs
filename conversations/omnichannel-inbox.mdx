@@ -40,6 +40,19 @@ Each conversation shows:
 * **Timestamp** — when the last message was received
 * **Status** — Open or Closed. (Unassigned is not a status — it means an open conversation has no owner yet.)
 
+## Messages sent through the API or an integration
+
+Messages your own systems send, through the [API](/settings/api-keys), an integration such as Shopify, or a workflow, don't always show up as a new conversation.
+
+* **The contact has an open conversation on that number.** The message is added to it. It doesn't change who the conversation is assigned to, and it doesn't mark the conversation as unread.
+* **The contact has no open conversation.** No new conversation is created. The message is saved on the contact's history instead.
+* **The API request names a team member or a bot.** The message opens a conversation, or adds to the open one, and assigns it to that team member or bot.
+
+To find a message that has no conversation:
+
+1. Search for the contact in the Inbox and open it. You'll see the contact's messages on that WhatsApp number, including API and integration messages.
+2. If you have several WhatsApp numbers and the message went out from a different one, click **New**, choose that number under **Initiate new conversation on**, then pick the contact.
+
 ## Channel Indicators
 
 Every conversation in the inbox has a channel indicator so your team always knows the source:

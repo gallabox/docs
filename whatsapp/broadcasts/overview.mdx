@@ -153,6 +153,33 @@ Common reasons for broadcast failures:
 * **Daily limit exceeded** — you've hit your messaging tier limit for the day
 </Accordion>
 
+<Accordion title="Which limits apply to my broadcasts?">
+Three limits apply at the same time. A broadcast stops at whichever one you reach first.
+
+| Limit | Set by | What it counts | Where to see it |
+| --- | --- | --- | --- |
+| **Plan broadcast limit** | Your Gallabox plan | Contacts you broadcast to each month | [Plan Availability](#plan-availability) |
+| **Messaging limit** (tier) | Meta | Unique customers you start a conversation with in a rolling 24 hours, shared by every number in your Meta business portfolio | [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) → **Account tools** → **Messaging limits**, or the Meta figure under **Message Limit** on your channel |
+| **Channel broadcast limit** | Gallabox, for each number | Contacts this number can broadcast to in a rolling 24 hours. It can't be set higher than Meta's messaging limit or what your plan allows. | The Gallabox figure under **Message Limit** on your channel |
+
+The channel broadcast limit is a safeguard. It keeps one large broadcast from using up the whole shared messaging limit. If a broadcast fails with a message that starts "Cannot send broadcast to more than", this is the limit you've hit.
+
+For how Meta raises your messaging limit, see [How your messaging limit grows](/whatsapp/connect-your-whatsapp#how-your-messaging-limit-grows).
+</Accordion>
+
+<Accordion title="Meta raised my messaging limit, but Gallabox still shows the old one">
+Gallabox doesn't raise your channel broadcast limit on its own when Meta raises your messaging limit. To use the higher limit:
+
+1. Go to **WhatsApp Channel → \[your number]**.
+2. Click the **sync** icon at the top of the page. This fetches your latest messaging limit from Meta.
+3. Under **Message Limit**, check that the Meta figure shows the new limit.
+4. Click the **edit** icon next to the Gallabox figure, choose the new limit, and click **Apply**.
+
+You need permission to edit channels to change the limit.
+
+If the new limit isn't offered, Meta hasn't passed it on yet. Meta can take up to about six hours after an increase. Sync again later. If you see "Please upgrade your plan", your plan doesn't allow a higher limit. See [Plan Availability](#plan-availability).
+</Accordion>
+
 <Accordion title="How do I know if a contact has opted in to marketing messages?">
 Go to **Contacts → \[contact name]** and check the **Marketing Opt-In** field.
 </Accordion>
