@@ -73,23 +73,75 @@ Check in this order:
 
 <Steps>
 
-<Step title="Is it published and assigned?">
-The agent only replies when it is published and assigned to that conversation (or to the WhatsApp/Instagram number that received the message).
+<Step title="Is it published to this channel?">
+The agent's header shows **Unpublished** or **Last Published at**. Publish with **Publish Agent**, then pick the channel in **Assign channels**.
+
+Publishing needs a **Role** and **Goal**. If you see "You don't have access to publish this agent. Please upgrade your plan to continue.", your plan doesn't include agents on that channel.
+</Step>
+
+<Step title="Is the conversation assigned to the agent?">
+The agent only replies in conversations assigned to it. An open conversation keeps its current owner. When a team member replies from the inbox, the conversation becomes theirs and the agent stops. See [How conversations reach a bot](/ai-agents-and-bots/how-conversations-reach-a-bot).
 </Step>
 
 <Step title="Check AI credits">
-If [AI Wallet](/pricing-and-billing/ai-wallet) is empty, the agent will not reply.
+When the [AI Wallet](/pricing-and-billing/ai-wallet) is empty, the agent stops replying. See [Why did the agent stop mid-conversation?](#agent-not-responding).
 </Step>
 
 <Step title="Check session timeout">
 After the drop-off wait (24 hours on WhatsApp/Instagram, 1 hour on Web Chat, unless you changed it), the agent stops. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout).
 </Step>
 
+<Step title="Check the WhatsApp number">
+If the channel shows a connection warning, fix the connection first. The agent can't reply on a disconnected number.
+</Step>
+
+<Step title="Is it an older V1 agent?">
+V1 agents have stopped working. Open the agent and choose **Upgrade to V2**. See [Migrating from V1 to V2](/ai-agents-and-bots/chat-ai-agent/migrating-from-v1-agents-to-v2).
+</Step>
+
 </Steps>
 </Accordion>
 
 <Accordion title="The agent replied once, then stopped">
-The session likely timed out. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout).
+The session likely timed out. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout). To see the exact reason, see the next question.
+</Accordion>
+
+<Accordion title="Why did the agent stop mid-conversation?">
+To see why a session ended, open the agent and go to **Analyze**. Open the session, then hover over its status. The reasons you may see:
+
+| Reason | What it means |
+| ------ | ------------- |
+| **Insufficient AI wallet balance** | Your AI credits ran out. Top up in the [AI Wallet](/pricing-and-billing/ai-wallet). |
+| **Credit limit per session reached** | This conversation used the most credits one session is allowed. See **Credit limit per session** below. |
+| **Conversation engaged by another user** | A team member took over the conversation. |
+| **Bot ownership changed** | The conversation was assigned to someone else. |
+
+When a session ends this way, the agent behaves as it does on timeout:
+
+* **WhatsApp and Instagram.** It sends your drop-off message and runs your drop-off actions. The default action is **Unassign Conversation**.
+* **Web Chat.** It resolves the chat without sending a message.
+
+The customer doesn't get a separate "out of credits" message.
+
+**Credit limit per session** is in the agent's **Settings**. It caps how many credits one conversation can use: "Set the maximum credits your AI Agent can use in a single session." The default is 150. You can set anything from 50 to 1,000.
+</Accordion>
+
+<Accordion title="Live chats stopped, but the Test Widget still works">
+The Test Widget doesn't check your AI credit balance. It can keep working while live replies have stopped. Check your [AI Wallet](/pricing-and-billing/ai-wallet) balance first.
+
+Also check that you've published your latest changes. Customers get the published version, while the Test Widget uses your draft.
+</Accordion>
+
+<Accordion title="The agent replied after my team member took over">
+A reply the agent was already writing can still arrive after someone takes over. It doesn't pull the chat back to the agent, and the agent doesn't send anything after that.
+
+For a clean handoff, have the agent hand over itself. Add an `@assignTo` action to its Instructions instead of jumping into the chat by hand. See [Agent Actions](/ai-agents-and-bots/chat-ai-agent/agent-actions).
+</Accordion>
+
+<Accordion title="Does the agent answer every message separately?">
+If the customer sends several messages while the agent is still writing a reply, the agent answers them together in its next reply. There's no setting for this.
+
+Messages sent after the agent has replied get their own reply.
 </Accordion>
 </AccordionGroup>
 
@@ -117,6 +169,16 @@ The agent finds passages that match the question. Try the same wording your docu
 <Accordion title="My PDF uploaded but shows Failed">
 It is often a scan, password-protected, or damaged. See [Add Data Sources](/ai-agents-and-bots/chat-ai-agent/knowledge-base/add-data-sources#faqs).
 </Accordion>
+
+<Accordion title="An image or file from my Knowledge Base arrives as a link">
+Before sending an image, video or file, the agent checks that it can reach the file, and that the file type and size are supported. If a check fails, it sends the link as text instead. In a button or card message, it drops the image.
+
+To fix it:
+
+* Host the file at a public link that doesn't need a login.
+* Keep the file within WhatsApp's media size limits.
+* Turn on **Multiple Message Type Support** in the agent's **Settings**. Without it, the agent sends text only. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#message-types).
+</Accordion>
 </AccordionGroup>
 
 ## Session and timeout
@@ -143,9 +205,25 @@ Enable WhatsApp handoff. @assignTo does not work on Web Chat.
 
 ## Credits and billing
 
+<AccordionGroup>
 <Accordion title="AI credits are being used too fast">
 Credits are used when the agent replies, and when Knowledge Base files are processed. See [AI Wallet](/pricing-and-billing/ai-wallet).
+
+To cap spending on any single conversation, lower **Credit limit per session** in the agent's **Settings**. A cheaper model also helps. See the next question.
 </Accordion>
+
+<Accordion title="Which AI model should I choose?">
+In the agent's **Settings**, go to **AI model & credit usage**, then **AI model for the conversations**:
+
+| Model | Best for |
+| ----- | -------- |
+| **Smart** | "Fast and cost-efficient. Best for common questions and high-volume conversations." |
+| **Balanced** (**Recommended**) | "Great for most conversations. Supports images, connected apps, and custom API's." |
+| **Advance** | "Everything in Balanced, with better handling of complex conversations, API's. Uses more credits." |
+
+New agents start on **Balanced**. Choose **Balanced** or **Advance** if the agent uses connected apps, API actions or images.
+</Accordion>
+</AccordionGroup>
 
 ## General
 

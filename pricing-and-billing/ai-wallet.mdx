@@ -55,18 +55,19 @@ AI credits are consumed by any feature that calls an AI model:
 
 ## Monitoring AI Credit Usage
 
-Go to **Settings → Billing → AI Wallet**. The page shows credits remaining, credits used this month, a daily usage chart, a breakdown by feature, and a projected run-out date at current usage.
+Go to **Settings → Workspace → AI Wallet**. The page shows credits remaining, credits used this month, a daily usage chart, a breakdown by feature, and a projected run-out date at current usage.
 
 ### Setting up alerts
 
-1. Go to **Settings → Billing → AI Wallet → Alerts**.
-2. Set an alert threshold — e.g., "Alert me when 80% of credits are used."
-3. Choose notification method: email to Admin, or in-app notification.
-4. Save.
+Owners and Admins get an email when your balance drops below the low-balance threshold, and another when it reaches zero. The default threshold is 200 credits.
+
+To change it, open **Low Balance Alert Settings** from the **Low balance alert** on the AI Wallet page and set a new threshold.
+
+Alerts are sent by email only. The AI Wallet page also shows a warning when your balance is low or used up.
 
 ## When Credits Run Out
 
-- **Chat AI Agent** falls back to your configured fallback message
+- **Chat AI Agent** ends the session. On WhatsApp and Instagram it sends your drop-off message and runs your drop-off actions. On Web Chat it resolves the chat. See [Why did the agent stop mid-conversation?](/ai-agents-and-bots/chat-ai-agent/faqs#agent-not-responding)
 - **AI Reply**, **AI Rewrite**, and **AI Translate** stop working
 - **Bot flow AI nodes** (GPT Dialog, GPT Knowledge Base) error at that node
 
@@ -74,7 +75,7 @@ Go to **Settings → Billing → AI Wallet**. The page shows credits remaining, 
 
 ## Purchasing Top-Ups
 
-1. Go to **Settings → Billing → AI Wallet → Buy Top-Up**.
+1. Go to **Settings → Workspace → AI Wallet** and click **Buy Credits**. **Buy Credits** isn't shown on trial accounts.
 2. Select the top-up amount in 1,000-credit units.
 3. Review the price and click **Purchase** — credits are added immediately.
 4. The charge appears on your next invoice.

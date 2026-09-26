@@ -239,9 +239,11 @@ Ask Reply Buttons: [Track Order] [Place Order] [Talk to Agent]
 The customer is either:
 
 1. **Sending the wrong type of input** — e.g., typing text when you asked for a phone number
-2. **Not responding at all** — the session may have timed out
+2. **Not responding, and being nudged.** If nudges are on, the bot asks the unanswered question again before it gives up.
 
-Check your retry message is clear: _"Please enter a 10-digit phone number, e.g., 9876543210."_ Also check the **timeout setting** — if the customer takes too long, the session expires and the flow restarts. Consider adding a Condition node that checks if the variable is empty after a timeout and routes to a different branch or sends a "Taking too long?" message.
+Check your retry message is clear: _"Please enter a 10-digit phone number, e.g., 9876543210."_
+
+If the customer doesn't reply at all, the bot waits for its wait time and then drops off. It sends your timeout message and runs your timeout actions. It doesn't restart the flow. See [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off).
 </Accordion>
 
 <Accordion title="Can customers respond with natural language dates like 'next Tuesday'?">
@@ -253,14 +255,13 @@ Ask File requires the customer to upload a file. WhatsApp supports file uploads,
 </Accordion>
 
 <Accordion title="How do I make an Ask node optional — skip if the customer doesn't respond?">
-Add a **Condition node** after the Ask node that checks if the variable is empty:
+A flow doesn't move past an Ask node until the customer replies. Ask nodes have no timeout of their own that branches elsewhere.
 
-```
-Condition: {{customer_email}} is empty
-  → true: Send "No email provided — we'll continue without it"
-  → false: Send "Thanks! We've sent a confirmation to {{customer_email}}"
-```
+To make a question optional, give the customer a way to skip it. For example, use **Ask Reply Buttons** with a **Skip** button, then route it with a **Condition node**.
 
-You can also set a timeout in the Ask node that routes to a different branch if no response is received within the configured time.
+If the customer doesn't reply at all:
+
+* use [nudges](/ai-agents-and-bots/bots/wait-time-and-drop-off#nudge-before-dropping-off) to remind them, and
+* choose what the bot does when the [wait time](/ai-agents-and-bots/bots/wait-time-and-drop-off) runs out.
 </Accordion>
 </AccordionGroup>
