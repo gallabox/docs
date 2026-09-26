@@ -35,6 +35,7 @@ Ask nodes pause the bot flow and wait for the customer to reply with a specific 
 | Ask File             |   —   |     ✓     |     ✓    |
 | Ask Location         |   —   |     ✓     |     ✓    |
 | Ask Form             |   —   |     ✓     |     ✓    |
+| Ask WhatsApp Payment |   —   |     ✓     |     ✓    |
 
 ## How Ask Nodes Work
 
@@ -182,7 +183,33 @@ Combines multiple fields into one screen — the customer fills in all fields in
 * Field 3: Preferred date (date)
 * Field 4: Notes (text, optional)
 
-> To **request a payment** during a flow, use the [Send WhatsApp Payment node](/whatsapp/overview) — payments are a Send node, not an Ask node.
+#### Ask WhatsApp Payment
+
+Sends a WhatsApp Pay payment request and waits until the customer pays. The flow then continues on one of two branches:
+
+* **Success** (green) — the payment went through.
+* **Failure** (red) — the payment failed.
+
+**Requires:** [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected, with UPI, RazorPay, or PayU as the payment provider.
+
+**Example:** _"Your order total is ₹500. Tap to pay:"_ → the customer pays inside WhatsApp → the success branch sends `Payment received. Your order {{payment.orderId}} is confirmed.`
+
+You set up the payment request the same way as in the [Send WhatsApp Payment node](/ai-agents-and-bots/bots/nodes/send-nodes): payment provider, order items, body text, and optional tax, shipping, and discount. Ask WhatsApp Payment adds two settings:
+
+* **Store payment response in variable** — saves the payment details in a variable. If you name it `payment`, you can use:
+  * `{{payment.paymentResult}}` — the payment status
+  * `{{payment.orderId}}` — the order ID
+  * `{{payment.transactionId}}` — the transaction ID
+  * `{{payment.pgTransactionId}}` — the payment provider's transaction ID
+* **Proceed to fallback** — when this is on, any reply other than a payment sends the flow down a fallback branch. For example, the customer types a question instead of paying. When it's off, the bot ignores other replies and keeps waiting for the payment.
+
+If the customer never pays, the bot's [wait time](/ai-agents-and-bots/bots/wait-time-and-drop-off) applies, just like any other Ask node.
+
+If a payment fails and then succeeds later, the bot runs the success branch.
+
+<Note>
+  Use **Send WhatsApp Payment** when you only want to send the payment request and carry on with the flow. Use **Ask WhatsApp Payment** when the next step depends on whether the customer paid. Payment links from other gateways, such as a RazorPay link, don't pause the bot.
+</Note>
 
 ---
 
