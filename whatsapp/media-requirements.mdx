@@ -1,0 +1,86 @@
+---
+title: "Media and File Requirements"
+description: "File types, size limits and link rules for images, videos, audio and documents you send on WhatsApp through Gallabox, including template headers."
+---
+
+> **Who can use this?**
+>
+> - Applies to every plan and every WhatsApp channel. Nothing to enable or configure.
+
+<Info>
+  WhatsApp only accepts certain file types and sizes. This page lists them for every place you send media in Gallabox, including the Inbox, bots, broadcasts, template headers, and the API. If a file breaks one of these rules, WhatsApp rejects it and the message fails.
+</Info>
+
+## File types and sizes
+
+| Media | File types | Maximum size |
+| --- | --- | --- |
+| **Image** | `.jpg`, `.jpeg`, `.png` | 5 MB |
+| **Video** | `.mp4`, `.3gpp` | 16 MB |
+| **Audio** | `.aac`, `.amr`, `.mp3`, `.m4a`, `.ogg` | 16 MB |
+| **Document** | `.pdf`, `.txt`, `.doc`, `.docx`, `.xls`, `.xlsx`, `.ppt`, `.pptx` | 16 MB |
+
+* WhatsApp doesn't accept WebP images, except as stickers. Convert WebP files to JPG or PNG.
+* An `.ogg` audio file must use the OPUS codec and a single (mono) channel.
+* WhatsApp allows documents up to 100 MB, but Gallabox accepts documents up to 16 MB when you upload or send them.
+
+## Template headers
+
+When you create a template with a media header, the sample file has these limits:
+
+| Header | File types | Maximum size |
+| --- | --- | --- |
+| **Image** | `.jpg`, `.jpeg`, `.png` | 5 MB |
+| **Video** | `.mp4`, `.3gpp` | 16 MB |
+| **Document** | `.pdf` only | 16 MB |
+
+Carousel cards follow the same image and video limits. See [Carousel templates](/whatsapp/templates/carousel-templates).
+
+## Video requirements
+
+WhatsApp plays a video only if it's encoded in a way every phone supports. When you add a video to a template, Gallabox checks the codecs, the audio track and fast start.
+
+* Use H.264 video with AAC audio.
+* Use one audio track. When you create a template, the video must have an audio track.
+* Export with the H.264 **Main** or **Baseline** profile. Some Android phones can't play the **High** profile.
+* Turn on **fast start** (sometimes called "optimise for web") when you export. It lets the video start playing before it has fully downloaded.
+
+Most video editors and converters offer these options when you export as MP4.
+
+## Links to media
+
+When you send media by link instead of uploading it, WhatsApp or Gallabox fetches the file from that link.
+
+* The link must be publicly reachable. It can't be behind a login, a firewall, or an expiring access token.
+* The link must open the file itself, not a web page that shows or previews the file.
+* Google Drive links aren't supported. Upload the file to Gallabox instead, or host it where the link opens the file directly.
+* WhatsApp caches a linked file for about 10 minutes. If you replace a file but keep the same link, customers may get the old file for up to 10 minutes. Use a new link for a new file.
+
+Uploading a file to Gallabox avoids all of these link problems.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="My media message failed. What do I check?">
+1. Check the file type and size against [File types and sizes](#file-types-and-sizes).
+2. If you sent a link, check it against [Links to media](#links-to-media). Open the link in a private browser window. If it doesn't download or show the file straight away, WhatsApp can't fetch it either.
+3. For a video, check [Video requirements](#video-requirements).
+
+Then open the failed message and look up its error code in [Message error codes](/whatsapp/message-error-codes). Error `131053` means WhatsApp couldn't accept the media.
+</Accordion>
+
+<Accordion title="Why can't I choose a Word or Excel file for my template header?">
+When you create a template, a document header must be a PDF. Convert the file to PDF, then upload it.
+</Accordion>
+
+<Accordion title="Is there a limit on files customers send me?">
+Customers can send you files up to WhatsApp's own limits, including documents up to 100 MB. If Gallabox can't download a file a customer sent, the message shows error `131052`. Ask the customer to send it again.
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+* [Send nodes](/ai-agents-and-bots/bots/nodes/send-nodes)
+* [Template messages](/whatsapp/templates/overview)
+* [Message error codes](/whatsapp/message-error-codes)
+* [Unsupported messages](/whatsapp/unsupported-messages)

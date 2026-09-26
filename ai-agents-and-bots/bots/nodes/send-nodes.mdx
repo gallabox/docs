@@ -57,12 +57,7 @@ Available variables:
 
 Sends an image, audio file, video, or document. Provide a file URL or pick from your Gallabox media library.
 
-**Supported formats:**
-
-* Images: JPG, PNG, WebP (max 5MB on WhatsApp)
-* Audio: MP3, OGG (max 16MB)
-* Video: MP4 (max 16MB)
-* Documents: PDF, DOCX (max 16MB upload via Gallabox)
+**Supported formats:** images up to 5 MB, and video, audio and documents up to 16 MB. For the full list of file types and link rules, see [Media and file requirements](/whatsapp/media-requirements).
 
 **Example:** _"Here's your invoice"_ → sends a PDF document with the filename as the caption
 
@@ -164,9 +159,11 @@ Ask Reply Buttons: (captures the button tap → stores in {{user_choice}})
 <Accordion title="My image keeps failing to send — why?">
 Image sending failures usually mean:
 
-1. **File too large** — WhatsApp has a 5MB limit for images. Compress the image or reduce the resolution.
-2. **File URL is not publicly accessible** — the URL must be publicly reachable (not behind a login wall). Gallabox's media library hosts files correctly for WhatsApp delivery. If using an external URL, make sure it starts with `https://`.
-3. **Unsupported format** — WhatsApp supports JPG, PNG, WebP for images. Try converting to JPG.
+1. **File too large** — WhatsApp has a 5 MB limit for images. Compress the image or reduce the resolution.
+2. **File URL is not publicly accessible** — the link must open the file itself, without a login. Google Drive links aren't supported. Gallabox's media library hosts files correctly for WhatsApp delivery.
+3. **Unsupported format** — WhatsApp accepts JPG and PNG images only. Convert other formats, including WebP, to JPG.
+
+See [Media and file requirements](/whatsapp/media-requirements).
 </Accordion>
 
 <Accordion title="My Send Template isn't going through — what do I check?">

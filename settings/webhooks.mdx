@@ -251,6 +251,14 @@ Logs are kept for **7 days**. If you see failures, check your endpoint logs alon
 Gallabox retries failed webhook deliveries automatically — up to 5 attempts with increasing delays between them. Retry details aren't shown in the UI. If your endpoint is consistently unavailable, events may be lost. For critical events, implement a queue or logging system so nothing is missed.
 </Accordion>
 
+<Accordion title="The API returned 202 Accepted. Was my message delivered?">
+Not necessarily. `202 Accepted` means Gallabox has accepted your message and will send it. It doesn't mean WhatsApp delivered it.
+
+To find out what happened to the message, subscribe to `Message.WA.Status.Received` and `Message.WA.Status.Failed`. You get an event when the message is sent, delivered or read, or when it fails. If it fails, the event includes the error code. See [Message error codes](/whatsapp/message-error-codes).
+
+For request and response formats, see the [Developer API reference](https://api-docs.gallabox.com).
+</Accordion>
+
 <Accordion title="What's the difference between a webhook and an API?">
 A **webhook** is Gallabox pushing data to you when something happens. An **API** is you pulling data from Gallabox when you ask for it. Webhooks are real-time and event-driven. APIs are on-demand. Use webhooks for real-time notifications; use the API for querying historical data or taking actions in Gallabox.
 </Accordion>
