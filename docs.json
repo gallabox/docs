@@ -75,8 +75,6 @@
                 "pages": [
                   "ai-agents-and-bots/bots/overview",
                   "ai-agents-and-bots/bots/flow-builder",
-                  "ai-agents-and-bots/bots/wait-time-and-drop-off",
-                  "ai-agents-and-bots/bots/troubleshooting",
                   {
                     "group": "Nodes",
                     "pages": [
@@ -87,7 +85,9 @@
                       "ai-agents-and-bots/bots/nodes/flow-control-nodes"
                     ]
                   },
-                  "ai-agents-and-bots/bots/connectors"
+                  "ai-agents-and-bots/bots/connectors",
+                  "ai-agents-and-bots/bots/wait-time-and-drop-off",
+                  "ai-agents-and-bots/bots/troubleshooting"
                 ]
               },
               {
