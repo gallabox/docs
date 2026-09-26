@@ -71,21 +71,18 @@ Razorpay: Create payment link
 Send Text: "Here's your payment link — valid for 24 hours: {{razorpay_link}}"
 ```
 
-**Wait for payment → fulfill order:**
+**Confirm the payment once the customer pays:**
+
+The **Create payment link** connector doesn't wait for the customer to pay. It creates the link, and the flow moves straight on. To confirm the payment, set up the Razorpay **Payment Captured** workflow. When Razorpay reports the payment, Gallabox sends the template you chose to the customer. Add a button payload to the template if you want a bot to start when the customer taps it.
 
 ```
-Razorpay: Create payment link
-  → Send Text: "Complete your payment: {{razorpay_link}}"
+Bot flow: Razorpay: Create payment link → Send Text: "Complete your payment: {{razorpay_link}}"
 
-Wait for Order (via Razorpay webhook)
-  Event: "Payment successful"
-  Timeout: 24 hours
-    → on event:
-      Shopify: Update order status = "Confirmed"
-      Send Text: "Payment received! Your order is confirmed and being prepared."
-    → on timeout:
-      Send Text: "Your payment link has expired. Need a new one? Type 'pay' to get a fresh link."
+Customer pays via the link
+  → Payment Captured workflow sends a template: "Payment received! Your order is confirmed."
 ```
+
+See [Workflows for Razorpay](/integrations/payment-gateways/razorpay/workflows-for-razorpay).
 
 ## Stripe
 
@@ -209,22 +206,32 @@ To disable a workflow, toggle off the switch beside it.
 
 <AccordionGroup>
 <Accordion title="Can customers pay directly in WhatsApp without leaving the chat?">
-On WhatsApp, customers can tap a payment button (WhatsApp Pay) if they have WhatsApp Payments set up with a linked bank account. For Razorpay and Stripe, customers are redirected to a secure payment page (via a link) — they complete payment in their browser or payment app, then return to the conversation. Gallabox detects the payment completion via webhook and continues the bot flow.
+On WhatsApp, customers can tap a payment button (WhatsApp Pay) if they have WhatsApp Payments set up with a linked bank account. For Razorpay and Stripe, customers are redirected to a secure payment page (via a link) — they complete payment in their browser or payment app, then return to the conversation. A payment link doesn't pause the bot, so the flow doesn't continue when the customer pays. Use the gateway's payment workflows to confirm link payments.
 </Accordion>
 
-<Accordion title="How long does payment confirmation take?">
-Payment confirmation via webhook is usually instant (1-5 seconds). If the webhook is delayed, use the **Wait for Order** node with a timeout (e.g., 24 hours) — the flow continues automatically when payment is confirmed, or routes to the timeout branch if not.
+<Accordion title="Can a bot wait until the customer has paid?">
+Only for WhatsApp Pay. The **Ask WhatsApp Payment** node sends a payment request and pauses the bot. When WhatsApp reports the result, the bot continues on the success branch or the failure branch. It needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected.
+
+Payment links from Razorpay, Stripe, and PhonePe don't pause the bot. Instead, use the gateway's workflows to send a template when the payment comes through:
+
+* [Workflows for Razorpay](/integrations/payment-gateways/razorpay/workflows-for-razorpay)
+* [Stripe Workflows](/integrations/payment-gateways/stripe/stripe-workflows)
+* [Workflows for Cashfree](/integrations/payment-gateways/cashfree/workflows-for-cashfree)
 </Accordion>
 
-<Accordion title="What happens if a payment fails after the order was created?">
-Use the **Wait for Order** node's timeout branch:
+<Accordion title="What happens if a payment fails?">
+It depends on how the customer was asked to pay.
+
+* **WhatsApp Pay (Ask WhatsApp Payment node):** the bot continues on the failure branch. Use it to tell the customer and offer another try.
+* **Payment link:** the bot isn't notified. Set up the gateway's **Payment Failed** workflow to send the customer a template automatically. Add a button payload to the template if you want a retry bot to start when they tap it.
 
 ```
-Razorpay: Create payment link
-  → Send Text: "Complete your payment: {{razorpay_link}}"
-  → Wait for Order: Event = "Payment successful"
-    → on event: Shopify: Update order status = "Confirmed"
-    → on timeout: Send Text: "Payment failed or expired. Please try again or use a different payment method."
+Ask WhatsApp Payment
+  → on success: Update Order Payment Status: paid
+                Send Text: "Payment received! Your order is confirmed."
+  → on failure: Send Text: "Your payment didn't go through. Please try again or use a different payment method."
 ```
+
+If the customer doesn't pay at all, the bot waits until its wait time runs out and then drops off. See [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off).
 </Accordion>
 </AccordionGroup>

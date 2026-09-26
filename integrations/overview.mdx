@@ -26,7 +26,7 @@ There are three ways to use integrations:
 
 Connectors are used inside **bot flows** — when a specific action happens in the conversation, the connector performs an operation in the external tool.
 
-**Example:** Bot flow creates a Razorpay payment link → customer pays → Wait for Order node catches the payment event → bot updates the Shopify order status to "Confirmed" and sends a confirmation message
+**Example:** Bot flow asks how much the customer wants to pay → the Razorpay connector creates a payment link and stores it in a variable → a Send node delivers the link to the customer
 
 ### API Call Node
 
@@ -87,8 +87,8 @@ Process payments and manage transactions directly in WhatsApp.
 **What you can do:**
 
 * Send payment links and collect payments via WhatsApp Pay
-* Wait for the payment event with the Wait for Order node before continuing the flow
-* Handle failed payments with retry flows
+* Pause a bot until the customer pays with WhatsApp Pay, then continue on a success or failure branch
+* Send a WhatsApp template automatically when Razorpay, Stripe, or Cashfree reports a successful or failed payment
 
 [See payment gateway integrations →](/integrations/payment-gateways/overview)
 
@@ -135,13 +135,15 @@ Bot flow: Ask Email → Update Contact Fields
 ### Order Confirmation → Payment + Status Update
 
 ```
-Bot flow: Razorpay: Create payment link
-  → Send Text: "Complete your payment: {{payment_link}}"
-  → Wait for Order: Event = "Payment Successful"
-    → on event: Shopify: Update order status to "Confirmed"
-               Send Text: "Your order is confirmed!"
-               HubSpot: Create/update deal
+Bot flow: Wait for Order: "Browse our catalog and place your order to continue."
+  → Ask WhatsApp Payment: customer pays inside WhatsApp
+    → on success: Update Order Payment Status: paid
+                  Send Text: "Your order is confirmed!"
+                  Google Sheets: Add New Row with the order details
+    → on failure: Send Text: "Your payment didn't go through. Please try again."
 ```
+
+The **Ask WhatsApp Payment** node is the only node that waits for a payment. It needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected. A payment link from Razorpay, Stripe, or PhonePe doesn't pause the bot — to confirm those payments, use the gateway's workflows. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
 
 ### Appointment Booking → Meeting Creation
 

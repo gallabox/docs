@@ -50,15 +50,16 @@ Connects your Shopify store to Gallabox — syncs orders, updates status, and ma
 
 ### Shopify use cases
 
-**Payment → confirm order:**
+**Catalog order → Shopify checkout link:**
 
 ```
-Razorpay: Create payment link
-  → Send Text: "Complete your payment: {{payment_link}}"
-  → Wait for Order: Event = "Payment Successful"
-    → on event: Shopify: Update order status = "Confirmed"
-               Send Text: "Payment confirmed! Your order #{{order_id}} is being prepared."
+Wait for Order: "Browse our catalog and place your order to continue."
+  → Shopify: Create Draft Order from the customer's WhatsApp order
+    → Store the Invoice URL in {{invoice_url}}
+  → Send Text: "Complete your payment here: {{invoice_url}}"
 ```
+
+The bot doesn't wait for the customer to pay the invoice — the flow moves on as soon as the link is sent.
 
 ---
 
@@ -93,9 +94,9 @@ Connects your WooCommerce store (WordPress) to Gallabox — update order metadat
 Update custom order fields in WooCommerce when a bot flow completes a checkout step:
 
 ```
-Wait for Order: Event = "Payment Successful"
-  → on event: WooCommerce: Update order metadata (payment_status="paid", confirmed_via="WhatsApp bot")
-             Send Text: "Your order is confirmed!"
+Ask WhatsApp Payment: customer pays inside WhatsApp
+  → on success: WooCommerce: Update order metadata (payment_status="paid", confirmed_via="WhatsApp bot")
+                Send Text: "Your order is confirmed!"
 ```
 
 ---
@@ -151,18 +152,21 @@ This integration (via the CartFlows / Cart Abandonment Recovery WordPress plugin
 
 ---
 
-## Complete Order Flow: Razorpay + Shopify + HubSpot + Google Sheets
+## Complete Order Flow: WhatsApp Pay + HubSpot + Google Sheets
 
 ```
-1. Bot flow: Razorpay: Create payment link → Send Text: "Complete your payment: {{payment_link}}"
-2. Customer pays via the link
-3. Bot flow: Wait for Order: Event = "Payment Successful"
-   → on event:
-     a. Shopify: Update order status = "Confirmed"
-     b. HubSpot: Create/update deal in "Orders" pipeline
-     c. Google Sheets: Append row with order details
-     d. Send Text: "Payment confirmed! Your order #{{order_id}} will ship within 24 hours."
+1. Wait for Order: "Browse our catalog and place your order to continue."
+2. Ask WhatsApp Payment: customer pays inside WhatsApp
+   → on success:
+     a. Update Order Payment Status: paid
+     b. HubSpot: Create or Update Contact
+     c. Google Sheets: Add New Row with the order details
+     d. Send Text: "Payment confirmed! Your order will ship within 24 hours."
+   → on failure:
+     Send Text: "Your payment didn't go through. Please try again."
 ```
+
+**Ask WhatsApp Payment** is the only node that waits for a payment, and it needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected. If you send a Razorpay or Shopify payment link instead, the bot doesn't wait for the payment. Use [Workflows for Razorpay](/integrations/payment-gateways/razorpay/workflows-for-razorpay) to confirm Razorpay payments automatically.
 
 ## FAQs
 
@@ -172,16 +176,16 @@ Yes — you can connect multiple Shopify stores as separate integrations. In the
 </Accordion>
 
 <Accordion title="What happens if a payment fails?">
-Use the **Wait for Order** node's timeout branch after sending the payment link:
+With WhatsApp Pay, the **Ask WhatsApp Payment** node continues on its failure branch:
 
 ```
-Razorpay: Create payment link
-  → Send Text: "Complete your payment: {{payment_link}}"
-  → Wait for Order: Event = "Payment Successful"
-    → on event: Shopify: Update order status = "Confirmed"
-               Send Text: "Payment confirmed!"
-    → on timeout: Send Text: "We haven't received your payment. Please try again or contact support."
+Ask WhatsApp Payment
+  → on success: Update Order Payment Status: paid
+                Send Text: "Payment confirmed!"
+  → on failure: Send Text: "We haven't received your payment. Please try again or contact support."
 ```
+
+With a payment link, the bot isn't told when a payment fails. Use your payment gateway's **Payment Failed** workflow to message the customer instead. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
 </Accordion>
 </AccordionGroup>
 
