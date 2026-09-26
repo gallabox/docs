@@ -1,0 +1,177 @@
+---
+title: "Bot Wait Time and Drop-off"
+description: "Control how long a rule-based bot waits for a reply, what it says and does when the wait runs out, and how nudges, flow-level drop-off and channel settings fit together."
+---
+
+> **Who can use this?**
+>
+> * Owners and Admins, and roles that can update bots, for setup.
+> * Anyone troubleshooting why a bot stopped, or why a chat was unassigned or resolved.
+
+<Info>
+When a customer stops replying, a rule-based bot waits for a set time and then **drops off**. It sends an optional message and runs the actions you choose. This page covers rule-based bots. For Chat AI Agents, see [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout).
+</Info>
+
+## A bot stopping is not the chat closing
+
+When the wait time runs out, the bot stops handling the conversation. It sends your timeout message, if you wrote one, and runs your timeout actions.
+
+The conversation is only resolved if one of those actions is **Resolve Conversation**. With the default action, **Unassign Conversation**, the chat moves to **Unassigned** and stays open.
+
+## Set the bot's wait time
+
+Every rule-based bot has one wait time that applies to all its flows.
+
+<Steps>
+<Step title="Open the bot's settings">
+In **AI Agents and Bots**, find the bot, click **⋯**, and choose **Settings**.
+</Step>
+<Step title="Set how long the bot waits">
+Under **What if the contact didn't respond to the agent's questions**, set **How long the agent can wait for reply?**. You can choose 1–59 minutes, 1–23 hours, or 1–7 days.
+</Step>
+<Step title="Write the timeout message (optional)">
+In **What should the agent say to contact after the designated wait time?**, write what the customer receives when the bot stops.
+</Step>
+<Step title="Choose what happens next">
+In **What should the agent do after the designated wait time?**, pick at least one action.
+</Step>
+</Steps>
+
+The actions you can choose:
+
+| Action | What it does |
+| ------ | ------------ |
+| **Assign Conversation** | Assigns the chat to a team member |
+| **Assign Conversation To Team** | Assigns the chat to a team, using that team's assignment rule |
+| **Assign Conversation To Contact Owner** | Assigns the chat to the contact's owner |
+| **Unassign Conversation** | Moves the chat to **Unassigned** |
+| **Resolve Conversation** | Resolves the chat |
+| **Update Conversation Tag** / **Remove Conversation Tag** | Adds or removes a conversation tag |
+| **Push to Sequence** | Enrols the contact in a sequence (WhatsApp only) |
+
+Bot settings save straight away. You don't need to publish.
+
+<Warning>
+**New bots wait 3 minutes, then unassign the chat.** Many customers take longer than that to reply, so the bot hands them to **Unassigned** partway through the flow. Set a wait time that fits how your customers actually reply.
+</Warning>
+
+### When the countdown starts
+
+The countdown starts from the bot's **last message**. It restarts every time the bot sends another message. It isn't counted from the start of the flow.
+
+## Give one flow its own wait time
+
+Use flow-level drop-off when one flow needs a different wait from the rest of the bot. For example, a payment flow might wait longer.
+
+<Steps>
+<Step title="Open the flow's settings">
+Open the flow and click **Edit Flow**.
+</Step>
+<Step title="Turn on flow-level drop-off">
+Turn on **Enable flow-level drop-off**. For this flow, it replaces the bot's wait time, message and actions.
+</Step>
+<Step title="Set the wait, message and actions">
+Set the wait time. Then choose up to three actions in **What should the bot do after the designated wait time?**.
+</Step>
+</Steps>
+
+When you first turn it on, the wait is 1 minute and the action is **Unassign Conversation**. Change both before you save.
+
+If **Enable flow-level drop-off** shows **Upgrade**, your plan doesn't include it.
+
+## Nudge before dropping off
+
+A nudge reminds the customer before the bot gives up.
+
+In the flow's settings (**Edit Flow**), turn on **Nudge contact if question message is unanswered**:
+
+* **Set no. of attempts**: up to 2.
+* **Set delay time**: up to 60 minutes between attempts.
+* **Nudge message**: optional. The bot sends it and then asks the unanswered question again.
+
+**Nudges add to the wait.** The wait time only starts after the last nudge.
+
+For example, with 2 nudges 10 minutes apart and a 3-minute wait:
+
+* the first nudge goes 10 minutes after the question,
+* the second goes 10 minutes later, and
+* the bot drops off 3 minutes after that: 23 minutes after the original question.
+
+Nudges are available on rule-based flows only.
+
+## Choose what happens when a flow finishes
+
+A flow that reaches its last step doesn't close or unassign the chat. The conversation stays with the bot, and the customer's next message is matched against the bot's flows again.
+
+To do something when the flow finishes, turn on **What actions should the agent take after the flow completion?** in the flow's settings. Then pick one or more conversation actions, such as **Resolve Conversation** or **Assign Conversation To Team**.
+
+<Warning>
+If a flow ends with an **Assign Conversation** node, don't also choose **Unassign Conversation** here. The finish action runs after the node and undoes the handoff.
+</Warning>
+
+## When the timeout doesn't run
+
+The bot skips its timeout message and actions if any of these happened while it was waiting:
+
+* the customer replied,
+* a team member or another bot took over the conversation, or
+* the conversation was already resolved.
+
+## Other settings that end or move a chat
+
+Several settings can move or close a conversation. Only some of them apply while a bot is handling it.
+
+| Setting | Where | What it does | Can it act while a bot has the chat? |
+| ------- | ----- | ------------ | :----------------------------------: |
+| Bot wait time | Bot settings, or the flow's settings | Bot stops and runs its timeout actions | Yes |
+| **Resolve Conversation** node, or flow-finish actions | The flow | Resolves or moves the chat on purpose | Yes |
+| [Auto resolve chat](/whatsapp/channel-configuration#auto-resolve-chat) | Channel configuration | Resolves the chat when a team member's last message gets no reply in time | No |
+| [Agent fallback](/whatsapp/channel-configuration#agent-fallback-management) | Channel configuration | Reassigns the chat when the assigned team member doesn't reply in time | No |
+| Meta's 24-hour window | WhatsApp rule | Never closes a chat. After 24 hours you can only send templates. | Not applicable |
+
+Auto resolve chat and agent fallback only act on conversations assigned to a person. If a chat closes while a bot is handling it, the cause is the bot's own settings or the flow.
+
+## Changing settings on live conversations
+
+* Flow settings you save in **Edit Flow** go live straight away on a published flow. This covers keywords, nudges, finish actions, and flow-level drop-off. Changes on the canvas need **Publish**.
+* Conversations already in progress pick up most changes. The exception is the bot's wait time: a conversation keeps the wait time it started with. Test a new wait time on a new conversation.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why did the chat close before my wait time?">
+Check these in order:
+
+1. Is **Enable flow-level drop-off** on in this flow with a shorter time? It replaces the bot's wait time.
+2. Is the bot still on the 3-minute default?
+3. Did a flow-finish action or a **Resolve Conversation** node close it?
+4. Did the conversation start before you changed the wait time? It keeps the old one.
+
+If your settings all match and the chat still closes early, email **support@gallabox.com**. Include the bot name, a sample contact number, and the time of the bot's last message.
+</Accordion>
+
+<Accordion title="Why did the bot wait longer than I set?">
+Nudges add to the wait. The wait time starts after the last nudge. See [Nudge before dropping off](#nudge-before-dropping-off).
+</Accordion>
+
+<Accordion title="The wait time passed but nothing happened">
+The bot only runs its timeout actions if the customer didn't reply and nobody took over. Check that **What should the agent do after the designated wait time?** has at least one action.
+
+If your settings are right, email **support@gallabox.com**. Include the bot name, a sample contact number, and the time of the bot's last message.
+</Accordion>
+
+<Accordion title="Why wasn't my timeout message sent?">
+A team member or another bot took over, or the chat was already resolved. The bot skips the message in both cases.
+</Accordion>
+
+<Accordion title="Does an Ask node have its own timeout?">
+No. Ask nodes use the bot's wait time, or the flow's if flow-level drop-off is on. To remind the customer before the bot stops, use [nudges](#nudge-before-dropping-off).
+</Accordion>
+</AccordionGroup>
+
+## Related articles
+
+* [How conversations reach a bot](/ai-agents-and-bots/how-conversations-reach-a-bot)
+* [Troubleshooting bots](/ai-agents-and-bots/bots/troubleshooting)
+* [Action Nodes](/ai-agents-and-bots/bots/nodes/action-nodes)
+* [WhatsApp channel configuration](/whatsapp/channel-configuration)

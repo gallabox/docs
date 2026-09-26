@@ -1,0 +1,173 @@
+---
+title: "How Conversations Reach a Bot"
+description: "A bot or AI agent only replies in a conversation assigned to it. Learn how conversations get assigned to a bot, how flows are chosen, and why an open chat stays with its current owner."
+---
+
+> **Who can use this?**
+>
+> * Owners and Admins, and roles that can update channels and bots, for setup.
+> * Anyone troubleshooting why a bot or AI agent did or didn't reply.
+
+<Info>
+A rule-based bot or a Chat AI Agent replies only when two things are true: the conversation is **assigned to it**, and it has a published flow that matches the message. A keyword on its own never starts a bot. Most "my bot isn't replying" problems come down to who the conversation is assigned to.
+</Info>
+
+## How a conversation gets assigned to a bot
+
+A conversation reaches a bot in one of five ways:
+
+1. **The channel's assignment rule** sends new conversations to the bot. This is your default bot. See [Set the default bot](#set-the-default-bot-for-new-conversations).
+2. **Reply settings** on the template or broadcast the customer replied to. See [Send button replies to a bot](#send-template-and-broadcast-button-replies-to-a-bot).
+3. **You trigger a flow from the inbox** (WhatsApp only). In the conversation's message box, click **Trigger agent**. Pick a flow under **Choose a bot flow**, then click **Trigger**.
+4. **You assign the conversation to the bot** by hand. A Chat AI Agent replies straight away if the customer sent the last message and the 24-hour window is open. A rule-based bot waits for the customer's next message.
+5. **An agent fallback rule** reassigns the chat to a bot. See [Agent fallback management](/whatsapp/channel-configuration#agent-fallback-management).
+
+## Open conversations keep their owner
+
+While a conversation is open, new messages stay with whoever owns it. That can be a team member, a team, or nobody (**Unassigned**). The channel's assignment rule doesn't run again, so the bot doesn't start.
+
+* When a team member replies from the inbox, the conversation is assigned to them and the bot stops.
+* When a conversation is resolved, the customer's next message opens a new conversation. The channel's assignment rule applies again, so the default bot can pick it up.
+
+<Tip>
+Testing a bot from your own phone? Resolve your test conversation before each test. Otherwise your message lands in the old conversation, and the bot never sees it.
+</Tip>
+
+## Set the default bot for new conversations
+
+There is no separate "default bot" switch. The default bot is the bot your channel's assignment rule sends new conversations to.
+
+<Tabs>
+<Tab title="WhatsApp">
+<Steps>
+<Step title="Open the channel">
+Go to **Channels**, open your WhatsApp number, and select the **Assignments** tab.
+</Step>
+<Step title="Set the assignment rule">
+Under **Assignment Rules**, tick **Assign New Conversation to**. In **Select Assignee**, choose **Agents**, then pick the bot in **Select Agent**.
+</Step>
+</Steps>
+</Tab>
+<Tab title="Instagram">
+Go to **Channels**, open your Instagram account, and select **Configuration**. Under **Assignment Rules**, set **Assign New Conversation to** to **Agents**. Instagram offers only **Unassigned** and **Agents**.
+</Tab>
+<Tab title="Web Chat">
+Web Chat uses the same **Assignment Rules** settings as WhatsApp.
+</Tab>
+</Tabs>
+
+An agent that has never been published appears greyed out with the note **Please publish this agent before assigning**.
+
+### Overrides send the chat to a person instead
+
+Two checkboxes under **Assignment Rules** win over the bot. When either one applies, the new conversation goes to a person and the bot doesn't start:
+
+* **Override the above rule and reassign the conversation to the same user who previously handled the conversation**. Returning customers go back to the team member who helped them last time.
+* **Override the above rule and assign the conversation to the contact owner**. Contacts with an owner go to that owner. Contacts without one follow the rule as normal.
+
+### Shortcuts when you publish
+
+* **Rule-based bots.** If none of your WhatsApp numbers has a default bot yet, publishing a flow asks **Default bot selection**. Choose **Publish and make it as default bot** to set it.
+* **Chat AI Agents.** Publishing with **Publish Agent** asks you to **Assign channels**. The agent becomes the assigned agent for each channel you pick. Each channel has one agent. If a channel already has one, you'll see **This channel already has an agent**. Choose **Replace and publish** to switch.
+
+## Send template and broadcast button replies to a bot
+
+Reply settings route a customer's reply to a bot, even when the chat is open with someone else.
+
+* **For a template:** go to **Templates**, open the row's **Configurations**, and set **Reply Settings → Assign to** to **Agents**.
+* **For a broadcast:** set **Broadcast reply settings → Assign conversations to**. A broadcast's own reply settings take priority over the template's.
+
+Reply settings work when the contact taps a button or swipes to reply to your message. A plain-text reply to a broadcast also counts when all of these are true:
+
+* the broadcast was the last message you sent that contact,
+* the reply comes within 7 days, and
+* the contact already existed before the broadcast.
+
+### Override the current assignments
+
+**Override the current assignments?** decides what happens when the chat is already open with someone:
+
+* **Ticked** ("Use the above configuration, though the conversation is currently assigned to some assignee."). The reply moves the conversation to the bot, even from a team member.
+* **Unticked.** The reply settings only apply when there's no open conversation.
+
+Choosing an assignee ticks this box for you. If button replies stop reaching the bot, check that nobody unticked it.
+
+The bot then matches the reply against its flows, so one of its flows must match the button's text or payload. See [How a flow is chosen](#how-a-flow-is-chosen).
+
+## How a flow is chosen
+
+Once a conversation is assigned to a bot, the bot picks a flow for the customer's message.
+
+### Flow types
+
+Every flow has a type: **Message based**, **Order based**, **WhatsApp Form based**, **AI Flow**, or **CTWA Ad Based**.
+
+### Keyword matching
+
+For a **Message based** flow, **When to trigger this flow?** offers two choices:
+
+* **For any keyword**: the flow runs for any message. Use this for a catch-all.
+* **For specific keyword(s)**: the whole message must equal the keyword. By default the match ignores capitals, so "hi" matches "Hi" but not "hi there".
+
+Under **Advanced Options**:
+
+* **Case Match** makes the keyword case-sensitive.
+* **Regex Match** matches a pattern, which you need for partial matches such as "any message containing *price*".
+* **Payload** matches a button's payload as well as its text.
+
+You can't use "stop" as a keyword. It's reserved for [marketing opt-out](/whatsapp/channel-configuration#marketing-opt-out-messages).
+
+### What the bot reads
+
+The bot matches on:
+
+* the message text,
+* the text and payload of a button or list reply, and
+* the caption on an image or video.
+
+A location or contact card only matches a **For any keyword** flow.
+
+### Which flow wins
+
+The bot checks flows in this order:
+
+1. ad flows,
+2. WhatsApp Form flows,
+3. order flows,
+4. payload keywords,
+5. text keywords,
+6. **For any keyword**.
+
+When more than one flow matches, the most recently created published flow runs. Only published flows run. Drafts never trigger.
+
+If none of the bot's flows match, the bot lets go of the conversation and it moves to **Unassigned**.
+
+### A running flow isn't interrupted
+
+While a flow is waiting for the customer's answer, their next message is treated as that answer. Typing another flow's keyword doesn't switch flows.
+
+The exception is replying to the message that started the flow. That starts matching again from the top. To move a customer to a different flow yourself, use **Trigger agent** in the inbox.
+
+## Click-to-WhatsApp ads
+
+Use a **CTWA Ad Based** flow. Under **When to trigger this form?**, choose **For Any Ads**, **For Specific Ads** (then add each **Ad Id**), or **For Any Ad/Post**.
+
+The ad flow belongs to a bot, so the ad conversation still has to reach that bot first. Usually that means making the bot your channel's [default bot](#set-the-default-bot-for-new-conversations). If a team member already has an open chat with the contact, the ad flow doesn't start. If no ad flow matches, the bot tries its keyword flows next.
+
+## Messages a bot never sees
+
+These messages never reach a bot:
+
+* messages from blocked contacts,
+* reactions,
+* payment messages, and
+* opt-out and opt-in keywords: "stop", plus any additional keywords you set for [marketing opt-out](/whatsapp/channel-configuration#marketing-opt-out-messages).
+
+Working hours don't affect whether a bot starts.
+
+## Related articles
+
+* [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off)
+* [Troubleshooting bots](/ai-agents-and-bots/bots/troubleshooting)
+* [Flow Builder](/ai-agents-and-bots/bots/flow-builder)
+* [Chat AI Agent FAQs](/ai-agents-and-bots/chat-ai-agent/faqs)

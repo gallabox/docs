@@ -69,11 +69,14 @@
             "icon": "robot",
             "pages": [
               "ai-agents-and-bots/overview",
+              "ai-agents-and-bots/how-conversations-reach-a-bot",
               {
                 "group": "Rule-Based Bots",
                 "pages": [
                   "ai-agents-and-bots/bots/overview",
                   "ai-agents-and-bots/bots/flow-builder",
+                  "ai-agents-and-bots/bots/wait-time-and-drop-off",
+                  "ai-agents-and-bots/bots/troubleshooting",
                   {
                     "group": "Nodes",
                     "pages": [

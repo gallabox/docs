@@ -1,0 +1,185 @@
+---
+title: "Troubleshooting Bots"
+description: "Fix the most common rule-based bot problems: a bot that doesn't reply, button replies that do nothing, chats that close or unassign early, and handoffs that go to the wrong person."
+---
+
+> **Who can use this?**
+>
+> * Owners and Admins, and roles that can update bots and channels, to change settings.
+> * Anyone who needs to work out why a bot behaved unexpectedly.
+
+<Info>
+Most bot problems come from two places: who the conversation is assigned to, and the bot's wait time. For the full picture, see [How conversations reach a bot](/ai-agents-and-bots/how-conversations-reach-a-bot) and [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off). For Chat AI Agents, see [Chat AI Agent FAQs](/ai-agents-and-bots/chat-ai-agent/faqs).
+</Info>
+
+## The bot doesn't start or doesn't reply
+
+<AccordionGroup>
+<Accordion title="My bot doesn't reply when a customer messages">
+A bot only replies in a conversation assigned to it. Check in this order:
+
+<Steps>
+<Step title="Is the conversation already open with someone?">
+An open conversation keeps its owner, whether that's a team member, a team, or **Unassigned**, so the bot doesn't start. Resolve the conversation and try again. To take over an open chat, use [reply settings with override](/ai-agents-and-bots/how-conversations-reach-a-bot#override-the-current-assignments) or **Trigger agent** in the inbox.
+</Step>
+<Step title="Is the bot the channel's default?">
+Check the channel's **Assignment Rules**: **Assign New Conversation to** should be **Agents**, with your bot selected. See [Set the default bot](/ai-agents-and-bots/how-conversations-reach-a-bot#set-the-default-bot-for-new-conversations).
+</Step>
+<Step title="Is an override sending the chat to a person?">
+Under **Assignment Rules**, the "reassign to the same user" and "assign to the contact owner" overrides win over the bot.
+</Step>
+<Step title="Is the flow published?">
+Drafts never run.
+</Step>
+<Step title="Does the keyword match the whole message?">
+"hi" matches "Hi" but not "hi there". Use **Regex Match** for partial matches. See [Keyword matching](/ai-agents-and-bots/how-conversations-reach-a-bot#keyword-matching).
+</Step>
+</Steps>
+</Accordion>
+
+<Accordion title="The bot only works after I resolve the chat">
+That's expected. While a conversation is open, new messages stay with its current owner, and the bot doesn't start. Once it's resolved, the next message opens a new conversation that the default bot can pick up.
+
+When testing from your own phone, resolve the test conversation before each test.
+</Accordion>
+
+<Accordion title="Tapping a template or broadcast button does nothing">
+<Steps>
+<Step title="Check where replies go">
+In the template's **Configurations → Reply Settings**, or the broadcast's **Broadcast reply settings**, check that **Assign to** is set to your bot.
+</Step>
+<Step title="Check the override">
+If the chat may already be open with someone, tick **Override the current assignments?**.
+</Step>
+<Step title="Check a flow matches the button">
+The bot needs a flow whose keyword or **Payload** matches the button.
+</Step>
+<Step title="Check how the customer replied">
+Reply settings work when the contact taps a button or swipes to reply. For broadcasts, a plain-text reply also counts if it comes within 7 days.
+</Step>
+</Steps>
+
+See [Send button replies to a bot](/ai-agents-and-bots/how-conversations-reach-a-bot#send-template-and-broadcast-button-replies-to-a-bot).
+</Accordion>
+
+<Accordion title="Leads from my Click-to-WhatsApp ad get the wrong bot">
+An ad flow belongs to a bot, so the ad conversation has to reach that bot first.
+
+1. Make that bot the channel's [default bot](/ai-agents-and-bots/how-conversations-reach-a-bot#set-the-default-bot-for-new-conversations).
+2. In the **CTWA Ad Based** flow, check **For Specific Ads** and the **Ad Id**, or use **For Any Ads**.
+3. If the lead already had an open chat with a team member, the ad flow won't start.
+</Accordion>
+
+<Accordion title="My keyword doesn't trigger the flow">
+* The whole message must equal the keyword. Capitals are ignored unless **Case Match** is on.
+* For "contains" matches, use **Regex Match**.
+* "stop" can't be a keyword. It's reserved for marketing opt-out.
+* The conversation must be assigned to the bot. See the first question on this page.
+</Accordion>
+
+<Accordion title="A different flow started than the one I expected">
+When more than one published flow matches, the most recently created one runs. Keep keywords distinct across flows. Ad, form and order flows are checked before keyword flows. See [Which flow wins](/ai-agents-and-bots/how-conversations-reach-a-bot#which-flow-wins).
+</Accordion>
+
+<Accordion title="Typing another keyword doesn't switch flows">
+While a flow is waiting for an answer, the customer's message is treated as that answer. Another flow's keyword won't interrupt it.
+
+Replying to the message that started the flow starts matching again. You can also move the customer yourself with **Trigger agent** in the inbox.
+</Accordion>
+</AccordionGroup>
+
+## The bot stops, times out or closes early
+
+<AccordionGroup>
+<Accordion title="The chat was closed or unassigned before my wait time">
+<Steps>
+<Step title="Check flow-level drop-off">
+If **Enable flow-level drop-off** is on in this flow, its wait time replaces the bot's.
+</Step>
+<Step title="Check for the 3-minute default">
+New bots wait 3 minutes, then run **Unassign Conversation**.
+</Step>
+<Step title="Check the flow itself">
+A **Resolve Conversation** node, or a flow-finish action, closes the chat on purpose.
+</Step>
+<Step title="Check when the conversation started">
+A conversation keeps the bot wait time it started with. Test a new wait time on a new conversation.
+</Step>
+</Steps>
+
+Auto resolve chat and agent fallback don't act while a bot is handling the chat.
+
+If every setting matches and the chat still closes early, contact support. See [When to contact support](#when-to-contact-support).
+</Accordion>
+
+<Accordion title="The bot waited longer than I set">
+Nudges add to the wait. The wait time starts after the last nudge. See [Nudge before dropping off](/ai-agents-and-bots/bots/wait-time-and-drop-off#nudge-before-dropping-off).
+</Accordion>
+
+<Accordion title="The wait time passed but nothing happened">
+The bot only runs its timeout actions if the customer didn't reply and nobody took over. Check that **What should the agent do after the designated wait time?** has at least one action.
+
+If your settings are right, contact support. See [When to contact support](#when-to-contact-support).
+</Accordion>
+
+<Accordion title="The bot's timeout message wasn't sent">
+A team member or another bot took over, or the chat was already resolved. In both cases the bot skips the message.
+</Accordion>
+</AccordionGroup>
+
+## Handoff and assignment
+
+<AccordionGroup>
+<Accordion title="Leads go to the wrong team member after the bot">
+Check two places:
+
+1. The **Assign Conversation** node in the flow.
+2. **What actions should the agent take after the flow completion?** in the flow's settings (**Edit Flow**).
+</Accordion>
+
+<Accordion title="The bot said it's connecting the customer, but nobody got the chat">
+* When the bot assigns to a team, the team's own **Assignment Rules** decide who gets it. With **Round-robin**, it goes to the next available member. With **Unassign**, it goes to **Unassigned**.
+* A flow-finish action set to **Unassign Conversation** undoes the handoff.
+* Check the node points at the team or person you expect.
+</Accordion>
+
+<Accordion title="Returning customers skip the bot">
+Under the channel's **Assignment Rules**, **Override the above rule and reassign the conversation to the same user who previously handled the conversation** is ticked. Returning customers go straight to the team member who helped them last time.
+</Accordion>
+
+<Accordion title="Chats sit in Unassigned after the bot">
+Common causes:
+
+* The bot's wait time ran out, and the default action is **Unassign Conversation**.
+* None of the bot's flows matched the customer's next message, so the bot let go.
+* The flow assigned to a team whose assignment rule is **Unassign**.
+</Accordion>
+</AccordionGroup>
+
+## Integrations inside a flow
+
+<AccordionGroup>
+<Accordion title="Only 10 items show in my list">
+A WhatsApp list message shows at most 10 rows. Split longer lists into pages, or into more than one step. See [Send Nodes](/ai-agents-and-bots/bots/nodes/send-nodes).
+</Accordion>
+
+<Accordion title="My CRM or Google Sheets step fails, so the chat never gets assigned">
+A connected app's login can expire or lose permissions. Reconnect the integration, then run the flow again. See [Connectors](/ai-agents-and-bots/bots/connectors).
+</Accordion>
+</AccordionGroup>
+
+## When to contact support
+
+If your settings match what you expected and the bot still behaves differently, email **support@gallabox.com** with:
+
+* the bot name and the flow name,
+* a sample contact number where it happened,
+* roughly when it happened (the time of the bot's last message helps most), and
+* what you expected and what happened instead.
+
+## Related articles
+
+* [How conversations reach a bot](/ai-agents-and-bots/how-conversations-reach-a-bot)
+* [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off)
+* [Flow Builder](/ai-agents-and-bots/bots/flow-builder)
+* [Chat AI Agent FAQs](/ai-agents-and-bots/chat-ai-agent/faqs)

@@ -25,7 +25,8 @@ A bot flow is an automated conversation path — a sequence of nodes that define
 
 * Bot flows only run when the customer has an **active WhatsApp conversation** with you within the 24-hour window
 * Outside the 24-hour window, you can only send **pre-approved WhatsApp templates** — not trigger bot flows
-* Bot flows are **triggered** by: a keyword the customer types, or a form submission event
+* A flow only runs in a conversation **assigned to its bot**. See [How conversations reach a bot](/ai-agents-and-bots/how-conversations-reach-a-bot)
+* Each flow has a type that decides what starts it: **Message based** (a keyword), **Order based**, **WhatsApp Form based**, **AI Flow**, or **CTWA Ad Based** (a Click-to-WhatsApp ad)
 
 **What's NOT a bot flow:**
 
@@ -60,8 +61,13 @@ The flow builder has 4 main areas:
 </Step>
 
 <Step title="Choose a trigger — how the flow starts">
-* **Keyword trigger** — customer types a specific word or phrase ("hi", "help", "order")
-* **Form submission** — triggered automatically when a customer submits a form
+* **Message based** — the customer's message matches a keyword ("hi", "help", "order"), or any message with **For any keyword**
+* **Order based** — the customer places an order
+* **WhatsApp Form based** — the customer submits a WhatsApp Form
+* **AI Flow**
+* **CTWA Ad Based** — the customer arrives from a Click-to-WhatsApp ad
+
+Keywords match the whole message. See [How a flow is chosen](/ai-agents-and-bots/how-conversations-reach-a-bot#how-a-flow-is-chosen).
 </Step>
 
 <Step title="Start building on the canvas">
@@ -186,7 +192,7 @@ Every Ask node should have a retry message. Every Condition should have a fallba
 Don't just test the happy path. Test:
 
 * What happens if the customer sends the wrong type of input?
-* What happens if they don't respond for 10 minutes?
+* What happens if they don't respond? See [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off)
 * What happens if the API call fails?
 
 ### Monitor Analytics
@@ -213,6 +219,8 @@ Publishing updates the flow in place — there's only one live version.
 
 * Conversations already in progress continue on the **updated flow** from their current step
 * New conversations also start with the updated flow
+
+One exception: a conversation keeps the bot wait time it started with. Test a new wait time on a new conversation.
 
 Because in-progress conversations pick up your changes immediately, avoid removing or heavily restructuring nodes that live conversations may be sitting on. Test changes before publishing.
 </Accordion>

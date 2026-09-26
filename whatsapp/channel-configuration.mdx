@@ -75,14 +75,17 @@ Set the wait time slightly above your realistic first-response time. Too short a
 
 Handles conversations that stall because an agent is slow or has gone offline. Two independent rules:
 
-* **Handover fallback rule** — triggers when a conversation is handed over from one agent, bot or team to another and no reply is sent in time.
-* **Inactive agent fallback rule** — triggers when an agent becomes inactive during a conversation.
+* **Handover Fallback** — runs when a chat is handed from one agent, bot or team to a team member, and no reply is sent in time. Under **When should this run?**, choose **Always** or **Only when the customer is waiting**.
+* **Inactive Agent Fallback** — runs when a customer messages a team member who is marked **Away**, and no reply is sent in time.
 
 For each rule you set:
 
-* **Trigger after (minutes)** — how long to wait.
-* **Trigger action** — **Assign to Team**, **Assign to User**, **Assign to same team**, or **Assign to Chat Agent**.
-* **Send a canned response** — an optional message to the customer when the rule fires.
+* **Escalate after (minutes)** — how long to wait, from 1 to 1440.
+* **Reassign the chat** — **Assign to Team**, **Assign to User**, **Assign to same team**, or **Assign to Chat Agent**.
+* **Send a canned response** — an optional message to the customer when the rule runs.
+* **Send a webhook** — notify an external system when the rule runs.
+
+Both rules only act on conversations assigned to a person, so they don't fire while a bot is handling the chat. A reply from a team member or bot resets the countdown.
 
 ### Re-engagement message
 
@@ -98,7 +101,10 @@ If the customer's last reply was more than 24 hours ago, WhatsApp requires a tem
 
 ### Auto resolve chat
 
-Closes a conversation automatically when the customer has not interacted for a set number of **minutes**, so your open queue reflects work that is genuinely active.
+Resolves a conversation automatically when a team member replied and the customer hasn't answered within a set number of **Minutes** (1–1439). Your open queue then reflects work that's genuinely active.
+
+* The countdown starts from a team member's message. On [Coexistence](/whatsapp/coexistence/overview) numbers, a message sent from the WhatsApp Business app also counts.
+* It only resolves conversations assigned to a person. Messages sent by a bot don't start the countdown, so it never closes a chat a bot is handling. For bots, see [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off).
 
 ### Failed message email alert
 
