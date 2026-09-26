@@ -58,7 +58,7 @@ Bot settings save straight away. You don't need to publish.
 
 ### When the countdown starts
 
-The countdown starts from the bot's **last message**. It restarts every time the bot sends another message. It isn't counted from the start of the flow.
+The countdown starts when the bot stops to wait for the customer, at an Ask node or a **Wait for Order** node. It restarts each time the bot stops to wait again. Messages from Send nodes don't restart it. It isn't counted from the start of the flow.
 
 ## Give one flow its own wait time
 
@@ -115,8 +115,11 @@ If a flow ends with an **Assign Conversation** node, don't also choose **Unassig
 The bot skips its timeout message and actions if any of these happened while it was waiting:
 
 * the customer replied,
-* a team member or another bot took over the conversation, or
+* a team member or another bot took over the conversation,
+* on a [Coexistence](/whatsapp/coexistence/overview) number, someone replied from the WhatsApp Business app, or
 * the conversation was already resolved.
+
+When the timeout is skipped this way, the conversation stays with the bot.
 
 ## Other settings that end or move a chat
 
@@ -135,7 +138,7 @@ Auto resolve chat and agent fallback only act on conversations assigned to a per
 ## Changing settings on live conversations
 
 * Flow settings you save in **Edit Flow** go live straight away on a published flow. This covers keywords, nudges, finish actions, and flow-level drop-off. Changes on the canvas need **Publish**.
-* Conversations already in progress pick up most changes. The exception is the bot's wait time: a conversation keeps the wait time it started with. Test a new wait time on a new conversation.
+* Conversations already in progress pick up your changes. A new wait time applies from the bot's next question. A question that's already waiting keeps its old deadline.
 
 ## FAQs
 
@@ -146,7 +149,7 @@ Check these in order:
 1. Is **Enable flow-level drop-off** on in this flow with a shorter time? It replaces the bot's wait time.
 2. Is the bot still on the 3-minute default?
 3. Did a flow-finish action or a **Resolve Conversation** node close it?
-4. Did the conversation start before you changed the wait time? It keeps the old one.
+4. Did you change the wait time while the bot was already waiting? That question keeps its old deadline. The new wait time applies from the bot's next question.
 
 If your settings all match and the chat still closes early, email **support@gallabox.com**. Include the bot name, a sample contact number, and the time of the bot's last message.
 </Accordion>
@@ -162,7 +165,7 @@ If your settings are right, email **support@gallabox.com**. Include the bot name
 </Accordion>
 
 <Accordion title="Why wasn't my timeout message sent?">
-A team member or another bot took over, or the chat was already resolved. The bot skips the message in both cases.
+A team member or another bot took over, someone replied from the WhatsApp Business app on a Coexistence number, or the chat was already resolved. The bot skips the message in each case.
 </Accordion>
 
 <Accordion title="Does an Ask node have its own timeout?">
