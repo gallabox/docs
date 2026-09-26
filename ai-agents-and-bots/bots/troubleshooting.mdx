@@ -103,8 +103,8 @@ New bots wait 3 minutes, then run **Unassign Conversation**.
 <Step title="Check the flow itself">
 A **Resolve Conversation** node, or a flow-finish action, closes the chat on purpose.
 </Step>
-<Step title="Check when the conversation started">
-A conversation keeps the bot wait time it started with. Test a new wait time on a new conversation.
+<Step title="Check when you changed the wait time">
+A question that was already waiting keeps its old deadline. A new wait time applies from the bot's next question.
 </Step>
 </Steps>
 
@@ -120,11 +120,13 @@ Nudges add to the wait. The wait time starts after the last nudge. See [Nudge be
 <Accordion title="The wait time passed but nothing happened">
 The bot only runs its timeout actions if the customer didn't reply and nobody took over. Check that **What should the agent do after the designated wait time?** has at least one action.
 
+On a Coexistence number, a reply sent from the WhatsApp Business app also cancels the timeout, and the chat stays with the bot. See [When the timeout doesn't run](/ai-agents-and-bots/bots/wait-time-and-drop-off#when-the-timeout-doesnt-run).
+
 If your settings are right, contact support. See [When to contact support](#when-to-contact-support).
 </Accordion>
 
 <Accordion title="The bot's timeout message wasn't sent">
-A team member or another bot took over, or the chat was already resolved. In both cases the bot skips the message.
+A team member or another bot took over, someone replied from the WhatsApp Business app on a Coexistence number, or the chat was already resolved. In each case the bot skips the message.
 </Accordion>
 </AccordionGroup>
 
