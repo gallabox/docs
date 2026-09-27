@@ -145,7 +145,10 @@ Go to **Payments** under **Commerce** to see every payment request you've genera
   </Accordion>
 
   <Accordion title="Can a bot send a payment request instead of an agent?">
-    Yes — rule-based bots have payment nodes for this. See [Action Nodes](/ai-agents-and-bots/bots/nodes/action-nodes) for using them in a flow.
+    Yes. Rule-based bots have two WhatsApp Pay nodes:
+
+    * [Send WhatsApp Payment](/ai-agents-and-bots/bots/nodes/send-nodes) sends the request and carries on with the flow.
+    * [Ask WhatsApp Payment](/ai-agents-and-bots/bots/nodes/ask-nodes#ask-whatsapp-payment) waits until the customer pays, then continues on a success or failure branch.
   </Accordion>
 </AccordionGroup>
 
