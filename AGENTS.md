@@ -31,3 +31,23 @@
 
 {/* Define what should and shouldn't be documented */}
 {/* Example: Don't document internal admin features */}
+
+## Where new content goes
+
+Doc gaps arrive from support tickets and reviews. Most gaps are one fact, not one page. Place each gap by its type:
+
+| Gap type | Where it goes |
+| -------- | ------------- |
+| A fact about one feature: a limit, condition, or edge case | A section or FAQ on the page that owns the feature. No new page. |
+| Behaviour that spans features and is repeated across pages | One page owns the fact. Other pages link to it instead of restating it. |
+| A symptom, such as "the bot didn't reply" | The product area's **Troubleshooting** page. It points to the owning pages and doesn't restate them. |
+| A goal, such as "recover abandoned carts" | The **Guide** tab, organised by goal |
+
+Rules:
+
+- Create a new page only if it runs longer than one screen and at least 3 pages would link to it. Otherwise add a section or an FAQ.
+- Order pages in each product area as: overview, setup and tasks, how it works, then **Troubleshooting** last.
+- Keep each product area's troubleshooting self-contained. There is no cross-area troubleshooting hub.
+- Add a **Troubleshooting** page to an area only once it has about 5 symptoms. Until then, use FAQs on the owning pages.
+- Keep headings stable. Support playbooks link to section anchors, so renaming a heading breaks those links. If you must rename one, flag the old anchor in the pull request.
+- When a gap says the docs are wrong, fix the wrong statement everywhere it appears, not only on the page named in the gap.

@@ -215,14 +215,16 @@ Yes — use the **Jump To** node to jump to a different flow or a different sect
 </Accordion>
 
 <Accordion title="What happens to in-progress flows when I update them?">
-Publishing updates the flow in place — there's only one live version.
+There's only one live version of a flow. When a change goes live depends on where you make it:
 
-* Conversations already in progress continue on the **updated flow** from their current step
-* New conversations also start with the updated flow
+* **Changes on the canvas** (nodes and connections) go live when you click **Publish**.
+* **Flow settings in Edit Flow** (keywords, nudges, finish actions, and flow-level drop-off) go live as soon as you save them on a published flow. You don't need to publish again.
 
-One exception: a conversation keeps the bot wait time it started with. Test a new wait time on a new conversation.
+Once a change is live, conversations already in progress continue on the updated flow from their current step. New conversations also start with the updated flow.
 
-Because in-progress conversations pick up your changes immediately, avoid removing or heavily restructuring nodes that live conversations may be sitting on. Test changes before publishing.
+A new wait time applies from the bot's next question. A question that's already waiting keeps its old deadline.
+
+Because in-progress conversations pick up your changes, avoid removing or heavily restructuring nodes that live conversations may be sitting on. Test changes before publishing.
 </Accordion>
 
 <Accordion title="Can I trigger a flow from a sequence?">

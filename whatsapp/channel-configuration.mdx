@@ -25,6 +25,8 @@ Channel configuration is where you decide what happens automatically on a WhatsA
 
 Go to **WhatsApp Channel → \[your channel]** in the left navigation, then open the **Configuration** tab.
 
+The bot or AI agent that answers new conversations isn't set here. It's set in the channel's assignment rules. See [Set the default bot for new conversations](/ai-agents-and-bots/how-conversations-reach-a-bot#set-the-default-bot-for-new-conversations).
+
 <Warning>
 
 **If your channel is in coexistence mode** — running the WhatsApp Business App alongside Gallabox — turn the equivalent setting **off in the WhatsApp app first**. Business hours, welcome messages and away messages exist in both places, and leaving both on sends the customer two messages. See [WhatsApp coexistence](/whatsapp/whatsapp-coexistence).
@@ -105,6 +107,8 @@ Resolves a conversation automatically when a team member replied and the custome
 
 * The countdown starts from a team member's message. On [Coexistence](/whatsapp/coexistence/overview) numbers, a message sent from the WhatsApp Business app also counts.
 * It only resolves conversations assigned to a person. Messages sent by a bot don't start the countdown, so it never closes a chat a bot is handling. For bots, see [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off).
+* Messages sent through the API, an integration, or a workflow don't start the countdown either. Only replies sent from the Inbox, the WhatsApp Business app, or a re-engagement message do.
+* If **Re-engagement message** is on and set to the same number of minutes, a team member's reply doesn't start the countdown. It starts when the re-engagement message is sent.
 
 ### Failed message email alert
 
@@ -143,7 +147,7 @@ AI reply requires the Advanced plan capability. Drafts are suggestions — an ag
 
 ### Business app message settings
 
-Appears only on channels in [coexistence mode](/whatsapp/whatsapp-coexistence). Controls how messages that arrive through the WhatsApp Business App are assigned in Gallabox.
+Appears only on channels in [coexistence mode](/whatsapp/whatsapp-coexistence). **Business App Managed By** chooses the user or team a conversation moves to when you reply from the WhatsApp Business app. This also takes the conversation from a bot. See [Bots and AI agents when you reply from the app](/whatsapp/coexistence/what-changes#bots-and-ai-agents-when-you-reply-from-the-app).
 
 ### Conversation initiation template
 
