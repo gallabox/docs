@@ -254,7 +254,7 @@ Gallabox retries failed webhook deliveries automatically — up to 5 attempts wi
 <Accordion title="The API returned 202 Accepted. Was my message delivered?">
 Not necessarily. `202 Accepted` means Gallabox has accepted your message and will send it. It doesn't mean WhatsApp delivered it.
 
-To find out what happened to the message, subscribe to `Message.WA.Status.Received` and `Message.WA.Status.Failed`. You get an event when the message is sent, delivered or read, or when it fails. If it fails, the event includes the error code. See [Message error codes](/whatsapp/message-error-codes).
+To find out what happened to the message, subscribe to `Message.WA.Status.Received` and `Message.WA.Status.Failed`. You get an event when the message is delivered or read, or when it fails. You don't get an event when the message is only sent. If it fails, the event includes the error code. See [Message error codes](/whatsapp/message-error-codes).
 
 For request and response formats, see the [Developer API reference](https://api-docs.gallabox.com).
 </Accordion>
