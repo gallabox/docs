@@ -158,10 +158,9 @@ This integration (via the CartFlows / Cart Abandonment Recovery WordPress plugin
 1. Wait for Order: "Browse our catalog and place your order to continue."
 2. Ask WhatsApp Payment: customer pays inside WhatsApp
    → on success:
-     a. Update Order Payment Status: paid
-     b. HubSpot: Create or Update Contact
-     c. Google Sheets: Add New Row with the order details
-     d. Send Text: "Payment confirmed! Your order will ship within 24 hours."
+     a. HubSpot: Create or Update Contact
+     b. Google Sheets: Add New Row with the order details
+     c. Send Text: "Payment confirmed! Your order will ship within 24 hours."
    → on failure:
      Send Text: "Your payment didn't go through. Please try again."
 ```
@@ -180,12 +179,11 @@ With WhatsApp Pay, the **Ask WhatsApp Payment** node continues on its failure br
 
 ```
 Ask WhatsApp Payment
-  → on success: Update Order Payment Status: paid
-                Send Text: "Payment confirmed!"
+  → on success: Send Text: "Payment confirmed!"
   → on failure: Send Text: "We haven't received your payment. Please try again or contact support."
 ```
 
-With a payment link, the bot isn't told when a payment fails. Use your payment gateway's **Payment Failed** workflow to message the customer instead. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
+With a payment link, the bot isn't told when a payment fails. With Razorpay, Stripe, or Cashfree, use the gateway's **Payment Failed** workflow to message the customer instead. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
 </Accordion>
 </AccordionGroup>
 

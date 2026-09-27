@@ -137,13 +137,12 @@ Bot flow: Ask Email → Update Contact Fields
 ```
 Bot flow: Wait for Order: "Browse our catalog and place your order to continue."
   → Ask WhatsApp Payment: customer pays inside WhatsApp
-    → on success: Update Order Payment Status: paid
-                  Send Text: "Your order is confirmed!"
+    → on success: Send Text: "Your order is confirmed!"
                   Google Sheets: Add New Row with the order details
     → on failure: Send Text: "Your payment didn't go through. Please try again."
 ```
 
-The **Ask WhatsApp Payment** node is the only node that waits for a payment. It needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected. A payment link from Razorpay, Stripe, or PhonePe doesn't pause the bot — to confirm those payments, use the gateway's workflows. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
+The **Ask WhatsApp Payment** node is the only node that waits for a payment. It needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected. A payment link from Razorpay, Stripe, or PhonePe doesn't pause the bot. To confirm Razorpay, Stripe, or Cashfree payments, use the gateway's workflows. See [Payment Gateway integrations](/integrations/payment-gateways/overview).
 
 ### Appointment Booking → Meeting Creation
 

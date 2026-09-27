@@ -212,7 +212,7 @@ On WhatsApp, customers can tap a payment button (WhatsApp Pay) if they have What
 <Accordion title="Can a bot wait until the customer has paid?">
 Only for WhatsApp Pay. The **Ask WhatsApp Payment** node sends a payment request and pauses the bot. When WhatsApp reports the result, the bot continues on the success branch or the failure branch. It needs [WhatsApp Pay](/whatsapp/payments#whatsapp-pay) connected.
 
-Payment links from Razorpay, Stripe, and PhonePe don't pause the bot. Instead, use the gateway's workflows to send a template when the payment comes through:
+Payment links from Razorpay, Stripe, and PhonePe don't pause the bot. Razorpay, Stripe, and Cashfree have workflows that send a template when the payment comes through. PhonePe doesn't have payment workflows.
 
 * [Workflows for Razorpay](/integrations/payment-gateways/razorpay/workflows-for-razorpay)
 * [Stripe Workflows](/integrations/payment-gateways/stripe/stripe-workflows)
@@ -223,12 +223,11 @@ Payment links from Razorpay, Stripe, and PhonePe don't pause the bot. Instead, u
 It depends on how the customer was asked to pay.
 
 * **WhatsApp Pay (Ask WhatsApp Payment node):** the bot continues on the failure branch. Use it to tell the customer and offer another try.
-* **Payment link:** the bot isn't notified. Set up the gateway's **Payment Failed** workflow to send the customer a template automatically. Add a button payload to the template if you want a retry bot to start when they tap it.
+* **Payment link:** the bot isn't notified. With Razorpay, Stripe, or Cashfree, set up the gateway's **Payment Failed** workflow to send the customer a template automatically. Add a button payload to the template if you want a retry bot to start when they tap it.
 
 ```
 Ask WhatsApp Payment
-  → on success: Update Order Payment Status: paid
-                Send Text: "Payment received! Your order is confirmed."
+  → on success: Send Text: "Payment received! Your order is confirmed."
   → on failure: Send Text: "Your payment didn't go through. Please try again or use a different payment method."
 ```
 
