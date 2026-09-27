@@ -119,7 +119,9 @@ The bot skips its timeout message and actions if any of these happened while it 
 * on a [Coexistence](/whatsapp/coexistence/overview) number, someone replied from the WhatsApp Business app, or
 * the conversation was already resolved.
 
-When the timeout is skipped this way, the conversation stays with the bot.
+Skipping the timeout doesn't change who has the conversation. A team member or another bot that took over keeps it, and a resolved conversation stays resolved.
+
+A reply from the WhatsApp Business app leaves the conversation with the bot, unless **Business App Managed By** moves it to someone else. There's one exception for short wait times. If the bot's wait time is under 15 minutes, the bot can still send its timeout message and run its timeout actions later, up to about 25 minutes after the wait time ends.
 
 ## Other settings that end or move a chat
 
