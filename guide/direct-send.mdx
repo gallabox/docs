@@ -1,0 +1,177 @@
+---
+title: "Understanding Meta's Direct Send"
+sidebarTitle: "Direct Send"
+description: "What Meta's Direct Send is, how it works for Utility and Authentication messages, what they can include, how Meta checks them, and how to keep your number in good standing."
+---
+
+<Info>
+  **Direct Send** is a WhatsApp feature from Meta that lets a business send **Utility** messages (such as order updates and appointment reminders) and **Authentication** messages (one-time passcodes) without creating a template and waiting for it to be approved first. You write the message, and Meta handles the rest.
+</Info>
+
+<Warning>
+  Direct Send is in **beta at Meta** and isn't available in Gallabox yet. This guide explains how it works, so you can plan which of your messages could use it.
+</Warning>
+
+## Why it exists
+
+To message a customer who hasn't written to you in the last 24 hours, WhatsApp normally requires a **template**: a message you submit to Meta and wait for approval on before you can use it. That makes sense for campaigns. For a one-off update like "Your class has moved to 5 PM", waiting for approval gets in the way.
+
+Direct Send removes that step for Utility and Authentication messages. You send the message as you've written it, and it's delivered right away.
+
+## How it works
+
+<Steps>
+  <Step title="You write the message">
+    Write the update the way you'd normally send it, for example: "Hi Priya, your order #4821 has shipped and will arrive tomorrow."
+  </Step>
+  <Step title="Meta creates the template for you">
+    When the message is sent, Meta automatically creates a template from it behind the scenes. You don't submit anything, and there's no approval to wait for.
+  </Step>
+  <Step title="The customer receives it">
+    The customer receives your message as you wrote it. You're charged at WhatsApp's rate for the message's category: **Utility** or **Authentication**.
+  </Step>
+  <Step title="Meta keeps checking">
+    Meta reviews Direct Send messages to make sure they really belong in the category you sent them as. See [How Meta checks your messages](#how-meta-checks-your-messages).
+  </Step>
+</Steps>
+
+## What you can send
+
+Direct Send supports two message categories. **Marketing messages aren't supported.**
+
+### Utility messages
+
+Updates about something specific the customer has done or asked for.
+
+| ✓ Good fit | ✗ Not allowed |
+| :-- | :-- |
+| "Your order #4821 has shipped and arrives tomorrow." | "Get 20% off everything this weekend!" |
+| "Your appointment is confirmed for 3 Oct at 11 AM." | "Check out our new collection." |
+| "Your payment of ₹2,400 is due on 5 Oct." | "Limited-time offer: upgrade now and save." |
+| "Your class on Friday has moved to 5 PM." | An order update with a discount code added at the end |
+
+A useful test: **would the customer expect this message because of something they did?** If yes, it's likely Utility. If the message is trying to sell, promote or bring someone back, it's Marketing, and it needs a normal [marketing template](/whatsapp/templates/custom-marketing).
+
+### Authentication messages
+
+One-time passcodes that let a customer verify who they are, for example to log in, confirm a sign-up or approve a payment.
+
+| ✓ Good fit | ✗ Not allowed |
+| :-- | :-- |
+| "482913 is your verification code. Don't share it with anyone." | A passcode message that also mentions an offer |
+| "Use 7730 to confirm your login. It expires in 10 minutes." | A welcome message or account update (that's Utility) |
+
+Authentication through Direct Send works differently from Utility:
+
+- **Access is restricted during the beta.** Your business needs approval from Meta, through its partner or client manager, before it can send Authentication messages this way.
+- **Text only.** No buttons or media.
+- **Sent to a phone number.** Authentication messages can't be sent to a customer identified only by their business-scoped user ID (BSUID).
+- **Send a code only when the customer asks for one**, for example on your login or sign-up screen. Meta expects every Direct Send message to be one the customer is expecting.
+
+<Note>
+  Until your business has Authentication access in Direct Send, send passcodes with an approved [Authentication template](/whatsapp/templates/authentication).
+</Note>
+
+## Checking whether your business is eligible
+
+Meta decides eligibility for each WhatsApp Business Account, and turns Direct Send on gradually during the beta.
+
+To check whether your account is eligible:
+
+<Steps>
+  <Step title="Open WhatsApp Manager">
+    Go to [Meta Business Suite](https://business.facebook.com), and open **WhatsApp Manager** for your WhatsApp Business Account.
+  </Step>
+  <Step title="Go to Message templates">
+    Open the **Message templates** page for your account.
+  </Step>
+  <Step title="Look for Direct Send">
+    Check the page for your **Direct Send** eligibility.
+  </Step>
+</Steps>
+
+<Note>
+  Gallabox doesn't support Direct Send yet, so there's nothing to check or turn on in Gallabox today. If you'd like to use it, tell your Gallabox account manager or [contact Gallabox support](mailto:support@gallabox.com), so your account can be considered when support becomes available.
+</Note>
+
+## What a Direct Send message can include
+
+**Utility messages** can include:
+
+- **Text** of up to 1,024 characters.
+- **Up to 3 reply buttons** and **up to 2 link buttons**. Link buttons appear above reply buttons, and button text is up to 20 characters.
+- **Links in the text.** They don't show a preview image in Direct Send messages.
+- **Images, videos and documents** are limited during Meta's beta and need extra access from Meta.
+
+**Authentication messages** are **text only**.
+
+## How Meta checks your messages
+
+Meta monitors how Direct Send messages are categorised. If Meta detects that a message belongs in a different category, for example marketing content sent as Utility, or a passcode sent as Utility instead of Authentication, it notifies you. Repeated misuse leads to restrictions, which step up over time:
+
+| Stage | What happens |
+| :-- | :-- |
+| **Warning** | Meta notifies you. Nothing is restricted yet. |
+| **Rate limit** | Utility messages from your account are capped, and messages above the cap fail. |
+| **7-day block** | Direct Send stops working for your account for 7 days. |
+| **30-day block** | Direct Send stops working for 30 days. This is Meta's final warning. |
+| **Permanent removal** | Your account loses Direct Send access for good. |
+
+These restrictions apply to your **whole WhatsApp Business Account**, not a single message.
+
+Separately, if Meta decides a message is low quality, it can **pause** the template it created for that message. While it's paused, similar messages won't send until the pause ends.
+
+## Tips to stay in good standing
+
+- **Only send messages customers expect**, for example because they placed an order, booked a slot or made a payment.
+- **Keep offers out.** Even one line about a discount turns an update into a marketing message.
+- **Send codes as Authentication.** A passcode sent as a Utility message counts as the wrong category.
+- **Be specific.** Mention the order, booking, payment or account the message is about.
+- **Keep content consistent.** If you send the same kind of update often, keep the wording steady rather than adding new promotional lines over time.
+- **Use templates for campaigns.** Newsletters, launches and promotions belong in [marketing templates](/whatsapp/templates/custom-marketing) and [broadcasts](/whatsapp/broadcasts/create-broadcast).
+
+## Direct Send and templates compared
+
+| | Direct Send | Template |
+| :-- | :-- | :-- |
+| Approval needed before sending | No | Yes |
+| Wait before first use | None | Minutes, up to 24 hours |
+| Message categories | Utility and Authentication (access restricted) | Marketing, Utility, Authentication |
+| Media and all button types | Limited during the beta | Yes |
+| Best for | One-off or frequently changing updates | Campaigns, and messages you reuse often |
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can I use Direct Send in Gallabox today?">
+    Not yet. Direct Send is a beta feature at Meta, and Gallabox doesn't support it yet. Until then, send Utility messages with an approved [Utility template](/whatsapp/templates/custom-utility).
+  </Accordion>
+  <Accordion title="How do I know if my number can use Direct Send?">
+    Check the **Message templates** page in WhatsApp Manager for your WhatsApp Business Account. See [Checking whether your business is eligible](#checking-whether-your-business-is-eligible).
+  </Accordion>
+  <Accordion title="Does Meta really not approve the message first?">
+    Right. Meta creates the template automatically when the message is sent, so there's nothing to submit or wait for. Meta still checks the content, and can pause the template or restrict your account if the message turns out to be marketing.
+  </Accordion>
+  <Accordion title="How much does a Direct Send message cost?">
+    It's charged at WhatsApp's rate for its category, Utility or Authentication, in the customer's country, never at the Marketing rate. See [Message Credits](/pricing-and-billing/message-credits) for how template categories are charged.
+  </Accordion>
+  <Accordion title="Can I send offers or promotions through Direct Send?">
+    No. Direct Send doesn't support marketing messages. Sending promotional content through it can lead to warnings and, over time, the loss of Direct Send for your whole account. Use a [marketing template](/whatsapp/templates/custom-marketing) for promotions.
+  </Accordion>
+  <Accordion title="Can I send a verification code (OTP) through Direct Send?">
+    Yes, as an **Authentication** message, once Meta has approved your business for Authentication in Direct Send. Access is restricted during the beta. Until then, use an [Authentication template](/whatsapp/templates/authentication). Don't send codes as Utility messages, because Meta treats that as the wrong category.
+  </Accordion>
+  <Accordion title="What happens to the templates Meta creates?">
+    They're saved in your WhatsApp Business Account. Templates that are created but never used are deleted after 24 hours. Templates that have been used but go unused for a while are archived. You can't edit or delete them yourself.
+  </Accordion>
+  <Accordion title="Which languages can I use?">
+    Direct Send works with the languages WhatsApp supports for templates. If you send a message in a language Meta doesn't support, it still goes out, but Meta can't classify or measure it properly.
+  </Accordion>
+</AccordionGroup>
+
+## Related articles
+
+- [WhatsApp Templates](/whatsapp/templates/overview): how templates and categories work
+- [Custom Utility Templates](/whatsapp/templates/custom-utility): the way to send Utility messages in Gallabox today
+- [Authentication Templates](/whatsapp/templates/authentication): the way to send passcodes in Gallabox today
+- [Message Credits](/pricing-and-billing/message-credits): how WhatsApp messages are charged
