@@ -1,0 +1,106 @@
+---
+title: "AI and Your Data"
+description: "Which AI providers power Gallabox's AI features, what data is sent to them, how long it's kept, and whether it's used to train AI models."
+---
+
+> **Who can use this?**
+>
+> * This information applies to all Gallabox plans and roles.
+
+<Info>
+
+Gallabox's AI features send the data they need to third-party AI providers to generate a reply. AI only processes data in features you turn on or use. Your data is processed in the United States, and it isn't used to train AI models.
+
+</Info>
+
+## AI providers
+
+Gallabox uses AI models from these providers:
+
+* **OpenAI**
+* **Google Cloud** (Gemini models), which also powers the Voice AI Agent
+* **xAI**
+
+Gallabox doesn't call these providers directly. Requests pass through **Vercel AI Gateway** or **Amazon Bedrock**, which route each request to the provider's model.
+
+All of these companies are listed on our [Sub-processors](/privacy-and-security/subprocessors) page.
+
+## Features that use AI
+
+AI only processes data in features you turn on or use:
+
+* [Chat AI Agent](/ai-agents-and-bots/chat-ai-agent/overview) on WhatsApp, Instagram, and Web Chat
+* The **GPT Dialog** and **GPT Knowledge Base** nodes in [bot flows](/ai-agents-and-bots/bots/nodes/flow-control-nodes)
+* [AI Reply](/conversations/ai-reply), **AI Rewrite**, and **AI Translate** in the Inbox
+* **Rewrite with AI** when you [create a template](/whatsapp/templates/custom-marketing)
+* [Instagram Comment Automation](/instagram/comment-automation)
+* The **Voice AI Agent** for [incoming WhatsApp calls](/whatsapp/calling/incoming-calls)
+
+## What data is sent
+
+To generate a reply, Gallabox sends the provider:
+
+* **The current message** and **the conversation history**, so the reply fits the conversation
+* **Contact details**, such as name and phone number, when your AI agent's configuration uses them
+* **Your instructions**, such as the agent's Role, Goal, and Instructions, or the prompt in a bot node
+* **Relevant extracts from your Knowledge Base**, when the agent or node is connected to one
+* **Call audio**, for calls answered by the Voice AI Agent
+
+Only the extracts that match the question are sent. Your full Knowledge Base isn't.
+
+## Where your Knowledge Base is stored
+
+Files and website pages you add to a [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview) are stored on Gallabox's own infrastructure in AWS. The searchable index built from them is also hosted by Gallabox. Neither is stored with the AI providers.
+
+## Where data is processed
+
+AI processing happens in the **United States**.
+
+## How long data is kept
+
+**At the AI providers:** providers may keep requests and replies for **up to 30 days** to monitor for abuse, and then delete them.
+
+**At Gallabox:** AI conversations, chat logs, and Knowledge Base content follow the same retention schedule as the rest of your account data. See the [Privacy Policy](https://gallabox.com/privacy-policy) for details.
+
+## Training and how Gallabox uses AI data
+
+Your data isn't used to train AI models:
+
+* **AI providers** don't use data sent through the API to train their models.
+* **Gallabox** doesn't use your data to train AI models.
+
+Gallabox does use AI conversation data to:
+
+* Review the quality of AI replies
+* Evaluate and improve AI features
+* Produce usage analytics
+* Bill AI credits
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Can I turn off AI processing for my account?">
+There's no account-wide switch today. AI only processes data in features you turn on or use. To stop AI processing, turn off or unassign your Chat AI Agents, remove GPT nodes from your bot flows, and stop using the AI tools in the Inbox.
+</Accordion>
+
+<Accordion title="Is my Knowledge Base shared with the AI providers?">
+Not as a whole. Your Knowledge Base is stored by Gallabox in AWS. When a customer asks a question, only the extracts that match it are sent with that request.
+</Accordion>
+
+<Accordion title="Does the AI see my contacts' phone numbers?">
+Only when your AI agent's configuration uses them. If the agent doesn't use contact details, they aren't sent.
+</Accordion>
+
+<Accordion title="Where can I find the full list of third parties that process my data?">
+See [Sub-processors](/privacy-and-security/subprocessors). To sign a data processing agreement, see [DPA](/privacy-and-security/dpa).
+</Accordion>
+
+</AccordionGroup>
+
+## Related Articles
+
+* [Sub-processors](/privacy-and-security/subprocessors) — third-party services Gallabox uses
+* [Data Security](/privacy-and-security/data-security) — how Gallabox protects your data
+* [Chat AI Agent](/ai-agents-and-bots/chat-ai-agent/overview) — set up an AI agent
+* [AI Wallet](/pricing-and-billing/ai-wallet) — features that use AI credits
