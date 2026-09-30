@@ -1,0 +1,135 @@
+---
+title: "Post-session settings"
+description: "After a Chat AI Agent session ends, extract fields, score outcomes, and send a webhook. Open this from the agent's Analyze tab."
+---
+
+> **Who can use this?**
+>
+> * Owners, Admins, and roles that can update AI agents.
+> * Needs the **Advanced** plan. On Basic and Essential the **Post-session settings** button is locked.
+
+**Post-session settings** is what Gallabox measures after a Chat AI Agent session ends. It is not drop-off. Drop-off is how long the agent waits with no reply. See [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour#session-timeout).
+
+You open it from **Analyze**, not from **Settings**.
+
+<Info>
+
+Analysis starts when the session is **Ended**, **Dropped**, or **Errored**. It does not run while the session is still **Active**. Results show on the session's **Analyze** tab. See [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics).
+
+</Info>
+
+## Plan Availability
+
+| Feature | Basic | Essential | Advanced |
+| --- | :---: | :---: | :---: |
+| **Post-session settings** (open the panel) | — | — | ✓ |
+| **Data extraction** | — | — | ✓ |
+| **Outcome evaluation** | — | — | ✓ |
+| **Webhook setup** | — | — | ✓ |
+| **Successful sessions** card and AI summary | — | — | ✓ |
+
+On a lower plan the button shows: *Post-session settings are not available for your plan. Please upgrade.*
+
+## Open Post-session settings
+
+1. Go to **AI Agents and Bots**.
+2. Open the Chat AI Agent.
+3. Click **Analyze**.
+4. Click **Post-session settings** (next to **Export**).
+
+The panel title is **Post-session settings**. Changes **Auto saves**.
+
+<Note>
+
+If you do not see **Analyze**, the agent is on the older OpenAI Assistant setup. Current Chat AI Agents show **Analyze**.
+
+</Note>
+
+## Data extraction
+
+Automatically pull structured fields from the conversation when the session ends. This uses AI credits.
+
+Click **Add**. Fill:
+
+* **Data Type:** **Boolean (True / False)**, **String (Text response)**, or **Number**
+* **Name** (required). Example: `customer_email`
+* **Description** (required). Tell Gallabox what to look for. Example: *Extract email address mentioned by the user*
+
+You can add allowed values when you want the result limited to a set list.
+
+The screen shows how many fields you have added against your plan limit. **Test Extraction** is available after at least one session exists. With no sessions, it stays disabled: *No sessions available to test*.
+
+## Outcome evaluation
+
+Define custom rules so Gallabox can score the session against a business goal. This uses AI credits.
+
+Click **Add**. You can start from a template, or write your own. Fill **Name** and **Description**. Types match data extraction: Boolean, String, or Number.
+
+The screen shows how many criteria you have added against your plan limit. **Test Evaluation** also needs at least one existing session.
+
+Edit a criterion from the list. Use this when **Successful sessions** on Analyze should mean something specific, such as an appointment booked.
+
+## Webhook setup
+
+Send the extracted fields and evaluations to your own URL when a session ends.
+
+This webhook is set on the agent. It is not the same list as [Settings → Webhooks](/settings/webhooks). It needs Advanced, even if your plan already includes other webhooks.
+
+Click **Add**. Fill:
+
+* **URL** (required)
+* **Description** (optional)
+* **Secret** (optional)
+* Request headers (optional)
+
+Gallabox sends the event `Conversation.AI.Analyse`. You can have one of these webhooks on the agent. Edit or delete it from the same panel.
+
+## What you see after a session ends
+
+Open the session on **Analyze**. The drawer has **Chat Log** and **Analyze**.
+
+On **Analyze** you can see:
+
+* **AI summary**
+* **Success evaluation** (Success, Failed, or Not available)
+* **Outcome evaluation** results
+* **Data extractions**
+
+If analysis is still running, the drawer shows an analysing state. Wait, then reopen the session.
+
+## This is not drop-off
+
+| | Drop-off | Post-session settings |
+| --- | --- | --- |
+| Where | Agent **Settings → drop-off** | **Analyze → Post-session settings** |
+| Job | How long the agent waits with no reply | What Gallabox extracts and scores after the session ends |
+| Default | 24 hours on WhatsApp and Instagram. 1 hour on Web Chat | Nothing runs until you add fields, criteria, or a webhook |
+
+Drop-off can end the session. Post-session settings then analyze that ended session.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I see Post-session settings but the button is locked.">
+Your plan is not Advanced. Upgrade, or keep using **Analyze** for Total, Ended, and Dropped sessions. Those cards stay available.
+</Accordion>
+<Accordion title="Is this the same as the 24-hour WhatsApp window?">
+No. Meta's 24-hour window is when you can send free-form WhatsApp or Instagram messages. Drop-off is Gallabox's wait timer. Post-session settings is analysis after the session ends.
+</Accordion>
+<Accordion title="Test Extraction is disabled.">
+You need at least one session for that agent. Send a test chat, wait until the session ends, then try again.
+</Accordion>
+<Accordion title="Does this use AI credits?">
+Yes. **Data extraction** and **Outcome evaluation** both say they use AI credits. See [AI Wallet](/pricing-and-billing/ai-wallet).
+</Accordion>
+<Accordion title="Can I use this on a Voice AI Agent call?">
+The same analysis can run when a Voice AI Agent session ends. Set it up from that agent's **Analyze** tab the same way.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [AI Agent Analytics](/ai-agents-and-bots/chat-ai-agent/ai-agent-analytics)
+* [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour)
+* [Webhooks](/settings/webhooks)
+* [AI Wallet](/pricing-and-billing/ai-wallet)

@@ -25,11 +25,11 @@ This lives on the agent, not under the main Analytics section. Path: **AI Agents
 | **Total sessions**      | How many sessions the agent handled in the date range |
 | **Ended sessions**      | Sessions that reached a normal end |
 | **Dropped sessions**   | Sessions where the customer stopped before the chat finished |
-| **Successful sessions** | Sessions that met the success criteria you set (Advanced only) |
+| **Successful sessions** | Sessions that met the success criteria you set in [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings) (Advanced only) |
 
 Below the cards is a sessions table. Click a row for the contact, status (including drop reason), channel, session ID, credits used, and model. **Jump to conversation** is there for WhatsApp and Instagram, not Web Chat.
 
-The drawer has **Chat Log** and **Analyze**. Analyze shows an AI summary of the outcome. Outcome scoring depends on your plan.
+The drawer has **Chat Log** and **Analyze**. Analyze shows an **AI summary**, **Success evaluation**, **Outcome evaluation**, and **Data extractions**. You set those in [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings). On Basic and Essential the Analyze tab in the drawer is locked.
 
 ## How to open it
 
@@ -51,7 +51,7 @@ Open a few dropped sessions and find the last message before silence. That is th
 
 ### Successful sessions (Advanced)
 
-This measures whether the agent actually did the job, not just whether the chat ended. If Ended is high and Successful is low, the agent is closing chats without resolving them.
+This measures whether the agent actually did the job, not just whether the chat ended. Set the criteria under **Analyze → Post-session settings**. If Ended is high and Successful is low, the agent is closing chats without resolving them.
 
 Review ended-but-unsuccessful sessions and look for a pattern in the last few replies.
 
@@ -93,7 +93,10 @@ High Dropped usually means a friction point: a confusing question, or an answer 
 </Accordion>
 
 <Accordion title="Why is Successful sessions locked?">
-It needs the Advanced plan. On Basic and Essential the card is locked. [Upgrade](/pricing-and-billing/billing-and-subscriptions) to unlock it.
+It needs the Advanced plan. On Basic and Essential the card is locked. [Upgrade](/pricing-and-billing/billing-and-subscriptions) to unlock it. Setup lives in [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings).
+</Accordion>
+<Accordion title="What are Post-session settings?">
+The **Post-session settings** button on Analyze. After a session ends, Gallabox can extract fields, score outcomes, and send a webhook. That is not drop-off. See [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings).
 </Accordion>
 
 <Accordion title="Can I export session data?">
@@ -104,6 +107,7 @@ Yes. On Analyze, open **Export** next to the search box. Choose **Export as Exce
 ## Related Articles
 
 * [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview)
+* [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings)
 * [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview)
 * [Bot Analytics](/reports-and-analytics/bot-analytics). Separate analytics for rule-based bots.
 
