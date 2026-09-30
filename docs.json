@@ -61,7 +61,8 @@
             "icon": "address-book",
             "pages": [
               "contacts/overview",
-              "contacts/segments"
+              "contacts/segments",
+              "contacts/block-and-opt-out"
             ]
           },
           {
@@ -1937,7 +1938,7 @@
     },
     {
       "source": "/whatsapp-channel/block-list",
-      "destination": "/whatsapp/overview"
+      "destination": "/contacts/block-and-opt-out#block-a-number"
     },
     {
       "source": "/whatsapp-channel/channel-settings",
