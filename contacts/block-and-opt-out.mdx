@@ -1,0 +1,132 @@
+---
+title: "Block and Opt-Out"
+description: "Control which messages you exchange with a contact: block a number so its messages and calls stop reaching Gallabox, or let customers opt out of marketing messages."
+---
+
+> **Who can use this?**
+>
+> * Anyone who needs to stop a contact reaching your team, or stop sending a contact marketing messages.
+> * Roles: Anyone whose role can edit contacts can block and unblock from the inbox. The channel's **Block list** tab is for Owners, Admins, and custom roles with Channels permission.
+> * Plans: Available on all plans.
+
+<Info>
+
+Gallabox gives you two separate controls over a contact. **Blocking** stops a number's incoming messages and calls from reaching Gallabox. **Marketing opt-out** stops you sending marketing templates to a customer who asked not to receive them. Each works on its own, so use the one that matches what you need.
+
+</Info>
+
+## Plan Availability
+
+| Capability | Basic | Essential | Advanced |
+| :-- | :-: | :-: | :-: |
+| Block and unblock a number | ✓ | ✓ | ✓ |
+| Block list per channel | ✓ | ✓ | ✓ |
+
+## Which control to use
+
+| You want to… | Use |
+| :-- | :-- |
+| Stop a spam or abusive number from reaching your inbox | [Block a number](#block-a-number) |
+| Stop a customer's incoming WhatsApp calls | [Block a number](#block-a-number) |
+| Respect a customer who asked to stop receiving promotions | [Marketing opt-out](#marketing-opt-out) |
+
+---
+
+## Block a number
+
+Blocking works on WhatsApp channels only, and applies to **one channel**. If you run several WhatsApp numbers, block the contact on each one.
+
+### What happens when you block a number
+
+* **Incoming messages are discarded.** They don't appear in the inbox, aren't saved, and don't reach a bot or AI agent. Unblocking doesn't bring them back.
+* **Incoming WhatsApp calls are rejected.**
+* **Agents can't reply from the inbox.** The reply box is replaced with a banner that says the contact is blocked.
+* **The contact's activity log** records who blocked or unblocked them.
+
+<Warning>
+
+**Blocking doesn't stop outgoing messages.** Broadcasts, sequences, and messages sent through the API still reach a blocked number. Gallabox doesn't remove blocked numbers from your audiences automatically. Before you send a broadcast, check that blocked numbers aren't in your segment or uploaded Excel file.
+
+</Warning>
+
+The block exists only in Gallabox. The customer isn't told they're blocked, and nothing changes in their WhatsApp app.
+
+### Block from a conversation
+
+1. Open the conversation in the **Inbox**.
+2. Click the **⋮** menu in the conversation header.
+3. Click **Block**, then confirm.
+
+The **Block** option doesn't appear in WhatsApp group conversations or Instagram conversations.
+
+### Block from the channel's block list
+
+Use the block list to block a number that hasn't messaged you yet, or to review everyone who's blocked on a channel.
+
+1. Go to **WhatsApp Channel → \[your channel]** in the left navigation.
+2. Open the **Block list** tab.
+3. Click **Block number**.
+4. Enter the phone number, then click **Block**.
+
+The block list shows each blocked number with the contact's name and the team member who blocked it.
+
+### Unblock a number
+
+Unblock in any of these places:
+
+* **In the conversation** — click **Unblock** on the banner that replaces the reply box, or click **Unblock** in the **⋮** menu.
+* **In the block list** — click **⋯** next to the number, then click **Unblock number**.
+
+Once unblocked, the contact's new messages and calls reach Gallabox again.
+
+---
+
+## Marketing opt-out
+
+Marketing opt-out lets customers stop receiving marketing messages by sending a keyword, such as "stop". A customer who opts out doesn't receive marketing templates from that channel.
+
+Set up the opt-out keywords and confirmation messages in [Channel configuration](/whatsapp/channel-configuration#marketing-opt-out-messages).
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Does blocking a contact stop my broadcasts to them?">
+No. Blocking only stops incoming messages and calls. Remove the contact from your broadcast audiences and sequences to stop sending to them.
+</Accordion>
+
+<Accordion title="Will the customer know I blocked them?">
+No. Gallabox doesn't notify the customer, and the block doesn't change anything in their WhatsApp app.
+</Accordion>
+
+<Accordion title="Can I see messages a blocked contact sent me?">
+No. Messages that arrive while a number is blocked are discarded and can't be recovered after you unblock it.
+</Accordion>
+
+<Accordion title="I blocked a number on one channel, but it still reaches another. Why?">
+Blocks apply per channel. Block the number on each WhatsApp channel it contacts.
+</Accordion>
+
+<Accordion title="Can I block a contact on Instagram or Web Chat?">
+No. Blocking is available on WhatsApp channels only.
+</Accordion>
+
+<Accordion title="I can block from the inbox but can't find the Block list tab. Why?">
+The **Block list** tab is part of the channel's settings, which only Owners, Admins, and custom roles with Channels permission can open. Ask one of them to review the list.
+</Accordion>
+
+</AccordionGroup>
+
+## Related
+
+<Columns cols="2">
+
+<Card title="Channel configuration" href="/whatsapp/channel-configuration#marketing-opt-out-messages">
+Set up marketing opt-out keywords and messages.
+</Card>
+
+<Card title="Users, teams and roles" href="/settings/users-teams-and-roles">
+Control who can block contacts and open channel settings.
+</Card>
+
+</Columns>
