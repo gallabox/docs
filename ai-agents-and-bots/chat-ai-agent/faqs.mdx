@@ -183,6 +183,7 @@ To fix it:
 
 ## Session and timeout
 
+<AccordionGroup>
 <Accordion title="The session ends too quickly">
 Defaults are 24 hours on WhatsApp/Instagram and 1 hour on Web Chat. Change this in the agent's drop-off settings. To finish chats sooner:
 
@@ -203,11 +204,16 @@ Enable WhatsApp handoff. @assignTo does not work on Web Chat.
 </Steps>
 </Accordion>
 
+<Accordion title="What are Post-session settings?">
+Open **Analyze → Post-session settings** to extract fields, add custom scores, or send a webhook after the session ends. Advanced plan only. See [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings).
+</Accordion>
+</AccordionGroup>
+
 ## Credits and billing
 
 <AccordionGroup>
 <Accordion title="AI credits are being used too fast">
-Credits are used when the agent replies, and when Knowledge Base files are processed. See [AI Wallet](/pricing-and-billing/ai-wallet).
+Credits are used when the agent replies, when Knowledge Base files are processed, and when **Data extraction** or **Outcome evaluation** runs after a session ends. See [AI Wallet](/pricing-and-billing/ai-wallet) and [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings).
 
 To cap spending on any single conversation, lower **Credit limit per session** in the agent's **Settings**. A cheaper model also helps. See the next question.
 </Accordion>
@@ -262,6 +268,7 @@ See [AI and Your Data](/privacy-and-security/ai-data-usage). It covers the AI pr
 ## Related Articles
 
 * [Chat AI Agent Overview](/ai-agents-and-bots/chat-ai-agent/overview)
+* [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings)
 * [Knowledge Base](/ai-agents-and-bots/chat-ai-agent/knowledge-base/overview)
 * [Channel Behaviour](/ai-agents-and-bots/chat-ai-agent/channel-behaviour)
 * [AI Wallet](/pricing-and-billing/ai-wallet)
