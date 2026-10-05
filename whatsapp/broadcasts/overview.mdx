@@ -56,13 +56,14 @@ For the full comparison, see [Sequences Overview](/whatsapp/sequences/overview).
 <Step title="Select Your Audience">
 Choose which contacts receive the broadcast. You can select:
 
-* **A saved segment** — use a pre-built contact segment (e.g., "Customers — Last 30 Days", "Hot Leads")
-* **A tag** — filter by a specific tag (e.g., "Summer Sale Interested")
-* **Manual selection** — pick individual contacts (for small campaigns)
+* **One or more saved segments** — pre-built contact segments (e.g., "Customers — Last 30 Days", "Hot Leads")
+* **An Excel file** — upload an `.xlsx` file of names and phone numbers, including people who aren't in Gallabox yet
+
+For the details of each option, see [Create a Broadcast](/whatsapp/broadcasts/create-broadcast#step-2-select-your-audience).
 
 <Warning>
 
-Use the **"Send only to opted-in contacts"** option when creating a broadcast to restrict delivery to contacts who have **opted in to marketing messages**. Sending to unconsented contacts violates WhatsApp's business policy and can result in your account being flagged. See Marketing Opt-In for details.
+Keep **Follow WhatsApp Business Policy** turned on when creating a broadcast with a marketing template. It restricts delivery to contacts who have **opted in to marketing messages**. Sending to unconsented contacts violates WhatsApp's business policy and can result in your account being flagged. See Marketing Opt-In for details.
 
 </Warning>
 </Step>
@@ -73,8 +74,7 @@ All broadcast messages must use **pre-approved template messages** — choose an
 
 <Step title="Schedule or Send Immediately">
 * **Send now** — the broadcast goes out immediately to all eligible contacts
-* **Schedule** — set a specific date and time (useful for campaigns targeting a specific timezone or launch moment)
-* **Send in batches** — for large audiences, Gallabox can send in batches to stay within your messaging tier limits
+* **Schedule** — set a specific date and time, up to 30 days ahead (useful for campaigns targeting a specific timezone or launch moment)
 </Step>
 
 <Step title="Monitor Results">
@@ -87,7 +87,7 @@ After sending, track delivery in the Broadcast dashboard:
 | **Read**            | Recipient opened the message (only if read receipts enabled)                |
 | **Replied**         | Recipient responded to the message                                          |
 | **Clicked**         | Recipient clicked a link or button in the message                           |
-| **Failed**          | Could not be delivered (invalid number, contact blocked, template rejected) |
+| **Failed**          | Could not be delivered — the failure reason shows the error code           |
 | **Not in WhatsApp** | The number does not have a WhatsApp account                                 |
 | **Unsubscribed**    | Contact opted out — will not receive future broadcasts                      |
 </Step>
@@ -96,7 +96,7 @@ After sending, track delivery in the Broadcast dashboard:
 
 ## Understanding Your Messaging Limits
 
-WhatsApp caps how many unique customers you can start a conversation with in a rolling 24-hour period. The cap is shared across every WhatsApp number in your Meta business portfolio, so a large broadcast from one number eats into the allowance for all of them — see [How your messaging limit grows](/whatsapp/connect-your-whatsapp#how-your-messaging-limit-grows). For large campaigns, use **Send in Batches** to spread delivery across hours or days and stay within limits.
+WhatsApp caps how many unique customers you can start a conversation with in a rolling 24-hour period. The cap is shared across every WhatsApp number in your Meta business portfolio, so a large broadcast from one number eats into the allowance for all of them — see [How your messaging limit grows](/whatsapp/connect-your-whatsapp#how-your-messaging-limit-grows). For large campaigns, split the audience into several segments or files and schedule a broadcast for each, spread across hours or days, to stay within limits.
 
 ## Example
 
@@ -104,7 +104,7 @@ WhatsApp caps how many unique customers you can start a conversation with in a r
 
 Here's how you'd run this as a broadcast:
 
-1. Go to **Broadcast** → **Create Broadcast**.
+1. Go to **Broadcasts** → **New Broadcast**.
 2. **Audience:** Select segment "Customers — Last 90 Days" (created in Contacts → Segments).
 3.  **Template:** Either use an existing approved promotional template, or create a new one:
 
@@ -126,6 +126,8 @@ After a broadcast is sent, you can **Retarget** contacts based on what happened 
 * **Replied to a Flow** — contacts who submitted a WhatsApp Flow from the message
 * **Failed** — contacts the message couldn't reach (e.g., to retry later)
 
+To send the same broadcast again, open the **⋮** menu next to it in the **Broadcasts** list and click **Repeat Broadcast**. This starts a copy with the same template and audience, which you can change before sending. It doesn't set up a recurring schedule.
+
 Retargeting lets you send a **follow-up broadcast** specifically to the contacts who need another nudge — without disturbing contacts who already converted.
 
 <Check>
@@ -145,12 +147,18 @@ Retargeting lets you send a **follow-up broadcast** specifically to the contacts
 
 <AccordionGroup>
 <Accordion title="My broadcast shows 'Failed' for many contacts — what's wrong?">
-Common reasons for broadcast failures:
+Open the broadcast and click the **Failed** card. Each failure reason starts with an error code — look it up in [Message Error Codes](/whatsapp/message-error-codes). Common reasons include numbers that can't receive WhatsApp messages, Meta holding back marketing messages, and template problems. See [Failed reasons](/whatsapp/broadcasts/broadcast-analytics#failed-reasons).
 
-* **Invalid phone numbers** — contacts with malformed or disconnected numbers fail automatically
-* **Contact blocked the business** — the contact has blocked your WhatsApp number
-* **Template rejected** — Meta rejected the template used in the broadcast
-* **Daily limit exceeded** — you've hit your messaging tier limit for the day
+If the broadcast itself shows **Failed** in the **Broadcasts** list, nothing was sent. Hover over the badge for the reason, and see [When the whole broadcast fails](/whatsapp/broadcasts/create-broadcast#when-the-whole-broadcast-fails).
+</Accordion>
+
+<Accordion title="Why does it say 'Only N out of M contacts are eligible'?">
+Some contacts in your audience won't receive this broadcast:
+
+* **Contacts without marketing opt-in** — with a marketing template and **Follow WhatsApp Business Policy** turned on, only contacts who have opted in to marketing messages are counted.
+* **Rows Gallabox can't use** — in an uploaded Excel file, rows with a missing or invalid phone number are skipped.
+
+To reach more contacts with a marketing template, collect their opt-in first. For an Excel file, fix the phone numbers and upload it again. See [Create a Broadcast](/whatsapp/broadcasts/create-broadcast#step-2-select-your-audience).
 </Accordion>
 
 <Accordion title="Which limits apply to my broadcasts?">
