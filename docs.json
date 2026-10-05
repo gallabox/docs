@@ -103,6 +103,7 @@
                     ]
                   },
                   "ai-agents-and-bots/chat-ai-agent/agent-actions",
+                  "ai-agents-and-bots/chat-ai-agent/post-session-settings",
                   "ai-agents-and-bots/chat-ai-agent/ai-agent-analytics",
                   "ai-agents-and-bots/chat-ai-agent/channel-behaviour",
                   "ai-agents-and-bots/chat-ai-agent/faqs",
