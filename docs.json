@@ -476,7 +476,8 @@
             "pages": [
               "guide/reduce-whatsapp-message-costs",
               "guide/ad-engagement-window",
-              "guide/direct-send"
+              "guide/direct-send",
+              "guide/coexistence-or-cloud-api"
             ]
           }
         ]
