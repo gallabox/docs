@@ -34,6 +34,22 @@ The analytics view has:
 
 ---
 
+## Broadcast Statuses
+
+Each broadcast in the **Broadcasts** list has one status. It describes the broadcast as a whole, not what happened to each contact — for that, see the [message states](#message-states-reference) below.
+
+| Status        | What it means                                                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pending**   | The broadcast hasn't started yet. A scheduled broadcast stays **Pending** until its send time. Open it to see the **Scheduled For** time.                                            |
+| **Active**    | The broadcast is sending. Gallabox paces sending automatically, so a large broadcast stays **Active** for a while, and some contacts show as **Queued** until their turn comes.     |
+| **Completed** | Every message has been handed to WhatsApp. Hover over the badge and it reads **Sent to Meta**. It doesn't mean every message was delivered — check the message states for that.      |
+| **Failed**    | The broadcast couldn't start or stopped. Hover over the badge to see the reason. See [When the whole broadcast fails](/whatsapp/broadcasts/create-broadcast#when-the-whole-broadcast-fails). |
+| **Cancelled** | Someone cancelled the broadcast before it finished.                                                                                                                                   |
+
+You can cancel a **Pending** or **Active** broadcast from the **⋮** menu next to it. Messages already sent aren't recalled.
+
+---
+
 ## Message States Reference
 
 ### Primary States
@@ -45,7 +61,7 @@ The analytics view has:
 | **Read**                  | The recipient opened the message. Read receipts must be enabled on the recipient's side — if a contact has turned off read receipts, messages they open won't show as Read. |
 | **Delivered Not Replied** | The message arrived but the contact hasn't responded.                                                                                                                       |
 | **Replied**               | The contact responded to the broadcast message. See [Engagement states](/whatsapp/broadcasts/broadcast-analytics#engagement-states) below.                                                    |
-| **Failed**                | The message could not be delivered. See [Failed subtypes](/whatsapp/broadcasts/broadcast-analytics#failed-subtypes) below.                                                                    |
+| **Failed**                | The message could not be delivered. See [Failed reasons](/whatsapp/broadcasts/broadcast-analytics#failed-reasons) below.                                                                    |
 | **Unsubscribed**          | The contact opted out of marketing messages from your business.                                                                                                             |
 | **Frequency Limit**       | Meta blocked the message because this contact has received too many messages from businesses recently.                                                                      |
 | **Not in WhatsApp**       | The phone number does not have a WhatsApp account.                                                                                                                          |
@@ -61,22 +77,21 @@ Engagement is shown as its own set of summary cards. Click any card to open the 
 | **Clicks**       | The contact clicked a URL button or link in the template.                         |
 | **Form Replied** | The contact submitted a WhatsApp Flow (interactive form) embedded in the message. |
 
-### Failed Subtypes
+### Failed Reasons
 
-Click the **Failed** summary card to see the contact list. The breakdown by failure type appears in the detail panel:
+Click the **Failed** summary card to see why messages failed. The reasons are listed as tabs, most common first. Each one is the error code and message WhatsApp returned, such as `131026 Message undeliverable`. The five most common reasons get their own tab, and the rest are grouped under **Other**.
 
-| Failure type                     | Why it happens                                                             | What to do                                                                                                                   |
-| -------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Invalid number**               | The phone number is malformed, deactivated, or no longer in use            | Remove or update the contact's number. Do not retry — the number is not reachable.                                           |
-| **Contact blocked the business** | The contact has blocked your WhatsApp Business number                      | You cannot message this contact. Remove them from future campaigns.                                                          |
-| **Template rejected**            | Meta rejected the template used in this broadcast during or after approval | Go to **WhatsApp → Templates**, check the template's status and rejection reason, then edit and resubmit.                  |
-| **Daily limit exceeded**         | Your WhatsApp messaging tier reached its daily cap                         | Wait 24 hours. To increase the cap, maintain high message quality and volume over time — Meta raises the tier automatically. |
+Click a reason to see the contacts it affected. For most error codes, an **Error info** panel explains the error and lists possible solutions.
+
+To look up any error code, see [Message Error Codes](/whatsapp/message-error-codes).
+
+If the whole broadcast shows **Failed** in the **Broadcasts** list, nothing was sent. See [When the whole broadcast fails](/whatsapp/broadcasts/create-broadcast#when-the-whole-broadcast-fails).
 
 ### Frequency Limit
 
 **Frequency Limit** **is a Meta restriction — not a Gallabox one.** Meta limits how many marketing messages a given contact can receive from all businesses within a rolling time window. If a contact has already received several marketing messages from other businesses recently, Meta blocks your message and marks it as Frequency Limit.
 
-You cannot override or bypass this. The contact will be reachable again after Meta's frequency window resets (typically 24 hours). Do not retry Frequency Limit contacts immediately.
+You cannot override or bypass this. If retry was turned on for the broadcast, Gallabox sends these messages again automatically, within the window you set — see [Configure Smart Retry](/whatsapp/broadcasts/create-broadcast#configure-smart-retry). Otherwise, don't resend to these contacts straight away.
 
 ### Unsubscribed
 
@@ -184,7 +199,7 @@ The export includes fields such as: Contact Name, To, Status, Status Time, Sent/
 
 <AccordionGroup>
 <Accordion title="My delivered percentage looks terrible — only 40% delivered. Did something go wrong?">
-Check the Not in WhatsApp count first. If a large portion of your contacts have no WhatsApp account, that pulls down the raw numbers — but percentages are already calculated excluding those contacts. Next, open the **Failed** card and look at the breakdown by failure type. If most failures are "Invalid number", the issue is your contact list quality — phone numbers need cleaning. If "Daily limit exceeded" is a large category, you hit your messaging tier cap and need to spread the send across days.
+Check the Not in WhatsApp count first. If a large portion of your contacts have no WhatsApp account, that pulls down the raw numbers — but percentages are already calculated excluding those contacts. Next, open the **Failed** card and look at the breakdown by failure type. Each failure reason starts with an error code. Look it up in [Message Error Codes](/whatsapp/message-error-codes) to see whether it's a problem with your contact list, your template, or a limit Meta applies.
 </Accordion>
 
 <Accordion title="Why does Gallabox exclude 'Not in WhatsApp' from percentages? It looks like they're hiding bad numbers.">
@@ -200,7 +215,19 @@ This usually means the phone number stored in Gallabox is slightly wrong (missin
 </Accordion>
 
 <Accordion title="The Frequency Limit count is huge — is there anything I can do?">
-No — Frequency Limit is controlled entirely by Meta, not Gallabox. Meta's anti-spam system limits how many marketing messages a contact can receive from all businesses in a rolling window. You cannot whitelist your number or bypass this limit. The practical implication is: if you send broadcasts frequently to the same audience, a growing Frequency Limit count is expected. Space out your broadcasts and segment carefully to avoid over-messaging the same contacts repeatedly.
+No — Frequency Limit is controlled entirely by Meta, not Gallabox. Meta's anti-spam system limits how many marketing messages a contact can receive from all businesses in a rolling window. You cannot whitelist your number or bypass this limit. Keep retry turned on so these messages are sent again automatically — see [Configure Smart Retry](/whatsapp/broadcasts/create-broadcast#configure-smart-retry). If you send broadcasts frequently to the same audience, a growing Frequency Limit count is expected. Space out your broadcasts and segment carefully to avoid over-messaging the same contacts repeatedly.
+</Accordion>
+
+<Accordion title="My broadcast shows Completed, but contacts say they didn't get it — why?">
+**Completed** means every message was handed to WhatsApp, not that every message arrived. Open the broadcast and check the **Sent**, **Delivered**, **Failed**, **Frequency Limit** and **Not in WhatsApp** cards to see what happened to each contact.
+</Accordion>
+
+<Accordion title="Many contacts are still Queued — is the broadcast stuck?">
+Usually not. Gallabox sends a broadcast at a steady pace, so large broadcasts take a while. The broadcast shows **Active** while it sends, and contacts show as **Queued** until their message goes out. If the count stops moving for a long time, contact support with the broadcast's name.
+</Accordion>
+
+<Accordion title="Why don't my broadcast messages show in the inbox?">
+Sending a broadcast doesn't open a conversation. A broadcast message only appears in the inbox if that contact already has an open conversation. When a contact replies, their conversation opens in the inbox. To choose who gets it, set **Broadcast reply settings** when you create the broadcast — see [Choose who gets replies](/whatsapp/broadcasts/create-broadcast#choose-who-gets-replies). To see every message the broadcast sent, open it from the **Broadcasts** list.
 </Accordion>
 </AccordionGroup>
 

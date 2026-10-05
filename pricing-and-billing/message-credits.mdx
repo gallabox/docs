@@ -37,7 +37,8 @@ You'll get an in-app notification and an email confirmation once the top-up comp
 
 - If your balance is at zero or negative, you lose access to sending messages — including replying in conversations and running broadcasts — until you top up.
 - A **scheduled broadcast** that doesn't have enough balance to complete will not send, and shows a failed status rather than partially sending.
-- Gallabox estimates the credits a new broadcast will use before you send it, so you can check your balance covers it in advance.
+- When you create a broadcast, Gallabox estimates its cost from the template's category and the number of contacts. If your balance doesn't cover it, a warning shows your balance and the approximate cost, with a **Recharge Now** button. After sending, open the broadcast to see its **Spend Estimate**.
+- Each message is charged at the category Meta bills it under. If Meta bills a template at a higher rate than its category suggested — for example, after [recategorizing a Utility template to Marketing](/pricing-and-billing/whatsapp-pricing/overview#faqs) — the broadcast can cost more than the estimate, and your balance can go below zero.
 
 ## Low-balance notifications
 
@@ -48,6 +49,10 @@ Gallabox can notify your account's Owners and Admins — in-app and by email —
 <AccordionGroup>
   <Accordion title="Why wasn't my broadcast sent?">
     If your Message Credits balance was insufficient at send time, the broadcast is not sent and shows a **failed** status rather than sending partially. Top up and resend.
+  </Accordion>
+
+  <Accordion title="Why is my balance negative after a broadcast?">
+    Charges are taken from your balance as Meta bills each message. If a broadcast costs more than your balance — most often because Meta billed its template as Marketing instead of Utility — the balance goes below zero. Sending stops until you top up, and your top-up first covers the negative amount. Top up more than the shortfall to start sending again.
   </Accordion>
 
   <Accordion title="Do unused Message Credits expire?">

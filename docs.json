@@ -1331,11 +1331,11 @@
     },
     {
       "source": "/broadcast/review-and-send-broadcast",
-      "destination": "/whatsapp/broadcasts/create-broadcast#step-7-send-or-schedule-the-broadcast"
+      "destination": "/whatsapp/broadcasts/create-broadcast#step-3-schedule-the-broadcast"
     },
     {
       "source": "/broadcast/select-audience",
-      "destination": "/whatsapp/broadcasts/create-broadcast#step-3-select-your-audience"
+      "destination": "/whatsapp/broadcasts/create-broadcast#step-2-select-your-audience"
     },
     {
       "source": "/broadcast/select-template",
