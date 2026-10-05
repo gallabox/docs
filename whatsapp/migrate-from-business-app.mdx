@@ -1,17 +1,24 @@
 ---
 title: "Migrate from Business App"
+description: "Move your WhatsApp Business App number fully to Gallabox on the WhatsApp Cloud API, and what happens to the app and your chats."
 ---
 
 > **Who can use this?**
 >
-> * Gallabox users setting up their WhatsApp Business API for the first time.
+> * Gallabox users moving a WhatsApp Business App number to the WhatsApp Cloud API.
 > * Roles: Owners and Admins — WhatsApp connection is configured in the Channels section.
 
 <Info>
 
-Migrating from the WhatsApp Business App to Gallabox means moving from a **single-user app** to a **team collaboration platform**. You keep the same phone number and WhatsApp Business Account — the only thing that changes is where you manage your conversations.
+Migrating from the WhatsApp Business App to Gallabox moves your number fully onto the **WhatsApp Cloud API**. You keep the same phone number, and your team manages every conversation from Gallabox. The WhatsApp Business App **stops working** for that number.
 
 </Info>
+
+<Warning>
+
+If you want to keep using the WhatsApp Business App on your phone **and** Gallabox on the same number, don't migrate. Use [WhatsApp Coexistence](/whatsapp/coexistence/overview) instead. Not sure which to choose? See [Coexistence or Cloud API?](/guide/coexistence-or-cloud-api)
+
+</Warning>
 
 ---
 
@@ -22,7 +29,7 @@ Migrating from the WhatsApp Business App to Gallabox means moving from a **singl
 | **Users**        | 1 person, on 1 phone  | Unlimited team members, shared inbox         |
 | **Inbox**        | Personal phone        | Web-based team inbox                         |
 | **Automation**   | Limited auto-replies  | Full chatbot flows, Chat AI Agent, sequences |
-| **Broadcasts**   | Not available         | Bulk campaigns with targeting                |
+| **Broadcasts**   | Broadcast lists       | Bulk campaigns with targeting                |
 | **Integrations** | None                  | CRM, API, webhook integrations               |
 | **Analytics**    | None                  | Full reporting and session tracking          |
 
@@ -34,69 +41,38 @@ Connecting or migrating WhatsApp is available on all Gallabox plans. See [Billin
 
 ---
 
+## Steps
+
 <Steps>
 
 <Step title="Step 1: Back up your WhatsApp chat history">
-Before starting, export any chat history you want to keep from the WhatsApp Business App:
+Gallabox doesn't import chat history when you migrate, and deleting your WhatsApp account in the next step removes your chats from the app. Export any chats you want to keep first:
 
 1. Open the **WhatsApp Business App** on your phone.
 2. Go to **Settings → Chats → Chat History**.
 3. Tap **Export Chat** for any chats you want to save.
-4. Choose a destination (email, cloud storage, etc.).
-
-This is optional — Gallabox does not import WhatsApp chat history from the app.
+4. Choose a destination, such as email or cloud storage.
 </Step>
 
-<Step title="Step 2: Get your WhatsApp Business API access">
-To use WhatsApp with Gallabox, you need a **WhatsApp Business Account (WABA)** connected via the Meta Business API. Gallabox helps you set this up.
+<Step title="Step 2: Delete your WhatsApp account from the app">
+Meta doesn't let a number that's in use on WhatsApp be connected to the Cloud API. Delete the account from the app first:
 
-1. Go to **Channels → WhatsApp** in Gallabox.
-2. Click **Connect WhatsApp Number**.
-3. Choose one of two paths:
-
-**Option A — I already have a WABA:** Select your existing WABA and the phone number you want to connect.
-
-**Option B — I need to create a WABA:** Follow the setup wizard in Gallabox to create a new WhatsApp Business Account.
-</Step>
-
-<Step title="Step 3: Verify your phone number">
-1. Gallabox will display your current WhatsApp Business App phone number.
-2. Click **Verify Number**.
-3. You'll receive an OTP on that number — enter it to confirm ownership.
-4. The number is now registered with Gallabox's WhatsApp Business API.
+1. In the **WhatsApp Business App**, go to **Settings → Account → Delete account**.
+2. Enter your phone number and confirm.
 
 <Warning>
 
-**You must keep the WhatsApp Business App installed** on your phone during migration. Removing the app before completing the migration will deactivate your number on Meta's side.
+Deleting your account can't be undone. Once it's deleted, the number can't be used with [Coexistence](/whatsapp/coexistence/overview), which needs the number to be active on the WhatsApp Business App. Decide between Coexistence and migrating before you do this.
 
 </Warning>
 </Step>
 
-<Step title="Step 4: Transfer to Gallabox">
-After verifying your number:
-
-1. Click **Transfer Number to Gallabox**.
-2. A confirmation screen will show what changes:
-   * The same phone number will now be managed by Gallabox
-   * The WhatsApp Business App is **not disconnected** — it keeps working on your phone
-   * Your team can access the inbox in Gallabox
-3. Click **Confirm Transfer**.
-4. Gallabox sends a request to Meta to update the number's management platform.
-5. Meta processes the transfer — this can take a few minutes.
+<Step title="Step 3: Connect the number to Gallabox">
+Connect the number with the standard Cloud API setup. Follow [Connect Your WhatsApp](/whatsapp/connect-your-whatsapp) from **How to Connect**. You'll verify the number with a one-time code sent by SMS or voice call, so keep the SIM active and to hand.
 </Step>
 
-<Step title="Step 5: Wait for Meta approval">
-Meta reviews all WhatsApp Business API transfers. During this time:
-
-* **WhatsApp Business App** continues working normally
-* **Gallabox** shows "Pending Approval" status
-* Once approved, Gallabox becomes the active management platform for your number
-
-Approval typically takes **a few minutes to 24 hours**. If it takes longer than 48 hours, contact Gallabox support.
-</Step>
-
-<Step title="Step 6: Set up your team">
-Once the transfer is approved:
+<Step title="Step 4: Set up your team">
+Once the number is connected:
 
 1. Go to **Settings → Team Members** in Gallabox.
 2. Invite your team by email.
@@ -109,50 +85,30 @@ Once the transfer is approved:
 
 ---
 
-## What happens to your WhatsApp Business App
-
-The transfer does **not disconnect** the WhatsApp Business App — it keeps working on your phone, while Gallabox manages all team conversations.
-
-| WhatsApp Business App                 | Gallabox                        |
-| ------------------------------------- | ------------------------------- |
-| Personal 1:1 messages from your phone | Team shared inbox               |
-| Manual replies only                   | Automation + team collaboration |
-| No analytics                          | Full reporting                  |
-
-If you want your team in Gallabox **and** full use of the app on the same number, use
-[WhatsApp Co-existence](/whatsapp/coexistence/overview) instead of this migration. Co-existence keeps both in sync,
-mirrors messages in both directions, and can import up to 180 days of chat history — but it caps the number at
-20 messages per second.
-
----
-
 ## FAQs
 
 <AccordionGroup>
 <Accordion title="Will I lose my existing WhatsApp chat history?">
-Gallabox does not import chat history from the WhatsApp Business App. All conversations before the transfer will remain in the app on your phone but won't appear in Gallabox. New conversations (after the transfer) will appear in Gallabox. Before migrating, export any chat history you want to keep from the app.
+Gallabox doesn't import chat history when you migrate. New conversations after you connect appear in Gallabox. Export any chats you want to keep before you delete your account from the app. See [Step 1](#steps).
+
+If you want your recent chats brought into Gallabox, use [Coexistence](/whatsapp/coexistence/overview), which can import up to 180 days of 1:1 chats.
 </Accordion>
 
 <Accordion title="Can I migrate without losing my phone number?">
-Yes. Your phone number stays the same — only the management platform changes from the WhatsApp Business App to Gallabox. Meta handles the transfer, and Gallabox acts as the interface for your team.
+Yes. Your phone number stays the same. Only where you manage it changes, from the WhatsApp Business App to Gallabox.
 </Accordion>
 
-<Accordion title="How long does the migration take?">
-The transfer itself takes a few minutes. Meta's review can take from a few minutes to 48 hours, depending on your account history and verification status. During this time, your WhatsApp Business App continues working normally.
+<Accordion title="Can I keep using the WhatsApp Business App after migrating?">
+No. After migrating, the number works only through Gallabox. To use the app and Gallabox on the same number, use [Coexistence](/whatsapp/coexistence/overview) instead.
 </Accordion>
 
-<Accordion title="What if Meta rejects the transfer?">
-If Meta rejects the transfer, Gallabox will show the rejection reason. Common reasons include:
+<Accordion title="What if the number won't connect?">
+Common reasons:
 
-* **Incomplete Business Verification** — complete Meta Business Verification first
-* **Phone number already connected to another WABA** — disconnect it first
-* **Policy violations on the account** — resolve Meta's policy issues before retrying
+* **The number is still active on WhatsApp.** Delete the account from the app first. See [Step 2](#steps).
+* **The number is connected to another WhatsApp Business API provider.** Disconnect it from that provider first.
 
-Contact Gallabox support if you need help with a rejection.
-</Accordion>
-
-<Accordion title="Can I go back to using just the WhatsApp Business App after migrating?">
-Yes. You can disconnect your number from Gallabox at any time from **Settings → Channels → WhatsApp → Disconnect**. This returns full control to the WhatsApp Business App. Your Gallabox inbox will stop receiving messages, but no data is deleted.
+See [Connect Your WhatsApp](/whatsapp/connect-your-whatsapp) for more troubleshooting, or contact Gallabox support.
 </Accordion>
 </AccordionGroup>
 
@@ -161,4 +117,5 @@ Yes. You can disconnect your number from Gallabox at any time from **Settings �
 ## Related Articles
 
 * [Connect Your WhatsApp →](/whatsapp/connect-your-whatsapp) — Step-by-step WhatsApp setup
-* [WhatsApp Co-existence →](/whatsapp/coexistence/overview) — Use the app and Gallabox on the same number
+* [Coexistence or Cloud API? →](/guide/coexistence-or-cloud-api) — Compare the two ways to connect
+* [WhatsApp Coexistence →](/whatsapp/coexistence/overview) — Use the app and Gallabox on the same number
