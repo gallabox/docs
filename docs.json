@@ -444,6 +444,7 @@
               "privacy-and-security/compliance",
               "privacy-and-security/data-security",
               "privacy-and-security/dpa",
+              "privacy-and-security/subprocessors",
               "privacy-and-security/ai-data-usage"
             ]
           },
@@ -510,10 +511,6 @@
     ]
   },
   "redirects": [
-    {
-      "source": "/privacy-and-security/subprocessors",
-      "destination": "/privacy-and-security/dpa#annex-iii"
-    },
     {
       "source": "/concepts/overview",
       "destination": "/concepts"
