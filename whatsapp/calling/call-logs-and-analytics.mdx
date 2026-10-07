@@ -1,0 +1,163 @@
+---
+title: "Call Logs & Analytics"
+sidebarTitle: "Call Logs & Analytics"
+---
+
+### Where to See Your Call Data
+
+Gallabox records every WhatsApp call — who called, who answered, how long it lasted, and whether it was missed. You can see this data in two places, depending on your role:
+
+|                 | **My Calls**                                           | **Call Analytics**                                          |
+| --------------- | ------------------------------------------------------ | ----------------------------------------------------------- |
+| **Where**       | Inbox → **Calls**                                      | Analytics → **Call Analytics**                              |
+| **Who sees it** | Every user                                             | Admins and owners only                                      |
+| **Which calls** | Only calls **you** made or received                    | **Every** call on the account                               |
+| **Use it to**   | Find and follow up on your own recent or missed calls  | Track call volume, missed calls, and team performance       |
+
+---
+
+### My Calls
+
+My Calls is your personal call history, inside the Inbox. Go to **Inbox → Calls** to open it.
+
+> **Note:** My Calls shows only the calls you made or received. Calls handled by your teammates don't appear here, even if they're on the same number. To see every call on the account, an admin can use [Call Analytics](#call-analytics).
+
+Each call shows the contact's name, the date, the channel, and what happened on the call and the duration — for example, *Missed call*, *Incoming call*, or *Outgoing call · Failed*. Click a call to open that contact's conversation, so you can reply or call back right away.
+
+<Frame>
+  <img src="/images/my-calls.gif" alt="My Calls in the Inbox" />
+</Frame>
+
+Use the tabs at the top to narrow the list:
+
+| Tab          | Shows                                                  |
+| ------------ | ------------------------------------------------------ |
+| **All**      | Every call you made or received                        |
+| **Incoming** | Calls customers made to you                            |
+| **Outgoing** | Calls you made to customers                            |
+| **Missed**   | Incoming calls that rang for you and weren't answered  |
+
+**Use it to:** see which customers you missed, so you can call them back or reply on chat.
+
+---
+
+### Call Analytics
+
+Call Analytics gives admins and owners one screen for all call activity on the account. It starts with the headline numbers and narrows down, step by step, to a single call.
+
+> **Who can use this?**
+>
+> * Roles: Owners and Admins.
+> * Availability: Accounts with WhatsApp Calling. Not available for numbers in regions where calling isn't supported (Saudi Arabia, the UAE, Qatar, and Oman).
+
+Go to **Analytics → Call Analytics** to open it.
+
+<Frame>
+  <img src="/images/call-analytics.png" alt="Call Analytics screen" />
+</Frame>
+
+#### Choose a Number and Period
+
+The two filters at the top apply to everything on the screen:
+
+* **Channel** — pick one WhatsApp number, or leave it on **All WhatsApp Channels** to see every number together.
+* **Date range** — pick a preset such as *Today*, *Past 7 days*, or *This month*, or set a custom start and end date.
+
+All dates and times use your account's timezone.
+
+#### Overview
+
+Five cards show the headline numbers for the selected period. Hover over the **ⓘ** next to a card's title to see how the number is worked out.
+
+| Card                      | What it shows                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Total Incoming Calls**  | Incoming calls that were answered or missed. Calls that failed to connect aren't counted.          |
+| **Missed Incoming Calls** | Incoming calls that nobody answered.                                                               |
+| **Outgoing calls**        | Outgoing calls that were answered or missed. Calls that failed to connect aren't counted.          |
+| **Answer rate**           | The percentage of incoming calls that were answered. Calls that failed to connect aren't counted.  |
+| **Total call duration**   | Talk time on answered incoming calls plus outgoing calls that connected. Ring time isn't counted.  |
+
+Each card also shows how the number has changed against the **prior period** — a block of time the same length as your selection, ending the day before it starts.
+
+* Select 01–08 Sep → compared against 24–31 Aug
+* Select today only → compared against yesterday
+
+#### Breakdown
+
+Two charts that split the overview numbers:
+
+* **Incoming calls by handler** — of the incoming calls that were answered, how many an AI agent took and how many a human agent took.
+* **Missed Calls by Direction** — missed incoming calls, compared with outgoing calls the contact didn't answer.
+
+#### Trends
+
+These charts cover **incoming calls only**.
+
+* **Call trend** — answered and missed incoming calls for each day in the selected period.
+* **Missed call reasons** — why incoming calls were missed. See the table below.
+* **Peak hours** — incoming calls by day of the week and hour of the day. Switch to **Missed** to see when calls go unanswered, and whether that happens inside or outside your working hours.
+
+**Missed call reasons**
+
+| Reason                           | Meaning                                             |
+| -------------------------------- | --------------------------------------------------- |
+| **Caller hung up**               | The customer ended the call before anyone answered. |
+| **Unattended by business**       | The call rang, but nobody picked up.                |
+| **Declined by business**         | Someone on your team declined the call.             |
+| **Missed due to Inactive Agent** | The call wasn't rung because the agent it was routed to — or every member of the assigned team — was Inactive, or the assigned agent had been deleted. |
+
+#### User Performance
+
+A table with one row per user who handled or was assigned calls in the selected period:
+
+| Column                 | Meaning                                                                  |
+| ---------------------- | ------------------------------------------------------------------------ |
+| **Incoming handled**   | The number of incoming calls the user answered                           |
+| **Outgoing handled**   | The number of outgoing calls the user made                               |
+| **Missed**             | The number of calls assigned to the user that weren't answered           |
+| **Avg time to answer** | The average time calls rang before the user picked up                    |
+| **Avg talk time**      | The average length of the user's answered calls                          |
+
+#### Call Log
+
+Every call on the selected number and period — answered, missed, and failed — for the whole account.
+
+Each row shows the **call date**, **contact**, **type** (incoming or outgoing), **agent name** (a user or an AI agent), **duration**, **status**, and **status reason**.
+
+To find a specific call:
+
+* Use the **All / Incoming / Outgoing** tabs to filter by direction.
+* Use the **status** dropdown to show only Answered, Missed, or Failed calls.
+* Use the **agent** dropdown to show only calls a specific user or AI agent handled.
+* Use **Search** to find a call by contact.
+
+<Frame>
+  <img src="/images/call-logs.gif" alt="Call log in Call Analytics" />
+</Frame>
+
+Click a call to see its full details — handled by, direction, total ring time, status reason, and the credits it used — then click **Jump to conversation** to open the chat with that contact.
+
+#### Exporting the Call Log
+
+Click **Export** to download the call log **as currently filtered**. The export doesn't include the charts or numbers from the sections above.
+
+The file is prepared in the background and appears in **Active exports**. Download it within **7 days**.
+
+---
+
+### Quick Reference
+
+| Question                                              | Answer                                                               |
+| ----------------------------------------------------- | -------------------------------------------------------------------- |
+| Where do I see my own calls?                          | **Inbox → Calls** (My Calls)                                         |
+| Can I see my teammates' calls in My Calls?            | No. My Calls shows only calls you made or received.                  |
+| Where do I see every call on the account?             | **Analytics → Call Analytics → Call log** (admins and owners only)   |
+| Why don't failed calls count in Total Incoming Calls? | A failed call never connected, so it couldn't be answered or missed. |
+| Do the Trends charts include outgoing calls?          | No. Trends cover incoming calls only.                                |
+| What does the call log export include?                | The call log with your current filters applied — not the charts.     |
+
+### Where to next
+
+* [Incoming Calls](/whatsapp/calling/incoming-calls) — routing, assignment rules, and how missed calls happen.
+* [Outgoing Calls](/whatsapp/calling/outgoing-calls) — permissions, placing calls, and limits.
+* [Pricing](/whatsapp/calling/pricing) — how calls are charged.
