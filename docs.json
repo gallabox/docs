@@ -181,6 +181,8 @@
                       "whatsapp/calling/overview",
                       "whatsapp/calling/incoming-calls",
                       "whatsapp/calling/outgoing-calls",
+                      "whatsapp/calling/call-logs-and-analytics",
+                      "whatsapp/calling/call-webhooks",
                       "whatsapp/calling/pricing"
                     ]
                   },

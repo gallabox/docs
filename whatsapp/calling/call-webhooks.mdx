@@ -1,0 +1,130 @@
+---
+title: "Call Webhooks"
+sidebarTitle: "Call Webhooks"
+---
+
+> **Who can use this?**
+>
+> * Gallabox users who need to send call data to external systems, such as a CRM or a data warehouse.
+> * Roles: Owners and Admins. Custom Roles with the "Can view and manage webhooks, API keys" permission (Developer modules) can also configure webhooks.
+> * Plans: Advanced, Pro, and Pro Interim plans, on accounts with WhatsApp Calling.
+
+> **Note:** This page covers only the call events. For how webhooks work in general — setting one up, verifying the signature, and reading the logs — see [Webhooks](/settings/webhooks).
+
+### What Are Call Webhooks?
+
+Call webhooks tell your system the moment something happens on a call — when it rings, connects, ends, or is missed. Use them to:
+
+* Log every call against the contact's record in your CRM.
+* Alert your team when a call is missed.
+* Send call data to a data warehouse for your own reporting.
+
+You set them up in the same place as every other webhook: **Settings → Webhooks → Add Webhook**, then select the **Call** events you want.
+
+### Call Events
+
+| Event            | When it fires                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------- |
+| `Call.Received`  | An incoming call starts ringing for your business.                                            |
+| `Call.Initiated` | Your team places an outgoing call to a customer.                                              |
+| `Call.Connected` | The call is answered and both sides are connected.                                            |
+| `Call.Ended`     | A connected call ends.                                                                        |
+| `Call.Missed`    | A call ends without being answered.                                                           |
+| `Call.Rejected`  | The call is declined.                                                                         |
+| `Call.Failed`    | The call couldn't connect because of an error.                                                |
+| `Call.Analysed`  | The call's recording is ready. The payload includes a link to the recording.                  |
+
+A single call sends several events over its life. For example, an answered incoming call sends `Call.Received` → `Call.Connected` → `Call.Ended`, and then `Call.Analysed` once the recording is ready. Use the `callId` field to link all events from the same call.
+
+### What Does a Call Webhook Send?
+
+Every call event sends the same set of fields, so one receiver can handle all of them. The event name is sent in the `x-event-name` header, and the call data is in the request body.
+
+The sample below is a `Call.Analysed` event for an incoming WhatsApp call answered by an agent:
+
+```text
+x-event-name: Call.Analysed
+```
+
+```json
+{
+  "accountId": "64f1c2a9e4b0a12b3c4d5e6f",
+  "channelType": "whatsapp",
+  "channelId": "65a7d3b1f2c4e5a6b7c8d9e0",
+  "direction": "incoming",
+  "callId": "6702e4c8a1b2c3d4e5f6a7b8",
+  "status": "ended",
+  "statusReason": null,
+  "handledBy": {
+    "type": "agent",
+    "answered": true,
+    "id": "64f1c3b2e4b0a12b3c4d5e70",
+    "name": "Priya Sharma"
+  },
+  "fromNumber": "919876543210",
+  "toNumber": "918041234567",
+  "contact": {
+    "contactId": "66b2a1c3d4e5f6a7b8c9d0e1",
+    "visitorId": null,
+    "name": "Sarah Chen",
+    "phone": ["919876543210"],
+    "whatsapp": [
+      {
+        "waId": "919876543210"
+      }
+    ]
+  },
+  "conversationId": "66b2a1c3d4e5f6a7b8c9d0f2",
+  "rungAt": "2026-10-06T09:14:02.000Z",
+  "startedAt": "2026-10-06T09:14:09.000Z",
+  "endedAt": "2026-10-06T09:17:31.000Z",
+  "durationSeconds": 202,
+  "recordingUrl": "https://<your-gallabox-host>/call-recordings/accounts/64f1c2a9e4b0a12b3c4d5e6f/calls/6702e4c8a1b2c3d4e5f6a7b8?token=<token>"
+}
+```
+
+### Payload Fields
+
+| Field              | What it contains                                                                                   |
+| ------------------ | -------------------------------------------------------------------------------------------------- |
+| `accountId`        | Your Gallabox account ID.                                                                          |
+| `channelType`      | The channel the call came through — for example, `whatsapp`.                                       |
+| `channelId`        | The ID of the WhatsApp number that made or received the call.                                      |
+| `direction`        | `incoming` (the customer called you) or `outgoing` (your team called the customer).                |
+| `callId`           | The unique ID of the call. The same for every event from one call.                                 |
+| `status`           | The call's status when the event fired — for example, `ringing`, `connected`, `ended`, or `missed`. |
+| `statusReason`     | Why the call ended the way it did — for example, why it was missed or failed. `null` if there's no reason. |
+| `handledBy.type`   | `agent` for a human agent, or `bot` for an AI agent.                                               |
+| `handledBy.answered` | `true` if the call was answered.                                                                 |
+| `handledBy.id`     | The ID of the agent or AI agent the call was assigned to.                                          |
+| `handledBy.name`   | The name of the agent or AI agent.                                                                 |
+| `fromNumber`       | The number the call came from.                                                                     |
+| `toNumber`         | The number the call went to.                                                                       |
+| `contact`          | The contact's ID, name, phone numbers, and WhatsApp details.                                       |
+| `conversationId`   | The ID of the conversation the call belongs to.                                                    |
+| `rungAt`           | When the call started ringing.                                                                     |
+| `startedAt`        | When the call was answered. `null` if it was never answered.                                       |
+| `endedAt`          | When the call ended. `null` while the call is still in progress.                                   |
+| `durationSeconds`  | Talk time in seconds. `0` if the call was never answered.                                          |
+| `recordingUrl`     | A link to the call recording. Sent only with `Call.Analysed`.                                      |
+
+All times are in UTC, in ISO 8601 format.
+
+### Quick Reference
+
+| Question                                           | Answer                                                                  |
+| -------------------------------------------------- | ----------------------------------------------------------------------- |
+| Where do I set up call webhooks?                   | **Settings → Webhooks → Add Webhook**, then select the **Call** events. |
+| How do I know which event I received?              | Read the `x-event-name` header.                                         |
+| How do I link events from the same call?           | Use the `callId` field — it's the same on every event for one call.     |
+| Which event carries the recording?                 | `Call.Analysed`. It's sent after the call, once the recording is ready. |
+| How do I tell a human-handled call from an AI one? | Check `handledBy.type` — `agent` for a human, `bot` for an AI agent.    |
+| Where can I check if a call webhook was delivered? | **Settings → Webhooks → Logs**.                                         |
+
+### Where to next
+
+* [Webhooks](/settings/webhooks) — set up a webhook, verify the signature, and read the logs.
+* [Call Logs & Analytics](/whatsapp/calling/call-logs-and-analytics) — see call data inside Gallabox.
+* [Incoming Calls](/whatsapp/calling/incoming-calls) — routing, assignment rules, and how missed calls happen.
+* [Outgoing Calls](/whatsapp/calling/outgoing-calls) — permissions, placing calls, and limits.
+

@@ -111,6 +111,21 @@ Gallabox supports webhooks for these event categories:
 | `Broadcast.WA.Message.Status.Received` / `Broadcast.WA.Message.Status.Failed` | Broadcast message delivery status updates |
 | `Broadcast.WA.Message.Engaged.Received`                                       | Customer engaged with a broadcast message |
 
+### Call Events
+
+| Event            | Trigger                                                 |
+| ---------------- | ------------------------------------------------------- |
+| `Call.Received`  | Incoming call starts ringing for your business          |
+| `Call.Initiated` | Outgoing call placed to a customer                      |
+| `Call.Connected` | Call answered and both sides connected                  |
+| `Call.Ended`     | Connected call ended                                    |
+| `Call.Missed`    | Call ended without being answered                       |
+| `Call.Rejected`  | Call declined                                           |
+| `Call.Failed`    | Call couldn't connect because of an error               |
+| `Call.Analysed`  | Call recording ready (includes a link to the recording) |
+
+Call events are available on the Advanced, Pro, and Pro Interim plans. For the full payload and field details, see [Call Webhooks](/whatsapp/calling/call-webhooks).
+
 <Info>
 
 The webhook configuration screen in **Settings → Webhooks** shows the events available for your account.
