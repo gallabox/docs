@@ -7,15 +7,15 @@ Incoming calls (also called **User Initiated Calls**) are when a customer calls 
 Every incoming call can be picked up in one of two ways:
 
 * **A Human Agent** — the call is routed to a User or team on your side, and a real person talks to the customer.
-* **A Voice AI Agent** (Alpha Stage) — an AI answers the call automatically, 24/7.
+* **A Voice AI Agent** — an AI answers the call automatically, 24/7. Available on the Advanced plan.
 
-You choose one handler per WhatsApp number — a single incoming call is handled **either** by a human **or** by a Voice AI Agent, never both at once.
+Each incoming call is handled **either** by a human **or** by a Voice AI Agent, never both at once. When **Voice AI Agent** is your handler, calls on conversations already assigned to someone on your team still ring that person. The AI answers everyone else. See [Voice AI Agent Calling](/whatsapp/calling/voice-ai-agent-calling).
 
 <Frame>
   <img src="/images/image.png" alt="" />
 </Frame>
 
-This guide focuses on **incoming calls handled by a Human Agent**. For a quick look at the Voice AI option, see Handled by a Voice AI Agent near the end.
+This guide covers **incoming calls handled by your team**. For calls answered by AI, see [Voice AI Agent Calling](/whatsapp/calling/voice-ai-agent-calling).
 
 ---
 
@@ -140,17 +140,11 @@ This is the message sent automatically whenever a call can't be answered — whe
 
 ---
 
-### Handled by a Voice AI Agent (Overview) <a href="#id-2fabfc4a-c6b7-4f6d-be9f-84b30fa6c718" id="id-2fabfc4a-c6b7-4f6d-be9f-84b30fa6c718"></a>
+### Calls Answered by a Voice AI Agent
 
-Instead of routing calls to your team, you can let a **Voice AI Agent** answer incoming calls automatically — around the clock, with no one needing to pick up. Incoming calls handled by a Voice AI Agent are charged and use AI credits. This feature is currently in **Alpha**. If you want to explore it, [contact our product team](https://calendly.com/balakrishnanr/gallabox-ai-calling-discovery-call?month=2026-06).
+If you'd rather have AI answer calls automatically, around the clock, select **Voice AI Agent** as your handler. Customers already assigned to someone on your team still reach that person. Everyone else is answered by the AI, and the conversation is handed to your team after the call with a summary, transcript and recording.
 
-A few things that work differently from Human calling:
-
-* **The AI answers every call**, so there's no ringing to agents, no "busy" state, and no Busy Message.
-* **After the AI call ends**, the conversation is handed off to your team using **Post Call Assignment Rules** — you decide whether it lands with a specific User, a Team, the contact's owner, or the agent who previously handled that conversation.
-* **You build the Voice AI Agent** in **AI Agents & Bots**, then select it on the Calling page when you choose _Voice AI Agent_ as the handler.
-
-Remember, a WhatsApp number uses **one** handler at a time — switching to a Voice AI Agent means incoming calls are answered by the AI rather than your team.
+See [Voice AI Agent Calling](/whatsapp/calling/voice-ai-agent-calling) for setup, Post Call Assignment Rules, and credits.
 
 ---
 
@@ -159,7 +153,7 @@ Remember, a WhatsApp number uses **one** handler at a time — switching to a Vo
 | What it is             | Customers calling your business on WhatsApp (User Initiated)                              |
 | ---------------------- | ----------------------------------------------------------------------------------------- |
 | Cost                   | Human incoming calls are free. Voice AI incoming calls are charged and use AI credits.    |
-| Who can handle it      | A Human Agent (your team) or a Voice AI Agent (automated, 24/7 — Alpha)                   |
+| Who can handle it      | A Human Agent (your team) or a Voice AI Agent (automated, 24/7, Advanced plan)             |
 | Routing (Human)        | By Call Assignment Rules — to a specific User or a Team (round robin)                     |
 | Eligible agent (team)  | Active **and** not already on another call; Away agents skipped                           |
 | Rules don't apply when | The conversation is already owned by a human agent or team (call goes straight to them)   |
@@ -167,7 +161,7 @@ Remember, a WhatsApp number uses **one** handler at a time — switching to a Vo
 | Second call            | Shows as "Waiting"; end the current call before answering                                 |
 | If unanswered          | Busy Message sent; conversation stays in its original state; call is logged               |
 | Busy Message           | Human calling only; default text, editable in settings                                    |
-| Voice AI difference    | AI answers automatically; no Busy Message; uses Post Call Assignment Rules after the call |
+| Voice AI difference    | AI answers unless your team owns the conversation; no Busy Message; Post Call Assignment Rules after the call. See [Voice AI Agent Calling](/whatsapp/calling/voice-ai-agent-calling) |
 
 ---
 
