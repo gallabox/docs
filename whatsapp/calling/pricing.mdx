@@ -82,9 +82,32 @@ A 5-minute call to India:
 
 Call charges are deducted from your Message Credit Wallet at the end of each call. Ensure your account has sufficient credits to place calls. Your credit balance is visible in the Gallabox dashboard.
 
-**Incoming calls are not charged.** You only pay for outgoing calls that you initiate. Incoming calls from customers are completely free.
+**Incoming calls answered by your team are not charged.** For human calling, you only pay for outgoing calls that you initiate. Incoming calls answered by a Voice AI Agent are charged separately. See [Voice AI Agent Calling Pricing](#voice-ai-agent-calling-pricing) below.
 
 Note that A minimum balance is needed to start a call. If your message credit balance falls below the cost of one minute (Rs. 1 / 10 cents), outgoing calls are blocked until you top up — so it's worth keeping enough credit on hand to cover your expected calling.
+
+---
+
+## Voice AI Agent Calling Pricing
+
+Incoming calls answered by a Voice AI Agent are charged from your [AI Credits](/pricing-and-billing/ai-wallet), not your Message Credits. Voice AI Agent calling is available on the Advanced plan.
+
+| | |
+| - | - |
+| Rate | 50 AI Credits per minute |
+| Applies to | Incoming WhatsApp calls answered by a Voice AI Agent |
+| Destination country | Doesn't affect the rate |
+| Billing increment | 10-second pulses, rounded up |
+| Minimum balance | 200 AI Credits to take a call |
+
+**Examples:** a 15-second call is billed as 2 pulses (20 seconds) and uses 16.67 AI Credits. A 2-minute 23-second call is billed as 15 pulses (2 minutes 30 seconds) and uses 125 AI Credits. Credits are charged in fractions, so you only pay for the pulses used.
+
+**Below the minimum:** if your balance is under 200 AI Credits, the Voice AI Agent doesn't answer. The call is hung up, logged as missed, and the conversation moves to unassigned.
+
+Calls that ring someone on your team, because they already own the conversation, are human calls and are free.
+
+{/* TODO: confirm "Destination country doesn't affect the rate", i.e. 50 credits/min is flat for every country. */}
+{/* TODO: rename the existing "Billing and Payment" heading to "Human Calling: Billing and Payment" so the two sections don't read as one. */}
 
 ---
 
