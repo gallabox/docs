@@ -1,156 +1,198 @@
 ---
 title: "Agent Actions"
+description: "Set up built-in and custom actions so your Chat AI Agent can hand off chats, call your APIs, or run calculations."
 ---
 
 > **Who can use this?**
 >
-> * Owners and Admins, and roles that can update AI agents.
-> * Configure actions on the agent's **Actions** tab, then mention them in **Role**, **Goal**, or **Instructions** with @.
+> * Owners and Admins. Custom roles with **Can build and deploy Agents** or **Can manage Agents**.
+> * Configure actions on the agent's **Actions** tab, then mention them in **Role**, **Goal**, or **Instructions** with **@**.
 
-Actions let the agent do something besides chat. Assign a conversation to your team, look up an order, or check an Instagram follow.
+Actions let the agent do a job during a chat: hand the conversation to your team, check the current time, look up an order in your system, or calculate a price.
 
 <Info>
 
-Type **@** in **Role**, **Goal**, or **Instructions** on **Home** to insert an action. Example: _"If the customer asks about billing, use @assignTo to assign to billing-team."_
+Type **@** in **Role**, **Goal**, or **Instructions** on **Home** to insert an action. For custom actions, you pick the **action name** you created (for example, `@check_order_status`), not `@apiCall`.
 
 </Info>
 
 ## Plan Availability
 
-| Feature                  | Basic | Essential | Advanced | Works on |
-| ------------------------ | :---: | :-------: | :------: | --- |
-| assignTo                 |  Yes  |    Yes    |   Yes    | WhatsApp, Instagram. Not Web Chat |
-| getCurrentDateTime       |  Yes  |    Yes    |   Yes    | All channels |
-| codeExecution            |  Yes  |    Yes    |   Yes    | All channels |
-| apiCall                  |  No   |    Yes    |   Yes    | All channels |
-| checkInstagramUserFollow |  No   |    Yes    |   Yes    | Instagram only |
+| Action | Basic | Essential | Advanced | Works on |
+| --- | :---: | :---: | :---: | --- |
+| **assignTo** | ✓ | ✓ | ✓ | WhatsApp, Instagram. Not Web Chat |
+| **getCurrentDateTime** | ✓ | ✓ | ✓ | All channels |
+| **Code Execution** (`codeExecution`) | ✓ | ✓ | ✓ | All channels |
+| **API Call** (`apiCall`) | — | ✓ | ✓ | All channels |
+| **checkInstagramUserFollow** | — | ✓ | ✓ | Instagram only |
 
 <Warning>
-@assignTo hands a chat to a human. Web Chat has no Inbox for live conversations, so it has nothing to hand off to. For Web Chat, use a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp).
+**@assignTo** hands a chat to a human. Web Chat has no Inbox for live conversations, so it has nothing to hand off to. For Web Chat, use a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp).
 </Warning>
 
 ## Two kinds of actions
 
-* **System actions.** Built in. They show on the **Actions** tab. You mention them with @. Examples: **assignTo**, **getCurrentDateTime**, **checkInstagramUserFollow**. WhatsApp agents can also get **sendWhatsappText** and **sendWhatsappMedia**.
-* **Custom actions.** You create these on the **Actions** tab: **apiCall** and **codeExecution**.
+* **System actions.** Built in. They already sit under **System Actions** on the **Actions** tab: **assignTo**, **getCurrentDateTime**, and **checkInstagramUserFollow**.
+* **My Actions (custom).** You build these yourself under **My Actions** by clicking **Create Action**: **API Call** and **Code Execution**.
+
+<Note>
+If your agent uses **API Call**, choose **Balanced** or **Advance** in **Settings → AI model & credit usage**. Those models are built to handle custom APIs.
+</Note>
 
 ## assignTo
 
-Assigns the conversation to a user, team, or bot.
+Hands the conversation to a teammate, a team, or a bot.
 
 <Warning>
 **Not for Web Chat.** Use this on WhatsApp and Instagram only.
 </Warning>
 
-**In instructions:**
+1. On **Home**, type **@assignTo** in **Instructions**.
+2. A picker opens right there. Select the user, team, or bot.
+3. Gallabox inserts a tag for that target (for example, `@assign_to_sales_team`).
 
-> _"If the customer asks about billing, use @assignTo to assign to billing-team."_
+**Example in Instructions:**
 
-**You set:**
-
-* Target type: user, team, or bot
-* Target name: the exact name of that user, team, or bot
+> _"If the customer asks about billing, refunds, or invoices, use @assign_to_billing_team."_
 
 ## getCurrentDateTime
 
-Gives the agent the current date and time. Use it for business hours or appointment questions.
+Gives the agent today's date and current time (in your account's timezone and UTC). Use it when the agent needs to check business hours or booking dates.
 
-> _"Use @getCurrentDateTime when customers ask about business hours or appointment availability."_
+> _"Use @getCurrentDateTime when customers ask if we are open right now."_
 
-No extra settings.
-
-## codeExecution
-
-Runs a small calculation or data check during the chat. It can do basic math and text work. It cannot run full programs.
-
-> _"If the customer asks to calculate shipping cost, use @codeExecution based on destination and weight."_
-
-Create the action on the **Actions** tab, then mention it with @.
-
-## apiCall
-
-Calls an external HTTP API and uses the response in the reply. Available on Essential and Advanced.
-
-**In instructions:**
-
-> _"If the customer provides an order number, use @apiCall to GET the order and report the status."_
-
-**You set:**
-
-* Endpoint URL
-* Method: GET, POST, PUT, PATCH, DELETE
-* Headers, if the API needs them
-* Body, for POST or PUT
-
-Create the API action on the **Actions** tab first. Then mention it in Instructions.
+No setup needed.
 
 ## checkInstagramUserFollow
 
-**Instagram only.** Checks whether someone follows your connected Instagram account.
+**Instagram only.** Checks whether the person chatting follows your connected Instagram account.
 
-> _"If the customer claims they followed you, use @checkInstagramUserFollow before offering the follower discount."_
+> _"If the customer says they followed our page, use @checkInstagramUserFollow before giving the 10% discount code."_
 
-**You set:** the Instagram username to check.
+---
 
-## How to set this up
+## API Call
 
-<Steps>
+Connects the agent to your own website, store, or CRM during a chat. Available on **Essential** and **Advanced**.
 
-<Step title="Open the agent">
-Go to **AI Agents and Bots**, then open the Chat AI Agent.
-</Step>
+Use it in two ways:
+* **Look up information** and reply with it (check an order status, check stock, look up an account).
+* **Send information out** to another tool (save a new lead in your CRM).
 
-<Step title="Create custom actions if you need them">
-On the **Actions** tab, click **Create Action** for apiCall or codeExecution. Fill in the details and save.
-</Step>
+### Step 1: Create the API Call action
 
-<Step title="Mention the action in Home">
-On **Home**, in **Role**, **Goal**, or **Instructions**, type **@** and pick the action.
-</Step>
+1. Open your agent and go to the **Actions** tab.
+2. Under **My Actions**, click **Create Action**.
+3. Fill in the top bar:
+   * **Action name:** give it a clear name, such as `check_order_status`. Spaces turn into underscores automatically.
+   * **Action Type:** select **API Call**.
+   * **Process in background:**
+     * Turn this **OFF** if the agent needs the API answer before replying to the customer (for example, checking an order status).
+     * Leave it **ON** only when the agent is sending data out and does not need to wait for an answer (for example, logging a lead).
+   * **Action description:** write in plain English what this action does and when the AI should use it. Example: *Fetches order status and delivery date using the customer's order number.*
 
-<Step title="Write when it should run">
-Be specific. "Use @assignTo if they ask about invoice charges, refunds, or cancellation" is better than "use @assignTo for billing."
-</Step>
+### Step 2: Add your API link and details
 
-<Step title="Save and test">
-Save, then test. WhatsApp and Instagram: **Test Widget** on Home. Web Chat: widget preview on **Web Widget**.
-</Step>
+1. Pick the **Method Type** (`GET` to fetch data, `POST` to send data, `PUT`, `PATCH`, or `DELETE`).
+2. Enter the **Request URL**.
 
-</Steps>
+To let the AI fill in a value from the chat, wrap a word in double curly brackets `{{like_this}}`. You can use `{{variables}}` in the **Request URL**, **Headers**, **Query Params**, **Params** (path parameters), or **Body**.
 
-## Example
+**Example Request URL:**
+```text
+https://api.yourstore.com/orders/{{order_id}}
+```
 
-You run a store. You want order status lookups, Instagram follower discounts, and billing chats to go to finance.
+As soon as you type `{{order_id}}`, it appears on the right under **Variable Configuration**. Fill in:
+* **Type:** `String` (text), `Number`, or `Boolean` (true/false).
+* **Description:** tell the AI what to ask the customer for. Example: *The order number shared by the customer.*
 
-1. Open **AI Agents and Bots → [Your Agent] → Actions**. Create an **apiCall** that fetches orders.
-2. On **Home**, add:
-   * _"If they give an order number, use @apiCall and report the delivery date."_
-   * _"If they claim they followed you, use @checkInstagramUserFollow. If they follow, offer 10% off."_
-   * _"If they ask about refunds, failed payments, or subscription charges, use @assignTo to assign to finance-team."_
-3. Save and test.
+### Step 3: Set authentication and body (if needed)
+
+* **Headers tab:**
+  * If you already connected the app in Gallabox (such as HubSpot, Zoho, Shopify, or Razorpay), pick it under **Authentication** and choose your saved connection under **Select connection** (or click **Add New Connection**).
+  * For any other tool, leave **Authentication** as `None` and add your API key under **Header** (for example, Key `Authorization` and Value `Bearer your_api_key`).
+* **Body tab** (shown for `POST`, `PUT`, `PATCH`, and `DELETE`):
+  * Choose `json`, `www-form-urlencoded`, or `form-data`.
+  * You can put `{{variables}}` inside the body too, and describe them under **Variable Configuration**.
+
+Click **Save**.
+
+### Step 4: Mention it in Instructions
+
+Go to **Home → Instructions**, type **@**, and pick the action name you just saved:
+
+> _"When a customer asks where their order is, ask for their order number, then run @check_order_status and share the status and delivery date."_
+
+---
+
+## Code Execution
+
+Runs a small JavaScript snippet during the chat. Use this when the agent needs exact math, date checks, or text formatting that you do not want the AI guessing on its own (such as shipping rates, EMI math, or pincode checks).
+
+<Note>
+**Do you need to know how to code?** Only for the short calculation box. If you do not write JavaScript, paste what you want into ChatGPT or Claude (for example: *"Write a JavaScript function `execute(inputs)` that takes `inputs.weight` and returns `{ shipping_cost: weight * 50 }`"*), then paste that snippet here.
+</Note>
+
+### How to set up Code Execution
+
+1. Go to **Actions → Create Action**.
+2. Set **Action name** (for example, `calculate_shipping`) and pick **Action Type → Code Execution**.
+3. **Turn OFF Process in background** if the agent needs the result to reply to the customer.
+4. Write a clear **Action description** (for example, *Calculates shipping cost from weight in kg*).
+5. Under **Function Parameters (Input Schema)**, click **Add Parameter** for each value the code needs:
+   * **Field Name:** the name used in the code (for example, `weight`).
+   * **Data Type:** `String`, `Number`, or `Boolean`.
+   * **Value Source:** pick **AI Provided** if the agent should get this from the customer's chat. Pick **Static value** if it never changes (like a fixed tax rate).
+   * **Description:** explain what the AI should collect (for example, *Package weight in kg*).
+6. In **Code Editor (JavaScript)**, write your logic inside `function execute(inputs)` and return an object:
+   ```javascript
+   function execute(inputs) {
+     const cost = inputs.weight * 50;
+     return {
+       shipping_cost: cost
+     };
+   }
+   ```
+7. Under **Output Schema**, click **Add Property** and list every field your code returns (in the example above, **Property Name** `shipping_cost`, **Data Type** `Number`). The AI only reads fields listed in **Output Schema**.
+8. Click **► Test Run**, enter a sample number, and click **Run** to check the output before saving. If you see an **Extra fields detected** warning, add those missing field names to **Output Schema**.
+9. Click **Save**, then mention `@calculate_shipping` in **Home → Instructions**.
+
+---
 
 ## FAQs
 
 <AccordionGroup>
+<Accordion title="The agent ran my API Call or Code Execution, why didn't it use the answer in its reply?">
+Check **Process in background** on the action:
+
+* When **Process in background** is **ON** (the default), Gallabox runs the action in the background and does not wait for the response. The agent replies right away without the data.
+* Open the action, turn **Process in background** **OFF**, and click **Save**.
+
+For **Code Execution**, also check **Output Schema** at the bottom of the action. Every field your code returns must be listed there.
+</Accordion>
+
+<Accordion title="How does the agent know what to ask the customer before calling my API?">
+From the `{{variables}}` you add in the API form. When you type `{{order_id}}` in the URL, query params, headers, or body, it appears under **Variable Configuration** on the right. Write a clear **Description** there (such as *The customer's 6-digit order number*). The agent reads that description and asks the customer for it if they haven't shared it yet.
+</Accordion>
+
 <Accordion title="The @assignTo action is not working. What do I check?">
 1. Is this a **Web Chat** agent? If yes, that is expected. Use a [WhatsApp handoff](/web-chat/website-analytics#handoff-to-whatsapp).
-2. Is it spelled **@assignTo** (not @assign)?
-3. Does the user, team, or bot name match exactly? A mismatch fails silently.
-4. Is the trigger specific enough?
-5. Does your plan include assignTo? See the table above.
+2. Did you pick the user, team, or bot from the **@assignTo** menu on **Home**? Typing plain text without selecting from the `@` menu will not trigger the handoff.
+3. Is the instruction specific enough? *"Use @assign_to_billing_team when the customer asks for a refund or invoice"* works better than *"use @assign_to_billing_team for billing."*
 </Accordion>
 
 <Accordion title="Can I use more than one action in the same conversation?">
 Yes. Example:
 
-> _"If the customer confirms the order, use @apiCall to fetch details, then use @assignTo to assign to the fulfillment team."_
+> _"If the customer confirms the order, use @check_order_status to fetch the details, then use @assign_to_fulfillment_team to hand over the chat."_
 
 The agent runs them in order.
 </Accordion>
 
-<Accordion title="What happens if the apiCall fails?">
-The agent notes the failure and still replies. Put a fallback in Instructions:
+<Accordion title="What happens if the API Call fails?">
+The agent sees that the call failed and still replies to the customer. Tell it what to say in **Instructions**:
 
-> _"If the @apiCall to fetch order status fails, say: 'I cannot check that order right now. Let me connect you with our team.'"_
+> _"If @check_order_status fails, say: 'I can't check that order right now. Let me connect you with our team' and use @assign_to_support_team."_
 </Accordion>
 </AccordionGroup>
