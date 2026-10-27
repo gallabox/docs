@@ -1,15 +1,14 @@
 ---
-title: "Seamless Messaging"
+title: "Understanding Seamless Messaging"
 sidebarTitle: "Seamless Messaging"
-description: "Keep replying to customers on WhatsApp after the 24-hour window closes. Type and send from the inbox as usual, without picking a template."
+description: "What Seamless Messaging is, why the 24-hour window gets in the way, what customers receive, what it costs, and what to use it for."
 ---
-
-> **Who can use this?**
-> Admins turn Seamless Messaging on for a WhatsApp number. Once it's on, every agent who can reply in the inbox can use it.
 
 <Info>
   **Seamless Messaging** lets your team reply to a customer on WhatsApp even when the customer hasn't messaged in the last 24 hours. Agents type and send from the inbox the same way they do inside the window. There's no template to find or fill in.
 </Info>
+
+To turn it on and use it, see [Seamless Messaging](/conversations/seamless-messaging) in the Inbox docs.
 
 ## Why it exists
 
@@ -17,62 +16,29 @@ WhatsApp gives a business 24 hours to reply freely after a customer's last messa
 
 With Seamless Messaging on, the reply box stays open. Your team keeps the conversation going as if the window never closed.
 
-## Turn on Seamless Messaging
+## How it works
 
 <Steps>
-  <Step title="Open your WhatsApp channel settings">
-    Go to **Channels**, open your WhatsApp number, and go to the **Configuration** tab.
+  <Step title="An admin turns it on">
+    An admin turns on Seamless Messaging for a WhatsApp number once. Gallabox sets it up, which usually takes a few minutes.
   </Step>
-  <Step title="Turn on Seamless Messaging">
-    On the **Seamless Messaging** card, turn the switch on. Only admins can change this switch.
+  <Step title="The agent types as usual">
+    When a customer hasn't messaged in 24 hours, the agent types a short reply and selects **Send**, the same as inside the window.
   </Step>
-  <Step title="Wait for it to get ready">
-    The card shows **Getting ready** while Gallabox sets it up for your number. This usually takes a few minutes, and can take up to 24 hours. You'll get an email when it's on.
+  <Step title="The customer receives it">
+    The customer receives the message with a short closing line at the end. See [What the customer receives](#what-the-customer-receives).
   </Step>
 </Steps>
 
-The card shows one of four states:
+## What the customer receives
 
-| State | What it means |
-| :-- | :-- |
-| **Off** | Seamless Messaging isn't on. After 24 hours, agents continue with an approved template, as before. |
-| **Getting ready** | Gallabox is setting it up. The inbox works as before until it's ready. |
-| **On** | Your team can reply to any customer, anytime, from the inbox. |
-| **Setup didn't complete** | Gallabox couldn't finish setting it up for this number, so it stays off. Reach out to [support@gallabox.com](mailto:support@gallabox.com) for help. |
-
-To turn it off, turn the switch off. The inbox goes back to sending approved templates after 24 hours.
-
-## Reply after 24 hours
-
-When a customer hasn't messaged in the last 24 hours, the reply box looks the same as usual. A few signs show that the window has closed:
-
-- A **⚡ Seamless** badge in the reply box toolbar.
-- A **24h window closed** label showing the customer's last reply date.
-- A divider in the chat marking when the window closed.
-
-Type your message and select **Send**. Messages sent this way show a ⚡ next to the time.
-
-### What a message can include
-
-- **Up to 3 lines of text.** You can't add a 4th line. If you paste longer text, shorten it to 3 lines before sending. Blank lines are skipped.
-- **Up to 1,024 characters**, including the closing line (see below). A counter under the reply box shows how many characters and lines you have left.
-- **An image, video or document**, with a caption of 1 to 3 lines.
-
-Gallabox tidies the text before sending: tabs become spaces, and long runs of spaces are shortened. A note under the reply box tells you when this happens.
-
-Audio, location and contact messages aren't available after 24 hours. They work again once the customer replies.
-
-### The closing line
-
-Every Seamless message ends with a short line in italics, with your business name in it:
+The customer receives your message as you wrote it, followed by a short line in italics with your business name in it:
 
 > _This message is about your request or booking with &lt;your business name&gt;. Reply hi anytime if you have any questions._
 
-You see it under your message in the chat, set apart by a dashed line, so you always know what the customer receives.
+Agents see the same line under the message in the chat, so they always know what the customer receives. When the customer replies, the 24-hour window opens again, and messages go out as normal replies without the closing line.
 
-### If a message isn't delivered
-
-A message that doesn't reach the customer shows **Not delivered** with the reason in plain words, for example "This number isn't on WhatsApp." If a message can't be sent right now, the reason says when to try again. You can always send an approved template instead.
+Seamless messages are kept short: up to 3 lines of text, or an image, video or document with a short caption. See [What a message can include](/conversations/seamless-messaging#what-a-message-can-include).
 
 ## Use it for updates, not promotions
 
@@ -84,38 +50,40 @@ Seamless Messaging is for replies, updates and follow-ups about something the cu
 | "We've rescheduled your visit to Friday, 4 PM." | "Check out our new collection." |
 | "Following up on your enquiry: the price for 2 adults is ₹18,500." | "Limited-time offer: book now and save." |
 
+A useful test: **would the customer expect this message because of something they asked for or booked?** If yes, it's a good fit.
+
 WhatsApp treats promotional messages differently. **Promotional messages sent after 24 hours may not be delivered, or may be charged at WhatsApp's Marketing rate.** If your team sends promotional messages this way, admins see a notice on the **Seamless Messaging** card and get an email.
 
 For offers and promotions, use an approved [marketing template](/whatsapp/templates/custom-marketing) or a [broadcast](/whatsapp/broadcasts/create-broadcast).
 
+## Seamless Messaging and templates compared
+
+| | Seamless Messaging | Approved template |
+| :-- | :-- | :-- |
+| Who writes the message | The agent, in the reply box | Written once, then picked and filled in |
+| Length | Up to 3 lines | Up to 1,024 characters |
+| Buttons | No | Yes |
+| Best for | Quick replies and follow-ups after 24 hours | Campaigns, offers, and messages you reuse often |
+
 ## FAQs
 
 <AccordionGroup>
-  <Accordion title="Do agents need to do anything differently?">
-    No. Agents type and send as usual. The ⚡ Seamless badge and the 24h window closed label tell them the window has closed, but the way they reply doesn't change.
-  </Accordion>
-  <Accordion title="What happens when the customer replies?">
-    The 24-hour window opens again, and messages go out as normal WhatsApp replies, without the closing line. If the customer replies while an agent is typing, the text the agent typed is kept.
-  </Accordion>
   <Accordion title="How much does a Seamless message cost?">
     Messages sent after the 24-hour window are charged at WhatsApp's rates for business-initiated messages. Messages sent inside the window aren't affected. See [Message Credits](/pricing-and-billing/message-credits) for how WhatsApp messages are charged.
   </Accordion>
   <Accordion title="Why can I only send 3 lines?">
     Seamless messages are kept short so they read as a quick reply or update. If you need to send something longer, use an approved template.
   </Accordion>
-  <Accordion title="Can I still send templates after 24 hours?">
-    Yes. **Send Template** stays in the reply box, so you can send any approved template as before.
-  </Accordion>
   <Accordion title="Can I send offers through Seamless Messaging?">
     It's not meant for offers. Promotional messages may not be delivered, or may be charged at WhatsApp's Marketing rate. Use a [marketing template](/whatsapp/templates/custom-marketing) or a [broadcast](/whatsapp/broadcasts/create-broadcast) for promotions.
   </Accordion>
-  <Accordion title="Setup didn't complete. What should I do?">
-    Reach out to [support@gallabox.com](mailto:support@gallabox.com). Until it's set up, your inbox works as before.
+  <Accordion title="Do I still need templates?">
+    Yes, for campaigns, offers and longer messages. **Send Template** stays in the reply box after 24 hours, so agents can still send any approved template.
   </Accordion>
 </AccordionGroup>
 
 ## Related articles
 
+- [Seamless Messaging](/conversations/seamless-messaging): turn it on and reply after 24 hours
 - [Reduce your WhatsApp message costs](/guide/reduce-whatsapp-message-costs): how WhatsApp charges for messages, and how to spend less
-- [Custom Marketing Templates](/whatsapp/templates/custom-marketing): the way to send offers and promotions
 - [Message Credits](/pricing-and-billing/message-credits): how WhatsApp messages are charged
