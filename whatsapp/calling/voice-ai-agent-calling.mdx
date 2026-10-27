@@ -1,0 +1,202 @@
+---
+title: "Voice AI Agent Calling"
+description: "Let a Voice AI Agent answer incoming WhatsApp calls around the clock, with the customer's chat history in context, then route the conversation to the right owner."
+---
+
+A **Voice AI Agent** answers your incoming WhatsApp calls automatically, 24/7. It knows the customer's chat history, answers their questions from your knowledge base, collects the details your team needs, and can send WhatsApp messages while the call is still going. When the call ends, the conversation goes to the right owner, with a summary, transcript and recording attached.
+
+Voice AI Agent Calling is available on the **Advanced** plan. Calls are charged from your **AI Credits** at **50 credits per minute**.
+
+---
+
+### How a Voice AI Call Works
+
+When **Voice AI Agent** is selected as the handler, who picks up depends on who owns the conversation when the customer calls:
+
+| The customer's conversation is… | Who picks up the call |
+| - | - |
+| Assigned to a person or team on your side | The call rings them directly. The Voice AI Agent does not answer. |
+| New (first-time caller) | The Voice AI Agent answers. A contact and conversation are created automatically. |
+| Unassigned | The Voice AI Agent answers. |
+| With a rule-based bot or Chat AI Agent | The Voice AI Agent answers. |
+
+A customer already in conversation with one of your team members always reaches that person. Every other caller gets an instant answer from your Voice AI Agent, at any hour.
+
+**When the Voice AI Agent answers:**
+
+1. The customer taps the call button in your WhatsApp chat.
+2. The Voice AI Agent picks up straight away. There is no ringing and no waiting for an agent to be free.
+3. It handles the conversation: answering questions, qualifying the customer, sending messages to the chat, and taking actions you've set up for it.
+4. The call ends.
+5. A call record is added to the conversation, with a summary, transcript and recording.
+6. The conversation is assigned, either by the agent itself based on what the customer wanted, or by your **Post Call Assignment Rules**. See [Who Gets the Conversation After the Call](#who-gets-the-conversation-after-the-call).
+
+---
+
+### What the Voice AI Agent Can Do on a Call
+
+**Pick up where the chat left off.** The Voice AI Agent has the conversation's chat history as context. If a customer has been chatting with your Chat AI Agent or your team and then taps the call button, the Voice AI Agent knows what's already been discussed. It continues from there instead of starting over.
+
+**Send WhatsApp messages during the call.** The agent can send messages into the customer's chat while they're still talking, so details that are hard to say aloud reach the customer in writing straight away.
+
+**Assign the conversation based on intent.** If you've instructed the agent to recognise certain intents and route them to a specific User or Team, it does that as the call ends. See [Who Gets the Conversation After the Call](#who-gets-the-conversation-after-the-call).
+
+**Handle requests for a person.** The Voice AI Agent can't transfer a live call. If a caller asks to speak to someone on your team, the agent:
+
+1. Tells them it can't transfer the call right now, but will ask the team to get back to them.
+2. Asks if there's a message it should pass on.
+3. Ends the call and assigns the conversation to a person on your team, who can call the customer back.
+
+The customer's message is captured in the call summary and transcript, so the person following up knows why they're calling.
+
+---
+
+### Before You Start
+
+* **The Advanced plan.** Voice AI Agent Calling is part of Advanced. Essential includes human calling only.
+* **Calling enabled on your WhatsApp number.** All the [WhatsApp Calling prerequisites](/whatsapp/calling/overview#before-you-start-prerequisites) apply, including Meta's eligibility and messaging-limit checks.
+* **A Voice AI Agent.** Build one in [AI Agents & Bots](https://app.gallabox.com/bots) before you start.
+* **At least 200 AI Credits.** Below this, the Voice AI Agent won't answer calls. See [AI Credits and Minimum Balance](#ai-credits-and-minimum-balance).
+
+---
+
+### Setting Up Voice AI Agent Calling
+
+1. Go to **WhatsApp → Calling** in Gallabox.
+2. Switch on **Enable WhatsApp Calling**.
+3. Under **Who handles incoming calls**, select **Voice AI Agent**.
+4. Choose the Voice AI Agent that should answer calls on this number.
+5. Set your **Post Call Assignment Rules** (below).
+6. **Save Changes.**
+
+<Frame>
+  <img src="/images/voice-ai-agent-selected.png" alt="" />
+</Frame>
+
+Each WhatsApp number uses one Voice AI Agent. If you have more than one number connected, use the channel selector at the top of the Calling page to set each one up separately.
+
+---
+
+### Who Gets the Conversation After the Call
+
+When a Voice AI call ends, the conversation is assigned in one of two ways.
+
+**1. By the agent, based on intent.** If your Voice AI Agent's instructions tell it to identify certain intents and assign them, for example "send pricing questions to the Sales team" or "send complaints to Priya", the agent assigns the conversation itself as the call ends. This lets different callers reach different people, based on what they actually wanted.
+
+**2. By your Post Call Assignment Rules.** If the agent hasn't been told to assign by intent, or the call doesn't match any intent you've set up, your Post Call Assignment Rules apply. You can assign the conversation to:
+
+| Option | Where the conversation goes |
+| - | - |
+| **A User** | Always the same person on your team. |
+| **A Team** | Follows the team's round-robin assignment rule. The conversation goes to the next available team member, skipping anyone who is away or inactive. |
+| **A Chat AI Agent** | Your Chat AI Agent picks the conversation up in chat. |
+
+{/* TODO: link "assignment rule" in the Team row to the team assignment rules docs page. */}
+
+Assignment happens **when the call ends**, not when it starts.
+
+<Tip>
+Use intent-based assignment for the routing that matters most, such as hot leads, complaints, or bookings. Use Post Call Assignment Rules as the catch-all for everything else.
+</Tip>
+
+---
+
+### After the Call: What Your Team Sees
+
+Every Voice AI call is saved in the customer's conversation in your Inbox, alongside their chat history. You'll find the details on the **call card** in the conversation and on the Voice AI Agent's **Analyze** screen:
+
+* **The call record:** direction, duration, and that it was handled by the Voice AI Agent.
+* **A summary:** what happened on the call, the key details the customer shared, and a suggested next step.
+* **The transcript:** everything said on the call, turn by turn.
+* **The recording:** to listen back to the call.
+
+<Frame>
+  <video src="/images/voice-ai-call-card-analyze.mp4" autoPlay loop muted playsInline controls className="w-full aspect-video" />
+</Frame>
+
+Whoever picks up the conversation doesn't need to ask the customer to repeat themselves. They can continue exactly where the AI left off, by call or chat.
+
+---
+
+### AI Credits and Minimum Balance
+
+Voice AI calls are charged from your [AI Credits](/pricing-and-billing/ai-wallet), not your Message Credits.
+
+| Field | Value |
+| - | - |
+| Rate | 50 AI Credits per minute |
+| Billing increment | 10-second pulses, rounded up (about 8.33 AI Credits per pulse) |
+| Minimum balance to take a call | 200 AI Credits |
+
+**Examples**
+
+| Call length | Billed as | AI Credits used |
+| - | - | - |
+| 15 seconds | 2 pulses (20 seconds) | 16.67 |
+| 56 seconds | 6 pulses (1 minute) | 50 |
+| 2 minutes 23 seconds | 15 pulses (2 minutes 30 seconds) | 125 |
+| 3 minutes 52 seconds | 24 pulses (4 minutes) | 200 |
+
+Credits are charged in fractions, so you only pay for the pulses used, not for a full minute.
+
+**What happens below 200 AI Credits.** If your balance is under 200 AI Credits when a call comes in, the Voice AI Agent doesn't answer:
+
+* The call is hung up automatically.
+* It's logged as a **missed call**.
+* The conversation moves to **unassigned**, so your team can see it and follow up.
+
+Keep your balance above 200 to avoid missing calls. The minimum covers about four minutes of talk time, roughly a typical call, so a call doesn't run out of credits halfway through.
+
+Calls that ring someone on your team, because they already own the conversation, are human calls. They don't use AI Credits and are free, like all [incoming human calls](/whatsapp/calling/incoming-calls).
+
+---
+
+### Limits to Know
+
+* **Incoming calls only.** Voice AI Agents don't place outgoing calls. Your team places outgoing WhatsApp calls. See [Outgoing Calls](/whatsapp/calling/outgoing-calls).
+* **No live transfer.** The agent can't hand a live call to a person. If the caller asks for one, the agent takes a message and assigns the conversation for a callback.
+* **No Busy Message.** The Busy Message is part of human calling only. It isn't sent for calls handled by the Voice AI Agent, including calls missed because of low AI Credits.
+
+{/* TODO: update the Busy Message line once the Linear issue to extend it to AI calling ships. */}
+{/* TODO: add supported languages for WhatsApp Voice AI calls. */}
+
+---
+
+### Troubleshooting
+
+**A call rang my team instead of the Voice AI Agent.**
+The conversation was already assigned to a person or team, so the call went straight to them. This is expected. The AI only answers calls on new, unassigned, or bot-handled conversations.
+
+**The Voice AI Agent didn't answer and the call shows as missed.**
+Your AI Credits balance was most likely below 200. Top up your [AI Credits](/pricing-and-billing/ai-wallet). Also check that:
+* your account is on the Advanced plan;
+* a Voice AI Agent is selected on the Calling page for this number.
+
+**The conversation went to the wrong person after the call.**
+If your agent assigns by intent, review the intents and assignees in its instructions. Otherwise, check your Post Call Assignment Rules on the Calling page.
+
+**The agent didn't seem to know about an earlier chat.**
+The agent uses the chat history in the same conversation. If the customer chatted from a different WhatsApp number, or on another channel, that history isn't in this conversation.
+
+---
+
+### Quick Reference
+
+| Topic | Summary |
+| - | - |
+| What it is | An AI that answers incoming WhatsApp calls automatically, 24/7 |
+| Plan | Advanced |
+| Who it answers | New, unassigned, and bot-handled conversations. Calls on conversations owned by your team ring them instead. |
+| Context | Has the conversation's chat history; can send WhatsApp messages during the call |
+| Direction | Incoming calls only |
+| Cost | 50 AI Credits per minute, billed in 10-second pulses (fractional credits) |
+| Minimum balance | 200 AI Credits. Below this, calls are hung up, logged as missed, and the conversation moves to unassigned. |
+| After the call | Summary, transcript and recording on the call card and Analyze screen |
+| Assignment | By the agent based on intent (if instructed); otherwise Post Call Assignment Rules: a User, a Team, or a Chat AI Agent |
+| Asks for a person | Agent takes a message, ends the call, assigns for a callback |
+| Busy Message | Not used for Voice AI calls |
+| Build agents in | [AI Agents & Bots](https://app.gallabox.com/bots) |
+
+---
+
+*Calling behavior depends on Meta's WhatsApp Business Calling rules, which may change.*
