@@ -95,9 +95,11 @@ To check whether your account is eligible:
 **Utility messages** can include:
 
 - **Text** of up to 1,024 characters.
-- **Up to 3 reply buttons** and **up to 2 link buttons**. Link buttons appear above reply buttons, and button text is up to 20 characters.
+- **Up to 10 buttons**, mixing reply buttons and link buttons, with **no more than 2 link buttons**. Link buttons appear above reply buttons, and button text is up to 20 characters.
+- **A header and a footer** of up to 60 characters each, on messages with buttons.
+- **A Call on WhatsApp button**, which lets the customer start a WhatsApp voice call to your business. It must be the only button in the message, the message can't have a footer, and calling must be turned on for your number first.
 - **Links in the text.** They don't show a preview image in Direct Send messages.
-- **Images, videos and documents** are limited during Meta's beta and need extra access from Meta.
+- **An image, video or document** as the header of a message with buttons. A message with only an image, video or document isn't supported.
 
 **Authentication messages** are **text only**.
 
@@ -133,7 +135,8 @@ Separately, if Meta decides a message is low quality, it can **pause** the templ
 | Approval needed before sending | No | Yes |
 | Wait before first use | None | Minutes, up to 24 hours |
 | Message categories | Utility and Authentication (access restricted) | Marketing, Utility, Authentication |
-| Media and all button types | Limited during the beta | Yes |
+| Media | Image, video or document header, on messages with buttons | Yes |
+| Buttons | Up to 10, no more than 2 link buttons | Yes |
 | Best for | One-off or frequently changing updates | Campaigns, and messages you reuse often |
 
 ## FAQs
