@@ -53,7 +53,8 @@
               "conversations/omnichannel-inbox",
               "conversations/team-views",
               "conversations/optimize-inbox",
-              "conversations/ai-reply"
+              "conversations/ai-reply",
+              "conversations/seamless-messaging"
             ]
           },
           {
