@@ -18,7 +18,7 @@ Channel configuration is where you decide what happens automatically on a WhatsA
 ## Before you start
 
 * Connect the WhatsApp channel first — see [Connect your WhatsApp](/whatsapp/connect-your-whatsapp).
-* Create the [canned responses](/whatsapp/canned-responses) you want to send automatically. Welcome, away, auto reply and re-engagement messages all pick from canned responses rather than free text.
+* Create the [canned responses](/whatsapp/canned-responses) you want to send automatically. Welcome, away and auto reply messages, and auto follow-ups in **Canned response** mode, all pick from canned responses rather than free text.
 * Settings apply to **one channel**. If you run several WhatsApp numbers, configure each one.
 
 ## Where to find it
@@ -89,17 +89,44 @@ For each rule you set:
 
 Both rules only act on conversations assigned to a person, so they don't fire while a bot is handling the chat. A reply from a team member or bot resets the countdown.
 
-### Re-engagement message
+### Auto follow-up
 
-Sends a follow-up when a customer has gone quiet mid-conversation.
+Follows up automatically when an agent has messaged a customer and the customer stops replying. This setting was previously called **Re-engagement message**.
 
-Set the **canned response** and the **minutes** to wait before sending it.
+Under **How should we follow up?**, pick one mode:
+
+* **Canned response** — sends one message you pick from your canned responses.
+* **AI follow-up** — AI writes up to 3 short follow-ups from the chat, such as reminding the customer of the agent's question. Uses [AI credits](/pricing-and-billing/ai-wallet).
+
+Both modes have **Send first follow-up after** — how many minutes (1–1439) to wait with no reply to the agent's last message.
+
+For **Canned response**, pick the **Canned Response** to send. You can preview it before saving.
+
+For **AI follow-up**, you also set:
+
+* **Number of follow-ups** — 1, 2 or 3. The default is 2.
+* **Wait between follow-ups** — how many minutes (1–1439) to wait after one follow-up before sending the next. The default is 4.
+* **Instructions for AI** — optional guidance on tone, length or topics to avoid, up to 300 characters. For example: "Keep it friendly. Don't quote prices."
+
+If **AI follow-up** isn't available on your account, you only see the canned response settings.
 
 <Note>
 
-If the customer's last reply was more than 24 hours ago, WhatsApp requires a template rather than a normal message. See error code [`131047`](/whatsapp/message-error-codes).
+Auto follow-up works only on open chats assigned to a team member. Follow-ups go out only inside WhatsApp's 24-hour customer service window. They are never sent as templates.
 
 </Note>
+
+#### How AI follow-ups work
+
+* **When they start.** The wait starts when a team member sends a message from the Inbox in an open chat assigned to a team member. Each new message from your team starts the wait again from zero.
+* **What the AI reads.** The AI reads the most recent messages in the chat and refers to what the agent asked. It doesn't use a knowledge base. It sees the customer's first name, but not their phone number or email.
+* **When it doesn't follow up.** If the chat has clearly ended, such as with a goodbye or a confirmed order, the AI doesn't send a follow-up.
+* **When they stop.** Follow-ups stop when the customer replies, or the chat is resolved, unassigned or handed to a bot or AI agent. They also stop when the 24-hour window closes, the contact opts out or is blocked, your AI credits run out, or you turn Auto follow-up off.
+* **Messages sent outside the Inbox.** A message sent through the API or an integration stops any pending follow-ups but doesn't start new ones.
+* **What agents see.** Each AI follow-up appears in the chat as a message from your business. A log line in the chat records when follow-ups start, are sent and stop, and why they stopped.
+* **Assignment.** Follow-ups never change who the chat is assigned to. The customer's reply reaches the same team member.
+
+Changes to these settings apply from the next message your team sends. Follow-ups already scheduled keep the settings they started with.
 
 ### Auto resolve chat
 
@@ -107,8 +134,9 @@ Resolves a conversation automatically when a team member replied and the custome
 
 * The countdown starts from a team member's message. On [Coexistence](/whatsapp/coexistence/overview) numbers, a message sent from the WhatsApp Business app also counts.
 * It only resolves conversations assigned to a person. Messages sent by a bot don't start the countdown, so it never closes a chat a bot is handling. For bots, see [Bot wait time and drop-off](/ai-agents-and-bots/bots/wait-time-and-drop-off).
-* Messages sent through the API, an integration, or a workflow don't start the countdown either. Only replies sent from the Inbox, the WhatsApp Business app, or a re-engagement message do.
-* If **Re-engagement message** is on and set to the same number of minutes, a team member's reply doesn't start the countdown. It starts when the re-engagement message is sent.
+* Messages sent through the API, an integration, or a workflow don't start the countdown either. Only replies sent from the Inbox, the WhatsApp Business app, or an auto follow-up do.
+* If **Auto follow-up** is on in **Canned response** mode and set to the same number of minutes, a team member's reply doesn't start the countdown. It starts when the follow-up is sent.
+* If **Auto follow-up** is on in **AI follow-up** mode, auto resolve never closes a chat while follow-ups are still pending. The countdown starts again after the last follow-up is sent or the follow-ups stop on their own.
 
 ### Failed message email alert
 
@@ -199,8 +227,16 @@ That setting is not included in your plan. Contact your account manager to find 
 Your channel is almost certainly in coexistence mode with the setting turned on in both places. Turn the greeting message off in the WhatsApp Business App and keep it only in Gallabox.
 </Accordion>
 
-<Accordion title="What is the difference between auto reply and re-engagement message?">
-**Auto reply** covers a customer waiting on you — they messaged and nobody has replied yet. **Re-engagement** covers the opposite — you replied and the customer went quiet.
+<Accordion title="What is the difference between auto reply and auto follow-up?">
+**Auto reply** covers a customer waiting on you — they messaged and nobody has replied yet. **Auto follow-up** covers the opposite — you replied and the customer went quiet.
+</Accordion>
+
+<Accordion title="Where did the re-engagement message setting go?">
+It's now called **Auto follow-up**, in the same place. If you used re-engagement message before, your settings carry over as **Canned response** mode with the same message, minutes and on or off state.
+</Accordion>
+
+<Accordion title="Why didn't an AI follow-up go out?">
+Open the chat and look for the auto follow-up log line. It shows why follow-ups stopped, such as the customer replied, the 24-hour window closed, the conversation had ended, or your AI credits ran out.
 </Accordion>
 
 <Accordion title="Do automatic messages cost anything?">

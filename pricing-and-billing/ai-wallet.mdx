@@ -38,6 +38,7 @@ AI credits are consumed by any feature that calls an AI model:
 | **AI Reply** (quick reply suggestions) | Per suggestion | Consumes AI credits |
 | **AI Rewrite** (improve message copy) | Per rewrite | ~1-3 credits per rewrite |
 | **AI Translate** (translate messages) | Per translation | ~1 credit per translation |
+| **AI follow-up** ([Auto follow-up](/whatsapp/channel-configuration#auto-follow-up)) | Per follow-up | Consumes AI credits |
 | **GPT Dialog node** (bot flows) | Per AI response | ~2-5 credits per response |
 | **GPT Knowledge Base node** (bot flows) | Per lookup | ~2-4 credits per query |
 
@@ -69,6 +70,7 @@ Alerts are sent by email only. The AI Wallet page also shows a warning when your
 
 - **Chat AI Agent** ends the session. On WhatsApp and Instagram it sends your drop-off message and runs your drop-off actions. On Web Chat it resolves the chat. See [Why did the agent stop mid-conversation?](/ai-agents-and-bots/chat-ai-agent/faqs#agent-not-responding)
 - **AI Reply**, **AI Rewrite**, and **AI Translate** stop working
+- **AI follow-ups** stop, and a log line in the chat records why
 - **Bot flow AI nodes** (GPT Dialog, GPT Knowledge Base) error at that node
 
 **Conversation handling continues** — non-AI nodes (Send, Ask, Condition, etc.) keep working. Only AI-powered features are affected.
