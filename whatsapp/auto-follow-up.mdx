@@ -1,0 +1,206 @@
+---
+title: "Auto Follow-up"
+description: "Follow up automatically when a customer goes quiet after your agent's reply — with a canned message, or with short AI-written follow-ups that refer to the chat."
+---
+
+> **Who can use this?**
+>
+> * Anyone whose team chats with customers on a WhatsApp channel.
+> * Roles: Owners and Admins, and custom roles with permission to manage channels, can turn it on. Agents don't need to do anything.
+> * Plans: **Canned response** mode follows your plan's channel configuration access. **AI follow-up** mode isn't available on every account; if you don't see it, only canned response settings appear.
+
+<Info>
+
+Auto follow-up nudges a customer who stopped replying after your agent messaged them. It was previously called **Re-engagement message**. It never changes who the chat is assigned to, so the customer's reply goes straight back to the same agent.
+
+</Info>
+
+## When to use it
+
+Use auto follow-up when your agents ask customers for something and the chat stalls:
+
+* **Sales** — the agent asked for a budget, a preferred time for a demo, or a yes to a quote.
+* **Appointments** — the agent offered slots and the customer didn't pick one.
+* **Support** — the agent asked for an order number, a screenshot or another detail needed to fix the issue.
+
+It covers the case where **you** replied and the customer went quiet. For customers waiting on **you**, use [Auto reply](/whatsapp/channel-configuration#auto-reply).
+
+## Choose a mode
+
+| | **Canned response** | **AI follow-up** |
+| --- | --- | --- |
+| What is sent | One message you pick from your canned responses | Up to 3 short messages written by AI from the chat |
+| Refers to the conversation | No — the same message every time | Yes — it reminds the customer of what the agent asked |
+| Skips chats that have ended | No | Yes — if the chat clearly ended, nothing is sent |
+| Log line in the chat | No | Yes — start, each follow-up, and why it stopped |
+| Cost | Normal WhatsApp conversation pricing | WhatsApp pricing plus [AI credits](/pricing-and-billing/ai-wallet) per follow-up |
+
+**Pick AI follow-up** when agents handle varied conversations and a generic "Just checking in" feels robotic. **Pick canned response** when one standard message works for every chat, or you don't want to use AI credits.
+
+## Set it up
+
+<Steps>
+
+<Step title="Open the channel configuration">
+Go to **WhatsApp Channel → \[your channel]** and open the **Configuration** tab. Find the **Auto follow-up** card and switch it on.
+</Step>
+
+<Step title="Choose how to follow up">
+Under **How should we follow up?**, pick **Canned response** or **AI follow-up**.
+</Step>
+
+<Step title="Set when the first follow-up goes out">
+In **Send first follow-up after**, enter how many minutes (1–1439) to wait with no reply to the agent's last message.
+</Step>
+
+<Step title="Configure the mode">
+For **Canned response**, pick the **Canned Response** to send. You can preview it before saving.
+
+For **AI follow-up**, set:
+
+* **Number of follow-ups** — 1, 2 or 3. The default is 2.
+* **Wait between follow-ups** — how many minutes (1–1439) after one follow-up before the next. The default is 4.
+* **Instructions for AI** — optional, up to 300 characters. See [Write instructions for AI](#write-instructions-for-ai).
+</Step>
+
+<Step title="Save">
+Settings apply from the next message your team sends. Follow-ups already scheduled keep the settings they started with.
+</Step>
+
+</Steps>
+
+<Tip>
+
+Set **Send first follow-up after** to roughly how long your customers usually take to reply. Too short and the customer gets nudged while they're still typing.
+
+</Tip>
+
+Settings are per channel. If you run several WhatsApp numbers, set up each one.
+
+## How AI follow-ups work
+
+1. **The wait starts.** A team member sends a message from the Inbox in an open chat assigned to a team member. Each new message from your team restarts the wait from zero.
+2. **The AI reads the chat.** It reads the most recent messages and what the agent asked. It sees the customer's first name, but not their phone number or email. It doesn't use a knowledge base.
+3. **It decides whether to follow up.** If the chat has clearly ended — a goodbye, a confirmed booking, a closed issue — it sends nothing and stops.
+4. **It sends a short follow-up.** The message appears in the chat as a message from your business. Each follow-up is different from the ones before it, and the last one is written as a final, gentle check-in.
+5. **It waits and repeats** until it has sent the number of follow-ups you set, or something stops it.
+
+### What stops follow-ups
+
+Follow-ups stop as soon as any of these happen:
+
+* The customer replies
+* The chat is resolved, unassigned, or handed to a bot or AI agent
+* WhatsApp's 24-hour customer service window closes
+* The contact opts out or is blocked
+* Your AI credits run out
+* Auto follow-up is turned off
+* A team member sends a new message — the wait starts again from that message
+* A message is sent through the API or an integration — this stops pending follow-ups but doesn't start new ones
+
+A log line in the chat records why follow-ups stopped.
+
+<Note>
+
+Follow-ups are sent only inside WhatsApp's 24-hour customer service window, and never as templates. If the customer's last message was more than 24 hours ago, nothing is sent.
+
+</Note>
+
+## What agents see
+
+* **Each AI follow-up** appears in the chat like any other message from your business.
+* **A log line** shows when follow-ups started, each one sent, and when and why they stopped.
+* **The chat stays assigned** to the same team member throughout. When the customer replies, it lands with that agent as normal.
+* **Canned response** mode doesn't add log lines. The canned message appears in the chat when it's sent.
+
+## Write instructions for AI
+
+**Instructions for AI** shape tone and content. They're optional — without them the AI writes a short, friendly reminder of what the agent asked. Keep instructions under 300 characters and focused on one goal: getting the customer to reply.
+
+What works well:
+
+* **Say how it should sound** — "a friendly person, not a bot."
+* **Point it at the one thing you need** from the customer.
+* **Ask for an easy answer** — something they can reply to in a word or two.
+* **Say what to avoid** — prices, promises, pressure.
+
+<AccordionGroup>
+
+<Accordion title="Sales">
+Sound like a friendly, confident person, not a bot. Tie the pending question to what they said they want and how it helps them. End with one easy next step they can answer in a word or two. Don't quote prices or discounts; say the team will share them once they reply. Never pressure them.
+</Accordion>
+
+<Accordion title="Support">
+Sound like a calm, caring person, not a bot. Make it clear we're ready to fix their issue as soon as we get the one detail we asked for. Ask only for that detail, in a way they can answer in a word or two. Don't blame them for the delay or promise a timeline. Never pressure them.
+</Accordion>
+
+<Accordion title="Appointments">
+Sound warm and helpful. Remind them of the slot options we shared and ask them to pick one, or suggest a time that suits them. Keep it to one short question. Don't push for a booking.
+</Accordion>
+
+</AccordionGroup>
+
+**Avoid** instructions that ask the AI to:
+
+* Offer discounts or deals the agent hasn't mentioned — the AI can't check them
+* Say it's an automated reminder — it makes the message feel robotic
+* Write long messages or several questions at once — short follow-ups get more replies
+
+## Auto follow-up and auto resolve
+
+If you also use [Auto resolve chat](/whatsapp/channel-configuration#auto-resolve-chat):
+
+* **AI follow-up** — auto resolve never closes a chat while follow-ups are pending. Its countdown starts again after the last follow-up is sent or follow-ups stop on their own.
+* **Canned response** — if both are set to the same number of minutes, the auto resolve countdown starts when the follow-up is sent, not from the agent's reply.
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Where did the re-engagement message setting go?">
+It's now called **Auto follow-up**, in the same place. If you used re-engagement message before, your settings carry over as **Canned response** mode with the same message, minutes and on or off state.
+</Accordion>
+
+<Accordion title="Why didn't an AI follow-up go out?">
+Open the chat and look for the auto follow-up log line. It shows why follow-ups stopped — for example the customer replied, the 24-hour window closed, the conversation had ended, or your AI credits ran out. Also check that the agent's message was sent from the Inbox and the chat was assigned to a team member.
+</Accordion>
+
+<Accordion title="Does it work on chats handled by a bot or AI agent?">
+No. Auto follow-up only runs on open chats assigned to a team member. Handing a chat to a bot or AI agent stops pending follow-ups.
+</Accordion>
+
+<Accordion title="Can the customer tell it's AI?">
+AI follow-ups are sent as messages from your business, like your agents' messages. Use **Instructions for AI** to match your team's tone.
+</Accordion>
+
+<Accordion title="I don't see the AI follow-up option.">
+AI follow-up isn't available on every account. Contact your account manager to check whether it can be enabled for you.
+</Accordion>
+
+<Accordion title="How much does it cost?">
+Follow-ups are normal messages inside the 24-hour window, charged at standard [WhatsApp pricing](/pricing-and-billing/overview). AI follow-ups also use [AI credits](/pricing-and-billing/ai-wallet) for each follow-up written.
+</Accordion>
+
+</AccordionGroup>
+
+## Related
+
+<Columns cols="2">
+
+<Card title="Channel configuration" href="/whatsapp/channel-configuration">
+Every automation setting on a WhatsApp channel.
+</Card>
+
+<Card title="Canned responses" href="/whatsapp/canned-responses">
+Create the message canned response mode sends.
+</Card>
+
+<Card title="AI Wallet" href="/pricing-and-billing/ai-wallet">
+How AI credits work and what uses them.
+</Card>
+
+<Card title="AI and your data" href="/privacy-and-security/ai-data-usage">
+What data AI features send and where.
+</Card>
+
+</Columns>

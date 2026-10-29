@@ -136,6 +136,7 @@
                 ]
               },
               "whatsapp/channel-configuration",
+              "whatsapp/auto-follow-up",
               {
                 "group": "Messaging",
                 "pages": [
