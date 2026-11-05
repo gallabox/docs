@@ -199,11 +199,11 @@ A 60% delivery rate is not unusual if your contact list includes numbers that ar
 </Accordion>
 
 <Accordion title="What counts as 'Engaged'? I want to know if people actually clicked my link.">
-"Engaged" includes contacts who tapped a Quick Reply button, clicked a call-to-action button (like a website link), or replied to the template message. Link click tracking depends on whether WhatsApp reports the interaction back via the API — not all link taps are confirmed as engaged. Button taps on Quick Reply and CTA buttons are the most reliable engagement signal.
+"Engaged" includes contacts who tapped a Quick Reply button, clicked a call-to-action button (like a website link), or replied to the template message. To count website link clicks, turn on **Track link clicks** on the template's URL button. This works for regular templates and for each card of a [Carousel template](/whatsapp/templates/carousel-templates#track-link-clicks). Without it, link taps aren't counted. Button taps on Quick Reply buttons are always counted.
 </Accordion>
 
-<Accordion title="Why can't I select a date before 31 March 2026?">
-Template Analytics does not allow a date range that starts before **31 March 2026**. Select a supported date range from that date onward.
+<Accordion title="Why can't I select dates older than 6 months?">
+Template Analytics keeps the last **6 months** of data, so the date picker doesn't allow earlier dates. The window moves forward with each day, so choose a range within the last 6 months.
 </Accordion>
 
 <Accordion title="Why is the 'Effective Recipients' number different from 'Total Recipients'?">

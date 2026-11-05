@@ -112,7 +112,38 @@ Each ad is tracked individually, and the dashboard displays:
 * **Cost per Result**: How much you're paying per conversion (e.g., per conversation).
 * **Eligible Leads and Purchases**: Results directly attributed to this ad.
 
-**ROAS** (Return on Ad Spend — revenue ÷ spend) is not a column in the ads table. It appears as a stat card when you drill into an ad's leads view, and requires CAPI purchase tracking to have data.
+**ROAS** (Return on Ad Spend) is not a column in the ads table. It appears as a stat card when you drill into an ad's leads view, and requires CAPI purchase tracking to have data.
+
+### Metric definitions
+
+Hover over the info icon next to a metric name to see its definition. Cost metrics show 2 decimals.
+
+| Metric | What it means |
+| --- | --- |
+| **Ad Impressions** | Number of people who viewed the ad |
+| **Ad Spend** | Ad spend in the selected date range |
+| **Clicks** | Number of people who clicked the ad |
+| **Conversations in Gallabox** | Number of conversations with ad details recorded |
+| **New Contacts** | Number of new contacts in the date range from this ad |
+| **CAPI - Lead** | Contacts with a Lead event, counted by when the conversation was created, not when the event was sent |
+| **CAPI - Purchase** | Contacts with a Purchase event, counted by when the conversation was created, not when the event was sent |
+| **Cost Per Click** | Spend ÷ clicks reported by Meta |
+| **Cost Per Lead** | Spend ÷ number of leads |
+| **Cost Per Purchase** | Spend ÷ number of Purchase events |
+| **Revenue reported to Meta** | Number of Purchase events in the range × the order value each was sent with (from the API, or the average purchase value in your CAPI configuration) |
+| **ROAS** | Revenue reported to Meta ÷ Ad Spend |
+
+### How ROAS is calculated
+
+Gallabox saves the order value with each Purchase event when it's sent. ROAS uses those saved values, so changing the average purchase value later doesn't change past ROAS.
+
+ROAS only counts Purchase events sent after this tracking was introduced (October 2026). Earlier purchases have no saved value, so for a date range with no saved values, ROAS isn't shown. History builds up from that date.
+
+### Summary and table counts
+
+The Summary and the conversations table use the same date range, in your timezone, and count each conversation once. Eligible leads and purchases count conversations marked as a lead or purchase in the range, not individual events.
+
+Today is left out of the sync because Meta's figures for the current day change. For example, on October 5 the latest synced day is October 4. Each sync also recounts past days to correct earlier numbers.
 
 ### Filtering by Date Range
 
@@ -171,7 +202,7 @@ Not every click on the WhatsApp button results in a message. Gallabox counts a c
 </Accordion>
 
 <Accordion title="Why does ROAS show 0 or nothing?">
-ROAS requires purchase conversion events to be set up and firing successfully via CAPI. If CAPI is not configured or no purchase events have been sent, ROAS will not have data. See [CAPI setup](/whatsapp/ad-campaigns/capi).
+ROAS requires purchase conversion events to be set up and firing successfully via CAPI. If CAPI is not configured or no purchase events have been sent, ROAS will not have data. ROAS is also hidden for a date range that has no purchases sent since order values started being saved (October 2026). See [How ROAS is calculated](#how-roas-is-calculated) and [CAPI setup](/whatsapp/ad-campaigns/capi).
 </Accordion>
 
 <Accordion title="Figures differ between Meta Ads Manager and Gallabox — why?">

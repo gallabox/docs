@@ -88,6 +88,12 @@ Once a template is approved, **Configurations** sets what happens when a custome
 
 Clear the assignment and save to remove it. The same dialog also holds message tracker settings for that template.
 
+### Default value for empty variables
+
+In the same dialog, **Default value for empty variables** (for example `NA`) fills in any variable that arrives empty, so the message still goes out. This helps with sends from the API or integrations such as Zoho CRM, where a field can be blank.
+
+If you leave it empty, Gallabox still saves the message and tries to send it. WhatsApp usually rejects an empty value, so the message shows as **Failed** in the inbox with the reason.
+
 Other messages in the conversation still follow your usual inbox routing.
 
 ## Common problems
