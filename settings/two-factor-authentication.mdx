@@ -207,4 +207,40 @@ If 2FA is enforced for a team member, they must complete 2FA setup before they c
 <Accordion title="Can I use the same authenticator app for Gallabox and my other accounts?">
 Yes — your authenticator app (Google Authenticator, Authy, etc.) can store multiple accounts. Each Gallabox account you log into will add a separate entry. Keep them named clearly so you know which code belongs to which Gallabox account (e.g., "Gallabox - Work" vs "Gallabox - Personal").
 </Accordion>
+
+<Accordion title="Why don't I see the Reset 2FA option for a team member?">
+The **Reset 2FA** option in the **three-dot menu** only appears when all of these are true:
+
+* **Enforce 2FA for all users** is turned **off** in **Settings → Workspace → Users, Teams and Roles**
+* You are an Owner or Admin
+* The team member is not an Owner or Admin
+* The team member has already set up 2FA, or 2FA has been enforced for them
+* Single Sign-On (SSO) is not set up for your account
+
+The most common reason is the first one — while **Enforce 2FA for all users** is on, the reset option is hidden for everyone.
+</Accordion>
+
+<Accordion title="Can I turn off 2FA for a team member?">
+Yes, for team members who are not Owners or Admins — as long as **Enforce 2FA for all users** is turned off:
+
+1. Go to **Settings → Workspace → Users, Teams and Roles**
+2. Open the **three-dot menu** on that team member
+3. Choose **Reset 2FA** and confirm
+
+This removes their current 2FA setup. At their next login, they'll be asked to set up 2FA again, but they can choose **Skip**. If you want them to keep using 2FA, choose **Enforce 2FA** from the same menu instead.
+
+2FA can't be turned off for Owners and Admins — it's mandatory for these roles.
+</Accordion>
+
+<Accordion title="What happens if I turn off Enforce 2FA for all users?">
+New team members added after this won't have to set up 2FA. Team members who already have 2FA turned on keep their settings — turning off the toggle doesn't remove anyone's 2FA. You can then reset 2FA for individual team members from the **three-dot menu**.
+</Accordion>
+
+<Accordion title="Can I reset 2FA for another Admin or Owner?">
+No. 2FA is mandatory for Owners and Admins, so the **Reset 2FA** option isn't available for them. If an Owner or Admin loses access to their 2FA, they can log in with a recovery code or contact Gallabox support to reset it.
+</Accordion>
+
+<Accordion title="Is Reset 2FA available if my account uses Single Sign-On (SSO)?">
+No. When SSO is set up for your account, the **Reset 2FA** and **Enforce 2FA** options are not shown in the **three-dot menu**.
+</Accordion>
 </AccordionGroup>
