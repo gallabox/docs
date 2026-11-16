@@ -11,11 +11,13 @@ title: "Instagram FAQs"
 
 <AccordionGroup>
 <Accordion title="How do I connect my Instagram account to Gallabox?">
-1. Go to **Channels → Instagram** in the left navigation of Gallabox.
-2. Click **Connect Instagram Account**.
-3. Log in directly with the Instagram Professional account you want to connect (Business or Creator).
-4. Grant Gallabox permission to access your messages and comments.
-5. Your Instagram DMs will start appearing in the inbox.
+1. In the left navigation, go to **Instagram → Channel settings**.
+2. Click **Connect Instagram**.
+3. Log in with the Instagram Professional account you want to connect (Business or Creator).
+4. Allow all the permissions Gallabox asks for.
+5. Your Instagram DMs start appearing in the Inbox.
+
+New to Gallabox? Choose **Instagram** when you sign up, and Gallabox walks you through connecting.
 
 For full step-by-step instructions, see [Connect Instagram Channel](/instagram/connect-instagram-channel).
 </Accordion>
@@ -38,7 +40,7 @@ The 24-hour messaging window has expired. Meta only allows free-form messages wi
 <Accordion title="Instagram DMs are not showing up in my inbox">
 Check these in order:
 
-1. **Is Instagram connected?** Go to **Channels → Instagram** and verify the connection shows as active.
+1. **Is Instagram connected?** Go to **Instagram → Channel settings**. If you see **Your channel token has expired**, click **Refresh permissions**.
 2. **Is Meta Business verified?** Unverified accounts may have limited API access.
 3. **Has the customer messaged you first?** Gallabox only receives messages from your connected Instagram account. If the customer hasn't sent a DM yet, you can't initiate contact outside the 24-hour window.
 4. **Check the Instagram app:** Make sure you haven't muted the conversation or set it to message requests.
@@ -50,22 +52,24 @@ Check these in order:
 
 <AccordionGroup>
 <Accordion title="Comment automation is not replying to comments">
-Check these in order:
+Open **Instagram → Comments** and click the **Skipped** or **Failed** status on the comment to see why. Then check:
 
-1. **Is comment automation enabled?** Go to **Channels → Instagram → Comment Automation** and verify it's turned on.
-2. **Is a Chat AI Agent connected?** Comment automation requires an active Chat AI Agent.
-3. **AI credits:** Make sure you have AI credits available in your [AI Wallet](/pricing-and-billing/ai-wallet).
-4. **Which posts are monitored?** Verify the automation rule covers the post where the comment was made.
-5. **Comment timing:** Comments made before the automation was set up won't trigger a reply.
+1. **Is the post live?** Go to **Instagram → Posts**. The post should be tagged **Live**, not **Not set up**.
+2. **Does the comment match your trigger?** With an intent trigger, the comment's intent must be one you selected. With **Smart Keyword**, it must include a keyword.
+3. **AI credits:** Make sure you have AI credits in your [AI Wallet](/pricing-and-billing/ai-wallet).
+4. **Comment timing:** Comments left before you turned on automation don't get a reply.
+5. **Is it a reply in a thread?** Only top-level comments get automated replies.
+
+For the full list of reasons, see [Why a comment didn't get a reply](/instagram/comment-automation#why-a-comment-didnt-get-a-reply).
 </Accordion>
 
 <Accordion title="Comment automation replied with the wrong message">
-The Chat AI Agent is generating responses based on its instructions. To fix:
+Comment replies follow the instructions on that post's automation, not your DM agent. To fix:
 
-1. Go to **AI Agents and Bots → \[Your Agent] → Home**.
-2. Review the **Role**, **Goal**, and **Instructions** fields.
-3. Make the instructions more specific about what the agent should and should not say.
-4. Test in the **Test Widget** before going live.
+1. Go to **Instagram → Posts** and click **Edit automation** on the post.
+2. Make the reply or DM instructions more specific about what to say and what to avoid.
+3. Test a few real comments in the test pane.
+4. Click **Publish changes**.
 </Accordion>
 </AccordionGroup>
 

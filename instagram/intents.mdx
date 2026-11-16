@@ -1,0 +1,77 @@
+---
+title: "Instagram Intents"
+sidebarTitle: "Intents"
+description: "Instagram intents tell Comment Automation what a comment means, such as a buying question or a complaint, so you can reply only to the comments that matter."
+---
+
+> **Who can use this?**
+>
+> * Gallabox users with the **Instagram channel connected**.
+> * Roles: Owners, Admins, or a role with permission to edit the Instagram channel.
+
+<Info>
+
+An intent is what someone means when they comment, such as asking about price or leaving a complaint. AI reads each comment on your Instagram posts and matches it to the closest intent. [Comment Automation](/instagram/comment-automation) uses intents to decide which comments get a comment reply and a DM.
+
+</Info>
+
+## Plan Availability
+
+| Capability      | Basic | Essential | Advanced |
+| --------------- | :---: | :-------: | :------: |
+| Default intents |   ✓   |     ✓     |     ✓    |
+| Custom intents  |   —   |     ✓     |     ✓    |
+
+## Types of intents
+
+| Type | What it is | Can you edit it? |
+| --- | --- | --- |
+| **Default** | Provided by Gallabox, such as **Buying**, **General Question**, **Support**, **Positive Feedback**, and **Negative Feedback** | No |
+| **Custom** | Created by you for your own cases, such as pricing or wholesale enquiries | Yes |
+
+**Spam** and **Uncategorized** are default intents. Gallabox detects them, but you can't use them to trigger a comment reply.
+
+## Create a custom intent
+
+1. Go to **Instagram → Intents** and click **Add Intent**.
+2. Enter an **Intent** name and an **Intent description**. Describe it clearly, because AI uses the description to recognise the intent.
+3. Add up to five **Sample comments/ keywords**.
+4. Under **Channel type**, select **Instagram**.
+5. Choose an icon and color, then click **Create**.
+
+**Example:** An intent named `Pricing enquiry`, described as "Asks about price, cost, or discounts", with samples `price`, `how much`, and `cost please`.
+
+You can also click **+ Create your own intent** while choosing intents in the Comment Automation editor.
+
+## Test an intent
+
+1. On **Instagram → Intents**, click **Test Intent**.
+2. Enter a **Comment**. Add the **Post caption** if it gives useful context.
+3. Check the matched intent and how confident the match is.
+
+If a common comment doesn't match the intent you expect, improve the description or samples, then test again.
+
+## Delete a custom intent
+
+Click the delete icon on the intent card. This removes the intent's analytics and removes it from any automation that uses it. If it was the only intent selected in an automation, that automation turns off.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why can't I edit a default intent?">
+Default intents are managed by Gallabox. To handle a type of comment differently, create a custom intent instead.
+</Accordion>
+
+<Accordion title="Comments keep getting matched to the wrong intent — how do I fix it?">
+Make the intent description more specific and add samples that look like real comments. Then use **Test Intent** to check the result.
+</Accordion>
+
+<Accordion title="I can't create a custom intent — why?">
+Custom intents are available on Essential and Advanced plans. [Upgrade your plan](/pricing-and-billing/billing-and-subscriptions) to create them.
+</Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+* [Comment Automation](/instagram/comment-automation) — Reply to comments and send DMs using intents
+* [AI Wallet](/pricing-and-billing/ai-wallet) — AI credits used to detect intents
