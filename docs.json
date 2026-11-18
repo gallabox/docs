@@ -205,7 +205,8 @@
                       "whatsapp/ad-campaigns/capi"
                     ]
                   },
-                  "whatsapp/website-widget"
+                  "whatsapp/website-widget",
+                  "whatsapp/magic-link"
                 ]
               },
               {
@@ -1981,7 +1982,7 @@
     },
     {
       "source": "/whatsapp-channel/whatsapp-magic-link",
-      "destination": "/whatsapp/overview"
+      "destination": "/whatsapp/magic-link"
     },
     {
       "source": "/whatsapp-channel/widget-for-your-website",
