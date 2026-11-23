@@ -91,6 +91,31 @@ Body code:-
 
 You have successfully created a workflow to push the contacts on Gallabox.
 
+### Use the Contacts, Deals, or another module
+
+The steps above use the **Leads** module. You can pick any module in step 2, such as **Contacts** or **Deals**. In the webhook body, map that module's fields instead of the Leads fields.
+
+* **Insert fields with `#`.** In the Zoho webhook body, type `#` (Shift + 3) to open Zoho's field list, then pick a field. Zoho inserts the right placeholder for the module you chose, so you don't have to type it.
+* **Owner.** `contactOwnerId` takes the record owner's email. Gallabox makes the Gallabox user with that email the contact owner. If no Gallabox user has that email, the contact is created without an owner.
+* **Phone.** Map a phone field, so you can message the contact on WhatsApp.
+
+For example, a rule on the **Contacts** module uses this body:
+
+```
+{
+	"name": "${Contacts.First Name}",
+	"email": [
+		"${Contacts.Email}"
+	],
+	"phone": [
+		"${Contacts.Mobile}"
+	],
+	"contactOwnerId": "${Lookup:Contact Owner.Email}"
+}
+```
+
+For the **Deals** module, use `#` to pick the name, email, and phone of the contact linked to the deal, and the deal owner's email.
+
 ## Zoho New Lead Automation
 
 This workflow is mandatory if you would like to send a welcome message or an team member's introduction or any other messages as soon as the lead gets created. 
