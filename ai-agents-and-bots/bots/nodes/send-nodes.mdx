@@ -61,6 +61,8 @@ Sends an image, audio file, video, or document. Provide a file URL or pick from 
 
 **Example:** _"Here's your invoice"_ → sends a PDF document with the filename as the caption
 
+**Send a different file for each customer:** the file URL can be a variable. For example, use an **API Call** node to look up the right image for the customer's question and save its link in a variable, such as `image_url`. Then set the Send Media URL to `{{image_url}}`. The link must be public and open the file directly, not a web page. See [API Call](/ai-agents-and-bots/bots/nodes/flow-control-nodes) for saving a reply in a variable.
+
 #### Send Location
 
 Sends a map pin to the customer.
