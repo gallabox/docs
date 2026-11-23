@@ -78,10 +78,19 @@ Fix the underlying cause: clean up your audience list, confirm opt-ins, and redu
 
 </Accordion>
 
-<Accordion title="131042 — Billing problem on the WhatsApp Business Account">
-**What happened:** Meta could not charge for the message. Common causes: no payment method linked to the WhatsApp Business Account, a credit limit reached, an inactive credit line, or a missing timezone or currency setting.
+<Accordion title="131042 — Payment problem on your WhatsApp Business Account">
+**What happened:** Meta couldn't send the message because of a payment problem on your WhatsApp Business Account. This is a Meta billing issue, not a Gallabox one.
 
-**What to do:** Check that all dues are cleared on your Gallabox billing. If billing is up to date and the error continues, contact support.
+The most common cause is an unpaid balance with Meta. This can include unpaid spend on an ad account in the same business portfolio.
+
+**What to do:**
+
+1. In Meta Business Suite, go to **Business Settings** → **Accounts** → **WhatsApp accounts** and select your WhatsApp account.
+2. Open **Payment settings** and clear any outstanding dues.
+3. For each ad account in the same business portfolio, go to **Billing and payments**, select the ad account, click **Payment methods**, and pay any balance due with **Pay now**.
+4. Once the dues are cleared, send the message again.
+
+If nothing is outstanding and the error continues, contact Gallabox support with the WhatsApp number and the time the message failed.
 </Accordion>
 
 </AccordionGroup>
@@ -124,7 +133,7 @@ Fix the underlying cause: clean up your audience list, confirm opt-ins, and redu
 | `368` | The WhatsApp Business Account is restricted or disabled for policy violations. | Review Meta's policy enforcement notice in WhatsApp Manager. |
 | `131031` | The WhatsApp Business Account is locked — a policy violation, or bad request details such as an incorrect two-step PIN. | Check Meta's policy enforcement guidance, then contact support. |
 | `131037` | The number's display name hasn't been approved. This applies to numbers Meta provides during signup. | Wait for Meta to approve the display name. See [Connect your WhatsApp](/whatsapp/connect-your-whatsapp#faqs). |
-| `131042` | A payment or eligibility problem on the WhatsApp Business Account. | Clear any dues, then contact support if it continues. |
+| `131042` | A payment problem on your WhatsApp Business Account in Meta, most often an unpaid Meta balance. | Clear any dues in Meta Business Suite under **Business Settings** → **Accounts** → **WhatsApp accounts** → **Payment settings**. If it continues, contact support. |
 | `131045` | The number failed to register correctly with Meta. | Contact support — this needs a re-registration. |
 | `133000` | A previous deregistration attempt failed. | Contact support. |
 | `133004` | Meta's server is temporarily unavailable. | Wait and retry. |
