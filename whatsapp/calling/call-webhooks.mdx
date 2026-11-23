@@ -36,6 +36,10 @@ You set them up in the same place as every other webhook: **Settings → Webhook
 
 A single call sends several events over its life. For example, an answered incoming call sends `Call.Received` → `Call.Connected` → `Call.Ended`, and then `Call.Analysed` once the call has been processed. Use the `callId` field to link all events from the same call.
 
+<Note>
+  `Call.Analysed` sends analysis for calls across your whole account. If you want analysis from one Voice AI Agent only, set up the `Conversation.AI.Analyse` webhook on that agent under **Analyze → Post-session settings → Webhook setup**. See [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings#webhook-setup).
+</Note>
+
 ### What Does a Call Webhook Send?
 
 Every call event sends the same set of fields, so one receiver can handle all of them. The event name is sent in the `x-event-name` header, and the call data is in the request body.
