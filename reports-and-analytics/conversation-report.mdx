@@ -28,12 +28,16 @@ Available bulk actions depend on your permissions. They can include assigning, u
 
 ## Export Conversations
 
-1. Apply the channel and filters you need.
-2. Open **Export**.
-3. Select **Export conversation**.
-4. Choose a date range when the export is not already restricted by filters.
+1. Choose the channel.
+2. Pick the dates to export. How you do this depends on whether you use filters:
+   * **No filters applied:** the export window shows a **Date range** picker. Choose your dates there.
+   * **Any filter applied:** the export window has no date picker. It exports exactly what your filters match. To limit it by date, add the **Created At** filter, choose **Range**, and set the start and end dates.
+3. Open **Export**.
+4. Select **Export conversation**.
 5. Click **Initiate export**.
 6. Open **Active Exports** to retrieve the generated file.
+
+The file has one row per conversation: contact, phone number, channel, assignee, team, tags, status, created, resolved, and first-response times, and the text of the latest message. It doesn't include every message. To get the text of each message, use [Message Reports](/reports-and-analytics/message-reports).
 
 ## Example
 
@@ -53,6 +57,14 @@ Export is shown only when your role can read personally identifiable information
 
 <Accordion title="Why were some selected conversations not reassigned?">
 Only open conversations are reassigned or unassigned by the bulk action.
+</Accordion>
+
+<Accordion title="Why don't I see a date range when I export?">
+The **Date range** picker only appears when no filters are applied. With filters, the export follows them. Add the **Created At** filter with **Range** to export a set of dates.
+</Accordion>
+
+<Accordion title="Can I download the full chat history of a conversation?">
+Not from Conversation Report. Its export has one row per conversation with only the latest message. [Message Reports](/reports-and-analytics/message-reports) include the text of every message for the dates you choose. To read a single chat, open it in the [Inbox](/conversations/omnichannel-inbox) and scroll up to load earlier messages.
 </Accordion>
 
 <Accordion title="Where do I download an export after starting it?">
