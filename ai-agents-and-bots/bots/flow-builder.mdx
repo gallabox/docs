@@ -48,11 +48,11 @@ The flow builder has 4 main areas:
 
 <Steps>
 
-<Step title="Go to AI Agents and Bots → Bot Flows">
-
+<Step title="Open your bot">
+Go to **AI Agents & Bots** and open the bot. Its flows are listed on the bot's page.
 </Step>
 
-<Step title="Click Create Flow">
+<Step title="Click Add New Flow, then Rule Based Flow">
 
 </Step>
 
@@ -174,6 +174,87 @@ Click **Clone** in the toolbar to create a copy of the current flow. Useful for:
 * Creating variations of a flow (A/B testing)
 * Duplicating a working flow to modify
 * Creating a template flow to reuse
+
+## Export and import a flow
+
+Export a flow to keep a copy as a file, or to move it to another bot or another Gallabox account. Importing the file adds it back as a new flow.
+
+### Export a flow
+
+<Steps>
+
+<Step title="Open your bot">
+Go to **AI Agents & Bots** and open the bot that has the flow.
+</Step>
+
+<Step title="Click Export flow">
+In the flow list, click the **⋮** (three dots) next to the flow, then click **Export flow**.
+</Step>
+
+<Step title="Download the file">
+Gallabox prepares the file in the background and opens **Active exports**. Download the `.json` file from there once it's ready. To come back to this page later, click the **⋮** at the top of the bot's page and choose **Active exports**.
+</Step>
+
+</Steps>
+
+**Export flow** only appears for published flows. You can't export an **AI Flow**.
+
+### Import a flow
+
+<Steps>
+
+<Step title="Open the bot to add the flow to">
+Go to **AI Agents & Bots** and open the bot.
+</Step>
+
+<Step title="Click Import flow">
+Click the **⋮** at the top of the bot's page, next to **Test on WhatsApp**, and choose **Import flow**.
+</Step>
+
+<Step title="Upload the file">
+Drag in the exported `.json` file, or choose it. The file must be under 5 MB. Click **Import**.
+</Step>
+
+</Steps>
+
+The imported flow is added to the bot as a new draft. It counts toward your flow limit. Publish it when you're ready, because drafts never run.
+
+When you import into a **different Gallabox account**, settings that only exist in the original account are cleared. These include templates, forms, catalog products, assignees, connected accounts (API Call, connector, and Google Sheets nodes), contact field updates, sequences, Jump To targets, and the form a WhatsApp Form based flow listens for. Open each node and pick them again before you publish.
+
+If you don't see **Export flow** or **Import flow**, your role doesn't have permission to export or import bots. Ask an Owner or Admin.
+
+## Use WhatsApp Form answers in a flow
+
+When a customer submits a [WhatsApp Form](/whatsapp/forms), your **WhatsApp Form based** flow starts and the answers arrive with it. You don't need a webhook or an API call to read them.
+
+Each answer is stored under `intent.flow`, followed by the field's key. For example, `{{intent.flow.screen_0_TextInput_0}}` holds the answer to one text field. The variable picker doesn't list these keys, so you type them in.
+
+<Steps>
+
+<Step title="Find each field's key">
+Submit the form once yourself. Then go to **WhatsApp** → **Forms**, open the form's **Responses**, click the **⋮** next to your submission, and choose **View Raw response**. Each line shows a field's key and the answer it received. Copy the keys exactly as shown.
+</Step>
+
+<Step title="Save each answer in a variable">
+In your WhatsApp Form based flow, add a **Set Variable** node straight after the start. For each field, create a variable and set its value to `{{intent.flow.KEY}}`, replacing `KEY` with the field's key. For example:
+
+| Variable        | Value                                  |
+| --------------- | -------------------------------------- |
+| `customer_name` | `{{intent.flow.screen_0_TextInput_0}}` |
+| `quantity`      | `{{intent.flow.screen_0_TextInput_1}}` |
+</Step>
+
+<Step title="Use the variables in later nodes">
+Pick the variables like any other in the nodes that follow. For example, save them to the contact with **Update Contact Fields**, log them with **Google Sheets** → **Add New Row**, or send them to your CRM with an **API Call**.
+</Step>
+
+<Step title="Test the flow">
+Publish the flow, submit the form again, and check that each value landed where you expected.
+</Step>
+
+</Steps>
+
+For the flow to run, the customer's conversation must be assigned to the flow's bot. If you send the form in a template or broadcast, set its reply settings to the bot. See [Send template and broadcast button replies to a bot](/ai-agents-and-bots/how-conversations-reach-a-bot#send-template-and-broadcast-button-replies-to-a-bot).
 
 ## Flow Best Practices
 
