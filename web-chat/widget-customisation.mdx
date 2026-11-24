@@ -1,6 +1,6 @@
 ---
 title: "Widget Customisation"
-description: "Available on all Gallabox plans — Auto-open language switching requires Essential or Advanced."
+description: "Available on all Gallabox plans — Multi-language widget (English, Arabic, Spanish) requires Essential or Advanced."
 ---
 
 > **Who can use this?**
@@ -19,7 +19,7 @@ The Web Chat widget is configured inside your Chat AI Agent's settings, not in a
 | Feature | Basic | Essential | Advanced |
 | --- | :-: | :-: | :-: |
 | Colours, position, logo, CTA, ice-breakers, auto-open, contact capture | ✓ | ✓ | ✓ |
-| Multi-language widget (English + Arabic) | — | ✓ | ✓ |
+| Multi-language widget (English, Arabic, Spanish) | — | ✓ | ✓ |
 
 ## What is Widget Customisation?
 
@@ -133,7 +133,33 @@ Contact Capture controls when (and whether) a visitor is asked for their details
 
 ### Multi-language Widget (Essential/Advanced)
 
-On Essential and Advanced plans, you can add an **Arabic** translation alongside the default English widget copy — welcome message, ice-breaker titles, and CTA label can each have an Arabic version, and Arabic renders right-to-left automatically. On Basic, the language controls are shown locked with an upgrade prompt.
+On **Essential** and **Advanced** plans, the Web Chat widget supports **3 languages**:
+
+* **English** (default, always on)
+* **Arabic** (switches to right-to-left layout automatically)
+* **Spanish**
+
+On **Basic**, additional languages are locked with an upgrade prompt.
+
+#### How to turn on another language
+
+1. Open **Web Widget Settings** for your Web Chat agent.
+2. In the language bar at the top, pick **Arabic** or **Spanish**.
+3. Turn on the toggle for that language.
+4. Add your translated text and click **Save**.
+
+Built-in widget labels and buttons translate on their own. You can enter custom text per language for the headline, tagline, welcome message, away message, launcher button text, nudge text, trigger message, visitor intro text, WhatsApp handoff text and pre-fill message, CTA label, and ice-breakers. Any blank field falls back to your English text.
+
+#### How the widget chooses a language
+
+The widget picks the language in this order:
+
+1. **Visitor's choice in the widget menu:** When 2 or more languages are on, visitors see a **Language** switcher inside the widget header menu. They can pick **Auto · browser** or any enabled language. The widget saves their choice in their browser.
+2. **`Auto · browser` (default):** The widget checks the visitor's **browser language** (for example, `es-CO` matches Spanish). If that language is turned on in your widget settings, the widget opens in that language. Otherwise, it opens in **English**.
+
+<Note>
+  `Auto · browser` reads the visitor's **browser language**, not your website URL (such as `/es-co`) or the page's `<html lang>` tag. There is no embed-script option or JavaScript API to force a widget language from your website.
+</Note>
 
 <Check>
 
@@ -183,6 +209,12 @@ No — the widget supports one CTA button. If you need a second call-to-action, 
 
 <Accordion title="Can I add a custom icon to the CTA button?">
 Not currently — the CTA button supports a text label and a colour, but not a custom icon.
+</Accordion>
+
+<Accordion title="My website is in Spanish or Arabic, so why does the widget open in English?">
+When the widget is set to **Auto · browser**, it reads the visitor's **browser language** — not your website URL (such as `/es-co`) or the page's `<html lang>` tag. If your browser is set to English, the widget opens in English even on a Spanish or Arabic page.
+
+Visitors can switch the language anytime from the **Language** option in the widget header menu, or test with a browser set to Spanish or Arabic. There is no embed-script parameter or JavaScript API to force a language from your website.
 </Accordion>
 </AccordionGroup>
 
