@@ -90,6 +90,17 @@ Gallabox supports webhooks for these event categories:
 | `Conversation.Tag.Mapped` / `Conversation.Tag.Unmapped`                     | Tag added to / removed from a conversation         |
 | `Conversation.HandoverAgentFallback` / `Conversation.InactiveAgentFallback` | Agent handover fallback events (advanced)          |
 | `Conversation.AI.Analyse`                                                   | Post-session analysis finished (Advanced). See [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings). |
+| `Conversation.SentimentDrop`                                                | The customer's mood in a conversation got noticeably worse (Advanced). See [Sentiment drop alerts](#sentiment-drop-alerts). |
+
+#### Sentiment drop alerts
+
+`Conversation.SentimentDrop` tells your system when a customer is getting unhappier in a conversation, so you can step in or escalate.
+
+* It works only on WhatsApp and Instagram channels that have **AI Conversation Insights** turned on in the channel's settings. AI Conversation Insights uses AI credits.
+* Gallabox scores the customer's mood from 1 (very negative) to 10 (very positive). It checks the score again after every few new messages, and once more when the conversation is resolved.
+* The event fires when the score falls by 2 or more points since the previous check. The first check in a conversation never fires it, because there's nothing to compare it with.
+* It doesn't fire for WhatsApp group conversations.
+* The request body is the conversation, like other conversation events. It includes the latest mood: the label (positive, neutral, or negative), the score, and the trend (improving, stable, or declining).
 
 ### Message Events
 
@@ -272,6 +283,14 @@ Not necessarily. `202 Accepted` means Gallabox has accepted your message and wil
 To find out what happened to the message, subscribe to `Message.WA.Status.Received` and `Message.WA.Status.Failed`. You get an event when the message is delivered or read, or when it fails. You don't get an event when the message is only sent. If it fails, the event includes the error code. See [Message error codes](/whatsapp/message-error-codes).
 
 For request and response formats, see the [Developer API reference](https://api-docs.gallabox.com).
+</Accordion>
+
+<Accordion title="Can I stop OTP or other template messages from triggering a webhook?">
+No. You choose webhooks by event, not by template, so every template message triggers the message events you subscribe to. To skip certain templates, filter them out in your own system when the request arrives.
+
+* Every template message includes the template's ID.
+* Template messages sent through the Developer API also include the template's category, such as `AUTHENTICATION` for OTP templates. Filter on the category to skip them.
+* Template messages sent another way, such as from the inbox, a broadcast, or a bot, don't include the category. Filter on the template ID instead. You can look up each template's category with the WhatsApp templates API in the [Developer API reference](https://api-docs.gallabox.com).
 </Accordion>
 
 <Accordion title="What's the difference between a webhook and an API?">
