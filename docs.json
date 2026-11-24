@@ -215,6 +215,7 @@
                   "whatsapp/incoming-messages-not-arriving",
                   "whatsapp/unsupported-messages",
                   "whatsapp/message-error-codes",
+                  "whatsapp/appeal-a-restriction",
                   "whatsapp/customer-identity-bsuid"
                 ]
               }
