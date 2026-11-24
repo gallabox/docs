@@ -175,7 +175,7 @@ Checks whether the current time falls within the business hours configured for t
 
 **Configuration:**
 
-Business hours are set per WhatsApp channel (per connected number) under **Channels → WhatsApp → configurations** — working hours, special days, and closed days. The node checks the configuration of the channel the current conversation is on, and reports one of three outcomes: **Open**, **Closed**, or **Not configured**.
+Business hours are set per WhatsApp channel (per connected number) under **WhatsApp** → **Channel Settings** → your number → **Configuration** tab — working hours, special days, and closed days. The node checks the configuration of the channel the current conversation is on, and reports one of three outcomes: **Open**, **Closed**, or **Not configured**.
 
 **Example:**
 
@@ -202,11 +202,37 @@ Makes an HTTP request to an external API — can fetch data to use in the flow o
 
 **Configuration:**
 
-1. **Method:** GET, POST, PUT, PATCH, DELETE
+1. **HTTP Method:** GET, POST, PUT, PATCH, DELETE
 2. **URL:** The API endpoint (can use variables like `{{base_url}}/orders/{{order_id}}`)
-3. **Headers:** Authorization, content-type, etc.
-4. **Body:** For POST/PUT/PATCH — JSON body with variables
-5. **Response mapping:** Store API response fields in variables for use in downstream nodes
+3. **Headers** and **Authentication**
+4. **Query Params**
+5. **Body Content Type** (**JSON** or **URL-Encoded form**) and **Body**, with variables if you need them
+
+**Save the API's reply in variables:**
+
+<Steps>
+
+<Step title="Enter test values">
+Under **Test Your API Request**, enter a sample value for each variable your request uses.
+</Step>
+
+<Step title="Click Test API">
+Gallabox sends the request and shows the reply under **Response from API**.
+</Step>
+
+<Step title="Add a variable for each field you need">
+Under **Store response in variables**, click **Add Variable**. In **Response Path**, pick a field from the reply, such as `response.payment_url`. You can also type a path, such as `response.data[0]` for the first item in a list called `data`. Choose **Entire response** to keep the whole reply.
+
+In **Create Variable to store**, pick a variable or create one. Variable names start with a letter and can't contain special characters other than `_`.
+</Step>
+
+<Step title="Use the variable in later nodes">
+For example, add a **Send Text** node with "Complete your registration here: `{{payment_url}}`".
+</Step>
+
+</Steps>
+
+The variables are only filled when the call succeeds.
 
 **Example — verify a coupon code:**
 
@@ -214,8 +240,8 @@ Makes an HTTP request to an external API — can fetch data to use in the flow o
 API Call
   Method: GET
   URL: https://api.yourshop.com/coupons/{{coupon_code}}
-  → Store response.field.discount in {{discount_percentage}}
-  → Store response.field.valid in {{coupon_valid}}
+  → Store response.discount in {{discount_percentage}}
+  → Store response.valid in {{coupon_valid}}
 Condition: {{coupon_valid}} = true
   → true: Send Text: "Coupon applied! {{discount_percentage}}% off your order"
   → false: Send Text: "Invalid coupon code. Please try again."
@@ -401,12 +427,24 @@ Delay pauses the entire bot flow — no messages are sent to the customer during
 </Accordion>
 
 <Accordion title="Can I use data from an API Call response in my bot flow?">
-Yes — map fields from the API response to variables in the API Call node configuration. For example:
+Yes. Click **Test API**, then use **Add Variable** under **Store response in variables** to save fields from the reply. For example:
 
-* `response.body.customer_name` → `{{customer_name}}`
-* `response.body.order_status` → `{{order_status}}`
+* `response.customer_name` → `{{customer_name}}`
+* `response.order_status` → `{{order_status}}`
 
 Then use `{{customer_name}}` and `{{order_status}}` in any downstream node (Send Text, Condition, etc.).
+</Accordion>
+
+<Accordion title="Can a bot send a WhatsApp template to the contact owner or another team member?">
+Not with a Send node. **Send Template** and the other Send nodes only message the customer in the current conversation.
+
+You can do it with an **API Call** node that sends the template through Gallabox's own API:
+
+1. Add a **Switch** node. Set **Switch type** to **Equals**, and set **Input** to the contact's **Contact Owner** from the variable picker. Add one **Match** for each owner's name.
+2. On each owner's branch, add an **API Call** node that sends your notification template to that owner's WhatsApp number. You need an [API key](/settings/api-keys). The request format is in the [Developer API reference](https://api-docs.gallabox.com).
+3. After the API Call, add an **Assign Conversation** node with **Assignee Type** set to **Contact Owner**.
+
+The owner gets the template from your business number, like any other recipient. It's billed as a normal template message.
 </Accordion>
 
 <Accordion title="How many Jump To nodes can I add to a flow?">
