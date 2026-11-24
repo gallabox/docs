@@ -118,35 +118,40 @@ Confirm, then wait for **Completed**.
 
 ## How to check status
 
-1. Go to **Settings → AI → Knowledge Base** and open the library.
-2. Read each source:
-   * **Pending:** waiting
+1. Go to **Settings → AI → Knowledge Base** and open the Knowledge Base.
+2. Check the **Status** column for each source:
+   * **Pending:** waiting to start
    * **Processing:** in progress
-   * **Completed:** ready
-   * **Failed:** open the error, then retry
-3. Click **Retry** on a failed source.
+   * **Completed:** ready to use
+   * **Failed:** could not be processed. Check why the file failed (for example, a scanned or password-protected PDF), fix it, and upload it again. For a website source, open the website to see which pages failed.
 
-## How to re-index a document
+## How to sync webpages (Advanced)
+
+Use **Sync Webpages** when pages on a website source change (for example, new prices or policies).
 
 <Steps>
 
-<Step title="Open the document">
-Go to **Settings → AI → Knowledge Base**, then find the file or URL.
+<Step title="Open the Knowledge Base">
+Go to **Settings → AI → Knowledge Base** and open your Knowledge Base.
 </Step>
 
-<Step title="Refresh">
-Click the refresh icon next to it.
+<Step title="Open the website source">
+Find the website row and click the arrow next to the URL to open **Document Items**.
 </Step>
 
-<Step title="Upload the new file if needed">
-Or confirm the updated URL.
+<Step title="Click Sync Webpages">
+Click **Sync Webpages** at the top of the list. Gallabox crawls the pages again.
 </Step>
 
 <Step title="Wait for Completed">
-Re-indexing uses AI credits. Do it when prices, policies, or product details change.
+Syncing uses AI credits. Wait until the pages show **Completed**.
 </Step>
 
 </Steps>
+
+<Note>
+  **Sync Webpages** works for website sources only. There is no refresh or re-index button for uploaded files (such as PDFs, Word files, or spreadsheets). To update an uploaded file, delete the old file and upload the new version.
+</Note>
 
 ## Example
 
