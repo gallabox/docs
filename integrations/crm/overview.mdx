@@ -61,6 +61,12 @@ Ask Name, Ask Email, Ask Phone → Update Contact Fields
 
 Connects your Zoho CRM or Zoho Bigin account so bot flows can create or update lead and contact records. Zoho Bigin is Zoho's simplified CRM for small businesses. Each product is available as two regional connectors matching your Zoho data center: India (`zoho.in`) and Global (`zoho.com`).
 
+<Warning>
+
+Zoho Bigin works only as a bot connector. Bots can create or update a Bigin contact, and that's all. The [Zoho CRM & Signals](/integrations/crm/zoho-crm-and-signals/overview) integration works with Zoho CRM only, not Bigin. There's no Gallabox extension for Bigin, so you can't see WhatsApp chats or send WhatsApp messages from inside Bigin.
+
+</Warning>
+
 ### Supported Zoho CRM / Zoho Bigin actions
 
 **Zoho CRM**
@@ -74,11 +80,13 @@ Connects your Zoho CRM or Zoho Bigin account so bot flows can create or update l
 
 ### How to connect Zoho CRM or Zoho Bigin
 
-1. Go to **Integrations → Zoho CRM** or **Zoho Bigin**
-2. Select the connector matching your Zoho data center (India — `zoho.in`, or Global — `zoho.com`)
-3. Click **Connect** — you'll be redirected to Zoho's OAuth page
-4. Authorize Gallabox to access your Zoho account
-5. Select the Zoho organization to connect
+You connect Zoho CRM and Zoho Bigin from the bot builder, not from **Integrations**.
+
+1. In the bot builder, open **Connections**.
+2. Pick the connector that matches your Zoho data center: **Zoho CRM IN** or **Zoho CRM COM**, or **Zoho Bigin IN** or **Zoho Bigin COM**.
+3. Choose an action, click **Create Connection**, and sign in to Zoho to authorize Gallabox.
+
+For the full steps, see [Zoho CRM](/ai-agents-and-bots/bots/connectors#zoho-crm) and [Zoho Bigin](/ai-agents-and-bots/bots/connectors#zoho-bigin) in Connectors.
 
 ### Zoho CRM use cases
 
