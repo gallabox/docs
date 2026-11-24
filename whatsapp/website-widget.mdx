@@ -55,6 +55,66 @@ The widget snippet is an inline `<script>` block that then loads a second script
 
 If you still see it blocked after that, check your browser console for a CSP violation and allowlist whichever additional directive (e.g. `connect-src`) it names.
 
+## Track which page and campaign a chat came from
+
+The widget can record the web page a visitor was on when they started the chat. The recorded address includes any UTM parameters in the link, such as the ones you add to a Google Ads campaign. Source tracking is off by default.
+
+### Turn on source tracking
+
+The generated code doesn't include source tracking, so you add one line to it yourself.
+
+1. In the widget code on your website, find the `options` block.
+2. Add `trackSource: true,` on its own line inside it, for example right after the `waId` line:
+
+```js
+options: {
+    waId: "919999999999",
+    trackSource: true,
+    // ...the rest of your options stay the same
+```
+
+3. Save and publish your website.
+
+<Warning>
+  If you click **Get Widget Code** again later, the new code won't have this line. Add it again before you replace the code on your site.
+</Warning>
+
+### Track your own WhatsApp buttons
+
+If your website has its own WhatsApp links or buttons instead of the widget, you can track those too.
+
+1. Add this script just before the closing `</body>` tag on every page with a WhatsApp link:
+
+```html
+<script src="https://waw.gallabox.com/whatsapp-tracker.min.js"></script>
+```
+
+2. Add `data-wa-track` to each WhatsApp link you want to track. The link must be a `wa.me` or `api.whatsapp.com` link that includes your WhatsApp number.
+
+```html
+<a href="https://wa.me/919999999999?text=Hi" data-wa-track>Chat with us on WhatsApp</a>
+```
+
+### Where to see the source
+
+When the visitor sends the pre-filled message, Gallabox reads the page address hidden in it and removes it from the message. The contact then shows:
+
+* **Contact Created Source**: **WhatsApp Widget**
+* **Source ID**: your website's domain
+* **Source URL**: the full page address, including UTM parameters
+
+You see these in the contact details beside the conversation, and in the **Contact Created Source** column on the **Contacts** page.
+
+Keep in mind:
+
+* Gallabox keeps the first source it records for a contact on each WhatsApp channel. Later chats don't replace it.
+* If the visitor deletes the pre-filled message before sending, no source is recorded.
+* If your website removes UTM parameters from the address, for example through a redirect, they aren't recorded.
+
+### Send the source to your CRM
+
+In a rule-based bot, the **Widget url** variable holds the full page address, and **Widget source** holds your website's domain. Use them like any other variable. For example, send them to your CRM with a [connector](/ai-agents-and-bots/bots/connectors), or save them to a contact field with [Update Contact Fields](/ai-agents-and-bots/bots/nodes/action-nodes). Saving to a contact field lets a `Contact.Updated` [webhook](/settings/webhooks) pass the value to your systems.
+
 ## FAQs
 
 <AccordionGroup>
