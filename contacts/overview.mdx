@@ -1,7 +1,14 @@
 ---
 title: "Contacts"
 sidebarTitle: "Overview"
+description: "Add, import, export, merge, and delete contacts in Gallabox, and see which roles can do each."
 ---
+
+> **Who can use this?**
+>
+> * **Import and export:** Owners and Admins, and custom roles with the **Can manage contact list** permission. Export also needs permission to see personal information (phone numbers and emails).
+> * **Merge:** anyone whose role can edit contacts.
+> * **Delete:** Owners, and custom roles with the **Can manage contact list** permission. The default **Admin** role can't delete contacts.
 
 Your customer database inside Gallabox — every person who has messaged you or been imported, with tags, attributes, and segments for targeting.
 
@@ -9,3 +16,127 @@ Your customer database inside Gallabox — every person who has messaged you or 
 
 * [Segments](/contacts/segments) — group contacts by attributes and behaviour for targeted broadcasts
 * [Block and opt-out](/contacts/block-and-opt-out) — block a number, or let customers opt out of marketing messages
+
+---
+
+## Import contacts
+
+Import adds contacts from a spreadsheet straight into **Contacts**. You don't need to create a broadcast to do it.
+
+<Steps>
+
+<Step title="Open the import">
+Go to **Contacts**, click **Import**, then click **Import file**. Clear any filters first — the **Import** button is hidden while filters are applied.
+</Step>
+
+<Step title="Download the sample">
+Download the sample file and add your contacts to it. Remove any columns you don't want to import.
+</Step>
+
+<Step title="Upload your file">
+Upload the file, then fill in:
+
+* **Import Name** — a name to find this import later.
+* **Import Type** — **Add new contacts** or **Add new & update existing contact**. See [How duplicates are handled](#how-duplicates-are-handled).
+* **Marketing Opt-In** — **Yes** or **No**. This applies only to new contacts. Existing contacts keep their current opt-in.
+* **Add Contact Tags** (optional) — tags added to every contact in this file.
+
+Click **Next**.
+</Step>
+
+<Step title="Map fields">
+Match each column in your file to a Gallabox contact field, or create a new field. Click **Confirm** to start the import.
+</Step>
+
+</Steps>
+
+The import runs in the background. To check progress or download the error report, go to **Contacts → Import → Import history**.
+
+### File requirements
+
+* **Format:** Excel (`.xlsx`) only. If your data is in a CSV file, open it in Excel or Google Sheets and save it as `.xlsx` first.
+* **Size:** under 15 MB, up to 100,000 contacts per file.
+* **Phone numbers:** include the country code. Numbers without one get your account's country code.
+* If a phone number shows as `8.5265E+10`, format the cell as a number with zero decimal places before you upload.
+
+### How duplicates are handled
+
+Gallabox treats a row as an existing contact when its phone number or email matches a contact you already have.
+
+| Import Type | Rows that match an existing contact | Rows that don't match |
+| --- | --- | --- |
+| **Add new contacts** | Skipped and listed in the error report as "Contact already exists" | Created |
+| **Add new & update existing contact** | The existing contact is updated with the mapped values | Created |
+
+If a row matches more than one existing contact, it's skipped and listed in the error report.
+
+---
+
+## Export contacts
+
+1. Go to **Contacts**.
+2. Apply filters if you only want some contacts. With no filters, all contacts are exported.
+3. Click **Export**, then **Export contacts**.
+4. Click **Confirm**.
+
+The file is emailed to the address on your Gallabox login. You can track the export under **Export → Active exports**.
+
+If you don't see **Export**, your role can't export contacts or can't see personal information. Ask your account Owner to review your role.
+
+---
+
+## Merge contacts
+
+Merging joins two records of the same person that came in on different channels — for example, a WhatsApp contact and an Instagram contact. The secondary contact's conversations and messages move to the primary contact. The secondary contact is then deleted.
+
+1. Go to **Contacts**.
+2. On the contact you want to keep, click the **⋮** menu, then **Merge Contact**.
+3. Under **Secondary contact**, search for and select the other record.
+4. Click **Merge**.
+
+**Limits:**
+
+* You can't merge two contacts that both have a WhatsApp number, both have an Instagram account, or both have an email. Merging only combines different channels.
+* **Merge Contact** doesn't appear for a contact that already has WhatsApp, Instagram, and email, or for a WhatsApp contact that has only a [BSUID](/whatsapp/customer-identity-bsuid) and no phone number.
+
+To clean up two WhatsApp contacts for the same person, keep the one you want and [delete](#delete-contacts) the other.
+
+---
+
+## Delete contacts
+
+Deleting a contact can't be undone.
+
+**Delete one contact:**
+
+1. Go to **Contacts**.
+2. Click the **⋮** menu on the contact, then **Delete**.
+3. Confirm.
+
+**Delete many contacts at once:**
+
+1. Go to **Contacts**.
+2. Select the contacts using the checkboxes. To delete every contact that matches your filters, apply the filters, select a contact, then click **Select [number] contacts that match this Filters**.
+3. Click **Delete**, then confirm.
+
+You can delete up to 50,000 contacts in one go. Large deletions run in the background, so contacts may take a few minutes to disappear.
+
+If **Delete** is greyed out or missing, your role can't delete contacts. Only Owners and custom roles with **Can manage contact list** can. Ask your account Owner to delete them, or to give you that permission in [Users, teams and roles](/settings/users-teams-and-roles).
+
+---
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I import contacts without sending a broadcast?">
+Yes. Use **Contacts → Import → Import file**. Uploading contacts while you create a broadcast is a separate option for that broadcast.
+</Accordion>
+
+<Accordion title="Why is Delete disabled for an Admin?">
+The default **Admin** role can view, add, edit, import, and export contacts, but not delete them. Deleting needs the Owner role or a custom role with **Can manage contact list**.
+</Accordion>
+
+<Accordion title="Can I merge two WhatsApp contacts?">
+No. Merge only combines contacts from different channels. Delete the duplicate instead.
+</Accordion>
+</AccordionGroup>
