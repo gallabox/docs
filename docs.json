@@ -212,6 +212,7 @@
                 "group": "Reference",
                 "pages": [
                   "whatsapp/media-requirements",
+                  "whatsapp/incoming-messages-not-arriving",
                   "whatsapp/unsupported-messages",
                   "whatsapp/message-error-codes",
                   "whatsapp/customer-identity-bsuid"
