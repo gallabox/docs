@@ -42,7 +42,7 @@ There is no separate "default bot" switch. The default bot is the bot your chann
 <Tab title="WhatsApp">
 <Steps>
 <Step title="Open the channel">
-Go to **Channels**, open your WhatsApp number, and select the **Assignments** tab.
+Go to **WhatsApp** → **Channel Settings**, open your number, and select the **Assignments** tab.
 </Step>
 <Step title="Set the assignment rule">
 Under **Assignment Rules**, tick **Assign New Conversation to**. In **Select Assignee**, choose **Agents**, then pick the bot in **Select Agent**.
@@ -50,10 +50,10 @@ Under **Assignment Rules**, tick **Assign New Conversation to**. In **Select Ass
 </Steps>
 </Tab>
 <Tab title="Instagram">
-Go to **Channels**, open your Instagram account, and select **Configuration**. Under **Assignment Rules**, set **Assign New Conversation to** to **Agents**. Instagram offers only **Unassigned** and **Agents**.
+Go to **Instagram** → **Channel settings**, open your account, and select the **Configuration** tab. Under **Assignment Rules**, set **Assign New Conversation to** to **Agents**. Instagram offers only **Unassigned** and **Agents**.
 </Tab>
 <Tab title="Web Chat">
-Web Chat uses the same **Assignment Rules** settings as WhatsApp.
+Web Chat has no **Assignment Rules** setting. A web agent you build under **Web** → **Web Agents** replies on its own website widget, so there's nothing to assign.
 </Tab>
 </Tabs>
 
@@ -66,6 +66,12 @@ Two checkboxes under **Assignment Rules** win over the bot. When either one appl
 * **Override the above rule and reassign the conversation to the same user who previously handled the conversation**. Returning customers go back to the team member who helped them last time.
 * **Override the above rule and assign the conversation to the contact owner**. Contacts with an owner go to that owner. Contacts without one follow the rule as normal.
 
+### Welcome and away messages are skipped
+
+When a new conversation is assigned to a bot or a Chat AI Agent, Gallabox doesn't send the WhatsApp channel's **Welcome message** or **Away message**. Greet the customer from the bot's flow or the agent instead.
+
+Conversations that go to a team member, a team, or **Unassigned** still get these messages. See [Channel configuration](/whatsapp/channel-configuration#welcome-message).
+
 ### Shortcuts when you publish
 
 * **Rule-based bots.** If none of your WhatsApp numbers has a default bot yet, publishing a flow asks **Default bot selection**. Choose **Publish and make it as default bot** to set it.
@@ -75,7 +81,7 @@ Two checkboxes under **Assignment Rules** win over the bot. When either one appl
 
 Reply settings route a customer's reply to a bot, even when the chat is open with someone else.
 
-* **For a template:** go to **Templates**, open the row's **Configurations**, and set **Reply Settings → Assign to** to **Agents**.
+* **For a template:** go to **WhatsApp** → **Templates**, open the row's **Configurations**, and set **Reply Settings → Assign to** to **Agents**.
 * **For a broadcast:** set **Broadcast reply settings → Assign conversations to**. A broadcast's own reply settings take priority over the template's.
 
 Reply settings work when the contact taps a button or swipes to reply to your message. A plain-text reply to a broadcast also counts when all of these are true:
