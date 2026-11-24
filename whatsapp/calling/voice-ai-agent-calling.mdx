@@ -118,6 +118,24 @@ Whoever picks up the conversation doesn't need to ask the customer to repeat the
 
 ---
 
+### Voice AI Agent analysis webhooks
+
+After a Voice AI call ends and Gallabox finishes the call analysis, Gallabox can send the call summary, extracted data, and recording link to your CRM, Google Sheets (through Zapier, Make, or n8n), or your own server.
+
+Two webhooks can send Voice AI call analysis. Pick the one that fits your setup:
+
+| Webhook event | Where to set it up | Scope | What it sends |
+| - | - | - | - |
+| `Conversation.AI.Analyse` | Open your Voice AI Agent, go to **Analyze → Post-session settings → Webhook setup** (also shown in **Settings → Webhooks** as **Agent Analysis**) | One Voice AI Agent | Call summary, extracted data, outcome results, call details (including the recording link), contact details, and conversation owner |
+| `Call.Analysed` | Go to **Settings → Webhooks → Add Webhook** and select **Call.Analysed** under **Call** events | All WhatsApp numbers in your account | Call details, recording link, `agentAnalysis` (summary, goal result, extracted data, and outcome results), contact details, and conversation owner |
+
+Both webhooks wait until the call recording and AI analysis are ready before they fire.
+
+* Use **`Conversation.AI.Analyse`** when you want results from one Voice AI Agent only. See [Post-session settings](/ai-agents-and-bots/chat-ai-agent/post-session-settings#webhook-setup) for setup steps.
+* Use **`Call.Analysed`** when you want one webhook for all calls across your account. See [Call Webhooks](/whatsapp/calling/call-webhooks) for the full payload and field list.
+
+---
+
 ### AI Credits and Minimum Balance
 
 Voice AI calls are charged from your [AI Credits](/pricing-and-billing/ai-wallet), not your Message Credits.
@@ -212,6 +230,7 @@ The agent uses the chat history in the same conversation. If the customer chatte
 | Cost | 50 AI Credits per minute (**₹10/min** at ₹0.20/credit or **$0.10/min** at $0.002/credit with subscription AI credits), billed in 10-second pulses |
 | Minimum balance | 200 AI Credits. Below this, calls are hung up, logged as missed, and the conversation moves to unassigned. |
 | After the call | Summary, transcript and recording on the call card and Analyze screen |
+| Analysis webhooks | `Conversation.AI.Analyse` (per agent in **Analyze → Post-session settings**) or `Call.Analysed` (account-wide in **Settings → Webhooks**) |
 | Assignment | By the agent based on intent (if instructed); otherwise Post Call Assignment Rules: a User, a Team, or a Chat AI Agent |
 | Asks for a person | Agent takes a message, ends the call, assigns for a callback |
 | Busy Message | Not used for Voice AI calls |
