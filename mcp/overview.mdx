@@ -1,0 +1,93 @@
+---
+title: "MCP"
+sidebarTitle: "Overview"
+description: "Connect Claude, ChatGPT, or another AI assistant to your Gallabox account so it can look up contacts, check conversations, send messages, and manage AI agents for you."
+---
+
+> **Who can use this?**
+>
+> * Users whose role can open **Settings** → **Developer** → **API Keys**. See [API Keys](/settings/api-keys) for which roles can.
+> * Plans: Basic, Essential, and Advanced. See [Plan Availability](#plan-availability).
+> * Any AI assistant that supports MCP, such as Claude or ChatGPT.
+
+<Info>
+
+MCP is a standard way to connect an AI assistant to a product like Gallabox. Once you connect, you can ask your assistant to work in your account: "find this contact", "show me the last messages in this conversation", "send this template to the Diwali segment". You don't switch tabs or export data.
+
+You sign in with your Gallabox account and choose which API key the assistant uses. You never copy a key into the assistant.
+
+</Info>
+
+## In this section
+
+* [What your assistant can do](/mcp/available-actions) — every action your assistant can take in Gallabox
+* [Troubleshooting MCP](/mcp/troubleshooting) — fix connection problems and missing actions
+
+---
+
+## Plan Availability
+
+| Capability                                       | Basic | Essential | Advanced |
+| ------------------------------------------------ | :---: | :-------: | :------: |
+| Connect Claude, ChatGPT, or another AI assistant |   ✓   |     ✓     |    ✓     |
+
+## Before you start
+
+* Have an AI assistant that supports MCP, such as Claude or ChatGPT.
+* Have an API key that **you created**. Gallabox connects your assistant through one of your own keys. To make one, see [Create an API key](/settings/api-keys#create-an-api-key). The API Keys page is hidden on accounts that have only Instagram channels connected.
+* Choose the right access for the key. To let the assistant send messages or make changes, use a key with **All** access, or a **Restricted** key that includes those permissions. A **Read only** key lets the assistant look things up but not change anything. See [Permission scopes explained](/settings/api-keys#permission-scopes-explained).
+* Have this address ready: `https://mcp.gallabox.com/mcp`
+
+## Connect Gallabox to your assistant
+
+The screens depend on your assistant, but the steps are the same.
+
+<Steps>
+
+<Step title="Add Gallabox to your assistant">
+In your assistant's settings, find where you add connectors. Some assistants call this an MCP server. Add a new one with the address `https://mcp.gallabox.com/mcp`.
+</Step>
+
+<Step title="Sign in to Gallabox">
+Your assistant opens a browser tab with **Sign in to connect Gallabox**. Sign in to your Gallabox account.
+</Step>
+
+<Step title="Review and agree">
+The next screen is titled **Connect Claude to Gallabox**, with the name of your assistant in place of Claude. It lists what the assistant is asking to do, such as:
+
+* **Read your Gallabox data** — contacts, conversations, templates, and more
+* **Send WhatsApp messages and make changes on your behalf**
+
+Click **Agree & Continue** to accept the Gallabox Terms and [Privacy Policy](https://gallabox.com/privacy-policy).
+</Step>
+
+<Step title="Choose an API key">
+On **Choose an API key**, select the key the assistant should use and click **Connect**.
+
+Only keys you created appear in the list. A **Read only** key still connects, but the assistant gets the Read actions only. If the assistant asks only to send or change things, Gallabox greys out the keys that can't allow that.
+</Step>
+
+<Step title="Finish">
+You see **Gallabox connected successfully**. After a few seconds you return to your assistant. It's connected, and you don't need to restart it.
+
+If you see **Continue to** and an address instead, see [Troubleshooting MCP](/mcp/troubleshooting).
+</Step>
+
+</Steps>
+
+Each assistant you use, such as Claude and ChatGPT, needs its own connection. Repeat these steps for each one.
+
+## Stay in control
+
+* **The assistant uses one API key, the one you choose.** It can do only what that key allows. See [What your assistant can do](/mcp/available-actions).
+* **The assistant acts when you ask.** It doesn't take actions on its own. Some things you ask for keep running afterward, such as a scheduled broadcast or a published AI agent.
+* **Your assistant is instructed to check with you before it sends messages.**
+* **Some actions can't be undone.** See [What your assistant can do](/mcp/available-actions) before you confirm anything that deletes or publishes.
+
+## Disconnect an assistant
+
+To disconnect, remove Gallabox from your assistant's settings.
+
+To cut off access from Gallabox, delete the API key the assistant uses. See [Edit or delete a key](/settings/api-keys#edit-or-delete-a-key). The next time the assistant uses Gallabox, that request fails and the connection ends. Connect again to continue.
+
+Deleting a key also stops every other system that uses it.

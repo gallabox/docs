@@ -1,0 +1,85 @@
+---
+title: "Troubleshooting MCP"
+sidebarTitle: "Troubleshooting"
+description: "Fix the most common problems when you connect an AI assistant to Gallabox: sign-in screens that block you, missing API keys, connections that never finish, and actions that don't appear."
+---
+
+> **Who can use this?**
+>
+> * Anyone who is connecting, or has connected, an AI assistant to Gallabox.
+
+<Info>
+
+Most connection problems come from your API keys. The assistant connects with a key you created, and the key has to allow what the assistant asked for. For the steps, see [Connect Gallabox to your assistant](/mcp/overview#connect-gallabox-to-your-assistant). For what each action does, see [What your assistant can do](/mcp/available-actions).
+
+</Info>
+
+## A Gallabox screen blocks the connection
+
+<AccordionGroup>
+
+<Accordion title="I see 'You don't have access'">
+Your account doesn't have permission to connect Gallabox through MCP. Ask an Owner or Admin for access to API Keys, then try again. See [API Keys](/settings/api-keys) for which roles can use it.
+</Accordion>
+
+<Accordion title="I see 'You don't have a key to connect with'">
+You can see your team's API keys, but the assistant has to connect with a key you created yourself. Create one, then start the connection again from your assistant. See [Create an API key](/settings/api-keys#create-an-api-key).
+</Accordion>
+
+<Accordion title="I have no API key to choose, or every key is greyed out">
+If you have no keys, create one, then start again from your assistant. See [Create an API key](/settings/api-keys#create-an-api-key).
+
+If every key is greyed out, none of them allows what the assistant asked for. Create a key with the access you need, then start again. See [Permission scopes explained](/settings/api-keys#permission-scopes-explained).
+</Accordion>
+
+<Accordion title="I see 'This request has expired'">
+The connection took too long. Start it again from your assistant.
+</Accordion>
+
+<Accordion title="I see 'We couldn't verify this request'">
+Start the connection again from your assistant.
+</Accordion>
+
+<Accordion title="The screen says 'Connect an unverified app to Gallabox'">
+Gallabox doesn't recognize this assistant. The screen shows the address your access would go to. Continue only if you started the connection and recognize that address. Otherwise, close the page.
+
+For an assistant Gallabox doesn't recognize, you don't return to it automatically. After you choose a key, click **Continue to** and the address. The link stops working within a minute.
+</Accordion>
+
+</AccordionGroup>
+
+## The connection doesn't finish
+
+<AccordionGroup>
+
+<Accordion title="The connection never finishes">
+If the sign-in tab didn't open, your browser may have blocked it. Allow pop-ups for the page you started from and try again.
+</Accordion>
+
+<Accordion title="My assistant says it can't reach Gallabox">
+Check that you entered the address exactly as `https://mcp.gallabox.com/mcp`.
+</Accordion>
+
+<Accordion title="I keep returning to the sign-in screen">
+Email support@gallabox.com and say that the MCP sign-in screen keeps repeating. Don't keep retrying.
+</Accordion>
+
+</AccordionGroup>
+
+## The assistant is connected but something is missing
+
+<AccordionGroup>
+
+<Accordion title="A new action doesn't appear in my assistant">
+Some assistants keep the list of actions from an earlier connection. Reconnect Gallabox or restart your assistant.
+</Accordion>
+
+<Accordion title="My assistant can look things up but can't send or change anything">
+The API key you connected with is **Read only**. Connect again with a key that has more access. See [What your assistant can do](/mcp/available-actions).
+</Accordion>
+
+<Accordion title="My assistant stopped working after I deleted an API key">
+The first request after you delete a key fails and ends the connection. Connect again and choose a different key. See [Disconnect an assistant](/mcp/overview#disconnect-an-assistant).
+</Accordion>
+
+</AccordionGroup>
