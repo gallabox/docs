@@ -1,0 +1,144 @@
+---
+title: "What your assistant can do"
+sidebarTitle: "Available actions"
+description: "Every action an AI assistant can take in your Gallabox account over MCP: contacts, conversations, templates, broadcasts, webhooks, teams, and AI agents."
+---
+
+> **Who can use this?**
+>
+> * Anyone who has [connected an AI assistant to Gallabox](/mcp/overview).
+> * The assistant can only do what the API key you chose allows. A **Read only** key gets the **Read** actions only.
+
+<Info>
+
+Your assistant does these actions only when you ask. **Read** actions look things up. **Change** actions add, edit, send, or delete something in your account.
+
+</Info>
+
+## Contacts
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| Browse or filter your contacts | Read |
+| Search for a contact by name, phone number, or email | Read |
+| View a contact's full details | Read |
+| See which fields you can filter contacts by | Read |
+| Add a contact, or update an existing one | Change |
+| Add a tag to a contact | Change |
+| Import up to 5,000 contacts at once | Change |
+| Delete a contact | Change |
+
+Imports run in the background. The assistant tells you the import has started, not the result for each contact.
+
+## Channels
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List your connected WhatsApp and other channels | Read |
+| Connect a WhatsApp number you already own on Meta as a new channel | Change |
+| Set your Dialog360 partner client ID | Change |
+
+## Conversations and messages
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List the conversations on a channel | Read |
+| View the messages in a conversation | Read |
+| Check whether a message was sent, delivered, read, or failed | Read |
+| Send a WhatsApp or Instagram message | Change |
+| Send an approved WhatsApp template message | Change |
+| Send WhatsApp messages to up to 100 recipients at once | Change |
+| Assign a conversation to a person, bot, or team, or unassign it | Change |
+| Move a conversation to a different team | Change |
+| Mark a conversation as resolved | Change |
+| Add an internal @mention note that only your teammates see | Change |
+| Add or remove a tag on a conversation | Change |
+
+## Templates and broadcasts
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List your approved WhatsApp templates, or view one in full | Read |
+| Create a template and submit it to Meta for approval | Change |
+| Send a template broadcast to one or more segments | Change |
+
+You can ask for a broadcast to send now or at a later time. A scheduled broadcast sends even after your conversation with the assistant ends. See [Broadcasts](/whatsapp/broadcasts/overview).
+
+## Segments, pipelines, and custom fields
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List your segments, or view the rules for one | Read |
+| Create or update a segment | Change |
+| Delete a segment | Change |
+| List your pipelines and their stages | Read |
+| List the custom fields on contacts, companies, or leads | Read |
+
+## Webhooks
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List your webhooks, or view one in full | Read |
+| Create a webhook, or update its name, URL, or events | Change |
+| Delete a webhook | Change |
+
+For what webhooks do and which plans include them, see [Webhooks](/settings/webhooks).
+
+## Users and teams
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List the people on your account and whether they're available | Read |
+| List your teams and their members | Read |
+| Invite a teammate by email | Change |
+| Mark a teammate, or yourself, as **Available** or **Away** | Change |
+| Add people to a team or remove them | Change |
+| Remove a teammate from the account | Change |
+
+An account owner can restore a teammate you remove.
+
+## AI agents
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| List your AI agents, or view one's full setup | Read |
+| List the actions an agent can use in a conversation | Read |
+| Create an AI agent, blank or from a starter use case | Change |
+| Update an agent's role, goal, instructions, actions, model, or behavior | Change |
+| Create or update a custom agent action | Change |
+| Delete a custom agent action | Change |
+| Publish an agent to the channels you choose | Change |
+
+<Warning>
+
+Publishing is the one action that reaches your customers. The agent starts replying on the channels you choose and replaces any agent that was handling them. There's no undo.
+
+Before you say yes, make sure you have seen the agent's role, goal, instructions, and settings in full, the actions it can use, and the channels it will replace. Your assistant is instructed to show you all of this first.
+
+Publishing runs in the background. The assistant tells you it has started, then checks before it tells you the agent is live.
+</Warning>
+
+## Other
+
+| What you can ask | Type |
+| ---------------- | :--: |
+| Check your wallet balance | Read |
+| Browse Gallabox's ready-made bot templates | Read |
+| Upload a file to use in a message or template, or delete a file you uploaded | Change |
+| Report a lead or purchase from a click-to-WhatsApp ad back to Meta | Change |
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="Why doesn't my assistant offer actions that send or change things?">
+The API key you connected with is **Read only**. A **Read only** key gives the assistant the **Read** actions only. To use **Change** actions, connect again with a key that has **All** access, or a **Restricted** key that includes those permissions. See [Permission scopes explained](/settings/api-keys#permission-scopes-explained).
+</Accordion>
+
+<Accordion title="Which actions can't be undone?">
+Deleting a contact, a webhook, or a custom agent action is permanent. Publishing an AI agent can't be undone either. An account owner can restore a teammate you remove.
+
+Deleting a segment or an uploaded file is also a delete, so check before you confirm it.
+</Accordion>
+
+</AccordionGroup>

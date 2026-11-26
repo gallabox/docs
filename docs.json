@@ -415,6 +415,15 @@
             ]
           },
           {
+            "group": "MCP",
+            "icon": "plug",
+            "pages": [
+              "mcp/overview",
+              "mcp/available-actions",
+              "mcp/troubleshooting"
+            ]
+          },
+          {
             "group": "Analytics",
             "icon": "chart-line",
             "pages": [
@@ -536,6 +545,10 @@
     {
       "source": "/contacts",
       "destination": "/contacts/overview"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/mcp/overview"
     },
     {
       "source": "/ai-agents-and-bots",
